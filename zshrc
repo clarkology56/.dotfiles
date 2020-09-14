@@ -1,3 +1,6 @@
+# use openssl 1.1 for downloading home-brew gems. This can cause issues with older versions of ruby that require openssl 1.0 (or earlier versions)
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 

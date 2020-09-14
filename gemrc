@@ -1,0 +1,2 @@
+# do not include documentation when adding gems
+gem: --no-document
