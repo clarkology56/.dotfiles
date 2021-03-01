@@ -31,6 +31,13 @@ nnoremap <silent> ,ev :edit app/views/
   " html elements
     " html new / multi-line elements
     nnoremap <silent> ,hedi a<div><esc>o</div><esc>kh
+    nnoremap <silent> ,heta a<table><esc>o</table><esc>kh
+    nnoremap <silent> ,hetH a<thead><esc>o</thead><esc>kh
+    nnoremap <silent> ,hetr a<tr><esc>o</tr><esc>kh
+    nnoremap <silent> ,heth a<th><esc>o</th><esc>kh
+    nnoremap <silent> ,hetb a<tbody><esc>o</tbody><esc>kh
+    nnoremap <silent> ,hetd a<td><esc>o</td><esc>kh
+    nnoremap <silent> ,hetf a<tfoot><esc>o</tfoot><esc>kh
 
     " html inline elements  
     nnoremap <silent> ,hepa a<p></p><esc>hhhh
@@ -38,14 +45,16 @@ nnoremap <silent> ,ev :edit app/views/
     nnoremap <silent> ,hesp a<span></span><esc>hhhhhhh
     nnoremap <silent> ,hest a<strong></strong><esc>hhhhhhhhh
     nnoremap <silent> ,hebu a<strong></strong><esc>hhhhhhhhh
+    nnoremap <silent> ,heot a<cgn></cgn><esc>/cgn<return>cgn
+
     
   " html basic erb 
-  nnoremap <silent> ,hrif a<%= if  %><esc>o<% end %><esc>khi
-  nnoremap <silent> ,hrel o<%= else %><esc>
-  nnoremap <silent> ,hrei o<%= elsif  %><esc>hhi
-  nnoremap <silent> ,hren o<%= end %><esc>
   nnoremap <silent> ,hrer a<%  %><esc>hhi
   nnoremap <silent> ,hre= a<%=  %><esc>hhi
+  nnoremap <silent> ,hrif a<% if  %><esc>o<% end %><esc>khhi
+  nnoremap <silent> ,hrel o<% else %><esc>o<% end %><esc>O
+  nnoremap <silent> ,hrei o<% elsif  %><esc>hhi
+  nnoremap <silent> ,hren o<% end %><esc>
     
   " html forms
   nnoremap <silent> ,hfwi a<%= form_with(model: cgn, url: cgn) do \|form\| %><esc>o<% end %><esc>/cgn<return>
@@ -69,8 +78,12 @@ nnoremap <silent> ,ev :edit app/views/
   nnoremap <silent> ,hpbp a<%= render(partial: 'cgn', locals: { cgn }) %><esc>/cgn<return>
 
 " ruby mappings 
+  " basic ruby 
+  nnoremap <silent> ,rbde adef <esc>oend<esc>kla
+
   " model mappings
   nnoremap <silent> ,rm iHello, World!<esc>
+
 
 " javascript mappings 
   " javascript selectors / jquery   
