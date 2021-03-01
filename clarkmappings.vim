@@ -30,14 +30,14 @@ nnoremap <silent> ,ev :edit app/views/
 " html  
   " html elements
     " html new / multi-line elements
-    nnoremap <silent> ,hedi a<div><esc>o</div><esc>kh
-    nnoremap <silent> ,heta a<table><esc>o</table><esc>kh
-    nnoremap <silent> ,hetH a<thead><esc>o</thead><esc>kh
-    nnoremap <silent> ,hetr a<tr><esc>o</tr><esc>kh
-    nnoremap <silent> ,heth a<th><esc>o</th><esc>kh
-    nnoremap <silent> ,hetb a<tbody><esc>o</tbody><esc>kh
-    nnoremap <silent> ,hetd a<td><esc>o</td><esc>kh
-    nnoremap <silent> ,hetf a<tfoot><esc>o</tfoot><esc>kh
+    nnoremap <silent> ,hedi a<div><esc>o</div><esc>k
+    nnoremap <silent> ,heta a<table><esc>o</table><esc>k
+    nnoremap <silent> ,hetH a<thead><esc>o</thead><esc>k
+    nnoremap <silent> ,hetr a<tr><esc>o</tr><esc>k
+    nnoremap <silent> ,heth a<th><esc>o</th><esc>k
+    nnoremap <silent> ,hetb a<tbody><esc>o</tbody><esc>k
+    nnoremap <silent> ,hetd a<td><esc>o</td><esc>k
+    nnoremap <silent> ,hetf a<tfoot><esc>o</tfoot><esc>k
 
     " html inline elements  
     nnoremap <silent> ,hepa a<p></p><esc>hhhh
