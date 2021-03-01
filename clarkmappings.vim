@@ -7,14 +7,12 @@ nnoremap <silent> ,# I#<esc>0
 nnoremap <silent> ,,# I<delete><esc>0
 nnoremap <silent> ,// I//<esc>0
 nnoremap <silent> ,,// I<delete><delete><esc>0
+nnoremap <silent> ,/* O/*<esc>o*/<esc>Vx0
 nnoremap <silent> ,<! O<!--<esc>o--><esc>Vx0
-nnoremap <silent> ,<! O<!--<esc>o--><esc>Vx0
-
 
 " misc. mapping
   " misc. reload source
   nnoremap <silent> ,mrs :so ~/.dotfiles/clarkmappings.vim<return>
-
 
 " edit mappings
 nnoremap <silent> ,em :edit ~/.dotfiles/clarkmappings.vim<return>
@@ -44,7 +42,7 @@ nnoremap <silent> ,ev :edit app/views/
     nnoremap <silent> ,helt a<%= link_to(cgn, cgn, cgn) %><esc>/cgn<return>
     nnoremap <silent> ,hesp a<span></span><esc>hhhhhhh
     nnoremap <silent> ,hest a<strong></strong><esc>hhhhhhhhh
-    nnoremap <silent> ,hebu a<strong></strong><esc>hhhhhhhhh
+    nnoremap <silent> ,hebu a<button></button><esc>hhhhhhhh
     nnoremap <silent> ,heot a<cgn></cgn><esc>/cgn<return>cgn
 
     
@@ -52,7 +50,7 @@ nnoremap <silent> ,ev :edit app/views/
   nnoremap <silent> ,hrer a<%  %><esc>hhi
   nnoremap <silent> ,hre= a<%=  %><esc>hhi
   nnoremap <silent> ,hrif a<% if  %><esc>o<% end %><esc>khhi
-  nnoremap <silent> ,hrel o<% else %><esc>o<% end %><esc>O
+  nnoremap <silent> ,hrel o<% else %><esc>o
   nnoremap <silent> ,hrei o<% elsif  %><esc>hhi
   nnoremap <silent> ,hren o<% end %><esc>
     
@@ -77,11 +75,18 @@ nnoremap <silent> ,ev :edit app/views/
   " html partials
   nnoremap <silent> ,hpbp a<%= render(partial: 'cgn', locals: { cgn }) %><esc>/cgn<return>
 
-" ruby mappings 
-  " basic ruby 
+" ruby / rails mappings 
+  " common ruby 
+  nnoremap <silent> ,rc iHello, World!<esc>
+  
+  " ruby inline
+  nnoremap <silent> ,riea a.each { <bar><bar>  }<esc>hhhi
+  nnoremap <silent> ,rima a.map { <bar><bar>  }<esc>hhhi
+ 
+  " ruby blocks
   nnoremap <silent> ,rbde adef <esc>oend<esc>kla
-
-  " model mappings
+  
+  " rails model mappings
   nnoremap <silent> ,rm iHello, World!<esc>
 
 
@@ -90,7 +95,11 @@ nnoremap <silent> ,ev :edit app/views/
     nnoremap <silent> ,jsba a$()<esc>i
     nnoremap <silent> ,jscl a$('.')<esc>hi
     nnoremap <silent> ,jsid a$('#')<esc>hi
+
   " js code
     nnoremap <silent> ,jcdo a$(document).on(, '', {}, function(event){})<esc>hi<return><esc>klllllllllllllla
+    nnoremap <silent> ,jcif iif () {<return>}<esc>kllla
+    nnoremap <silent> ,jcel a else {<return>}<esc>O
+    nnoremap <silent> ,jcei a else if () {<return>}<esc>klllllllllla
 
   
