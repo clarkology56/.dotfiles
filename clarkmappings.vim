@@ -23,8 +23,6 @@ nnoremap <silent> ,ej :edit app/javascript/packs/
 nnoremap <silent> ,em :edit app/models/
 nnoremap <silent> ,ev :edit app/views/
 
-
-
 " html  
   " html elements
     " html new / multi-line elements
@@ -44,7 +42,6 @@ nnoremap <silent> ,ev :edit app/views/
     nnoremap <silent> ,hest a<strong></strong><esc>hhhhhhhhh
     nnoremap <silent> ,hebu a<button></button><esc>hhhhhhhh
     nnoremap <silent> ,heot a<cgn></cgn><esc>/cgn<return>cgn
-
     
   " html basic erb 
   nnoremap <silent> ,hrer a<%  %><esc>hhi
@@ -88,7 +85,6 @@ nnoremap <silent> ,ev :edit app/views/
   
   " rails model mappings
   nnoremap <silent> ,rm iHello, World!<esc>
-
 
 " javascript mappings 
   " javascript selectors / jquery   
