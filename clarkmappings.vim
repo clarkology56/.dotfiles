@@ -82,7 +82,20 @@ nnoremap <silent> ,ev :edit app/views/
  
   " ruby blocks
   nnoremap <silent> ,rbde adef <esc>oend<esc>kla
-  
+  nnoremap <silent> ,rbdo ado<return>end<esc>O
+
+  " ruby routes 
+  nnoremap <silent> ,rrna anamespace :cgn do<return>end<esc>/cgn<return>cgn
+  nnoremap <silent> ,rrsc ascope path: :cgn, module: :cgn, as: :cgn do<return>end<esc>/cgn<return>cgn
+  nnoremap <silent> ,rrrs aresources :cgn, only: [:index, :show, :create, :update, :destroy]<esc>/cgn<return>cgn
+  nnoremap <silent> ,rrrl aresources path: :cgn, controller: :cgn, as: :cgn, only: []<esc>/cgn<return>cgn
+  nnoremap <silent> ,rrnr aresources path: :cgn, module: :cgn, as: :cgn do<return>end<esc>/cgn<return>cgn
+  nnoremap <silent> ,rrme amember do<return>end<esc>O <backspace><esc>
+  nnoremap <silent> ,rrge aget 'cgn', to: :cgn, as: :cgn<esc>/cgn<return>cgn
+  nnoremap <silent> ,rrpo apost 'cgn', to: :cgn, as: :cgn<esc>/cgn<return>cgn
+  nnoremap <silent> ,rrpa apatch 'cgn', to: :cgn, as: :cgn<esc>/cgn<return>cgn
+  nnoremap <silent> ,rrde adelete 'cgn', to: :cgn, as: :cgn<esc>/cgn<return>cgn
+
   " rails model mappings
   nnoremap <silent> ,rm iHello, World!<esc>
 
@@ -98,4 +111,10 @@ nnoremap <silent> ,ev :edit app/views/
     nnoremap <silent> ,jcel a else {<return>}<esc>O
     nnoremap <silent> ,jcei a else if () {<return>}<esc>klllllllllla
 
+" templates
+  " controllers
+    nnoremap <silent> ,tcbc :read ../templates/controllers/base_controller.rb<return>ggdd/cgn<return>cgn
+    nnoremap <silent> ,tcsb :read ../templates/controllers/actions/show_base.rb<return>/cgn<return>cgn
+    nnoremap <silent> ,tcst :read ../templates/controllers/actions/show_tab.rb<return>/cgn<return>cgn
+    nnoremap <silent> ,tcsr :read ../templates/controllers/actions/show_router.rb<return>/cgn<return>cgn
   
