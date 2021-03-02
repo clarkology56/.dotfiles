@@ -87,14 +87,22 @@ nnoremap <silent> ,ev :edit app/views/
   " ruby routes 
   nnoremap <silent> ,rrna anamespace :cgn do<return>end<esc>/cgn<return>cgn
   nnoremap <silent> ,rrsc ascope path: :cgn, module: :cgn, as: :cgn do<return>end<esc>/cgn<return>cgn
-  nnoremap <silent> ,rrrs aresources :cgn, only: [:index, :show, :create, :update, :destroy]<esc>/cgn<return>cgn
-  nnoremap <silent> ,rrrl aresources path: :cgn, controller: :cgn, as: :cgn, only: []<esc>/cgn<return>cgn
-  nnoremap <silent> ,rrnr aresources path: :cgn, module: :cgn, as: :cgn do<return>end<esc>/cgn<return>cgn
+  nnoremap <silent> ,rrre aresources :cgn, only: [:index, :show, :create, :update, :destroy]<esc>/cgn<return>cgn
+  nnoremap <silent> ,rrrl aresources path: :cgn, controller: :cgn, as: :cgn, only: [:index, :show, :create, :update, :destroy]<esc>/cgn<return>cgn
+  nnoremap <silent> ,rrrn oget ':id/cgn', to: 'cgn#index', as: :cgn<esc>opost ':id/cgn', to: 'cgn#create'<esc>oresources :cgn, only: [:show, :update, :destroy]<esc>/cgn<return>cgn
+  nnoremap <silent> ,rrra aresources path: :cgn, module: :cgn, as: :cgn, only: [] do<return>end<esc>/cgn<return>cgn
   nnoremap <silent> ,rrme amember do<return>end<esc>O <backspace><esc>
-  nnoremap <silent> ,rrge aget 'cgn', to: :cgn, as: :cgn<esc>/cgn<return>cgn
-  nnoremap <silent> ,rrpo apost 'cgn', to: :cgn, as: :cgn<esc>/cgn<return>cgn
-  nnoremap <silent> ,rrpa apatch 'cgn', to: :cgn, as: :cgn<esc>/cgn<return>cgn
-  nnoremap <silent> ,rrde adelete 'cgn', to: :cgn, as: :cgn<esc>/cgn<return>cgn
+  nnoremap <silent> ,rrge aget 'cgn', to: 'cgn#cgn'<esc>/cgn<return>cgn
+  nnoremap <silent> ,rrgl aget 'cgn', to: 'cgn#cgn', as: :cgn<esc>/cgn<return>cgn
+  nnoremap <silent> ,rrgn aget ':id/cgn', to: 'cgn#index', as: :cgn<esc>/cgn<return>cgn
+  nnoremap <silent> ,rrgm aget 'cgn/:id/cgn', to: 'cgn#cgn', as: :cgn_cgn <esc>o# REMEMBER TO MAKE PARENT PLURAL ON INITIAL ARGUMENT AND "TO" BUT SINGULAR ON "AS"<esc>oExample: get 'users/:id/sub_profile', to: 'users#sub_profile', as: :user_subprofile<esc>oThis is because the helper method is pointing to a single user just like the show, edit, update and destroy actions<esc>ocore_user_subprofile_path is appropriate but core_users_subprofile_path is not<esc>/cgn<return>cgn
+  nnoremap <silent> ,rrpo apost 'cgn', to: 'cgn#cgn'<esc>/cgn<return>cgn
+  nnoremap <silent> ,rrpl apost 'cgn', to: 'cgn#cgn', as: :cgn<esc>/cgn<return>cgn
+  nnoremap <silent> ,rrpn apost ':id/cgn', to: 'cgn#create'<esc>/cgn<return>cgn
+  nnoremap <silent> ,rrpa apatch 'cgn', to: 'cgn#cgn'<esc>/cgn<return>cgn
+  nnoremap <silent> ,rrpl apatch 'cgn', to: 'cgn#cgn', as: :cgn<esc>/cgn<return>cgn
+  nnoremap <silent> ,rrde adelete 'cgn', to: 'cgn#cgn'<esc>/cgn<return>cgn
+  nnoremap <silent> ,rrdl adelete 'cgn', to: 'cgn#cgn', as: :cgn<esc>/cgn<return>cgn
 
   " rails model mappings
   nnoremap <silent> ,rm iHello, World!<esc>
