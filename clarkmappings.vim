@@ -1,5 +1,3 @@
-nnoremap <silent> aa Vypriwwwwwwx
-nnoremap <silent> ss o"<esc>
 " insert mode mappings 
   " single key mappings 
     " prevent return from autocomplete (very annoying because to return you have
