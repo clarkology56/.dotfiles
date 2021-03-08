@@ -36,50 +36,65 @@
 
   " Edit mappings
     "
-    nnoremap <silent> ,eas :edit app/assets/<return>
+    nmap <silent> ,eas <space>fT/app<return><return>/assets<return><return><esc>:noh<return>
     nnoremap <silent> ,cas :edit app/assets/
     "
-    nnoremap <silent> ,ech :edit app/channels/<return>
+    nmap <silent> ,ecc <space>fT/app<return><return>/channels<return><return><esc>:noh<return>
     nnoremap <silent> ,cch :edit app/channels/
     "
+    nmap <silent> ,eco <space>fT/app<return><return>/controllers<return><return><esc>:noh<return>
     nnoremap <silent> ,eco :edit app/controllers/<return>
     nnoremap <silent> ,cco :edit app/controllers/
     "
+    nmap <silent> ,ehe <space>fT/app<return><return>/helpers<return><return><esc>:noh<return>
     nnoremap <silent> ,ehe :edit app/helpers/<return>
     nnoremap <silent> ,che :edit app/helpers/
     "
+    nmap <silent> ,eja <space>fT/app<return><return>/javascript<return><return><esc>:noh<return>
     nnoremap <silent> ,eja :edit app/javascript/<return>
     nnoremap <silent> ,cja :edit app/javascript/
     "
+    nmap <silent> ,ejp <space>fT/app<return><return>/javascript<return>/packs<return><return><esc>:noh<return>
     nnoremap <silent> ,ejp :edit app/javascript/packs/<return>
     nnoremap <silent> ,cjp :edit app/javascript/packs/
     "
+    nmap <silent> ,eas <space>fT/app<return><return>/channels<return><return><esc>:noh<return>
     nnoremap <silent> ,ejo :edit app/jobs/<return>
     nnoremap <silent> ,cjo :edit app/jobs/
     "
+    nmap <silent> ,eas <space>fT/app<return><return>/channels<return><return><esc>:noh<return>
     nnoremap <silent> ,ema :edit app/mailers/<return>
     nnoremap <silent> ,cma :edit app/mailers/
     "
+    nmap <silent> ,eas <space>fT/app<return><return>/channels<return><return><esc>:noh<return>
     nnoremap <silent> ,emo :edit app/models/<return>
     nnoremap <silent> ,cmo :edit app/models/
     "
-    nnoremap <silent> ,evi :edit app/views/<return>
+
+    nmap <silent> ,eas <space>fT/app<return><return>/channels<return><return><esc>:noh<return>
+    nmap <silent> ,evi <space>fT/app<return><return>/views<return><return><esc>:noh<return>
     nnoremap <silent> ,cvi :edit app/views/
     "
+    nmap <silent> ,eas <space>fT/app<return><return>/channels<return><return><esc>:noh<return>
     nnoremap <silent> ,ecf :edit config/<return>
     nnoremap <silent> ,ccf :edit config/
     "
+    nmap <silent> ,eas <space>fT/app<return><return>/channels<return><return><esc>:noh<return>
     nnoremap <silent> ,eds :edit db/schema.rb<return>
     "
+    nmap <silent> ,eas <space>fT/app<return><return>/channels<return><return><esc>:noh<return>
     nnoremap <silent> ,edm :edit db/migrate/<return>
     nnoremap <silent> ,cdm :edit db/migrate/
     "
+    nmap <silent> ,eas <space>fT/app<return><return>/channels<return><return><esc>:noh<return>
     nnoremap <silent> ,eli :edit lib/<return>
     nnoremap <silent> ,cli :edit lib/
     "
+    nmap <silent> ,eas <space>fT/app<return><return>/channels<return><return><esc>:noh<return>
     nnoremap <silent> ,ete :edit test/<return>
     nnoremap <silent> ,cte :edit test/
     "
+    nmap <silent> ,eas <space>fT/app<return><return>/channels<return><return><esc>:noh<return>
     nnoremap <silent> ,eve :edit vendor/<return>
     nnoremap <silent> ,cve :edit vendor/
 
@@ -100,8 +115,8 @@
       nnoremap <silent> ,hest a<strong></strong><esc>hhhhhhhhh
       inoremap <silent> ,hest <strong></strong><esc>hhhhhhhhh
       " Html Elements BUtton
-      nnoremap <silent> ,hebu a<button></button><esc>hhhhhhhh
-      inoremap <silent> ,hebu <button></button><esc>hhhhhhhh
+      nnoremap <silent> ,hebu a<button class="btn btn-Change"></button><esc>/Change<return>cgn
+      inoremap <silent> ,hebu <button class="btn btn-Change"></button><esc>/Change<return>cgn
       " Html Elements TAble
       nnoremap <silent> ,heta a<table><esc>o</table><esc>k
       inoremap <silent> ,heta <table><esc>o</table><esc>k
@@ -146,6 +161,12 @@
       " Html Ruby (erb) Else If
       nnoremap <silent> ,hrei a<% elsif  %><esc>hhi
       inoremap <silent> ,hrei <% elsif  %><esc>hhi
+      " Html Ruby (erb) EAch
+      nnoremap <silent> ,hrea a<% Change.each do <bar>Change<bar> %><return><% end %><esc>/Change<return>cgn
+      inoremap <silent> ,hrea <% Change.each do <bar>Change<bar> %><return><% end %>/Change<return>cgn
+      " Html Ruby (erb) Each with index
+      nnoremap <silent> ,hrei a<% Change.each_with_index do <bar>Change, index<bar> do %><return><% end %>/Change<return>cgn
+      inoremap <silent> ,hrei <% Change.each_with_index do <bar>Change, index<bar> do %><return><% end %>/Change<return>cgn
       " Html Ruby (erb) ENd
       nnoremap <silent> ,hren a<% end %><esc>
       inoremap <silent> ,hren <% end %><esc>
@@ -162,10 +183,13 @@
       nnoremap <silent> ,hrit a<%= image_tag(Change, alt: 'Change') %><esc>/Change<return>cgn
       inoremap <silent> ,hrit <%= image_tag(Change, alt: 'Change') %><esc>/Change<return>cgn
       " Html Ruby (erb) Javascript Tag
+      nnoremap <silent> ,hrjt a<%= javascript_include_tag('Change') %><esc>/Change<return>cgn
       inoremap <silent> ,hrjt <%= javascript_include_tag('Change') %><esc>/Change<return>cgn
       " Html Ruby (erb) Javascript Pack
+      nnoremap <silent> ,hrjp a<%= javascript_pack_tag('Change', 'data-turbolinks-track': 'reload') %><esc>/Change<return>cgn
       inoremap <silent> ,hrjp <%= javascript_pack_tag('Change', 'data-turbolinks-track': 'reload') %><esc>/Change<return>cgn
       " Html Ruby (erb) StyleSheet
+      nnoremap <silent> ,hrss aa<%= stylesheet_link_tag('Change') %><esc>/Change<return>cgn
       inoremap <silent> ,hrss <%= stylesheet_link_tag('Change') %><esc>/Change<return>cgn
       
     " Html Form
@@ -193,21 +217,21 @@
       " Html Form Label Block
       nnoremap <silent> ,hflb a<%= form.label(:Change) do %>Change<% end %><esc>/Change<return>cgn
       inoremap <silent> ,hflb <%= form.label(:Change) do %>Change<% end %><esc>/Change<return>cgn
-      " Html Form TExt field
-      nnoremap <silent> ,hfte a<%= form.text_field(:Change, class: 'form-control') %><esc>/Change<return>cgn
-      inoremap <silent> ,hfte <%= form.text_field(:Change, class: 'form-control') %><esc>/Change<return>cgn
+      " Html Form Text Field
+      nnoremap <silent> ,hftf a<%= form.text_field(:Change, class: 'form-control') %><esc>/Change<return>cgn
+      inoremap <silent> ,hftf <%= form.text_field(:Change, class: 'form-control') %><esc>/Change<return>cgn
       " Html Form Text Area
       nnoremap <silent> ,hfta a<%= form.text_area(:Change, class: 'form-control') %><esc>/Change<return>cgn
       inoremap <silent> ,hfta <%= form.text_area(:Change, class: 'form-control') %><esc>/Change<return>cgn
       " Html Form Rich Text
       nnoremap <silent> ,hfrt a<%= form.rich_text_area(:Change, class: 'form-control') %><esc>/Change<return>cgn
       inoremap <silent> ,hfrt <%= form.rich_text_area(:Change, class: 'form-control') %><esc>/Change<return>cgn
-      " Html Form EMail field
-      nnoremap <silent> ,hfem a<%= form.email_field(:Change, class: 'form-control') %><esc>/Change<return>cgn
-      inoremap <silent> ,hfem <%= form.email_field(:Change, class: 'form-control') %><esc>/Change<return>cgn
-      " Html Form PAssword field
-      nnoremap <silent> ,hfpa a<%= form.password_field(:password, class: 'form-control') %><esc>/Change<return>cgn
-      inoremap <silent> ,hfpa <%= form.password_field(:password, class: 'form-control') %><esc>/Change<return>cgn
+      " Html Form Email Field
+      nnoremap <silent> ,hfef a<%= form.email_field(:Change, class: 'form-control') %><esc>/Change<return>cgn
+      inoremap <silent> ,hfef <%= form.email_field(:Change, class: 'form-control') %><esc>/Change<return>cgn
+      " Html Form Password field
+      nnoremap <silent> ,hfpf a<%= form.password_field(:password, class: 'form-control') %><esc>/Change<return>cgn
+      inoremap <silent> ,hfpf <%= form.password_field(:password, class: 'form-control') %><esc>/Change<return>cgn
       " Html Form Password Confirmation
       nnoremap <silent> ,hfpc a<%= form.password_field(:password_confirmation, class: 'form-control') %><esc>/Change<return>cgn
       inoremap <silent> ,hfpc <%= form.password_field(:password_confirmation, class: 'form-control') %><esc>/Change<return>cgn
@@ -235,6 +259,9 @@
       " Html Form CUstom Field
       nnoremap <silent> ,hfcu a<%= form.Change(:Change, class: 'form-control') %><esc>/Change<return>cgn
       inoremap <silent> ,hfcu <%= form.Change(:Change, class: 'form-control') %><esc>/Change<return>cgn
+      " Html Form Fields For
+      nnoremap <silent> ,hfff a<%= form.fields_for(:Change) do \|sub_field\| %><return><% end %><esc>/Change<return>cgn
+      inoremap <silent> ,hfff <%= form.fields_for(:Change) do \|sub_field\| %><return><% end %><esc>/Change<return>cgn
 
     " html partials
       " Html Partial BAsic
