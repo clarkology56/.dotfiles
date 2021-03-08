@@ -161,6 +161,12 @@
       " Html Ruby (erb) Image Tag
       nnoremap <silent> ,hrit a<%= image_tag(Change, alt: 'Change') %><esc>/Change<return>cgn
       inoremap <silent> ,hrit <%= image_tag(Change, alt: 'Change') %><esc>/Change<return>cgn
+      " Html Ruby (erb) Javascript Tag
+      inoremap <silent> ,hrjt <%= javascript_include_tag('Change') %><esc>/Change<return>cgn
+      " Html Ruby (erb) Javascript Pack
+      inoremap <silent> ,hrjp <%= javascript_pack_tag('Change', 'data-turbolinks-track': 'reload') %><esc>/Change<return>cgn
+      " Html Ruby (erb) StyleSheet
+      inoremap <silent> ,hrss <%= stylesheet_link_tag('Change') %><esc>/Change<return>cgn
       
     " Html Form
       " Html Form WIth
