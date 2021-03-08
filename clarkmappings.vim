@@ -53,48 +53,45 @@
 
   " Html mappings  
     " Html Elements
-      " Html Elements (multi-line)
-        " Html Elements DIv
-        nnoremap <silent> ,hedi a<div><esc>o</div><esc>k
-        inoremap <silent> ,hedi <div><esc>o</div><esc>k
-        " Html Elements TAble
-        nnoremap <silent> ,heta a<table><esc>o</table><esc>k
-        inoremap <silent> ,heta <table><esc>o</table><esc>k
-        " Html Elements Table capsHead
-        nnoremap <silent> ,hetH a<thead><esc>o</thead><esc>k
-        inoremap <silent> ,hetH <thead><esc>o</thead><esc>k
-        " Html Elements Table Row
-        nnoremap <silent> ,hetr a<tr><esc>o</tr><esc>k
-        inoremap <silent> ,hetr <tr><esc>o</tr><esc>k
-        " Html Elements Table Header cell
-        nnoremap <silent> ,heth a<th><esc>o</th><esc>k
-        inoremap <silent> ,heth <th><esc>o</th><esc>k
-        " Html Elements Table Body
-        nnoremap <silent> ,hetb a<tbody><esc>o</tbody><esc>k
-        inoremap <silent> ,hetb <tbody><esc>o</tbody><esc>k
-        " Html Elements Table Data cell
-        nnoremap <silent> ,hetd a<td><esc>o</td><esc>k
-        inoremap <silent> ,hetd <td><esc>o</td><esc>k
-        " Html Elements Table Footer
-        nnoremap <silent> ,hetf a<tfoot><esc>o</tfoot><esc>k
-        inoremap <silent> ,hetf <tfoot><esc>o</tfoot><esc>k
-
-      " Html Elements (single line)
-        " Html Elements PAragraph
-        nnoremap <silent> ,hepa a<p></p><esc>hhhh
-        inoremap <silent> ,hepa <p></p><esc>hhhh
-        " Html Elements SPan
-        nnoremap <silent> ,hesp a<span></span><esc>hhhhhhh
-        inoremap <silent> ,hesp <span></span><esc>hhhhhhh
-        " Html Elements STrong
-        nnoremap <silent> ,hest a<strong></strong><esc>hhhhhhhhh
-        inoremap <silent> ,hest <strong></strong><esc>hhhhhhhhh
-        " Html Elements BUtton
-        nnoremap <silent> ,hebu a<button></button><esc>hhhhhhhh
-        inoremap <silent> ,hebu <button></button><esc>hhhhhhhh
-        " Html Elements CUstom
-        nnoremap <silent> ,hecu a<Change></Change><esc>/Change<return>cgn
-        inoremap <silent> ,hecu <Change></Change><esc>/Change<return>cgn
+      " Html Elements DIv
+      nnoremap <silent> ,hedi a<div><esc>o</div><esc>k
+      inoremap <silent> ,hedi <div><esc>o</div><esc>k
+      " Html Elements PAragraph
+      nnoremap <silent> ,hepa a<p></p><esc>hhhh
+      inoremap <silent> ,hepa <p></p><esc>hhhh
+      " Html Elements SPan
+      nnoremap <silent> ,hesp a<span></span><esc>hhhhhhh
+      inoremap <silent> ,hesp <span></span><esc>hhhhhhh
+      " Html Elements STrong
+      nnoremap <silent> ,hest a<strong></strong><esc>hhhhhhhhh
+      inoremap <silent> ,hest <strong></strong><esc>hhhhhhhhh
+      " Html Elements BUtton
+      nnoremap <silent> ,hebu a<button></button><esc>hhhhhhhh
+      inoremap <silent> ,hebu <button></button><esc>hhhhhhhh
+      " Html Elements TAble
+      nnoremap <silent> ,heta a<table><esc>o</table><esc>k
+      inoremap <silent> ,heta <table><esc>o</table><esc>k
+      " Html Elements Table capsHead
+      nnoremap <silent> ,hetH a<thead><esc>o</thead><esc>k
+      inoremap <silent> ,hetH <thead><esc>o</thead><esc>k
+      " Html Elements Table Row
+      nnoremap <silent> ,hetr a<tr><esc>o</tr><esc>k
+      inoremap <silent> ,hetr <tr><esc>o</tr><esc>k
+      " Html Elements Table Header cell
+      nnoremap <silent> ,heth a<th><esc>o</th><esc>k
+      inoremap <silent> ,heth <th><esc>o</th><esc>k
+      " Html Elements Table Body
+      nnoremap <silent> ,hetb a<tbody><esc>o</tbody><esc>k
+      inoremap <silent> ,hetb <tbody><esc>o</tbody><esc>k
+      " Html Elements Table Data cell
+      nnoremap <silent> ,hetd a<td><esc>o</td><esc>k
+      inoremap <silent> ,hetd <td><esc>o</td><esc>k
+      " Html Elements Table Footer
+      nnoremap <silent> ,hetf a<tfoot><esc>o</tfoot><esc>k
+      inoremap <silent> ,hetf <tfoot><esc>o</tfoot><esc>k
+      " Html Elements CUstom
+      nnoremap <silent> ,hecu a<Change></Change><esc>/Change<return>cgn
+      inoremap <silent> ,hecu <Change></Change><esc>/Change<return>cgn
       
     " Html Ruby (erb) 
       " Html Ruby (erb) Erb Entered
@@ -207,7 +204,7 @@
       nnoremap <silent> ,hpnl a<%= render(partial: 'Change') %><esc>/Change<return>cgn
       inoremap <silent> ,hpnl <%= render(partial: 'Change') %><esc>/Change<return>cgn
 
-  " ruby / rails mappings 
+  " ruby mappings 
     " common ruby 
       nnoremap <silent> ,rc iHello, World!<esc>
     
@@ -223,7 +220,8 @@
       nnoremap <silent> ,rbdo ado<return>end<esc>O
       inoremap <silent> ,rbdo do<return>end<esc>O
 
-    " ruby routes 
+  " rails mappings 
+    " rails routes 
       nnoremap <silent> ,rrna anamespace :Change do<return>end<esc>/Change<return>cgn
       inoremap <silent> ,rrna namespace :Change do<return>end<esc>/Change<return>cgn
 
@@ -283,30 +281,33 @@
       nnoremap <silent> ,rm iHello, World!<esc>
 
   " javascript mappings 
-    " javascript selectors / jquery   
-        nnoremap <silent> ,jsba a$()<esc>i
-        inoremap <silent> ,jsba $()<esc>i
-        nnoremap <silent> ,jscl a$('.')<esc>hi
-        inoremap <silent> ,jscl $('.')<esc>hi
-        nnoremap <silent> ,jsid a$('#')<esc>hi
-        inoremap <silent> ,jsid $('#')<esc>hi
+    " Javascript jQuery   
+        "
+        nnoremap <silent> ,jqse a$()<esc>i
+        inoremap <silent> ,jqse $()<esc>i
+        "
+        nnoremap <silent> ,jqcl a$('.')<esc>hi
+        inoremap <silent> ,jqcl $('.')<esc>hi
+        "
+        nnoremap <silent> ,jqid a$('#')<esc>hi
+        inoremap <silent> ,jqid $('#')<esc>hi
+        "
+        nnoremap <silent> ,jqdo a$(document).on('Change', 'Change', {}, function(event){})<esc>hi<return><esc>/Change<return>cgn
+        inoremap <silent> ,jqdo $(document).on('Change', 'Change', {}, function(event){})<esc>hi<return><esc>/Change<return>cgn
 
-    " js code
+    " Javascript Vanilla
         "
-        nnoremap <silent> ,jcdo a$(document).on('Change', 'Change', {}, function(event){})<esc>hi<return><esc>/Change<return>cgn
-        inoremap <silent> ,jcdo $(document).on('Change', 'Change', {}, function(event){})<esc>hi<return><esc>/Change<return>cgn
+        nnoremap <silent> ,jvif aif (Change) {<return>}<esc>/Change<return>cgn
+        inoremap <silent> ,jvif if (Change) {<return>}<esc>/Change<return>cgn
         "
-        nnoremap <silent> ,jcif iif (Change) {<return>}<esc>/Change<return>cgn
-        inoremap <silent> ,jcif if (Change) {<return>}<esc>/Change<return>cgn
+        nnoremap <silent> ,jvel a<space>else {<return>}<esc>O
+        inoremap <silent> ,jvel <space>else {<return>}<esc>O
         "
-        nnoremap <silent> ,jcel a<space>else {<return>}<esc>O
-        inoremap <silent> ,jcel <space>else {<return>}<esc>O
+        nnoremap <silent> ,jvei a<space>else if (Chagnge) {<return>}<esc>/Change<return>cgn
+        inoremap <silent> ,jvei <space>else if (Chagnge) {<return>}<esc>/Change<return>cgn
         "
-        nnoremap <silent> ,jcei a<space>else if (Chagnge) {<return>}<esc>/Change<return>cgn
-        inoremap <silent> ,jcei <space>else if (Chagnge) {<return>}<esc>/Change<return>cgn
-        "
-        nnoremap <silent> ,jcfo afor (Change of Change) {<return>}<esc>/Change<return>cgn
-        inoremap <silent> ,jcfo for (Change of Change) {<return>}<esc>/Change<return>cgn
+        nnoremap <silent> ,jvfo afor (Change of Change) {<return>}<esc>/Change<return>cgn
+        inoremap <silent> ,jvfo for (Change of Change) {<return>}<esc>/Change<return>cgn
 
   " templates
     " controllers
