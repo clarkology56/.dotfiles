@@ -46,7 +46,7 @@
     nnoremap <silent> ,evi :edit app/views/<return>
     nnoremap <silent> ,ecf :edit config/<return>
     nnoremap <silent> ,eds :edit db/schema.rb<return>
-    nnoremap <silent> ,edm :edit db/migrations/<return>
+    nnoremap <silent> ,edm :edit db/migrate/<return>
     nnoremap <silent> ,eli :edit lib/<return>
     nnoremap <silent> ,ete :edit test/<return>
     nnoremap <silent> ,eve :edit vendor/<return>
