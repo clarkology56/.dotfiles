@@ -1,4 +1,4 @@
-" insert mode mappings 
+" insert mode only mappings 
   " single key mappings 
     " prevent return from autocomplete (very annoying because to return you have
     " to hit space then return. Now, tab does autocomplete and return does
@@ -10,7 +10,7 @@
 
 " normal most mappings
   " single key mappings
-    nnoremap <silent> <return> a
+  nnoremap <silent> <return> a
 
   " comma + single key mappings
     nnoremap <silent> ,o o <backspace><esc>
@@ -24,7 +24,7 @@
 
   " Misc. mapping
     " Misc. Reload Source
-      nnoremap <silent> ,mrs :so ~/.dotfiles/clarkmappings.vim<return>
+    nnoremap <silent> ,mrs :so ~/.dotfiles/clarkmappings.vim<return>
 
   " Edit mappings
     nnoremap <silent> ,em :edit ~/.dotfiles/clarkmappings.vim<return>
