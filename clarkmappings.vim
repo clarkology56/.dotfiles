@@ -1,3 +1,12 @@
+" Caps lock in insert mode (press ctrl - ^ to toggle)
+  " Execute 'lnoremap x X' and 'lnoremap X x' for each letter a-z.
+  for c in range(char2nr('A'), char2nr('Z'))
+    execute 'lnoremap ' . nr2char(c+32) . ' ' . nr2char(c)
+    execute 'lnoremap ' . nr2char(c) . ' ' . nr2char(c+32)
+  endfor
+  " Kill the capslock when leaving insert mode.
+  autocmd InsertLeave * set iminsert=0
+
 " insert mode only mappings 
   " single key mappings 
     " prevent return from autocomplete (very annoying because to return you have
@@ -8,7 +17,7 @@
       inoremap <silent> {{ {<space><space>}<left><left>
       inoremap <silent> <bar><bar> <bar><bar><left>
 
-" normal most mappings
+" normal mode mappings
   " single key mappings
   nnoremap <silent> <return> a
 
