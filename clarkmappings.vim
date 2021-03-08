@@ -35,21 +35,52 @@
     nnoremap <silent> ,mrs :so ~/.dotfiles/clarkmappings.vim<return>
 
   " Edit mappings
+    "
     nnoremap <silent> ,eas :edit app/assets/<return>
+    nnoremap <silent> ,cas :edit app/assets/
+    "
     nnoremap <silent> ,ech :edit app/channels/<return>
+    nnoremap <silent> ,cch :edit app/channels/
+    "
     nnoremap <silent> ,eco :edit app/controllers/<return>
+    nnoremap <silent> ,cco :edit app/controllers/
+    "
     nnoremap <silent> ,ehe :edit app/helpers/<return>
+    nnoremap <silent> ,che :edit app/helpers/
+    "
     nnoremap <silent> ,eja :edit app/javascript/packs/<return>
+    nnoremap <silent> ,cja :edit app/javascript/packs/
+    "
     nnoremap <silent> ,ejo :edit app/jobs/<return>
+    nnoremap <silent> ,cjo :edit app/jobs/
+    "
     nnoremap <silent> ,ema :edit app/mailers/<return>
+    nnoremap <silent> ,cma :edit app/mailers/
+    "
     nnoremap <silent> ,emo :edit app/models/<return>
+    nnoremap <silent> ,cmo :edit app/models/
+    "
     nnoremap <silent> ,evi :edit app/views/<return>
+    nnoremap <silent> ,cvi :edit app/views/
+    "
     nnoremap <silent> ,ecf :edit config/<return>
+    nnoremap <silent> ,ccf :edit config/
+    "
     nnoremap <silent> ,eds :edit db/schema.rb<return>
+    "
     nnoremap <silent> ,edm :edit db/migrate/<return>
+    nnoremap <silent> ,cdm :edit db/migrate/
+    "
     nnoremap <silent> ,eli :edit lib/<return>
+    nnoremap <silent> ,cli :edit lib/
+    "
     nnoremap <silent> ,ete :edit test/<return>
+    nnoremap <silent> ,cte :edit test/
+    "
     nnoremap <silent> ,eve :edit vendor/<return>
+    nnoremap <silent> ,cve :edit vendor/
+
+
 
   " Html mappings  
     " Html Elements
