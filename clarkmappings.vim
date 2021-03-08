@@ -12,7 +12,6 @@
     " prevent return from autocomplete (very annoying because to return you have
     " to hit space then return. Now, tab does autocomplete and return does
     " return
-    " i
       inoremap <silent> <return> <space><backspace><return>
       inoremap <silent> {{ {<space><space>}<left><left>
       inoremap <silent> <bar><bar> <bar><bar><left>
@@ -36,13 +35,21 @@
     nnoremap <silent> ,mrs :so ~/.dotfiles/clarkmappings.vim<return>
 
   " Edit mappings
-    nnoremap <silent> ,em :edit ~/.dotfiles/clarkmappings.vim<return>
-    nnoremap <silent> ,ea :edit app/assets/
-    nnoremap <silent> ,ec :edit app/controllers/
-    nnoremap <silent> ,eh :edit app/helpers/
-    nnoremap <silent> ,ej :edit app/javascript/packs/
-    nnoremap <silent> ,em :edit app/models/
-    nnoremap <silent> ,ev :edit app/views/
+    nnoremap <silent> ,eas :edit app/assets/<return>
+    nnoremap <silent> ,ech :edit app/channels/<return>
+    nnoremap <silent> ,eco :edit app/controllers/<return>
+    nnoremap <silent> ,ehe :edit app/helpers/<return>
+    nnoremap <silent> ,eja :edit app/javascript/packs/<return>
+    nnoremap <silent> ,ejo :edit app/jobs/<return>
+    nnoremap <silent> ,ema :edit app/mailers/<return>
+    nnoremap <silent> ,emo :edit app/models/<return>
+    nnoremap <silent> ,evi :edit app/views/<return>
+    nnoremap <silent> ,ecf :edit config/<return>
+    nnoremap <silent> ,eds :edit db/schema.rb<return>
+    nnoremap <silent> ,edm :edit db/migrations/<return>
+    nnoremap <silent> ,eli :edit lib/<return>
+    nnoremap <silent> ,ete :edit test/<return>
+    nnoremap <silent> ,eve :edit vendor/<return>
 
   " Html mappings  
     " Html Elements
