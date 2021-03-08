@@ -254,62 +254,64 @@
       nnoremap <silent> ,rbdo ado<return>end<esc>O
       inoremap <silent> ,rbdo do<return>end<esc>O
 
-  " rails mappings 
-    " rails routes 
-      nnoremap <silent> ,rrna anamespace :Change do<return>end<esc>/Change<return>cgn
-      inoremap <silent> ,rrna namespace :Change do<return>end<esc>/Change<return>cgn
-
-      nnoremap <silent> ,rrsc ascope path: :Change, module: :Change, as: :Change do<return>end<esc>/Change<return>cgn
-      inoremap <silent> ,rrsc scope path: :Change, module: :Change, as: :Change do<return>end<esc>/Change<return>cgn
-      
-      nnoremap <silent> ,rrre aresources :Change, only: [:index, :show, :create, :update, :destroy]<esc>/Change<return>cgn
-      inoremap <silent> ,rrre resources :Change, only: [:index, :show, :create, :update, :destroy]<esc>/Change<return>cgn
-      
-      nnoremap <silent> ,rrrl aresources path: :Change, controller: :Change, as: :Change, only: [:index, :show, :create, :update, :destroy]<esc>/Change<return>cgn
-      inoremap <silent> ,rrrl resources path: :Change, controller: :Change, as: :Change, only: [:index, :show, :create, :update, :destroy]<esc>/Change<return>cgn
-      
-      nnoremap <silent> ,rrrn aget ':id/Change', to: 'Change#index', as: :Change<esc>opost ':id/Change', to: 'Change#create'<esc>oresources :Change, only: [:show, :update, :destroy]<esc>/Change<return>cgn
-      inoremap <silent> ,rrrn get ':id/Change', to: 'Change#index', as: :Change<esc>opost ':id/Change', to: 'Change#create'<esc>oresources :Change, only: [:show, :update, :destroy]<esc>/Change<return>cgn
-      
-      nnoremap <silent> ,rrra aresources path: :Change, module: :Change, as: :Change, only: [] do<return>end<esc>/Change<return>cgn
-      inoremap <silent> ,rrra resources path: :Change, module: :Change, as: :Change, only: [] do<return>end<esc>/Change<return>cgn
-      "
-      nnoremap <silent> ,rrme amember do<return>end<esc>O <backspace><esc>
-      inoremap <silent> ,rrme member do<return>end<esc>O <backspace><esc>
-      "
-      nnoremap <silent> ,rrge aget 'Change', to: 'Change#Change'<esc>/Change<return>cgn
-      inoremap <silent> ,rrge get 'Change', to: 'Change#Change'<esc>/Change<return>cgn
-      "
-      nnoremap <silent> ,rrgl aget 'Change', to: 'Change#Change', as: :Change<esc>/Change<return>cgn
-      inoremap <silent> ,rrgl get 'Change', to: 'Change#Change', as: :Change<esc>/Change<return>cgn
-      "
-      nnoremap <silent> ,rrgn aget ':id/Change', to: 'Change#index', as: :Change<esc>/Change<return>cgn
-      inoremap <silent> ,rrgn get ':id/Change', to: 'Change#index', as: :Change<esc>/Change<return>cgn
-      "
-      nnoremap <silent> ,rrgm aget 'Change/:id/Change', to: 'Change#Change', as: :Change_Change <esc>o# REMEMBER TO MAKE PARENT PLURAL ON INITIAL ARGUMENT AND "TO" BUT SINGULAR ON "AS"<esc>oExample: get 'users/:id/sub_profile', to: 'users#sub_profile', as: :user_subprofile<esc>oThis is because the helper method is pointing to a single user just like the show, edit, update and destroy actions<esc>ocore_user_subprofile_path is appropriate but core_users_subprofile_path is not<esc>/Change<return>cgn
-      inoremap <silent> ,rrgm get 'Change/:id/Change', to: 'Change#Change', as: :Change_Change <esc>o# REMEMBER TO MAKE PARENT PLURAL ON INITIAL ARGUMENT AND "TO" BUT SINGULAR ON "AS"<esc>oExample: get 'users/:id/sub_profile', to: 'users#sub_profile', as: :user_subprofile<esc>oThis is because the helper method is pointing to a single user just like the show, edit, update and destroy actions<esc>ocore_user_subprofile_path is appropriate but core_users_subprofile_path is not<esc>/Change<return>cgn
-      "
-      nnoremap <silent> ,rrpo apost 'Change', to: 'Change#Change'<esc>/Change<return>cgn
-      inoremap <silent> ,rrpo post 'Change', to: 'Change#Change'<esc>/Change<return>cgn
-      "
-      nnoremap <silent> ,rrpl apost 'Change', to: 'Change#Change', as: :Change<esc>/Change<return>cgn
-      inoremap <silent> ,rrpl post 'Change', to: 'Change#Change', as: :Change<esc>/Change<return>cgn
-      "
-      nnoremap <silent> ,rrpn apost ':id/Change', to: 'Change#create'<esc>/Change<return>cgn
-      inoremap <silent> ,rrpn post ':id/Change', to: 'Change#create'<esc>/Change<return>cgn
-      "
-      nnoremap <silent> ,rrpa apatch 'Change', to: 'Change#Change'<esc>/Change<return>cgn
-      inoremap <silent> ,rrpa patch 'Change', to: 'Change#Change'<esc>/Change<return>cgn
-      "
-      nnoremap <silent> ,rrpl apatch 'Change', to: 'Change#Change', as: :Change<esc>/Change<return>cgn
-      inoremap <silent> ,rrpl patch 'Change', to: 'Change#Change', as: :Change<esc>/Change<return>cgn
-      "
-      nnoremap <silent> ,rrde adelete 'Change', to: 'Change#Change'<esc>/Change<return>cgn
-      inoremap <silent> ,rrde delete 'Change', to: 'Change#Change'<esc>/Change<return>cgn
-      "
-      nnoremap <silent> ,rrdl adelete 'Change', to: 'Change#Change', as: :Change<esc>/Change<return>cgn
-      inoremap <silent> ,rrdl delete 'Change', to: 'Change#Change', as: :Change<esc>/Change<return>cgn
-      "
+  " Rails mappings 
+    " Rails Routes 
+      " main routes
+        " Rails Routes NAmespace
+        nnoremap <silent> ,rrna anamespace :Change do<return>end<esc>/Change<return>cgn
+        inoremap <silent> ,rrna namespace :Change do<return>end<esc>/Change<return>cgn
+        " Rails Routes REsources
+        nnoremap <silent> ,rrre aresources :Change, only: [:index, :show, :create, :update, :destroy]<esc>/Change<return>cgn
+        inoremap <silent> ,rrre resources :Change, only: [:index, :show, :create, :update, :destroy]<esc>/Change<return>cgn
+        " Rails Routes Resources Nested
+        nnoremap <silent> ,rrrn a# Change<return>get ':id/Change', to: 'Change#index', as: :Change<esc>opost ':id/Change', to: 'Change#create'<esc>oresources :Change, only: [:show, :update, :destroy]<esc>/Change<return>cgn
+        inoremap <silent> ,rrrn a# Change<return>get ':id/Change', to: 'Change#index', as: :Change<esc>opost ':id/Change', to: 'Change#create'<esc>oresources :Change, only: [:show, :update, :destroy]<esc>/Change<return>cgn
+        " Rails Routes Get Member
+        nnoremap <silent> ,rrgm aget 'Change/:id/Change', to: 'Change#Change', as: :Change_Change <esc>o# REMEMBER TO MAKE PARENT PLURAL ON INITIAL ARGUMENT AND "TO" BUT SINGULAR ON "AS"<esc>oExample: get 'users/:id/sub_profile', to: 'users#sub_profile', as: :user_subprofile<esc>oThis is because the helper method is pointing to a single user just like the show, edit, update and destroy actions<esc>ocore_user_subprofile_path is appropriate but core_users_subprofile_path is not<esc>/Change<return>cgn
+        inoremap <silent> ,rrgm get 'Change/:id/Change', to: 'Change#Change', as: :Change_Change <esc>o# REMEMBER TO MAKE PARENT PLURAL ON INITIAL ARGUMENT AND "TO" BUT SINGULAR ON "AS"<esc>oExample: get 'users/:id/sub_profile', to: 'users#sub_profile', as: :user_subprofile<esc>oThis is because the helper method is pointing to a single user just like the show, edit, update and destroy actions<esc>ocore_user_subprofile_path is appropriate but core_users_subprofile_path is not<esc>/Change<return>cgn
+        " Rails Routes GEt (for non-restful routes)
+        nnoremap <silent> ,rrge aget 'Change', to: 'Change#Change'<esc>/Change<return>cgn
+        inoremap <silent> ,rrge get 'Change', to: 'Change#Change'<esc>/Change<return>cgn
+      " other routes 
+        "
+        nnoremap <silent> ,rrsc ascope path: :Change, module: :Change, as: :Change do<return>end<esc>/Change<return>cgn
+        inoremap <silent> ,rrsc scope path: :Change, module: :Change, as: :Change do<return>end<esc>/Change<return>cgn
+        
+        nnoremap <silent> ,rrrl aresources path: :Change, controller: :Change, as: :Change, only: [:index, :show, :create, :update, :destroy]<esc>/Change<return>cgn
+        inoremap <silent> ,rrrl resources path: :Change, controller: :Change, as: :Change, only: [:index, :show, :create, :update, :destroy]<esc>/Change<return>cgn
+        
+        nnoremap <silent> ,rrra aresources path: :Change, module: :Change, as: :Change, only: [] do<return>end<esc>/Change<return>cgn
+        inoremap <silent> ,rrra resources path: :Change, module: :Change, as: :Change, only: [] do<return>end<esc>/Change<return>cgn
+        "
+        nnoremap <silent> ,rrme amember do<return>end<esc>O <backspace><esc>
+        inoremap <silent> ,rrme member do<return>end<esc>O <backspace><esc>
+        "
+        nnoremap <silent> ,rrgl aget 'Change', to: 'Change#Change', as: :Change<esc>/Change<return>cgn
+        inoremap <silent> ,rrgl get 'Change', to: 'Change#Change', as: :Change<esc>/Change<return>cgn
+        "
+        nnoremap <silent> ,rrgn aget ':id/Change', to: 'Change#index', as: :Change<esc>/Change<return>cgn
+        inoremap <silent> ,rrgn get ':id/Change', to: 'Change#index', as: :Change<esc>/Change<return>cgn
+        "
+        nnoremap <silent> ,rrpo apost 'Change', to: 'Change#Change'<esc>/Change<return>cgn
+        inoremap <silent> ,rrpo post 'Change', to: 'Change#Change'<esc>/Change<return>cgn
+        "
+        nnoremap <silent> ,rrpl apost 'Change', to: 'Change#Change', as: :Change<esc>/Change<return>cgn
+        inoremap <silent> ,rrpl post 'Change', to: 'Change#Change', as: :Change<esc>/Change<return>cgn
+        "
+        nnoremap <silent> ,rrpn apost ':id/Change', to: 'Change#create'<esc>/Change<return>cgn
+        inoremap <silent> ,rrpn post ':id/Change', to: 'Change#create'<esc>/Change<return>cgn
+        "
+        nnoremap <silent> ,rrpa apatch 'Change', to: 'Change#Change'<esc>/Change<return>cgn
+        inoremap <silent> ,rrpa patch 'Change', to: 'Change#Change'<esc>/Change<return>cgn
+        "
+        nnoremap <silent> ,rrpl apatch 'Change', to: 'Change#Change', as: :Change<esc>/Change<return>cgn
+        inoremap <silent> ,rrpl patch 'Change', to: 'Change#Change', as: :Change<esc>/Change<return>cgn
+        "
+        nnoremap <silent> ,rrde adelete 'Change', to: 'Change#Change'<esc>/Change<return>cgn
+        inoremap <silent> ,rrde delete 'Change', to: 'Change#Change'<esc>/Change<return>cgn
+        "
+        nnoremap <silent> ,rrdl adelete 'Change', to: 'Change#Change', as: :Change<esc>/Change<return>cgn
+        inoremap <silent> ,rrdl delete 'Change', to: 'Change#Change', as: :Change<esc>/Change<return>cgn
 
     " rails model mappings
       nnoremap <silent> ,rm iHello, World!<esc>
@@ -320,11 +322,14 @@
         nnoremap <silent> ,jqse a$()<esc>i
         inoremap <silent> ,jqse $()<esc>i
         "
-        nnoremap <silent> ,jqcl a$('.')<esc>hi
-        inoremap <silent> ,jqcl $('.')<esc>hi
+        nnoremap <silent> ,jqsc a$('.')<esc>hi
+        inoremap <silent> ,jqsc $('.')<esc>hi
         "
-        nnoremap <silent> ,jqid a$('#')<esc>hi
-        inoremap <silent> ,jqid $('#')<esc>hi
+        nnoremap <silent> ,jqsi a$('#')<esc>hi
+        inoremap <silent> ,jqsi $('#')<esc>hi
+        "
+        nnoremap <silent> ,jqsd a$('[data-someDataAttribute=""]')<esc>/someDataAttribute<return>
+        inoremap <silent> ,jqsd $('[data-someDataAttribute=""]')<esc>/someDataAttribute<return>
         "
         nnoremap <silent> ,jqdo a$(document).on('Change', 'Change', {}, function(event){})<esc>hi<return><esc>/Change<return>cgn
         inoremap <silent> ,jqdo $(document).on('Change', 'Change', {}, function(event){})<esc>hi<return><esc>/Change<return>cgn
