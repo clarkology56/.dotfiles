@@ -48,8 +48,11 @@
     nnoremap <silent> ,ehe :edit app/helpers/<return>
     nnoremap <silent> ,che :edit app/helpers/
     "
-    nnoremap <silent> ,eja :edit app/javascript/packs/<return>
-    nnoremap <silent> ,cja :edit app/javascript/packs/
+    nnoremap <silent> ,eja :edit app/javascript/<return>
+    nnoremap <silent> ,cja :edit app/javascript/
+    "
+    nnoremap <silent> ,ejp :edit app/javascript/packs/<return>
+    nnoremap <silent> ,cjp :edit app/javascript/packs/
     "
     nnoremap <silent> ,ejo :edit app/jobs/<return>
     nnoremap <silent> ,cjo :edit app/jobs/
