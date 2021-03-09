@@ -39,63 +39,56 @@
     nmap <silent> ,eas <space>fT/app<return><return>/assets<return><return><esc>:noh<return>
     nnoremap <silent> ,cas :edit app/assets/
     "
-    nmap <silent> ,ecc <space>fT/app<return><return>/channels<return><return><esc>:noh<return>
+    nmap <silent> ,ech <space>fT/app<return><return>/channels<return><return><esc>:noh<return>
     nnoremap <silent> ,cch :edit app/channels/
     "
     nmap <silent> ,eco <space>fT/app<return><return>/controllers<return><return><esc>:noh<return>
-    nnoremap <silent> ,eco :edit app/controllers/<return>
     nnoremap <silent> ,cco :edit app/controllers/
     "
     nmap <silent> ,ehe <space>fT/app<return><return>/helpers<return><return><esc>:noh<return>
-    nnoremap <silent> ,ehe :edit app/helpers/<return>
     nnoremap <silent> ,che :edit app/helpers/
     "
     nmap <silent> ,eja <space>fT/app<return><return>/javascript<return><return><esc>:noh<return>
-    nnoremap <silent> ,eja :edit app/javascript/<return>
     nnoremap <silent> ,cja :edit app/javascript/
     "
     nmap <silent> ,ejp <space>fT/app<return><return>/javascript<return>/packs<return><return><esc>:noh<return>
-    nnoremap <silent> ,ejp :edit app/javascript/packs/<return>
     nnoremap <silent> ,cjp :edit app/javascript/packs/
     "
-    nmap <silent> ,eas <space>fT/app<return><return>/channels<return><return><esc>:noh<return>
-    nnoremap <silent> ,ejo :edit app/jobs/<return>
+    nmap <silent> ,ejo <space>fT/app<return><return>/jobs<return><return><esc>:noh<return>
     nnoremap <silent> ,cjo :edit app/jobs/
     "
-    nmap <silent> ,eas <space>fT/app<return><return>/channels<return><return><esc>:noh<return>
-    nnoremap <silent> ,ema :edit app/mailers/<return>
+    nmap <silent> ,ema <space>fT/app<return><return>/mailers<return><return><esc>:noh<return>
     nnoremap <silent> ,cma :edit app/mailers/
     "
-    nmap <silent> ,eas <space>fT/app<return><return>/channels<return><return><esc>:noh<return>
-    nnoremap <silent> ,emo :edit app/models/<return>
+    nmap <silent> ,emo <space>fT/app<return><return>/models<return><return><esc>:noh<return>
     nnoremap <silent> ,cmo :edit app/models/
     "
 
-    nmap <silent> ,eas <space>fT/app<return><return>/channels<return><return><esc>:noh<return>
     nmap <silent> ,evi <space>fT/app<return><return>/views<return><return><esc>:noh<return>
     nnoremap <silent> ,cvi :edit app/views/
     "
-    nmap <silent> ,eas <space>fT/app<return><return>/channels<return><return><esc>:noh<return>
-    nnoremap <silent> ,ecf :edit config/<return>
+    nmap <silent> ,ecf <space>fT/config<return><return><esc>:noh<return>
     nnoremap <silent> ,ccf :edit config/
     "
-    nmap <silent> ,eas <space>fT/app<return><return>/channels<return><return><esc>:noh<return>
+    nmap <silent> ,eds <space>fT/db<return><return>/schema.rb<return><return><esc>:noh<return>
     nnoremap <silent> ,eds :edit db/schema.rb<return>
     "
-    nmap <silent> ,eas <space>fT/app<return><return>/channels<return><return><esc>:noh<return>
-    nnoremap <silent> ,edm :edit db/migrate/<return>
+    nmap <silent> ,edm <space>fT/db<return><return>/migrate<return><return><esc>:noh<return>
     nnoremap <silent> ,cdm :edit db/migrate/
     "
-    nmap <silent> ,eas <space>fT/app<return><return>/channels<return><return><esc>:noh<return>
-    nnoremap <silent> ,eli :edit lib/<return>
+    nmap <silent> ,eli <space>fT/lib<return><return><esc>:noh<return>
     nnoremap <silent> ,cli :edit lib/
     "
-    nmap <silent> ,eas <space>fT/app<return><return>/channels<return><return><esc>:noh<return>
-    nnoremap <silent> ,ete :edit test/<return>
+    nmap <silent> ,ete <space>fT/test<return><return><esc>:noh<return>
     nnoremap <silent> ,cte :edit test/
     "
-    nmap <silent> ,eas <space>fT/app<return><return>/channels<return><return><esc>:noh<return>
-    nnoremap <silent> ,eve :edit vendor/<return>
+    nmap <silent> ,etc <space>fT/test<return><return>/controllers<return><return><esc>:noh<return>
+    nnoremap <silent> ,ctc :edit test/controllers/
+    "
+    nmap <silent> ,etm <space>fT/test<return><return>/models<return><return><esc>:noh<return>
+    nnoremap <silent> ,ctm :edit test/models
+    "
+    nmap <silent> ,eve <space>fT/vendor<return><return><esc>:noh<return>
     nnoremap <silent> ,cve :edit vendor/
 
 
