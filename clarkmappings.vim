@@ -18,7 +18,6 @@
 
 " normal mode mappings
   " single key mappings
-  nnoremap <silent> <return> a
 
   " comma + single key mappings
     nnoremap <silent> ,o o <backspace><esc>
@@ -33,6 +32,9 @@
   " Misc. mapping
     " Misc. Reload Source
     nnoremap <silent> ,mrs :so ~/.dotfiles/clarkmappings.vim<return>
+    " Misc. Puts Helper
+    nnoremap <silent> ,mph aputs 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts nil<return><esc>
+
 
   " Edit mappings
     "
@@ -358,8 +360,11 @@
         nnoremap <silent> ,jqsd a$('[data-someDataAttribute=""]')<esc>/someDataAttribute<return>
         inoremap <silent> ,jqsd $('[data-someDataAttribute=""]')<esc>/someDataAttribute<return>
         "
-        nnoremap <silent> ,jqdo a$(document).on('Change', 'Change', {}, function(event){})<esc>hi<return><esc>/Change<return>cgn
-        inoremap <silent> ,jqdo $(document).on('Change', 'Change', {}, function(event){})<esc>hi<return><esc>/Change<return>cgn
+        nnoremap <silent> ,jqdo a$(document).on('Change', 'Change', {}, function(){})<esc>hi<return><esc>/Change<return>cgn
+        inoremap <silent> ,jqdo $(document).on('Change', 'Change', {}, function(){})<esc>hi<return><esc>/Change<return>cgn
+        " Javascript jQiery Document Ready
+        nnoremap <silent> ,jqdr a$(document).ready(function(){<return>Change<return>})<esc>/Change<return>cgn
+        inoremap <silent> ,jqdr $(document).ready(function(){<return>Change<return>})<esc>/Change<return>cgn
 
     " Javascript Vanilla
         "
@@ -374,6 +379,8 @@
         "
         nnoremap <silent> ,jvfo afor (Change of Change) {<return>}<esc>/Change<return>cgn
         inoremap <silent> ,jvfo for (Change of Change) {<return>}<esc>/Change<return>cgn
+        " Javascript Vanilla FUnction
+        nnoremap <silent> ,jvfu afunction Change(){<return>}<esc>/Change<return>cgn
 
   " templates
     " controllers
