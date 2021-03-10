@@ -51,7 +51,7 @@
     nmap <silent> ,eja <space>fT/app<return><return>/javascript<return><return><esc>:noh<return>
     nnoremap <silent> ,cja :edit app/javascript/
     "
-    nmap <silent> ,ejp <space>fT/app<return><return>/javascript<return>/packs<return><return><esc>:noh<return>
+    nmap <silent> ,ejp <space>fT/app<return><return>/javascript<return><return>/packs<return><return><esc>:noh<return>
     nnoremap <silent> ,cjp :edit app/javascript/packs/
     "
     nmap <silent> ,ejo <space>fT/app<return><return>/jobs<return><return><esc>:noh<return>
@@ -70,7 +70,8 @@
     nmap <silent> ,ecf <space>fT/config<return><return><esc>:noh<return>
     nnoremap <silent> ,ccf :edit config/
     "
-    nmap <silent> ,eds <space>fT/db<return><return>/schema.rb<return><return><esc>:noh<return>
+    nnoremap <silent> ,ecr :edit config/routes.rb<return>
+    "
     nnoremap <silent> ,eds :edit db/schema.rb<return>
     "
     nmap <silent> ,edm <space>fT/db<return><return>/migrate<return><return><esc>:noh<return>
@@ -253,8 +254,8 @@
       nnoremap <silent> ,hfcu a<%= form.Change(:Change, class: 'form-control') %><esc>/Change<return>cgn
       inoremap <silent> ,hfcu <%= form.Change(:Change, class: 'form-control') %><esc>/Change<return>cgn
       " Html Form Fields For
-      nnoremap <silent> ,hfff a<%= form.fields_for(:Change) do \|sub_field\| %><return><% end %><esc>/Change<return>cgn
-      inoremap <silent> ,hfff <%= form.fields_for(:Change) do \|sub_field\| %><return><% end %><esc>/Change<return>cgn
+      nnoremap <silent> ,hfff a<%= form.fields_for(:Change) do \|sub_form\| %><return><% end %><esc>/Change<return>cgn
+      inoremap <silent> ,hfff <%= form.fields_for(:Change) do \|sub_form\| %><return><% end %><esc>/Change<return>cgn
 
     " html partials
       " Html Partial BAsic
