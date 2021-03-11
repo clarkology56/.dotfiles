@@ -111,8 +111,8 @@
       nnoremap <silent> ,hest a<strong></strong><esc>hhhhhhhhh
       inoremap <silent> ,hest <strong></strong><esc>hhhhhhhhh
       " Html Elements BUtton
-      nnoremap <silent> ,hebu a<button class="btn btn-Change"></button><esc>/Change<returreturn>
-      inoremap <silent> ,hebu <button class="btn btn-Change"></button><esc>/Change<returreturn>
+      nnoremap <silent> ,hebu a<button class="btn btn-Change"></button><esc>/Change<return>
+      inoremap <silent> ,hebu <button class="btn btn-Change"></button><esc>/Change<return>
       " Html Elements TAble
       nnoremap <silent> ,heta a<table><esc>o</table><esc>k
       inoremap <silent> ,heta <table><esc>o</table><esc>k
@@ -135,8 +135,8 @@
       nnoremap <silent> ,hetf a<tfoot><esc>o</tfoot><esc>k
       inoremap <silent> ,hetf <tfoot><esc>o</tfoot><esc>k
       " Html Elements CUstom
-      nnoremap <silent> ,hecu a<Change></Change><esc>/Change<returreturn>
-      inoremap <silent> ,hecu <Change></Change><esc>/Change<returreturn>
+      nnoremap <silent> ,hecu a<Change></Change><esc>/Change<return>
+      inoremap <silent> ,hecu <Change></Change><esc>/Change<return>
       
     " Html Ruby (erb) 
       " Html Ruby (erb) Erb Entered
@@ -149,8 +149,8 @@
       nnoremap <silent> ,hrif a<% if  %><esc>o<% end %><esc>khhi
       inoremap <silent> ,hrif <% if  %><esc>o<% end %><esc>khhi
       " Html Ruby (erb) If Else
-      nnoremap <silent> ,hrie a<% if Change %><esc>o<% else %><esc>o<% end %><esc>/Change<returreturn>
-      inoremap <silent> ,hrie <% if Change %><esc>o<% else %><esc>o<% end %><esc>/Change<returreturn>
+      nnoremap <silent> ,hrie a<% if Change %><esc>o<% else %><esc>o<% end %><esc>/Change<return>
+      inoremap <silent> ,hrie <% if Change %><esc>o<% else %><esc>o<% end %><esc>/Change<return>
       " Html Ruby (erb) ELse
       nnoremap <silent> ,hrel a<% else %><esc>o
       inoremap <silent> ,hrel <% else %><esc>o
@@ -158,43 +158,43 @@
       nnoremap <silent> ,hrei a<% elsif  %><esc>hhi
       inoremap <silent> ,hrei <% elsif  %><esc>hhi
       " Html Ruby (erb) EAch
-      nnoremap <silent> ,hrea a<% Change.each do <bar>Change<bar> %><return><% end %><esc>/Change<returreturn>
-      inoremap <silent> ,hrea <% Change.each do <bar>Change<bar> %><return><% end %>/Change<returreturn>
+      nnoremap <silent> ,hrea a<% Change.each do <bar>Change<bar> %><return><% end %><esc>/Change<return>
+      inoremap <silent> ,hrea <% Change.each do <bar>Change<bar> %><return><% end %>/Change<return>
       " Html Ruby (erb) Each with index
-      nnoremap <silent> ,hrei a<% Change.each_with_index do <bar>Change, index<bar> do %><return><% end %>/Change<returreturn>
-      inoremap <silent> ,hrei <% Change.each_with_index do <bar>Change, index<bar> do %><return><% end %>/Change<returreturn>
+      nnoremap <silent> ,hrei a<% Change.each_with_index do <bar>Change, index<bar> do %><return><% end %>/Change<return>
+      inoremap <silent> ,hrei <% Change.each_with_index do <bar>Change, index<bar> do %><return><% end %>/Change<return>
       " Html Ruby (erb) ENd
       nnoremap <silent> ,hren a<% end %><esc>
       inoremap <silent> ,hren <% end %><esc>
       " Html Ruby (erb) LInk to
-      nnoremap <silent> ,hrli a<%= link_to(Change, Change) %><esc>/Change<returreturn>
-      inoremap <silent> ,hrli <%= link_to(Change, Change) %><esc>/Change<returreturn>
+      nnoremap <silent> ,hrli a<%= link_to(Change, Change) %><esc>/Change<return>
+      inoremap <silent> ,hrli <%= link_to(Change, Change) %><esc>/Change<return>
       " Html Ruby (erb) Link to Remote 
-      nnoremap <silent> ,hrlr a<%= link_to(Change, Change, remote: true, method: 'Change') %><esc>/Change<returreturn>
-      inoremap <silent> ,hrlr <%= link_to(Change, Change, remote: true, method: 'Change') %><esc>/Change<returreturn>
+      nnoremap <silent> ,hrlr a<%= link_to(Change, Change, remote: true, method: 'Change') %><esc>/Change<return>
+      inoremap <silent> ,hrlr <%= link_to(Change, Change, remote: true, method: 'Change') %><esc>/Change<return>
       " Html Ruby (erb) Link to Block 
-      nnoremap <silent> ,hrlb a<%= link_to(Change) do %>Change<% end %><esc>/Change<returreturn>
-      inoremap <silent> ,hrlb <%= link_to(Change) do %>Change<% end %><esc>/Change<returreturn>
+      nnoremap <silent> ,hrlb a<%= link_to(Change) do %>Change<% end %><esc>/Change<return>
+      inoremap <silent> ,hrlb <%= link_to(Change) do %>Change<% end %><esc>/Change<return>
       " Html Ruby (erb) Image Tag
-      nnoremap <silent> ,hrit a<%= image_tag(Change, alt: 'Change') %><esc>/Change<returreturn>
-      inoremap <silent> ,hrit <%= image_tag(Change, alt: 'Change') %><esc>/Change<returreturn>
+      nnoremap <silent> ,hrit a<%= image_tag(Change, alt: 'Change') %><esc>/Change<return>
+      inoremap <silent> ,hrit <%= image_tag(Change, alt: 'Change') %><esc>/Change<return>
       " Html Ruby (erb) Javascript Tag
-      nnoremap <silent> ,hrjt a<%= javascript_include_tag('Change') %><esc>/Change<returreturn>
-      inoremap <silent> ,hrjt <%= javascript_include_tag('Change') %><esc>/Change<returreturn>
+      nnoremap <silent> ,hrjt a<%= javascript_include_tag('Change') %><esc>/Change<return>
+      inoremap <silent> ,hrjt <%= javascript_include_tag('Change') %><esc>/Change<return>
       " Html Ruby (erb) Javascript Pack
-      nnoremap <silent> ,hrjp a<%= javascript_pack_tag('Change', 'data-turbolinks-track': 'reload') %><esc>/Change<returreturn>
-      inoremap <silent> ,hrjp <%= javascript_pack_tag('Change', 'data-turbolinks-track': 'reload') %><esc>/Change<returreturn>
+      nnoremap <silent> ,hrjp a<%= javascript_pack_tag('Change', 'data-turbolinks-track': 'reload') %><esc>/Change<return>
+      inoremap <silent> ,hrjp <%= javascript_pack_tag('Change', 'data-turbolinks-track': 'reload') %><esc>/Change<return>
       " Html Ruby (erb) StyleSheet
-      nnoremap <silent> ,hrss aa<%= stylesheet_link_tag('Change') %><esc>/Change<returreturn>
-      inoremap <silent> ,hrss <%= stylesheet_link_tag('Change') %><esc>/Change<returreturn>
+      nnoremap <silent> ,hrss aa<%= stylesheet_link_tag('Change') %><esc>/Change<return>
+      inoremap <silent> ,hrss <%= stylesheet_link_tag('Change') %><esc>/Change<return>
       
     " Html Form
       " Html Form WIth
-      nnoremap <silent> ,hfwi a<%= form_with(scope: Change, url: Change, method: :Change) do \|form\| %><esc>o<% end %><esc>/Change<returreturn>
-      inoremap <silent> ,hfwi <%= form_with(scope: Change, url: Change, method: :Change) do \|form\| %><esc>o<% end %><esc>/Change<returreturn>
+      nnoremap <silent> ,hfwi a<%= form_with(scope: Change, url: Change, method: :Change) do \|form\| %><esc>o<% end %><esc>/Change<return>
+      inoremap <silent> ,hfwi <%= form_with(scope: Change, url: Change, method: :Change) do \|form\| %><esc>o<% end %><esc>/Change<return>
       " Html Form Full Errors
-      nnoremap <silent> ,hffe a<%= render(partial: 'shared/full_errors', locals: { errors_hash: @Change.errors.messages, ian: false }) %><esc>/Change<returreturn>
-      inoremap <silent> ,hffe <%= render(partial: 'shared/full_errors', locals: { errors_hash: @Change.errors.messages, ian: false }) %><esc>/Change<returreturn>
+      nnoremap <silent> ,hffe a<%= render(partial: 'shared/full_errors', locals: { errors_hash: @Change.errors.messages, ian: false }) %><esc>/Change<return>
+      inoremap <silent> ,hffe <%= render(partial: 'shared/full_errors', locals: { errors_hash: @Change.errors.messages, ian: false }) %><esc>/Change<return>
       " Html Form ROw
       nnoremap <silent> ,hfro a<div class="form-row"><esc>o</div><esc>O <backspace><esc>
       inoremap <silent> ,hfro <div class="form-row"><esc>o</div><esc>O <backspace><esc>
@@ -202,37 +202,38 @@
       nnoremap <silent> ,hfgr a<div class="form-group col-12"><esc>o</div><esc>O <backspace><esc>
       inoremap <silent> ,hfgr <div class="form-group col-12"><esc>o</div><esc>O <backspace><esc>
       " Html Form HIdden field
-      nnoremap <silent> ,hfhi a<%= form.hidden_field(:Change, value: @Change.Change) %><esc>/Change<returreturn>
-      inoremap <silent> ,hfhi <%= form.hidden_field(:Change, value: @Change.Change) %><esc>/Change<returreturn>
+      nnoremap <silent> ,hfhi a<%= form.hidden_field(:Change, value: @Change.Change) %><esc>/Change<return>
+      inoremap <silent> ,hfhi <%= form.hidden_field(:Change, value: @Change.Change) %><esc>/Change<return>
       " Html Form Hidden field Tag
-      nnoremap <silent> ,hfht a<%= hidden_field_tag(:Change, Change) %><esc>/Change<returreturn>
-      inoremap <silent> ,hfht <%= hidden_field_tag(:Change, Change) %><esc>/Change<returreturn>
+      nnoremap <silent> ,hfht a<%= hidden_field_tag(:Change, Change) %><esc>/Change<return>
+      inoremap <silent> ,hfht <%= hidden_field_tag(:Change, Change) %><esc>/Change<return>
       " Html Form LAbel
-      nnoremap <silent> ,hfla a<%= form.label(:Change, 'Change') %><esc>/Change<returreturn>
-      inoremap <silent> ,hfla <%= form.label(:Change, 'Change') %><esc>/Change<returreturn>
+      nnoremap <silent> ,hfla a<%= form.label(:Change, 'Change') %><esc>/Change<return>
+      inoremap <silent> ,hfla <%= form.label(:Change, 'Change') %><esc>/Change<return>
       " Html Form Label Block
-      nnoremap <silent> ,hflb a<%= form.label(:Change) do %>Change<% end %><esc>/Change<returreturn>
-      inoremap <silent> ,hflb <%= form.label(:Change) do %>Change<% end %><esc>/Change<returreturn>
+      nnoremap <silent> ,hflb a<%= form.label(:Change) do %>Change<% end %><esc>/Change<return>
+      inoremap <silent> ,hflb <%= form.label(:Change) do %>Change<% end %><esc>/Change<return>
       " Html Form Label No lable (mainly for styled checkboxes) - in order for
       " rails to leave blank label, have to use block with empty space (" ")
       " otherwise rails will fill content autoamtically
-      nnoremap <silent> ,hfln a<%= form.label(:Change) do %> <% end %><esc>/Change<returreturn>
-      inoremap <silent> ,hfln <%= form.label(:Change) do %> <% end %><esc>/Change<returreturn>
+      nnoremap <silent> ,hfln a<%= form.label(:Change) do %> <% end %><esc>/Change<return>
+      inoremap <silent> ,hfln <%= form.label(:Change) do %> <% end %><esc>/Change<return>
       " Html Form Text Field
-      nnoremap <silent> ,hftf a<%= form.text_field(:Change, value: @Change.Change, class: 'form-control') %><esc>/Change<returreturn>
-      inoremap <silent> ,hftf <%= form.text_field(:Change, value: @Change.Change, class: 'form-control') %><esc>/Change<returreturn>
+      nnoremap <silent> ,hftf a<%= form.text_field(:Change, value: @Change.Change, class: 'form-control') %><esc>/Change<return>
+      inoremap <silent> ,hftf <%= form.text_field(:Change, value: @Change.Change, class: 'form-control') %><esc>/Change<return>
       " Html Form Text Area
-      nnoremap <silent> ,hfta a<%= form.text_area(:Change, value: @Change.Change, class: 'form-control') %><esc>/Change<returreturn>
-      inoremap <silent> ,hfta <%= form.text_area(:Change, value: @Change.Change, class: 'form-control') %><esc>/Change<returreturn>
+      nnoremap <silent> ,hfta a<%= form.text_area(:Change, value: @Change.Change, class: 'form-control') %><esc>/Change<return>
+      inoremap <silent> ,hfta <%= form.text_area(:Change, value: @Change.Change, class: 'form-control') %><esc>/Change<return>
       " Html Form Rich Text
-      nnoremap <silent> ,hfrt a<%= form.rich_text_area(:Change, value: @Change.Change, class: 'form-control') %><esc>/Change<returreturn>
-      inoremap <silent> ,hfrt <%= form.rich_text_area(:Change, value: @Change.Change, class: 'form-control') %><esc>/Change<returreturn>
+      nnoremap <silent> ,hfrt a<%= form.rich_text_area(:Change, value: @Change.Change, class: 'form-control') %><esc>/Change<return>
+      inoremap <silent> ,hfrt <%= form.rich_text_area(:Change, value: @Change.Change, class: 'form-control') %><esc>/Change<return>
       " Html Form Email Field
-      nnoremap <silent> ,hfef a<%= form.email_field(:Change, value: @Change.Change, class: 'form-control') %><esc>/Change<returreturn>
-      inoremap <silent> ,hfef <%= form.email_field(:Change, value: @Change.Change, class: 'form-control') %><esc>/Change<returreturn>
+      nnoremap <silent> ,hfef a<%= form.email_field(:Change, value: @Change.Change, class: 'form-control') %><esc>/Change<return>
+      inoremap <silent> ,hfef <%= form.email_field(:Change, value: @Change.Change, class: 'form-control') %><esc>/Change<return>
       " Html Form Checkbox Wrapper
-      nmap <silent> ,hfcw a<div class="custom-control custom-checkbox"><esc>,o,hfcb<esc>,o,hfln<esc>o</div><esc>/Change<returreturn>
+      nmap <silent> ,hfcw a<div class="custom-control custom-checkbox"><esc>,o,hfcb<esc>,o,hfln<esc>jo</div><esc>/Change<return>
       " Html Form Checkbox Stacked
+      nmap <silent> ,hfcs a<div class="d-flex"><esc>,o,hfcw,hfcw
       " Html Form Checkbox Inline
       " Html Form CheckBox
       nnoremap <silent> ,hfcb a<%= form.check_box(:Change, class: 'custom-control-input') %><esc>/Change<return>
@@ -243,42 +244,42 @@
       inoremap <silent> ,hfpf <%= form.password_field(:password, class: 'form-control') %><esc>/Change<return>
       " Html Form Password Confirmation
       nnoremap <silent> ,hfpc a<%= form.password_field(:password_confirmation, class: 'form-control') %><esc>/Change<return>
-      inoremap <silent> ,hfpc <%= form.password_field(:password_confirmation, class: 'form-control') %><esc>/Change<returreturn>
+      inoremap <silent> ,hfpc <%= form.password_field(:password_confirmation, class: 'form-control') %><esc>/Change<return>
       " Html Form SElect
-      nnoremap <silent> ,hfse a<%= form.select(:Change , [], { include_blank: "Select" }, { class: 'form-control' }) %><esc>/Change<returreturn>
-      inoremap <silent> ,hfse <%= form.select(:Change , [], { include_blank: "Select" }, { class: 'form-control' }) %><esc>/Change<returreturn>
+      nnoremap <silent> ,hfse a<%= form.select(:Change , [], { include_blank: "Select" }, { class: 'form-control' }) %><esc>/Change<return>
+      inoremap <silent> ,hfse <%= form.select(:Change , [], { include_blank: "Select" }, { class: 'form-control' }) %><esc>/Change<return>
       " Html Form Select Options for select
-      nnoremap <silent> ,hfso a<%= form.select(:Change , options_for_select(Change, @Change.Change), { include_blank: "Select" }, { class: 'form-control' }) %><esc>/Change<returreturn>
-      inoremap <silent> ,hfso <%= form.select(:Change , options_for_select(Change, @Change.Change), { include_blank: "Select" }, { class: 'form-control' }) %><esc>/Change<returreturn>
+      nnoremap <silent> ,hfso a<%= form.select(:Change , options_for_select(Change, @Change.Change), { include_blank: "Select" }, { class: 'form-control' }) %><esc>/Change<return>
+      inoremap <silent> ,hfso <%= form.select(:Change , options_for_select(Change, @Change.Change), { include_blank: "Select" }, { class: 'form-control' }) %><esc>/Change<return>
       " Html Form Select Grouped options for select
-      nnoremap <silent> ,hfsg a<%= form.select(:Change , grouped_options_for_select(Change, @Change.Change), { include_blank: "Select" }, { class: 'form-control' }) %><esc>/Change<returreturn>
-      inoremap <silent> ,hfsg <%= form.select(:Change , grouped_options_for_select(Change, @Change.Change), { include_blank: "Select" }, { class: 'form-control' }) %><esc>/Change<returreturn>
+      nnoremap <silent> ,hfsg a<%= form.select(:Change , grouped_options_for_select(Change, @Change.Change), { include_blank: "Select" }, { class: 'form-control' }) %><esc>/Change<return>
+      inoremap <silent> ,hfsg <%= form.select(:Change , grouped_options_for_select(Change, @Change.Change), { include_blank: "Select" }, { class: 'form-control' }) %><esc>/Change<return>
       " Html Form Select Block
-      nnoremap <silent> ,hfsb a<%= form.select(:Change , [], { include_blank: "Select" }, { class: 'form-control' }) do %><esc>o<% end %><esc>/Change<returreturn>
-      inoremap <silent> ,hfsb <%= form.select(:Change , [], { include_blank: "Select" }, { class: 'form-control' }) do %><esc>o<% end %><esc>/Change<returreturn>
+      nnoremap <silent> ,hfsb a<%= form.select(:Change , [], { include_blank: "Select" }, { class: 'form-control' }) do %><esc>o<% end %><esc>/Change<return>
+      inoremap <silent> ,hfsb <%= form.select(:Change , [], { include_blank: "Select" }, { class: 'form-control' }) do %><esc>o<% end %><esc>/Change<return>
       " Html Form OPtion
-      nnoremap <silent> ,hfop a<option <%= "selected='true'" if Change %> value="<%= Change %>">Change</option><esc>/Change<returreturn>
-      inoremap <silent> ,hfop <option <%= "selected='true'" if Change %> value="<%= Change %>">Change</option><esc>/Change<returreturn>
+      nnoremap <silent> ,hfop a<option <%= "selected='true'" if Change %> value="<%= Change %>">Change</option><esc>/Change<return>
+      inoremap <silent> ,hfop <option <%= "selected='true'" if Change %> value="<%= Change %>">Change</option><esc>/Change<return>
       " Html Form Inline Errors
-      nnoremap <silent> ,hfie a<%= render(partial: 'shared/inline_errors', locals: { errors_hash: @Change.errors.messages, attribute: :Change, ian: false }) %><esc>/Change<returreturn>
-      inoremap <silent> ,hfie <%= render(partial: 'shared/inline_errors', locals: { errors_hash: @Change.errors.messages, attribute: :Change, ian: false }) %><esc>/Change<returreturn>
+      nnoremap <silent> ,hfie a<%= render(partial: 'shared/inline_errors', locals: { errors_hash: @Change.errors.messages, attribute: :Change, ian: false }) %><esc>/Change<return>
+      inoremap <silent> ,hfie <%= render(partial: 'shared/inline_errors', locals: { errors_hash: @Change.errors.messages, attribute: :Change, ian: false }) %><esc>/Change<return>
       " Html Form SUbmit
-      nnoremap <silent> ,hfsu a<%= form.submit(:Change, class: 'btn btn-Change') %><esc>/Change<returreturn>
-      inoremap <silent> ,hfsu <%= form.submit(:Change, class: 'btn btn-Change') %><esc>/Change<returreturn>
+      nnoremap <silent> ,hfsu a<%= form.submit(:Change, class: 'btn btn-Change') %><esc>/Change<return>
+      inoremap <silent> ,hfsu <%= form.submit(:Change, class: 'btn btn-Change') %><esc>/Change<return>
       " Html Form CUstom Field
-      nnoremap <silent> ,hfcu a<%= form.Change(:Change, class: 'form-control') %><esc>/Change<returreturn>
-      inoremap <silent> ,hfcu <%= form.Change(:Change, class: 'form-control') %><esc>/Change<returreturn>
+      nnoremap <silent> ,hfcu a<%= form.Change(:Change, class: 'form-control') %><esc>/Change<return>
+      inoremap <silent> ,hfcu <%= form.Change(:Change, class: 'form-control') %><esc>/Change<return>
       " Html Form Fields For
-      nnoremap <silent> ,hfff a<%= form.fields_for(:Change) do \|sub_form\| %><return><% end %><esc>/Change<returreturn>
-      inoremap <silent> ,hfff <%= form.fields_for(:Change) do \|sub_form\| %><return><% end %><esc>/Change<returreturn>
+      nnoremap <silent> ,hfff a<%= form.fields_for(:Change) do \|sub_form\| %><return><% end %><esc>/Change<return>
+      inoremap <silent> ,hfff <%= form.fields_for(:Change) do \|sub_form\| %><return><% end %><esc>/Change<return>
 
     " html partials
       " Html Partial BAsic
-      nnoremap <silent> ,hpba a<%= render(partial: 'Change', locals: { Change }) %><esc>/Change<returreturn>
-      inoremap <silent> ,hpba <%= render(partial: 'Change', locals: { Change }) %><esc>/Change<returreturn>
+      nnoremap <silent> ,hpba a<%= render(partial: 'Change', locals: { Change }) %><esc>/Change<return>
+      inoremap <silent> ,hpba <%= render(partial: 'Change', locals: { Change }) %><esc>/Change<return>
       " Html Partial No Locals
-      nnoremap <silent> ,hpnl a<%= render(partial: 'Change') %><esc>/Change<returreturn>
-      inoremap <silent> ,hpnl <%= render(partial: 'Change') %><esc>/Change<returreturn>
+      nnoremap <silent> ,hpnl a<%= render(partial: 'Change') %><esc>/Change<return>
+      inoremap <silent> ,hpnl <%= render(partial: 'Change') %><esc>/Change<return>
 
   " ruby mappings 
     
@@ -298,69 +299,69 @@
     " Rails Routes 
       " main routes
         " Rails Routes NAmespace
-        nnoremap <silent> ,rrna anamespace :Change do<return>end<esc>/Change<returreturn>
-        inoremap <silent> ,rrna namespace :Change do<return>end<esc>/Change<returreturn>
+        nnoremap <silent> ,rrna anamespace :Change do<return>end<esc>/Change<return>
+        inoremap <silent> ,rrna namespace :Change do<return>end<esc>/Change<return>
         " Rails Routes REsources
-        nnoremap <silent> ,rrre aresources :Change, only: [:index, :show, :create, :update, :destroy]<esc>/Change<returreturn>
-        inoremap <silent> ,rrre resources :Change, only: [:index, :show, :create, :update, :destroy]<esc>/Change<returreturn>
+        nnoremap <silent> ,rrre aresources :Change, only: [:index, :show, :create, :update, :destroy]<esc>/Change<return>
+        inoremap <silent> ,rrre resources :Change, only: [:index, :show, :create, :update, :destroy]<esc>/Change<return>
         " Rails Routes Resources Nested
-        nnoremap <silent> ,rrrn aget ':id/Change', to: 'Change#index', as: :Change<esc>opost ':id/Change', to: 'Change#create'<esc>oresources :Change, only: [:show, :update, :destroy]<esc>/Change<returreturn>
-        inoremap <silent> ,rrrn aget ':id/Change', to: 'Change#index', as: :Change<esc>opost ':id/Change', to: 'Change#create'<esc>oresources :Change, only: [:show, :update, :destroy]<esc>/Change<returreturn>
+        nnoremap <silent> ,rrrn aget ':id/Change', to: 'Change#index', as: :Change<esc>opost ':id/Change', to: 'Change#create'<esc>oresources :Change, only: [:show, :update, :destroy]<esc>/Change<return>
+        inoremap <silent> ,rrrn aget ':id/Change', to: 'Change#index', as: :Change<esc>opost ':id/Change', to: 'Change#create'<esc>oresources :Change, only: [:show, :update, :destroy]<esc>/Change<return>
         " Rails Routes Get Member
-        nnoremap <silent> ,rrgm aget 'Change/:id/Change', to: 'Change#Change', as: :Change_Change <esc>o# REMEMBER TO MAKE PARENT PLURAL ON INITIAL ARGUMENT AND "TO" BUT SINGULAR ON "AS"<esc>oExample: get 'users/:id/sub_profile', to: 'users#sub_profile', as: :user_subprofile<esc>oThis is because the helper method is pointing to a single user just like the show, edit, update and destroy actions<esc>ocore_user_subprofile_path is appropriate but core_users_subprofile_path is not<esc>/Change<returreturn>
-        inoremap <silent> ,rrgm get 'Change/:id/Change', to: 'Change#Change', as: :Change_Change <esc>o# REMEMBER TO MAKE PARENT PLURAL ON INITIAL ARGUMENT AND "TO" BUT SINGULAR ON "AS"<esc>oExample: get 'users/:id/sub_profile', to: 'users#sub_profile', as: :user_subprofile<esc>oThis is because the helper method is pointing to a single user just like the show, edit, update and destroy actions<esc>ocore_user_subprofile_path is appropriate but core_users_subprofile_path is not<esc>/Change<returreturn>
+        nnoremap <silent> ,rrgm aget 'Change/:id/Change', to: 'Change#Change', as: :Change_Change <esc>o# REMEMBER TO MAKE PARENT PLURAL ON INITIAL ARGUMENT AND "TO" BUT SINGULAR ON "AS"<esc>oExample: get 'users/:id/sub_profile', to: 'users#sub_profile', as: :user_subprofile<esc>oThis is because the helper method is pointing to a single user just like the show, edit, update and destroy actions<esc>ocore_user_subprofile_path is appropriate but core_users_subprofile_path is not<esc>/Change<return>
+        inoremap <silent> ,rrgm get 'Change/:id/Change', to: 'Change#Change', as: :Change_Change <esc>o# REMEMBER TO MAKE PARENT PLURAL ON INITIAL ARGUMENT AND "TO" BUT SINGULAR ON "AS"<esc>oExample: get 'users/:id/sub_profile', to: 'users#sub_profile', as: :user_subprofile<esc>oThis is because the helper method is pointing to a single user just like the show, edit, update and destroy actions<esc>ocore_user_subprofile_path is appropriate but core_users_subprofile_path is not<esc>/Change<return>
         " Rails Routes GEt (for non-restful routes)
-        nnoremap <silent> ,rrge aget 'Change', to: 'Change#Change'<esc>/Change<returreturn>
-        inoremap <silent> ,rrge get 'Change', to: 'Change#Change'<esc>/Change<returreturn>
+        nnoremap <silent> ,rrge aget 'Change', to: 'Change#Change'<esc>/Change<return>
+        inoremap <silent> ,rrge get 'Change', to: 'Change#Change'<esc>/Change<return>
       " other routes 
         "
-        nnoremap <silent> ,rrsc ascope path: :Change, module: :Change, as: :Change do<return>end<esc>/Change<returreturn>
-        inoremap <silent> ,rrsc scope path: :Change, module: :Change, as: :Change do<return>end<esc>/Change<returreturn>
+        nnoremap <silent> ,rrsc ascope path: :Change, module: :Change, as: :Change do<return>end<esc>/Change<return>
+        inoremap <silent> ,rrsc scope path: :Change, module: :Change, as: :Change do<return>end<esc>/Change<return>
         
-        nnoremap <silent> ,rrrl aresources path: :Change, controller: :Change, as: :Change, only: [:index, :show, :create, :update, :destroy]<esc>/Change<returreturn>
-        inoremap <silent> ,rrrl resources path: :Change, controller: :Change, as: :Change, only: [:index, :show, :create, :update, :destroy]<esc>/Change<returreturn>
+        nnoremap <silent> ,rrrl aresources path: :Change, controller: :Change, as: :Change, only: [:index, :show, :create, :update, :destroy]<esc>/Change<return>
+        inoremap <silent> ,rrrl resources path: :Change, controller: :Change, as: :Change, only: [:index, :show, :create, :update, :destroy]<esc>/Change<return>
         
-        nnoremap <silent> ,rrra aresources path: :Change, module: :Change, as: :Change, only: [] do<return>end<esc>/Change<returreturn>
-        inoremap <silent> ,rrra resources path: :Change, module: :Change, as: :Change, only: [] do<return>end<esc>/Change<returreturn>
+        nnoremap <silent> ,rrra aresources path: :Change, module: :Change, as: :Change, only: [] do<return>end<esc>/Change<return>
+        inoremap <silent> ,rrra resources path: :Change, module: :Change, as: :Change, only: [] do<return>end<esc>/Change<return>
         "
         nnoremap <silent> ,rrme amember do<return>end<esc>O <backspace><esc>
         inoremap <silent> ,rrme member do<return>end<esc>O <backspace><esc>
         "
-        nnoremap <silent> ,rrgl aget 'Change', to: 'Change#Change', as: :Change<esc>/Change<returreturn>
-        inoremap <silent> ,rrgl get 'Change', to: 'Change#Change', as: :Change<esc>/Change<returreturn>
+        nnoremap <silent> ,rrgl aget 'Change', to: 'Change#Change', as: :Change<esc>/Change<return>
+        inoremap <silent> ,rrgl get 'Change', to: 'Change#Change', as: :Change<esc>/Change<return>
         "
-        nnoremap <silent> ,rrgn aget ':id/Change', to: 'Change#index', as: :Change<esc>/Change<returreturn>
-        inoremap <silent> ,rrgn get ':id/Change', to: 'Change#index', as: :Change<esc>/Change<returreturn>
+        nnoremap <silent> ,rrgn aget ':id/Change', to: 'Change#index', as: :Change<esc>/Change<return>
+        inoremap <silent> ,rrgn get ':id/Change', to: 'Change#index', as: :Change<esc>/Change<return>
         "
-        nnoremap <silent> ,rrpo apost 'Change', to: 'Change#Change'<esc>/Change<returreturn>
-        inoremap <silent> ,rrpo post 'Change', to: 'Change#Change'<esc>/Change<returreturn>
+        nnoremap <silent> ,rrpo apost 'Change', to: 'Change#Change'<esc>/Change<return>
+        inoremap <silent> ,rrpo post 'Change', to: 'Change#Change'<esc>/Change<return>
         "
-        nnoremap <silent> ,rrpl apost 'Change', to: 'Change#Change', as: :Change<esc>/Change<returreturn>
-        inoremap <silent> ,rrpl post 'Change', to: 'Change#Change', as: :Change<esc>/Change<returreturn>
+        nnoremap <silent> ,rrpl apost 'Change', to: 'Change#Change', as: :Change<esc>/Change<return>
+        inoremap <silent> ,rrpl post 'Change', to: 'Change#Change', as: :Change<esc>/Change<return>
         "
-        nnoremap <silent> ,rrpn apost ':id/Change', to: 'Change#create'<esc>/Change<returreturn>
-        inoremap <silent> ,rrpn post ':id/Change', to: 'Change#create'<esc>/Change<returreturn>
+        nnoremap <silent> ,rrpn apost ':id/Change', to: 'Change#create'<esc>/Change<return>
+        inoremap <silent> ,rrpn post ':id/Change', to: 'Change#create'<esc>/Change<return>
         "
-        nnoremap <silent> ,rrpa apatch 'Change', to: 'Change#Change'<esc>/Change<returreturn>
-        inoremap <silent> ,rrpa patch 'Change', to: 'Change#Change'<esc>/Change<returreturn>
+        nnoremap <silent> ,rrpa apatch 'Change', to: 'Change#Change'<esc>/Change<return>
+        inoremap <silent> ,rrpa patch 'Change', to: 'Change#Change'<esc>/Change<return>
         "
-        nnoremap <silent> ,rrpl apatch 'Change', to: 'Change#Change', as: :Change<esc>/Change<returreturn>
-        inoremap <silent> ,rrpl patch 'Change', to: 'Change#Change', as: :Change<esc>/Change<returreturn>
+        nnoremap <silent> ,rrpl apatch 'Change', to: 'Change#Change', as: :Change<esc>/Change<return>
+        inoremap <silent> ,rrpl patch 'Change', to: 'Change#Change', as: :Change<esc>/Change<return>
         "
-        nnoremap <silent> ,rrde adelete 'Change', to: 'Change#Change'<esc>/Change<returreturn>
-        inoremap <silent> ,rrde delete 'Change', to: 'Change#Change'<esc>/Change<returreturn>
+        nnoremap <silent> ,rrde adelete 'Change', to: 'Change#Change'<esc>/Change<return>
+        inoremap <silent> ,rrde delete 'Change', to: 'Change#Change'<esc>/Change<return>
         "
-        nnoremap <silent> ,rrdl adelete 'Change', to: 'Change#Change', as: :Change<esc>/Change<returreturn>
-        inoremap <silent> ,rrdl delete 'Change', to: 'Change#Change', as: :Change<esc>/Change<returreturn>
+        nnoremap <silent> ,rrdl adelete 'Change', to: 'Change#Change', as: :Change<esc>/Change<return>
+        inoremap <silent> ,rrdl delete 'Change', to: 'Change#Change', as: :Change<esc>/Change<return>
 
     " rails model mappings
       nnoremap <silent> ,rm iHello, World!<esc>
       
     " Rails Controller mappings
       " Rails Controller Strong Params
-      nnoremap <silent> ,rcsp adef Change_params<return>params.require('Change').permit(:Change)<return>end<esc>/Change<returreturn>
+      nnoremap <silent> ,rcsp adef Change_params<return>params.require('Change').permit(:Change)<return>end<esc>/Change<return>
       " Rails Controller Strong params Long
-      nnoremap <silent> ,rcsl adef Change_params<return>params.require('Change').permit(:Change, Change: [], Change: [:Change, Change: [], Change: [:Change]] )<return>end<esc>/Change<returreturn>
+      nnoremap <silent> ,rcsl adef Change_params<return>params.require('Change').permit(:Change, Change: [], Change: [:Change, Change: [], Change: [:Change]] )<return>end<esc>/Change<return>
       
 
   " javascript mappings 
@@ -381,52 +382,52 @@
         nnoremap <silent> ,jqsd a$('[data-Change="Change"]')<esc>/Change<return>
         inoremap <silent> ,jqsd $('[data-Change="Change"]')<esc>/Change<return>
         " Javascript jQiery Document On 
-        nnoremap <silent> ,jqdo a$(document).on('Change', 'Change', {}, function(){})<esc>hi<return><esc>/Change<returreturn>
-        inoremap <silent> ,jqdo $(document).on('Change', 'Change', {}, function(){})<esc>hi<return><esc>/Change<returreturn>
+        nnoremap <silent> ,jqdo a$(document).on('Change', 'Change', {}, function(){})<esc>hi<return><esc>/Change<return>
+        inoremap <silent> ,jqdo $(document).on('Change', 'Change', {}, function(){})<esc>hi<return><esc>/Change<return>
         " Javascript jQiery Document Ready
-        nnoremap <silent> ,jqdr a$(document).ready(function(){<return>Change<return>})<return>$(document).ajaxComplete(function(){<return>Change<return>})<esc>/Change<returreturn>
-        inoremap <silent> ,jqdr $(document).ready(function(){<return>Change<return>})<esc>/Change<returreturn>
+        nnoremap <silent> ,jqdr a$(document).ready(function(){<return>Change<return>})<return>$(document).ajaxComplete(function(){<return>Change<return>})<esc>/Change<return>
+        inoremap <silent> ,jqdr $(document).ready(function(){<return>Change<return>})<esc>/Change<return>
         " Javascript jQiery Document Ajax complete
-        nnoremap <silent> ,jqda a$(document).ajaxComplete(function(){<return>Change<return>})<esc>/Change<returreturn>
-        inoremap <silent> ,jqda $(document).ajaxComplete(function(){<return>Change<return>})<esc>/Change<returreturn>
+        nnoremap <silent> ,jqda a$(document).ajaxComplete(function(){<return>Change<return>})<esc>/Change<return>
+        inoremap <silent> ,jqda $(document).ajaxComplete(function(){<return>Change<return>})<esc>/Change<return>
         " Javascript jQiery Element On 
-        nnoremap <silent> ,jqeo a$(Change).on('Change', function(){})<esc>hi<return><esc>/Change<returreturn>
-        inoremap <silent> ,jqeo $(Change).on('Change', function(){})<esc>hi<return><esc>/Change<returreturn>
+        nnoremap <silent> ,jqeo a$(Change).on('Change', function(){})<esc>hi<return><esc>/Change<return>
+        inoremap <silent> ,jqeo $(Change).on('Change', function(){})<esc>hi<return><esc>/Change<return>
 
     " Javascript Vanilla
         "
-        nnoremap <silent> ,jvif aif (Change) {<return>}<esc>/Change<returreturn>
-        inoremap <silent> ,jvif if (Change) {<return>}<esc>/Change<returreturn>
+        nnoremap <silent> ,jvif aif (Change) {<return>}<esc>/Change<return>
+        inoremap <silent> ,jvif if (Change) {<return>}<esc>/Change<return>
         "
         nnoremap <silent> ,jvel a<space>else {<return>}<esc>O
         inoremap <silent> ,jvel <space>else {<return>}<esc>O
         "
-        nnoremap <silent> ,jvei a<space>else if (Chagnge) {<return>}<esc>/Change<returreturn>
-        inoremap <silent> ,jvei <space>else if (Chagnge) {<return>}<esc>/Change<returreturn>
+        nnoremap <silent> ,jvei a<space>else if (Chagnge) {<return>}<esc>/Change<return>
+        inoremap <silent> ,jvei <space>else if (Chagnge) {<return>}<esc>/Change<return>
         "
-        nnoremap <silent> ,jvfo afor (Change of Change) {<return>}<esc>/Change<returreturn>
-        inoremap <silent> ,jvfo for (Change of Change) {<return>}<esc>/Change<returreturn>
+        nnoremap <silent> ,jvfo afor (Change of Change) {<return>}<esc>/Change<return>
+        inoremap <silent> ,jvfo for (Change of Change) {<return>}<esc>/Change<return>
         " Javascript Vanilla FUnction
-        nnoremap <silent> ,jvfu afunction Change(){<return>}<esc>/Change<returreturn>
-        inoremap <silent> ,jvfu function Change(){<return>}<esc>/Change<returreturn>
+        nnoremap <silent> ,jvfu afunction Change(){<return>}<esc>/Change<return>
+        inoremap <silent> ,jvfu function Change(){<return>}<esc>/Change<return>
 
   " templates
     " controllers
       " Templates Controllers BAse
-        nnoremap <silent> ,tcba :read ../templates/controllers/base_controller.rb<return>ggdd/Change<returreturn>
+        nnoremap <silent> ,tcba :read ../templates/controllers/base_controller.rb<return>ggdd/Change<return>
       " Templates Controllers Show Base
-        nnoremap <silent> ,tcsb :read ../templates/controllers/actions/show_base.rb<return>/Change<returreturn>
+        nnoremap <silent> ,tcsb :read ../templates/controllers/actions/show_base.rb<return>/Change<return>
       " Templates Controllers Show for Tab
-        nnoremap <silent> ,tcst :read ../templates/controllers/actions/show_tab.rb<return>/Change<returreturn>
+        nnoremap <silent> ,tcst :read ../templates/controllers/actions/show_tab.rb<return>/Change<return>
       " Templates Controllers Show tab Router
-        nnoremap <silent> ,tcsr :read ../templates/controllers/actions/show_router.rb<return>/Change<returreturn>
+        nnoremap <silent> ,tcsr :read ../templates/controllers/actions/show_router.rb<return>/Change<return>
 
     " models
       " Templates Models BAse
-        nnoremap <silent> ,tmba :read ../templates/models/models/base_model.rb<return>ggdd/Change<returreturn>
+        nnoremap <silent> ,tmba :read ../templates/models/models/base_model.rb<return>ggdd/Change<return>
       " Templates Models BLank
-        nnoremap <silent> ,tmbl :read ../templates/models/models/blank_model.rb<return>ggdd/Change<returreturn>
+        nnoremap <silent> ,tmbl :read ../templates/models/models/blank_model.rb<return>ggdd/Change<return>
     
     " helpers 
       " Templates Helpers BAse
-        nnoremap <silent> ,thba :read ../templates/helpers/base_helper.rb<return>ggdd/Change<returreturn>
+        nnoremap <silent> ,thba :read ../templates/helpers/base_helper.rb<return>ggdd/Change<return>
