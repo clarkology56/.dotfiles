@@ -1,3 +1,25 @@
+" Summary
+"   misc, one off and edit
+"     HTML 
+"       HTML Elements
+"       HTML Ruby
+"       HTML Forms
+"       HTML Partials
+"     Ruby / Rails
+"       Ruby Inline
+"       Ruby Block
+"       Rails Models
+"       Rails Routes
+"       Rails Controllers
+"     Javascript
+"       Javascript Vanillia
+"       Javascript jQuery
+"     Templates
+"       Templates Models
+"       Templates Controllers
+"       Templates Helpers
+"       
+"   
 " Caps lock in insert mode (press ctrl - ^ to toggle)
   " Execute 'lnoremap x X' and 'lnoremap X x' for each letter a-z.
   for c in range(char2nr('A'), char2nr('Z'))
@@ -160,9 +182,9 @@
       " Html Ruby (erb) EAch
       nnoremap <silent> ,hrea a<% ChangeThisPls.each do <bar>ChangeThisPls<bar> %><return><% end %><esc>/ChangeThisPls<return>
       inoremap <silent> ,hrea <% ChangeThisPls.each do <bar>ChangeThisPls<bar> %><return><% end %>/ChangeThisPls<return>
-      " Html Ruby (erb) Each with index
-      nnoremap <silent> ,hrei a<% ChangeThisPls.each_with_index do <bar>ChangeThisPls, index<bar> do %><return><% end %>/ChangeThisPls<return>
-      inoremap <silent> ,hrei <% ChangeThisPls.each_with_index do <bar>ChangeThisPls, index<bar> do %><return><% end %>/ChangeThisPls<return>
+      " Html Ruby (erb) Each With index
+      nnoremap <silent> ,hrew a<% ChangeThisPls.each_with_index do <bar>ChangeThisPls, index<bar> do %><return><% end %><esc>/ChangeThisPls<return>
+      inoremap <silent> ,hrew <% ChangeThisPls.each_with_index do <bar>ChangeThisPls, index<bar> do %><return><% end %><esc>/ChangeThisPls<return>
       " Html Ruby (erb) ENd
       nnoremap <silent> ,hren a<% end %><esc>
       inoremap <silent> ,hren <% end %><esc>
@@ -190,11 +212,11 @@
       
     " Html Form
       " Html Form WIth
-      nnoremap <silent> ,hfwi a<%= form_with(scope: ChangeThisPls, url: ChangeThisPls, method: :ChangeThisPls) do \|form\| %><esc>o<% end %><esc>/ChangeThisPls<return>
-      inoremap <silent> ,hfwi <%= form_with(scope: ChangeThisPls, url: ChangeThisPls, method: :ChangeThisPls) do \|form\| %><esc>o<% end %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hfwi a<%= form_with(scope: 'ChangeThisPls', url: ChangeThisPls, method: :ChangeThisPls) do \|ChangeThisPls_form\| %><esc>o<% end %><esc>/ChangeThisPls<return>
+      inoremap <silent> ,hfwi <%= form_with(scope: 'ChangeThisPls', url: ChangeThisPls, method: :ChangeThisPls) do \|ChangeThisPls_form\| %><esc>o<% end %><esc>/ChangeThisPls<return>
       " Html Form Full Errors
-      nnoremap <silent> ,hffe a<%= render(partial: 'shared/full_errors', locals: { errors_hash: @ChangeThisPls.errors.messages, ian: false }) %><esc>/ChangeThisPls<return>
-      inoremap <silent> ,hffe <%= render(partial: 'shared/full_errors', locals: { errors_hash: @ChangeThisPls.errors.messages, ian: false }) %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hffe a<%= render(partial: 'shared/full_errors', locals: { errors_hash: ChangeThisPls.errors.messages, ian: false }) %><esc>/ChangeThisPls<return>
+      inoremap <silent> ,hffe <%= render(partial: 'shared/full_errors', locals: { errors_hash: ChangeThisPls.errors.messages, ian: false }) %><esc>/ChangeThisPls<return>
       " Html Form ROw
       nnoremap <silent> ,hfro a<div class="form-row"><esc>o</div><esc>O <backspace><esc>
       inoremap <silent> ,hfro <div class="form-row"><esc>o</div><esc>O <backspace><esc>
@@ -202,77 +224,82 @@
       nnoremap <silent> ,hfgr a<div class="form-group col-12"><esc>o</div><esc>O <backspace><esc>
       inoremap <silent> ,hfgr <div class="form-group col-12"><esc>o</div><esc>O <backspace><esc>
       " Html Form HIdden field
-      nnoremap <silent> ,hfhi a<%= form.hidden_field(:ChangeThisPls, value: @ChangeThisPls.ChangeThisPls) %><esc>/ChangeThisPls<return>
-      inoremap <silent> ,hfhi <%= form.hidden_field(:ChangeThisPls, value: @ChangeThisPls.ChangeThisPls) %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hfhi a<%= ChangeThisPls_form.hidden_field(:ChangeThisPls, value: ChangeThisPls) %><esc>/ChangeThisPls<return>
+      inoremap <silent> ,hfhi <%= ChangeThisPls_form.hidden_field(:ChangeThisPls, value: ChangeThisPls) %><esc>/ChangeThisPls<return>
       " Html Form Hidden field Tag
       nnoremap <silent> ,hfht a<%= hidden_field_tag(:ChangeThisPls, ChangeThisPls) %><esc>/ChangeThisPls<return>
       inoremap <silent> ,hfht <%= hidden_field_tag(:ChangeThisPls, ChangeThisPls) %><esc>/ChangeThisPls<return>
       " Html Form LAbel
-      nnoremap <silent> ,hfla a<%= form.label(:ChangeThisPls, 'ChangeThisPls') %><esc>/ChangeThisPls<return>
-      inoremap <silent> ,hfla <%= form.label(:ChangeThisPls, 'ChangeThisPls') %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hfla a<%= ChangeThisPls_form.label(:ChangeThisPls, 'ChangeThisPls') %><esc>/ChangeThisPls<return>
+      inoremap <silent> ,hfla <%= ChangeThisPls_form.label(:ChangeThisPls, 'ChangeThisPls') %><esc>/ChangeThisPls<return>
       " Html Form Label Block
-      nnoremap <silent> ,hflb a<%= form.label(:ChangeThisPls) do %>ChangeThisPls<% end %><esc>/ChangeThisPls<return>
-      inoremap <silent> ,hflb <%= form.label(:ChangeThisPls) do %>ChangeThisPls<% end %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hflb a<%= ChangeThisPls_form.label(:ChangeThisPls) do %>ChangeThisPls<% end %><esc>/ChangeThisPls<return>
+      inoremap <silent> ,hflb <%= ChangeThisPls_form.label(:ChangeThisPls) do %>ChangeThisPls<% end %><esc>/ChangeThisPls<return>
       " Html Form Label No lable (mainly for styled checkboxes) - in order for
       " rails to leave blank label, have to use block with empty space (" ")
       " otherwise rails will fill content autoamtically
-      nnoremap <silent> ,hfln a<%= form.label(:ChangeThisPls) do %> <% end %><esc>/ChangeThisPls<return>
-      inoremap <silent> ,hfln <%= form.label(:ChangeThisPls) do %> <% end %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hfln a<%= ChangeThisPls_form.label(:ChangeThisPls) do %> <% end %><esc>/ChangeThisPls<return>
+      inoremap <silent> ,hfln <%= ChangeThisPls_form.label(:ChangeThisPls) do %> <% end %><esc>/ChangeThisPls<return>
+      " Html Form Label for Checkboxes
+      nnoremap <silent> ,hflc a<%= ChangeThisPls_form.label(:ChangeThisPls, 'ChangeThisPls', class: "custom-control-label text-wrap") %><esc>/ChangeThisPls<return>
+      inoremap <silent> ,hflc <%= ChangeThisPls_form.label(:ChangeThisPls, 'ChangeThisPls', class: "custom-control-label text-wrap") %><esc>/ChangeThisPls<return>
       " Html Form Text Field
-      nnoremap <silent> ,hftf a<%= form.text_field(:ChangeThisPls, value: @ChangeThisPls.ChangeThisPls, class: 'form-control') %><esc>/ChangeThisPls<return>
-      inoremap <silent> ,hftf <%= form.text_field(:ChangeThisPls, value: @ChangeThisPls.ChangeThisPls, class: 'form-control') %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hftf a<%= ChangeThisPls_form.text_field(:ChangeThisPls, value: ChangeThisPls, class: 'form-control') %><esc>/ChangeThisPls<return>
+      inoremap <silent> ,hftf <%= ChangeThisPls_form.text_field(:ChangeThisPls, value: ChangeThisPls, class: 'form-control') %><esc>/ChangeThisPls<return>
       " Html Form Text Area
-      nnoremap <silent> ,hfta a<%= form.text_area(:ChangeThisPls, value: @ChangeThisPls.ChangeThisPls, class: 'form-control') %><esc>/ChangeThisPls<return>
-      inoremap <silent> ,hfta <%= form.text_area(:ChangeThisPls, value: @ChangeThisPls.ChangeThisPls, class: 'form-control') %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hfta a<%= ChangeThisPls_form.text_area(:ChangeThisPls, value: ChangeThisPls, class: 'form-control') %><esc>/ChangeThisPls<return>
+      inoremap <silent> ,hfta <%= ChangeThisPls_form.text_area(:ChangeThisPls, value: ChangeThisPls, class: 'form-control') %><esc>/ChangeThisPls<return>
       " Html Form Rich Text
-      nnoremap <silent> ,hfrt a<%= form.rich_text_area(:ChangeThisPls, value: @ChangeThisPls.ChangeThisPls, class: 'form-control') %><esc>/ChangeThisPls<return>
-      inoremap <silent> ,hfrt <%= form.rich_text_area(:ChangeThisPls, value: @ChangeThisPls.ChangeThisPls, class: 'form-control') %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hfrt a<%= ChangeThisPls_form.rich_text_area(:ChangeThisPls, value: ChangeThisPls, class: 'form-control') %><esc>/ChangeThisPls<return>
+      inoremap <silent> ,hfrt <%= ChangeThisPls_form.rich_text_area(:ChangeThisPls, value: ChangeThisPls, class: 'form-control') %><esc>/ChangeThisPls<return>
       " Html Form Email Field
-      nnoremap <silent> ,hfef a<%= form.email_field(:ChangeThisPls, value: @ChangeThisPls.ChangeThisPls, class: 'form-control') %><esc>/ChangeThisPls<return>
-      inoremap <silent> ,hfef <%= form.email_field(:ChangeThisPls, value: @ChangeThisPls.ChangeThisPls, class: 'form-control') %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hfef a<%= ChangeThisPls_form.email_field(:ChangeThisPls, value: ChangeThisPls, class: 'form-control') %><esc>/ChangeThisPls<return>
+      inoremap <silent> ,hfef <%= ChangeThisPls_form.email_field(:ChangeThisPls, value: ChangeThisPls, class: 'form-control') %><esc>/ChangeThisPls<return>
       " Html Form Checkbox Wrapper
-      nmap <silent> ,hfcw a<div class="custom-control custom-checkbox"><esc>,o,hfcb<esc>,o,hfln<esc>jo</div><esc>/ChangeThisPls<return>
+      " this is used by by ,hfcs and ,hfci so if you change this yo umight
+      " need to change those as well
+      nmap <silent> ,hfcw a<div class="pr-2 custom-control custom-checkbox"><esc>,o,hfcb<esc>,o,hflc<esc>jo</div><esc>/ChangeThisPls<return>
       " Html Form Checkbox Stacked
-      nmap <silent> ,hfcs a<div class="d-flex"><esc>,o,hfcwcgn1m39dak5<esc>.j,o,hfcwjjo</div><esc>/1m39dak5<return>cgnChangeThisPls<esc>./ChangeThisPls<return>NN
+      nmap <silent> ,hfcs a<div><esc>,o,hfcwcgn1m39dak5<esc>....j,o,hfcwjjo</div><esc>/1m39dak5<return>cgnChangeThisPls<esc>..../ChangeThisPls<return>NNN
       " Html Form Checkbox Inline
-      nmap <silent> ,hfci a<div><esc>,o,hfcwcgn1m39dak5<esc>.j,o,hfcwjjo</div><esc>/1m39dak5<return>cgnChangeThisPls<esc>./ChangeThisPls<return>NN
+      nmap <silent> ,hfci a<div class="d-flex"><esc>,o,hfcwcgn1m39dak5<esc>....j,o,hfcwjjo</div><esc>/1m39dak5<return>cgnChangeThisPls<esc>..../ChangeThisPls<return>NNN
       " Html Form CheckBox
-      nnoremap <silent> ,hfcb a<%= form.check_box(:ChangeThisPls, class: 'custom-control-input') %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hfcb a<%= ChangeThisPls_form.check_box(:ChangeThisPls, class: 'custom-control-input') %><esc>/ChangeThisPls<return>
       " Html Form Checkbox Long
-      nnoremap <silent> ,hfef a<%= form.check_box(:ChangeThisPls, { class: 'custom-control-input' }, ChangeThisPls, false) %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hfcl a<%= ChangeThisPls_form.check_box(:ChangeThisPls, { class: 'custom-control-input' }, ChangeThisPls, false) %><esc>/ChangeThisPls<return>
       " Html Form Password field
-      nnoremap <silent> ,hfpf a<%= form.password_field(:password, class: 'form-control') %><esc>/ChangeThisPls<return>
-      inoremap <silent> ,hfpf <%= form.password_field(:password, class: 'form-control') %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hfpf a<%= ChangeThisPls_form.password_field(:password, class: 'form-control') %><esc>/ChangeThisPls<return>
+      inoremap <silent> ,hfpf <%= ChangeThisPls_form.password_field(:password, class: 'form-control') %><esc>/ChangeThisPls<return>
       " Html Form Password Confirmation
-      nnoremap <silent> ,hfpc a<%= form.password_field(:password_confirmation, class: 'form-control') %><esc>/ChangeThisPls<return>
-      inoremap <silent> ,hfpc <%= form.password_field(:password_confirmation, class: 'form-control') %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hfpc a<%= ChangeThisPls_form.password_field(:password_confirmation, class: 'form-control') %><esc>/ChangeThisPls<return>
+      inoremap <silent> ,hfpc <%= ChangeThisPls_form.password_field(:password_confirmation, class: 'form-control') %><esc>/ChangeThisPls<return>
       " Html Form SElect
-      nnoremap <silent> ,hfse a<%= form.select(:ChangeThisPls , [], { include_blank: "Select" }, { class: 'form-control' }) %><esc>/ChangeThisPls<return>
-      inoremap <silent> ,hfse <%= form.select(:ChangeThisPls , [], { include_blank: "Select" }, { class: 'form-control' }) %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hfse a<%= ChangeThisPls_form.select(:ChangeThisPls , [], { include_blank: "Select" }, { class: 'form-control' }) %><esc>/ChangeThisPls<return>
+      inoremap <silent> ,hfse <%= ChangeThisPls_form.select(:ChangeThisPls , [], { include_blank: "Select" }, { class: 'form-control' }) %><esc>/ChangeThisPls<return>
       " Html Form Select Options for select
-      nnoremap <silent> ,hfso a<%= form.select(:ChangeThisPls , options_for_select(ChangeThisPls, @ChangeThisPls.ChangeThisPls), { include_blank: "Select" }, { class: 'form-control' }) %><esc>/ChangeThisPls<return>
-      inoremap <silent> ,hfso <%= form.select(:ChangeThisPls , options_for_select(ChangeThisPls, @ChangeThisPls.ChangeThisPls), { include_blank: "Select" }, { class: 'form-control' }) %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hfso a<%= ChangeThisPls_form.select(:ChangeThisPls , options_for_select(ChangeThisPls, ChangeThisPls.ChangeThisPls), { include_blank: "Select" }, { class: 'form-control' }) %><esc>/ChangeThisPls<return>
+      inoremap <silent> ,hfso <%= ChangeThisPls_form.select(:ChangeThisPls , options_for_select(ChangeThisPls, ChangeThisPls.ChangeThisPls), { include_blank: "Select" }, { class: 'form-control' }) %><esc>/ChangeThisPls<return>
       " Html Form Select Grouped options for select
-      nnoremap <silent> ,hfsg a<%= form.select(:ChangeThisPls , grouped_options_for_select(ChangeThisPls, @ChangeThisPls.ChangeThisPls), { include_blank: "Select" }, { class: 'form-control' }) %><esc>/ChangeThisPls<return>
-      inoremap <silent> ,hfsg <%= form.select(:ChangeThisPls , grouped_options_for_select(ChangeThisPls, @ChangeThisPls.ChangeThisPls), { include_blank: "Select" }, { class: 'form-control' }) %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hfsg a<%= ChangeThisPls_form.select(:ChangeThisPls , grouped_options_for_select(ChangeThisPls, ChangeThisPls.ChangeThisPls), { include_blank: "Select" }, { class: 'form-control' }) %><esc>/ChangeThisPls<return>
+      inoremap <silent> ,hfsg <%= ChangeThisPls_form.select(:ChangeThisPls , grouped_options_for_select(ChangeThisPls, ChangeThisPls.ChangeThisPls), { include_blank: "Select" }, { class: 'form-control' }) %><esc>/ChangeThisPls<return>
       " Html Form Select Block
-      nnoremap <silent> ,hfsb a<%= form.select(:ChangeThisPls , [], { include_blank: "Select" }, { class: 'form-control' }) do %><esc>o<% end %><esc>/ChangeThisPls<return>
-      inoremap <silent> ,hfsb <%= form.select(:ChangeThisPls , [], { include_blank: "Select" }, { class: 'form-control' }) do %><esc>o<% end %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hfsb a<%= ChangeThisPls_form.select(:ChangeThisPls , [], { include_blank: "Select" }, { class: 'form-control' }) do %><esc>o<% end %><esc>/ChangeThisPls<return>
+      inoremap <silent> ,hfsb <%= ChangeThisPls_form.select(:ChangeThisPls , [], { include_blank: "Select" }, { class: 'form-control' }) do %><esc>o<% end %><esc>/ChangeThisPls<return>
       " Html Form OPtion
       nnoremap <silent> ,hfop a<option <%= "selected='true'" if ChangeThisPls %> value="<%= ChangeThisPls %>">ChangeThisPls</option><esc>/ChangeThisPls<return>
       inoremap <silent> ,hfop <option <%= "selected='true'" if ChangeThisPls %> value="<%= ChangeThisPls %>">ChangeThisPls</option><esc>/ChangeThisPls<return>
       " Html Form Inline Errors
-      nnoremap <silent> ,hfie a<%= render(partial: 'shared/inline_errors', locals: { errors_hash: @ChangeThisPls.errors.messages, attribute: :ChangeThisPls, ian: false }) %><esc>/ChangeThisPls<return>
-      inoremap <silent> ,hfie <%= render(partial: 'shared/inline_errors', locals: { errors_hash: @ChangeThisPls.errors.messages, attribute: :ChangeThisPls, ian: false }) %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hfie a<%= render(partial: 'shared/inline_errors', locals: { errors_hash: ChangeThisPls.errors.messages, attribute: :ChangeThisPls, ian: false }) %><esc>/ChangeThisPls<return>
+      inoremap <silent> ,hfie <%= render(partial: 'shared/inline_errors', locals: { errors_hash: ChangeThisPls.errors.messages, attribute: :ChangeThisPls, ian: false }) %><esc>/ChangeThisPls<return>
       " Html Form SUbmit
-      nnoremap <silent> ,hfsu a<%= form.submit(:ChangeThisPls, class: 'btn btn-ChangeThisPls') %><esc>/ChangeThisPls<return>
-      inoremap <silent> ,hfsu <%= form.submit(:ChangeThisPls, class: 'btn btn-ChangeThisPls') %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hfsu a<%= ChangeThisPls_form.submit(:ChangeThisPls, class: 'btn btn-ChangeThisPls') %><esc>/ChangeThisPls<return>
+      inoremap <silent> ,hfsu <%= ChangeThisPls_form.submit(:ChangeThisPls, class: 'btn btn-ChangeThisPls') %><esc>/ChangeThisPls<return>
       " Html Form CUstom Field
-      nnoremap <silent> ,hfcu a<%= form.ChangeThisPls(:ChangeThisPls, class: 'form-control') %><esc>/ChangeThisPls<return>
-      inoremap <silent> ,hfcu <%= form.ChangeThisPls(:ChangeThisPls, class: 'form-control') %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hfcu a<%= ChangeThisPls_form.ChangeThisPls(:ChangeThisPls, class: 'form-control') %><esc>/ChangeThisPls<return>
+      inoremap <silent> ,hfcu <%= ChangeThisPls_form.ChangeThisPls(:ChangeThisPls, class: 'form-control') %><esc>/ChangeThisPls<return>
       " Html Form Fields For
-      nnoremap <silent> ,hfff a<%= form.fields_for(:ChangeThisPls) do \|sub_form\| %><return><% end %><esc>/ChangeThisPls<return>
-      inoremap <silent> ,hfff <%= form.fields_for(:ChangeThisPls) do \|sub_form\| %><return><% end %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hfff a<%= ChangeThisPls_form.fields_for(:ChangeThisPls) do \|ChangeThisPls_form\| %><return><% end %><esc>/ChangeThisPls<return>
+      inoremap <silent> ,hfff <%= ChangeThisPls_form.fields_for(:ChangeThisPls) do \|ChangeThisPls_form\| %><return><% end %><esc>/ChangeThisPls<return>
 
     " html partials
       " Html Partial BAsic
@@ -297,6 +324,9 @@
       inoremap <silent> ,rbdo do<return>end<esc>O
 
   " Rails mappings 
+    " rails model mappings
+      nnoremap <silent> ,rmxx iHello, World!<esc>
+      
     " Rails Routes 
       " main routes
         " Rails Routes NAmespace
@@ -355,9 +385,6 @@
         nnoremap <silent> ,rrdl adelete 'ChangeThisPls', to: 'ChangeThisPls#ChangeThisPls', as: :ChangeThisPls<esc>/ChangeThisPls<return>
         inoremap <silent> ,rrdl delete 'ChangeThisPls', to: 'ChangeThisPls#ChangeThisPls', as: :ChangeThisPls<esc>/ChangeThisPls<return>
 
-    " rails model mappings
-      nnoremap <silent> ,rm iHello, World!<esc>
-      
     " Rails Controller mappings
       " Rails Controller Strong Params
       nnoremap <silent> ,rcsp adef ChangeThisPls_params<return>params.require('ChangeThisPls').permit(:ChangeThisPls)<return>end<esc>/ChangeThisPls<return>
@@ -366,6 +393,22 @@
       
 
   " javascript mappings 
+    " Javascript Vanilla
+        nnoremap <silent> ,jvif aif (ChangeThisPls) {<return>}<esc>/ChangeThisPls<return>
+        inoremap <silent> ,jvif if (ChangeThisPls) {<return>}<esc>/ChangeThisPls<return>
+        "
+        nnoremap <silent> ,jvel a<space>else {<return>}<esc>O
+        inoremap <silent> ,jvel <space>else {<return>}<esc>O
+        "
+        nnoremap <silent> ,jvei a<space>else if (Chagnge) {<return>}<esc>/ChangeThisPls<return>
+        inoremap <silent> ,jvei <space>else if (Chagnge) {<return>}<esc>/ChangeThisPls<return>
+        "
+        nnoremap <silent> ,jvfo afor (ChangeThisPls of ChangeThisPls) {<return>}<esc>/ChangeThisPls<return>
+        inoremap <silent> ,jvfo for (ChangeThisPls of ChangeThisPls) {<return>}<esc>/ChangeThisPls<return>
+        " Javascript Vanilla FUnction
+        nnoremap <silent> ,jvfu afunction ChangeThisPls(){<return>}<esc>/ChangeThisPls<return>
+        inoremap <silent> ,jvfu function ChangeThisPls(){<return>}<esc>/ChangeThisPls<return>
+
     " Javascript jQuery   
         " Javascript jQiery SElect
         nnoremap <silent> ,jqse a$()<esc>i
@@ -395,24 +438,14 @@
         nnoremap <silent> ,jqeo a$(ChangeThisPls).on('ChangeThisPls', function(){})<esc>hi<return><esc>/ChangeThisPls<return>
         inoremap <silent> ,jqeo $(ChangeThisPls).on('ChangeThisPls', function(){})<esc>hi<return><esc>/ChangeThisPls<return>
 
-    " Javascript Vanilla
-        "
-        nnoremap <silent> ,jvif aif (ChangeThisPls) {<return>}<esc>/ChangeThisPls<return>
-        inoremap <silent> ,jvif if (ChangeThisPls) {<return>}<esc>/ChangeThisPls<return>
-        "
-        nnoremap <silent> ,jvel a<space>else {<return>}<esc>O
-        inoremap <silent> ,jvel <space>else {<return>}<esc>O
-        "
-        nnoremap <silent> ,jvei a<space>else if (Chagnge) {<return>}<esc>/ChangeThisPls<return>
-        inoremap <silent> ,jvei <space>else if (Chagnge) {<return>}<esc>/ChangeThisPls<return>
-        "
-        nnoremap <silent> ,jvfo afor (ChangeThisPls of ChangeThisPls) {<return>}<esc>/ChangeThisPls<return>
-        inoremap <silent> ,jvfo for (ChangeThisPls of ChangeThisPls) {<return>}<esc>/ChangeThisPls<return>
-        " Javascript Vanilla FUnction
-        nnoremap <silent> ,jvfu afunction ChangeThisPls(){<return>}<esc>/ChangeThisPls<return>
-        inoremap <silent> ,jvfu function ChangeThisPls(){<return>}<esc>/ChangeThisPls<return>
 
   " templates
+    " models
+      " Templates Models BAse
+        nnoremap <silent> ,tmba :read ../templates/models/models/base_model.rb<return>ggdd/ChangeThisPls<return>
+      " Templates Models BLank
+        nnoremap <silent> ,tmbl :read ../templates/models/models/blank_model.rb<return>ggdd/ChangeThisPls<return>
+    
     " controllers
       " Templates Controllers BAse
         nnoremap <silent> ,tcba :read ../templates/controllers/base_controller.rb<return>ggdd/ChangeThisPls<return>
@@ -423,12 +456,6 @@
       " Templates Controllers Show tab Router
         nnoremap <silent> ,tcsr :read ../templates/controllers/actions/show_router.rb<return>/ChangeThisPls<return>
 
-    " models
-      " Templates Models BAse
-        nnoremap <silent> ,tmba :read ../templates/models/models/base_model.rb<return>ggdd/ChangeThisPls<return>
-      " Templates Models BLank
-        nnoremap <silent> ,tmbl :read ../templates/models/models/blank_model.rb<return>ggdd/ChangeThisPls<return>
-    
     " helpers 
       " Templates Helpers BAse
         nnoremap <silent> ,thba :read ../templates/helpers/base_helper.rb<return>ggdd/ChangeThisPls<return>
