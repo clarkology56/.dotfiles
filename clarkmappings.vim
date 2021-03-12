@@ -1,23 +1,26 @@
 " Summary
-"   misc, one off and edit
-"     HTML 
-"       HTML Elements
-"       HTML Ruby
-"       HTML Forms
-"       HTML Partials
-"     Ruby / Rails
-"       Ruby Inline
-"       Ruby Block
-"       Rails Models
-"       Rails Routes
-"       Rails Controllers
-"     Javascript
-"       Javascript Vanillia
-"       Javascript jQuery
-"     Templates
-"       Templates Models
-"       Templates Controllers
-"       Templates Helpers
+"   [some random one off stuff]
+"   One key comma (o, v, comments)
+"   Misc
+"   Edit
+"   HTML 
+"     HTML Elements
+"     HTML Ruby
+"     HTML Forms
+"     HTML Partials
+"   Ruby / Rails
+"     Ruby Inline
+"     Ruby Block
+"     Rails Models
+"     Rails Routes
+"     Rails Controllers
+"   Javascript
+"     Javascript Vanillia
+"     Javascript jQuery
+"   Templates
+"     Templates Models
+"     Templates Controllers
+"     Templates Helpers
 "       
 "   
 " Caps lock in insert mode (press ctrl - ^ to toggle)
@@ -43,19 +46,25 @@
 
   " comma + single key mappings
     nnoremap <silent> ,o o <backspace><esc>
-    nnoremap <silent> ,O O <backspace><esc>
+    nnoremap <silent> ,O O <backspace><esc>comments)
+    nnoremap <silent> ,v V
     nnoremap <silent> ,# I# <esc>0
     nnoremap <silent> ,,# I<delete><delete><esc>0
     nnoremap <silent> ,// I// <esc>0
     nnoremap <silent> ,,// I<delete><delete><delete><esc>0
     nnoremap <silent> ,/* O/*<esc>o*/<esc>Vx0
     nnoremap <silent> ,< O<!--<esc>o--><esc>Vx0
+    "nnoremap <silent> 
 
   " Misc. mapping
     " Misc. Reload Source
     nnoremap <silent> ,mrs :so ~/.dotfiles/clarkmappings.vim<return>
     " Misc. Puts Helper
     nnoremap <silent> ,mph aputs 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts nil<return><esc>
+    " go to end
+    nnoremap <silent> ,mll $
+    " got to beginning
+    nnoremap <silent> ,mhh ^
 
 
   " Edit mappings
@@ -80,14 +89,15 @@
     "
     nmap <silent> ,ejo <space>fT/app<return><return>/jobs<return><return><esc>:noh<return>
     nnoremap <silent> ,cjo :edit app/jobs/
-    "
+    " Edit app/MAilers
     nmap <silent> ,ema <space>fT/app<return><return>/mailers<return><return><esc>:noh<return>
     nnoremap <silent> ,cma :edit app/mailers/
-    "
+    " Edit app/MOddels
     nmap <silent> ,emo <space>fT/app<return><return>/models<return><return><esc>:noh<return>
     nnoremap <silent> ,cmo :edit app/models/
+    " Edit app/mddels/ABility.rb
+    nmap <silent> ,eab <space>fT/app<return><return>/models<return><return>/ability.rb<return><return><esc>:noh<return>
     "
-
     nmap <silent> ,evi <space>fT/app<return><return>/views<return><return><esc>:noh<return>
     nnoremap <silent> ,cvi :edit app/views/
     "
@@ -260,9 +270,9 @@
       " need to change those as well
       nmap <silent> ,hfcw a<div class="pr-2 custom-control custom-checkbox"><esc>,o,hfcb<esc>,o,hflc<esc>jo</div><esc>/ChangeThisPls<return>
       " Html Form Checkbox Stacked
-      nmap <silent> ,hfcs a<div><esc>,o,hfcwcgn1m39dak5<esc>....j,o,hfcwjjo</div><esc>/1m39dak5<return>cgnChangeThisPls<esc>..../ChangeThisPls<return>NNN
+      nmap <silent> ,hfcs a<div><esc>,o,hfcwcxr1m39dak5<esc>....j,o,hfcwjjo</div><esc>/1m39dak5<return>cgnChangeThisPls<esc>..../ChangeThisPls<return>NNN
       " Html Form Checkbox Inline
-      nmap <silent> ,hfci a<div class="d-flex"><esc>,o,hfcwcgn1m39dak5<esc>....j,o,hfcwjjo</div><esc>/1m39dak5<return>cgnChangeThisPls<esc>..../ChangeThisPls<return>NNN
+      nmap <silent> ,hfci a<div class="d-flex"><esc>,o,hfcwcxr1m39dak5<esc>....j,o,hfcwjjo</div><esc>/1m39dak5<return>cgnChangeThisPls<esc>..../ChangeThisPls<return>NNN
       " Html Form CheckBox
       nnoremap <silent> ,hfcb a<%= ChangeThisPls_form.check_box(:ChangeThisPls, class: 'custom-control-input') %><esc>/ChangeThisPls<return>
       " Html Form Checkbox Long
@@ -311,21 +321,34 @@
 
   " ruby mappings 
     
-    " ruby inline
-      nnoremap <silent> ,riea a.each { <bar><bar>  }<esc>hhhi
-      inoremap <silent> ,riea .each { <bar><bar>  }<esc>hhhi
-      nnoremap <silent> ,rima a.map { <bar><bar>  }<esc>hhhi
-      inoremap <silent> ,rima .map { <bar><bar>  }<esc>hhhi
    
-    " ruby blocks
+    " ruby basics
+      nnoremap <silent> ,rbeb a.each { <bar><bar>  }<esc>hhhi
+      inoremap <silent> ,rbeb .each { <bar><bar>  }<esc>hhhi
+
+      nnoremap <silent> ,rbmb a.map { <bar><bar>  }<esc>hhhi
+      inoremap <silent> ,rbmb .map { <bar><bar>  }<esc>hhhi
+
       nnoremap <silent> ,rbde adef <esc>oend<esc>kla
       inoremap <silent> ,rbde def <esc>oend<esc>kla
+
       nnoremap <silent> ,rbdo ado<return>end<esc>O
       inoremap <silent> ,rbdo do<return>end<esc>O
+      " Ruby Basics Can Model based
+      nnoremap <silent> ,rbcm acan?(:ChangeThisPls, @ChangeThisPls)<esc>/ChangeThisPls<return>
+      " Ruby Basics Can Non-mmodel Model based
+      nnoremap <silent> ,rbcn acan?(:ChangeThisPls, :ChangeThisPls)<esc>/ChangeThisPls<return>
 
   " Rails mappings 
     " rails model mappings
+      " Rails Models XX
       nnoremap <silent> ,rmxx iHello, World!<esc>
+      " Rails Models Can Model based
+      nnoremap <silent> ,rmcm acan [:ChangeThisPls], ChangeThisPls::ChangeThisPls, ChangeThisPls:{ ChangeThisPls: user.ChangeThisPls }<esc>/ChangeThisPls<enter>
+      " Rails Models Can Model based Long
+      nnoremap <silent> ,rmcl acan [:ChangeThisPls], ChangeThisPls::ChangeThisPls, ChangeThisPls:{ ChangeThisPls: user.ChangeThisPls, ChangeThisPls: { ChangeThisPls: ChangeThisPls::ChangeThisPls.where(ChangeThisPls: ChangeThisPls).ChangeThisPls } }<esc>/ChangeThisPls<enter>
+      " Rails Models Can Non-model based
+      nnoremap <silent> ,rmcn acan [:ChangeThisPls], :ChangeThisPls<esc>/ChangeThisPls<enter>
       
     " Rails Routes 
       " main routes
@@ -333,11 +356,11 @@
         nnoremap <silent> ,rrna anamespace :ChangeThisPls do<return>end<esc>/ChangeThisPls<return>
         inoremap <silent> ,rrna namespace :ChangeThisPls do<return>end<esc>/ChangeThisPls<return>
         " Rails Routes REsources
-        nnoremap <silent> ,rrre aresources :ChangeThisPls, only: [:index, :show, :create, :update, :destroy]<esc>/ChangeThisPls<return>
-        inoremap <silent> ,rrre resources :ChangeThisPls, only: [:index, :show, :create, :update, :destroy]<esc>/ChangeThisPls<return>
+        nnoremap <silent> ,rrre aresources :ChangeThisPls, only %i[index show create update destroy]<esc>/ChangeThisPls<return>
+        inoremap <silent> ,rrre resources :ChangeThisPls, only %i[index show create update destroy]<esc>/ChangeThisPls<return>
         " Rails Routes Resources Nested
-        nnoremap <silent> ,rrrn aget ':id/ChangeThisPls', to: 'ChangeThisPls#index', as: :ChangeThisPls<esc>opost ':id/ChangeThisPls', to: 'ChangeThisPls#create'<esc>oresources :ChangeThisPls, only: [:show, :update, :destroy]<esc>/ChangeThisPls<return>
-        inoremap <silent> ,rrrn aget ':id/ChangeThisPls', to: 'ChangeThisPls#index', as: :ChangeThisPls<esc>opost ':id/ChangeThisPls', to: 'ChangeThisPls#create'<esc>oresources :ChangeThisPls, only: [:show, :update, :destroy]<esc>/ChangeThisPls<return>
+        nnoremap <silent> ,rrrn aget ':id/ChangeThisPls', to: 'ChangeThisPls#index', as: :ChangeThisPls<esc>opost ':id/ChangeThisPls', to: 'ChangeThisPls#create'<esc>oresources :ChangeThisPls, only %i[show update destroy]<esc>/ChangeThisPls<return>
+        inoremap <silent> ,rrrn aget ':id/ChangeThisPls', to: 'ChangeThisPls#index', as: :ChangeThisPls<esc>opost ':id/ChangeThisPls', to: 'ChangeThisPls#create'<esc>oresources :ChangeThisPls, only %i[show update destroy]<esc>/ChangeThisPls<return>
         " Rails Routes Get Member
         nnoremap <silent> ,rrgm aget 'ChangeThisPls/:id/ChangeThisPls', to: 'ChangeThisPls#ChangeThisPls', as: :ChangeThisPls_ChangeThisPls <esc>o# REMEMBER TO MAKE PARENT PLURAL ON INITIAL ARGUMENT AND "TO" BUT SINGULAR ON "AS"<esc>oExample: get 'users/:id/sub_profile', to: 'users#sub_profile', as: :user_subprofile<esc>oThis is because the helper method is pointing to a single user just like the show, edit, update and destroy actions<esc>ocore_user_subprofile_path is appropriate but core_users_subprofile_path is not<esc>/ChangeThisPls<return>
         inoremap <silent> ,rrgm get 'ChangeThisPls/:id/ChangeThisPls', to: 'ChangeThisPls#ChangeThisPls', as: :ChangeThisPls_ChangeThisPls <esc>o# REMEMBER TO MAKE PARENT PLURAL ON INITIAL ARGUMENT AND "TO" BUT SINGULAR ON "AS"<esc>oExample: get 'users/:id/sub_profile', to: 'users#sub_profile', as: :user_subprofile<esc>oThis is because the helper method is pointing to a single user just like the show, edit, update and destroy actions<esc>ocore_user_subprofile_path is appropriate but core_users_subprofile_path is not<esc>/ChangeThisPls<return>
@@ -349,11 +372,11 @@
         nnoremap <silent> ,rrsc ascope path: :ChangeThisPls, module: :ChangeThisPls, as: :ChangeThisPls do<return>end<esc>/ChangeThisPls<return>
         inoremap <silent> ,rrsc scope path: :ChangeThisPls, module: :ChangeThisPls, as: :ChangeThisPls do<return>end<esc>/ChangeThisPls<return>
         
-        nnoremap <silent> ,rrrl aresources path: :ChangeThisPls, controller: :ChangeThisPls, as: :ChangeThisPls, only: [:index, :show, :create, :update, :destroy]<esc>/ChangeThisPls<return>
-        inoremap <silent> ,rrrl resources path: :ChangeThisPls, controller: :ChangeThisPls, as: :ChangeThisPls, only: [:index, :show, :create, :update, :destroy]<esc>/ChangeThisPls<return>
+        nnoremap <silent> ,rrrl aresources path: :ChangeThisPls, controller: :ChangeThisPls, as: :ChangeThisPls, only %i[index show create update destroy]<esc>/ChangeThisPls<return>
+        inoremap <silent> ,rrrl resources path: :ChangeThisPls, controller: :ChangeThisPls, as: :ChangeThisPls, only %i[index show create update destroy]<esc>/ChangeThisPls<return>
         
-        nnoremap <silent> ,rrra aresources path: :ChangeThisPls, module: :ChangeThisPls, as: :ChangeThisPls, only: [] do<return>end<esc>/ChangeThisPls<return>
-        inoremap <silent> ,rrra resources path: :ChangeThisPls, module: :ChangeThisPls, as: :ChangeThisPls, only: [] do<return>end<esc>/ChangeThisPls<return>
+        nnoremap <silent> ,rrra aresources path: :ChangeThisPls, module: :ChangeThisPls, as: :ChangeThisPls, only %i[] do<return>end<esc>/ChangeThisPls<return>
+        inoremap <silent> ,rrra resources path: :ChangeThisPls, module: :ChangeThisPls, as: :ChangeThisPls, only %i[] do<return>end<esc>/ChangeThisPls<return>
         "
         nnoremap <silent> ,rrme amember do<return>end<esc>O <backspace><esc>
         inoremap <silent> ,rrme member do<return>end<esc>O <backspace><esc>
@@ -390,6 +413,10 @@
       nnoremap <silent> ,rcsp adef ChangeThisPls_params<return>params.require('ChangeThisPls').permit(:ChangeThisPls)<return>end<esc>/ChangeThisPls<return>
       " Rails Controller Strong params Long
       nnoremap <silent> ,rcsl adef ChangeThisPls_params<return>params.require('ChangeThisPls').permit(:ChangeThisPls, ChangeThisPls: [], ChangeThisPls: [:ChangeThisPls, ChangeThisPls: [], ChangeThisPls: [:ChangeThisPls]] )<return>end<esc>/ChangeThisPls<return>
+      " Rails Controller Authorize Model based
+      nnoremap <silent> ,rcam aauthorize!(:cgn, @cgn)<esc>/ChangeThisPls<return>
+      " Rails Controller Authorize Non-model based
+      nnoremap <silent> ,rcan aauthorize!(:cgn, :cgn)<esc>/ChangeThisPls<return>
       
 
   " javascript mappings 
@@ -458,4 +485,7 @@
 
     " helpers 
       " Templates Helpers BAse
-        nnoremap <silent> ,thba :read ../templates/helpers/base_helper.rb<return>ggdd/ChangeThisPls<return>
+      nnoremap <silent> ,thba :read ../templates/helpers/base_helper.rb<return>ggdd/ChangeThisPls<return>
+    " Views
+      " Templates Views PA
+      nnoremap <silent> ,tvpa :read ../templates/views/page_frame/pages.html.erb<return>ggdd/ChangeThisPls<return>
