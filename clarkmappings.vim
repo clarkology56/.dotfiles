@@ -430,6 +430,10 @@
       nnoremap <silent> ,rcam aauthorize!(:cgn, @cgn)<esc>/ChangeThisPls<return>
       " Rails Controller Authorize Non-model based
       nnoremap <silent> ,rcan aauthorize!(:cgn, :cgn)<esc>/ChangeThisPls<return>
+      " Rails Controller REnder
+      nnoremap <silent> ,rcre arender 'ChangeThisPls'<esc>/ChangeThisPls<return>
+      " Rails Controller Redirect To
+      nnoremap <silent> ,rcrt aredirect_to ChangeThisPls<esc>/ChangeThisPls<return>
       
 
   " javascript mappings 
