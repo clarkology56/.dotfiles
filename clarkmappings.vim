@@ -1,6 +1,6 @@
 " Summary
 "   [some random one off stuff]
-"   One key comma (o, v, comments)
+"   One key comma (o, comments)
 "   Misc
 "   Edit
 "   HTML 
@@ -47,7 +47,6 @@
   " comma + single key mappings
     nnoremap <silent> ,o o <backspace><esc>
     nnoremap <silent> ,O O <backspace><esc>comments)
-    nnoremap <silent> ,v V
     nnoremap <silent> ,# I# <esc>0
     nnoremap <silent> ,,# I<delete><delete><esc>0
     nnoremap <silent> ,// I// <esc>0
@@ -60,7 +59,7 @@
     " Misc. Reload Source
     nnoremap <silent> ,mrs :so ~/.dotfiles/clarkmappings.vim<return>
     " Misc. Puts Helper
-    nnoremap <silent> ,mph aputs 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts nil<return><esc>
+    nnoremap <silent> ,mph aputs 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts nil<return>puts ChangeThisPls<esc>/ChangeThisPls<return>
     " go to end
     nnoremap <silent> ,mll $
     " got to beginning
@@ -323,11 +322,25 @@
     
    
     " ruby basics
-      nnoremap <silent> ,rbeb a.each { <bar><bar>  }<esc>hhhi
-      inoremap <silent> ,rbeb .each { <bar><bar>  }<esc>hhhi
-
-      nnoremap <silent> ,rbmb a.map { <bar><bar>  }<esc>hhhi
-      inoremap <silent> ,rbmb .map { <bar><bar>  }<esc>hhhi
+      " Ruby Basics Each Inline
+      nnoremap <silent> ,rbei a.each { <bar><bar>  }<esc>hhhi
+      inoremap <silent> ,rbei .each { <bar><bar>  }<esc>hhhi
+      " Ruby Basics Each Block 
+      nnoremap <silent> ,rbeb a.each do \|ChangeThisPls\|<return>end<esc>/ChangeThisPls<return>
+      inoremap <silent> ,rbeb .each do \|ChangeThisPls\|<return>end<esc>/ChangeThisPls<return>
+      " Ruby Basics Map Inline
+      nnoremap <silent> ,rbmi a.map { <bar><bar>  }<esc>hhhi
+      inoremap <silent> ,rbmi .map { <bar><bar>  }<esc>hhhi
+      " Ruby Basics Map Block 
+      nnoremap <silent> ,rbmb a.map do \|ChangeThisPls\|<return>end<esc>/ChangeThisPls<return>
+      " Ruby Basics IF
+      nnoremap <silent> ,rbif aif ChangeThisPls<return>end<esc>/ChangeThisPls<return>
+      " Ruby Basics If Else
+      nnoremap <silent> ,rbie aif ChangeThisPls<return>else<return>end<esc>/ChangeThisPls<return>
+      " Ruby Basics ELse
+      nnoremap <silent> ,rbel aelse<return>
+      " Ruby Basics ElsIf
+      nnoremap <silent> ,rbei aelsif ChangeThisPls<esc>/ChangeThisPls<return>
 
       nnoremap <silent> ,rbde adef <esc>oend<esc>kla
       inoremap <silent> ,rbde def <esc>oend<esc>kla
@@ -421,14 +434,16 @@
 
   " javascript mappings 
     " Javascript Vanilla
+        " Javascript Vanilla IF
         nnoremap <silent> ,jvif aif (ChangeThisPls) {<return>}<esc>/ChangeThisPls<return>
         inoremap <silent> ,jvif if (ChangeThisPls) {<return>}<esc>/ChangeThisPls<return>
-        "
+        " Javascript Vanilla If Else
+        nnoremap <silent> ,jvie aif (ChangeThisPls) {<return>} else {<return>}<esc>/ChangeThisPls<return>
+        " Javascript Vanilla ELse
         nnoremap <silent> ,jvel a<space>else {<return>}<esc>O
         inoremap <silent> ,jvel <space>else {<return>}<esc>O
-        "
-        nnoremap <silent> ,jvei a<space>else if (Chagnge) {<return>}<esc>/ChangeThisPls<return>
-        inoremap <silent> ,jvei <space>else if (Chagnge) {<return>}<esc>/ChangeThisPls<return>
+        " Javascript Vanilla Else If
+        nnoremap <silent> ,jvei a<space>else if (ChangeThisPls) {<return>}<esc>/ChangeThisPls<return>
         "
         nnoremap <silent> ,jvfo afor (ChangeThisPls of ChangeThisPls) {<return>}<esc>/ChangeThisPls<return>
         inoremap <silent> ,jvfo for (ChangeThisPls of ChangeThisPls) {<return>}<esc>/ChangeThisPls<return>
@@ -487,5 +502,7 @@
       " Templates Helpers BAse
       nnoremap <silent> ,thba :read ../templates/helpers/base_helper.rb<return>ggdd/ChangeThisPls<return>
     " Views
-      " Templates Views PA
+      " Templates Views PAge
       nnoremap <silent> ,tvpa :read ../templates/views/page_frame/pages.html.erb<return>ggdd/ChangeThisPls<return>
+      " Templates Views CArd
+      nnoremap <silent> ,tvca :read ../templates/views/page_frame/cards.html.erb<return>ggdd/ChangeThisPls<return>
