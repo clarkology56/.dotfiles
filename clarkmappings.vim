@@ -202,6 +202,8 @@
       nnoremap <silent> ,hffe a<%= render(partial: 'shared/full_errors', locals: { errors_hash: ChangeThisPls.errors.messages, ian: false }) %><esc>/ChangeThisPls<return>
       " Html Form ROw
       nnoremap <silent> ,hfro a<div class="form-row"><esc>o</div><esc>O <backspace><esc>
+      " Html Form Tob label Edit
+      nmap <silent> ,hfte a<div class="form-row"><return><div class="form-group col-12"><return>,hfla^<return><!--<delete> ChangeThisPls WIP inline errors --><return></div><return></div>
       " Html Form GRoupe
       nnoremap <silent> ,hfgr a<div class="form-group col-12"><esc>o</div><esc>O <backspace><esc>
       " Htmo Form ATtrubutes common
