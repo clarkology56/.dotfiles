@@ -60,7 +60,8 @@
     nnoremap <silent> ,mrs :so ~/.dotfiles/clarkmappings.vim<return>
     " Misc. Puts Helper
     nnoremap <silent> ,mph aputs 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts nil<return>puts ChangeThisPls<esc>/ChangeThisPls<return>
-
+    " misc combine to previous line
+    nmap <silent> ,mdd I<esc>vvxi<backspace>
 
   " Edit mappings
     "
@@ -125,6 +126,8 @@
 
   " Html mappings  
     " Html Elements
+      " Html Elements ATtributes
+      nnoremap <silent> ,heat a <return>id="ChangeThisPls" <return>class="ChangeThisPls" <return>style="ChangeThisPls" <return>data-ChangeThisPls="ChangeThisPls"<return><esc>/ChangeThisPls<return>
       " Html Elements DIv
       nnoremap <silent> ,hedi a<div><return>ChangeThisPls<return></div><esc>/ChangeThisPls<return>
       " Html Elements PAragraph
