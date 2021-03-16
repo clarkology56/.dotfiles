@@ -200,18 +200,26 @@
       nnoremap <silent> ,hfwi a<%= form_with(scope: 'ChangeThisPls', url: ChangeThisPls, method: :ChangeThisPls) do \|ChangeThisPls_form\| %><esc>o<% end %><esc>/ChangeThisPls<return>
       " Html Form Full Errors
       nnoremap <silent> ,hffe a<%= render(partial: 'shared/full_errors', locals: { errors_hash: ChangeThisPls.errors.messages, ian: false }) %><esc>/ChangeThisPls<return>
+      " Html Form Left Label wrapper
+      nnoremap <silent> ,hfll a<div class="row"><return><div class="col-12 col-sm-2 pr-0"><return><div class="form-row"><return><div class="form-group col-12 pr-0 mb-0"><return><%= label_tag(:ChangeThisPls, 'ChangeThisPls', class: 'col-form-label font-weight-bold pt-2 pb-0', style: 'hyphens: auto;') %><return></div><return></div><return></div><return><div class="col-12 col-sm-10"><return><div class="form-row"><return><%# ChangeThisPls - insert show label (label tag) and show element OR edit label (normal label), input and inline errors %><return></div><return></div><return></div><esc>/ChangeThisPls<return>
       " Html Form ROw
-      nnoremap <silent> ,hfro a<div class="form-row"><esc>o</div><esc>O <backspace><esc>
-      " Html Form Tob label Edit
-      nmap <silent> ,hfte a<div class="form-row"><return><div class="form-group col-12"><return>,hfla^<return><!--<delete> ChangeThisPls WIP inline errors --><return></div><return></div>
-      " Html Form GRoupe
-      nnoremap <silent> ,hfgr a<div class="form-group col-12"><esc>o</div><esc>O <backspace><esc>
+      nmap <silent> ,hfro a<div class="form-row"><return></div><esc>,O
+      " Html Form GRoup
+      nmap <silent> ,hfgr a<div class="form-group col-12"><return><%#<delete> ChangeThisPls - insert show label (label tag) and show element OR edit label (normal label), input and inline errors %><return></div><esc>/ChangeThisPls<return>
+      " Html Form Group 2
+      nmap <silent> ,hfg2 a<div class="form-group col-12 col-sm-6"><return><%#<delete> ChangeThisPls - insert show label (label tag) and show element OR edit label (normal label), input and inline errors %><return></div><esc>/ChangeThisPls<return>
+      " Html Form Group 3
+      nmap <silent> ,hfg3 a<div class="form-group col-12 col-sm-4"><return><%#<delete> ChangeThisPls - insert show label (label tag) and show element OR edit label (normal label), input and inline errors %><return></div><esc>/ChangeThisPls<return>
+      " Html Form Group 4
+      nmap <silent> ,hfg4 a<div class="form-group col-12 col-sm-6 col-md-3"><return><%# ChangeThisPls - insert show label (label tag) and show element OR edit label (normal label), input and inline errors %><return></div><esc>/ChangeThisPls<return>
       " Htmo Form ATtrubutes common
       nnoremap <silent> ,hfat a, <return>autofocus: true, <return>autocomplete: 'ChangeThisPls', <return>placeholder: 'ChangeThisPls', <return>required: true <return><esc>/ChangeThisPls<return>
       " Htmo Form common ATtrubutes full
       nnoremap <silent> ,hfaT a, <return>id: 'ChangeThisPls', <return>name: 'ChangeThisPls', <return>type: 'ChangeThisPls', <return>class: 'ChangeThisPls', <return>value: 'ChangeThisPls', <return>autofocus: true, <return>autocomplete: 'ChangeThisPls', <return>placeholder: 'ChangeThisPls', <return>required: true, <return>size: 'ChangeThisPls', <return>maxlength: 'ChangeThisPls', <return>min: 'ChangeThisPls', <return>max: 'ChangeThisPls', <return>step: 'ChangeThisPls', <return>checked: true, <return>readonly: true, <return>disabled: true, <return>multiple: true <return><esc>/ChangeThisPls<return>
       " Htmo Form Attrubutes Other
       nnoremap <silent> ,hfao a, size: 'ChangeThisPls', <return>maxlength: 'ChangeThisPls', <return>min: 'ChangeThisPls', <return>max: 'ChangeThisPls', <return>step: 'ChangeThisPls', <return>checked: true, <return>readonly: true, <return>disabled: true, <return>multiple: true <return><esc>/ChangeThisPls<return>
+      " Html Form Show element Simple
+      nnoremap <silent> ,hfss a<div class="sseb"><span>ChangeThisPls</span></div><esc>/ChangeThisPls<return>
       " Html Form HIdden field
       nnoremap <silent> ,hfhi a<%= ChangeThisPls_form.hidden_field(:ChangeThisPls, value: ChangeThisPls) %><esc>/ChangeThisPls<return>
       " Html Form Hidden field Tag
@@ -224,6 +232,8 @@
       " NOTE: this is used by the checkbox mappings so if you chnage this, you
       " need to update those as well...
       nnoremap <silent> ,hflc a<%= ChangeThisPls_form.label(:ChangeThisPls, 'ChangeThisPls', class: "custom-control-label text-wrap") %><return><%# NOTE: for blank label, make this a block with a space (" ") between the do and end %><esc>/ChangeThisPls<return>
+      " Html Form Label Tag
+      nnoremap <silent> ,hflt a<%= label_tag(:ChangeThisPls, 'ChangeThisPls', class: 'col-form-label font-weight-bold') %><esc>/ChangeThisPls<return>
       " Html Form Text Field
       nnoremap <silent> ,hftf a<%= ChangeThisPls_form.text_field(:ChangeThisPls, value: ChangeThisPls, class: 'form-control') %><esc>/ChangeThisPls<return>
       " Html Form Text Area
@@ -434,5 +444,5 @@
       nnoremap <silent> ,tvca :read ../templates/views/page_frame/cards.html.erb<return>ggdd/ChangeThisPls<return>
       " Templates Views Card body Single
       nnoremap <silent> ,tvcs :read ../templates/views/card_body_options/single.html.erb<return>/ChangeThisPls<return>
-      " Templates Views form options Top label Edit
-      nnoremap <silent> ,tvte :read ../templates/views/form_options/top_label_edit.html.erb<return>/ChangeThisPls<return>
+      " Templates Views Top label Edit
+      nnoremap <silent> ,tvtb :read ../templates/views/form_options/top_label_edit.html.erb<return>/ChangeThisPls<return>
