@@ -58,10 +58,12 @@
   " Misc. mapping
     " Misc. Reload Source
     nnoremap <silent> ,mrs :so ~/.dotfiles/clarkmappings.vim<return>
-    " Misc. Puts Helper
-    nnoremap <silent> ,mph aputs 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts nil<return>puts ChangeThisPls<esc>/ChangeThisPls<return>
-    " misc combine to previous line
-    nmap <silent> ,mdd I<esc>vvxi<backspace>
+    " Misc. DD but combine to previous line instead of delete line
+    " NOTE: this will delete first word if line has no indentation...
+    nmap <silent> ,mdd I<esc>vvxi<backspace><esc>
+    " Misc. Dd but combine to Forward line instead of delete line
+    " NOTE: this will delete first word if line has no indentation...
+    nmap <silent> ,mdf A<esc>whvvxi<backspace><esc>
 
   " Edit mappings
     "
@@ -190,6 +192,8 @@
       nnoremap <silent> ,hrss aa<%= stylesheet_link_tag('ChangeThisPls') %><esc>/ChangeThisPls<return>
       " Html Ruby (erb) Partial
       nnoremap <silent> ,hrpa a<%= render(partial: 'ChangeThisPls', locals: { ChangeThisPls }) %><esc>/ChangeThisPls<return>
+      " Html Ruby Puts Debugger
+      nnoremap <silent> ,hrpd a<% puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW' %><return><% puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW' %><return><% puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW' %><return><% puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW' %><return><% puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW' %><return><% puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW' %><return><% puts nil %><return><% puts ChangeThisPls %><esc>/ChangeThisPls<return>
       
     " Html Form
       " Html Form WIth
@@ -200,8 +204,12 @@
       nnoremap <silent> ,hfro a<div class="form-row"><esc>o</div><esc>O <backspace><esc>
       " Html Form GRoupe
       nnoremap <silent> ,hfgr a<div class="form-group col-12"><esc>o</div><esc>O <backspace><esc>
-      " Htmo Form common Input Attrubutes
-      nnoremap <silent> ,hfia a,<return>autofocus: true, <return>autocomplete: 'ChangeThisPls', <return>placeholder: 'ChangeThisPls', <return>required: true, <return>maxlength: 'ChangeThisPls', <return>checked: true, <return>disabled: true, <return><esc>/ChangeThisPls<return>
+      " Htmo Form ATtrubutes common
+      nnoremap <silent> ,hfat a, <return>autofocus: true, <return>autocomplete: 'ChangeThisPls', <return>placeholder: 'ChangeThisPls', <return>required: true <return><esc>/ChangeThisPls<return>
+      " Htmo Form common ATtrubutes full
+      nnoremap <silent> ,hfaT a, <return>id: 'ChangeThisPls', <return>name: 'ChangeThisPls', <return>type: 'ChangeThisPls', <return>class: 'ChangeThisPls', <return>value: 'ChangeThisPls', <return>autofocus: true, <return>autocomplete: 'ChangeThisPls', <return>placeholder: 'ChangeThisPls', <return>required: true, <return>size: 'ChangeThisPls', <return>maxlength: 'ChangeThisPls', <return>min: 'ChangeThisPls', <return>max: 'ChangeThisPls', <return>step: 'ChangeThisPls', <return>checked: true, <return>readonly: true, <return>disabled: true, <return>multiple: true <return><esc>/ChangeThisPls<return>
+      " Htmo Form Attrubutes Other
+      nnoremap <silent> ,hfao a, size: 'ChangeThisPls', <return>maxlength: 'ChangeThisPls', <return>min: 'ChangeThisPls', <return>max: 'ChangeThisPls', <return>step: 'ChangeThisPls', <return>checked: true, <return>readonly: true, <return>disabled: true, <return>multiple: true <return><esc>/ChangeThisPls<return>
       " Html Form HIdden field
       nnoremap <silent> ,hfhi a<%= ChangeThisPls_form.hidden_field(:ChangeThisPls, value: ChangeThisPls) %><esc>/ChangeThisPls<return>
       " Html Form Hidden field Tag
@@ -264,6 +272,8 @@
 
   " ruby mappings 
     " ruby basics
+      " Ruby Basics Puts Debugger
+      nnoremap <silent> ,rbpd aputs 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts nil<return>puts ChangeThisPls<esc>/ChangeThisPls<return>
       " Ruby Basics Each Inline
       nnoremap <silent> ,rbei a.each { <bar><bar>  }<esc>hhhi
       " Ruby Basics Each Block 
