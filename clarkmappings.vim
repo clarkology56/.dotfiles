@@ -64,65 +64,69 @@
     " Misc. Dd but combine to Forward line instead of delete line
     " NOTE: this will delete first word if line has no indentation...
     nmap <silent> ,mdf A<esc>whvvxi<backspace><esc>
+    nnoremap <silent> ,form_group_options a<%# ChangeThisPls - options: show label (label tag), show element, edit label (normal label), input, inline errors %>
 
   " Edit mappings
     "
-    nmap <silent> ,eas <space>fT/app<return><return>/assets<return><return><esc>:noh<return>
-    nnoremap <silent> ,cas :edit app/assets/
+    nmap <silent> ,eaas <space>fT/app<return><return>/assets<return><return><esc>:noh<return>
+    nnoremap <silent> ,caas :edit app/assets/
+    " Edit App Assets Css (stylesheets)
+    nmap <silent> ,eaac <space>fT/app<return><return>/assets<return><return>/stylesheets<return><return><esc>:noh<return>
+    nnoremap <silent> ,caac :edit app/assets/stylesheets/
     "
-    nmap <silent> ,ech <space>fT/app<return><return>/channels<return><return><esc>:noh<return>
-    nnoremap <silent> ,cch :edit app/channels/
+    nmap <silent> ,each <space>fT/app<return><return>/channels<return><return><esc>:noh<return>
+    nnoremap <silent> ,cach :edit app/channels/
     "
-    nmap <silent> ,eco <space>fT/app<return><return>/controllers<return><return><esc>:noh<return>
-    nnoremap <silent> ,cco :edit app/controllers/
+    nmap <silent> ,eaco <space>fT/app<return><return>/controllers<return><return><esc>:noh<return>
+    nnoremap <silent> ,caco :edit app/controllers/
     "
-    nmap <silent> ,ehe <space>fT/app<return><return>/helpers<return><return><esc>:noh<return>
-    nnoremap <silent> ,che :edit app/helpers/
+    nmap <silent> ,eahe <space>fT/app<return><return>/helpers<return><return><esc>:noh<return>
+    nnoremap <silent> ,cahe :edit app/helpers/
     "
-    nmap <silent> ,eja <space>fT/app<return><return>/javascript<return><return><esc>:noh<return>
-    nnoremap <silent> ,cja :edit app/javascript/
+    nmap <silent> ,eaja <space>fT/app<return><return>/javascript<return><return><esc>:noh<return>
+    nnoremap <silent> ,caja :edit app/javascript/
     "
-    nmap <silent> ,ejp <space>fT/app<return><return>/javascript<return><return>/packs<return><return><esc>:noh<return>
-    nnoremap <silent> ,cjp :edit app/javascript/packs/
+    nmap <silent> ,eajp <space>fT/app<return><return>/javascript<return><return>/packs<return><return><esc>:noh<return>
+    nnoremap <silent> ,cajp :edit app/javascript/packs/
     "
-    nmap <silent> ,ejo <space>fT/app<return><return>/jobs<return><return><esc>:noh<return>
-    nnoremap <silent> ,cjo :edit app/jobs/
-    " Edit app/MAilers
-    nmap <silent> ,ema <space>fT/app<return><return>/mailers<return><return><esc>:noh<return>
-    nnoremap <silent> ,cma :edit app/mailers/
-    " Edit app/MOddels
-    nmap <silent> ,emo <space>fT/app<return><return>/models<return><return><esc>:noh<return>
-    nnoremap <silent> ,cmo :edit app/models/
-    " Edit app/mddels/ABility.rb
-    nmap <silent> ,eab <space>fT/app<return><return>/models<return><return>/ability.rb<return><return><esc>:noh<return>
+    nmap <silent> ,eajo <space>fT/app<return><return>/jobs<return><return><esc>:noh<return>
+    nnoremap <silent> ,cajo :edit app/jobs/
+    " Edit App/MAilers
+    nmap <silent> ,eama <space>fT/app<return><return>/mailers<return><return><esc>:noh<return>
+    nnoremap <silent> ,cama :edit app/mailers/
+    " Edit App/MOddels
+    nmap <silent> ,eamo <space>fT/app<return><return>/models<return><return><esc>:noh<return>
+    nnoremap <silent> ,camo :edit app/models/
+    " Edit App/Mddels/aBility.rb Cancancan
+    nmap <silent> ,eamc <space>fT/app<return><return>/models<return><return>/ability.rb<return><return><esc>:noh<return>
     "
-    nmap <silent> ,evi <space>fT/app<return><return>/views<return><return><esc>:noh<return>
-    nnoremap <silent> ,cvi :edit app/views/
+    nmap <silent> ,eavi <space>fT/app<return><return>/views<return><return><esc>:noh<return>
+    nnoremap <silent> ,cavi :edit app/views/
     "
-    nmap <silent> ,ecf <space>fT/config<return><return><esc>:noh<return>
-    nnoremap <silent> ,ccf :edit config/
+    nmap <silent> ,econ <space>fT/config<return><return><esc>:noh<return>
+    nnoremap <silent> ,ccon :edit config/
     "
-    nnoremap <silent> ,ecr :edit config/routes.rb<return>
+    nnoremap <silent> ,ecro :edit config/routes.rb<return>
     "
-    nnoremap <silent> ,eds :edit db/schema.rb<return>
+    nnoremap <silent> ,edsc :edit db/schema.rb<return>
     "
-    nmap <silent> ,edm <space>fT/db<return><return>/migrate<return><return><esc>:noh<return>
-    nnoremap <silent> ,cdm :edit db/migrate/
+    nmap <silent> ,edmi <space>fT/db<return><return>/migrate<return><return><esc>:noh<return>
+    nnoremap <silent> ,cdmi :edit db/migrate/
     "
-    nmap <silent> ,eli <space>fT/lib<return><return><esc>:noh<return>
-    nnoremap <silent> ,cli :edit lib/
+    nmap <silent> ,elib <space>fT/lib<return><return><esc>:noh<return>
+    nnoremap <silent> ,clib :edit lib/
     "
-    nmap <silent> ,ete <space>fT/test<return><return><esc>:noh<return>
-    nnoremap <silent> ,cte :edit test/
+    nmap <silent> ,etes <space>fT/test<return><return><esc>:noh<return>
+    nnoremap <silent> ,ctes :edit test/
     "
-    nmap <silent> ,etc <space>fT/test<return><return>/controllers<return><return><esc>:noh<return>
-    nnoremap <silent> ,ctc :edit test/controllers/
+    nmap <silent> ,etco <space>fT/test<return><return>/controllers<return><return><esc>:noh<return>
+    nnoremap <silent> ,ctco :edit test/controllers/
     "
-    nmap <silent> ,etm <space>fT/test<return><return>/models<return><return><esc>:noh<return>
-    nnoremap <silent> ,ctm :edit test/models
+    nmap <silent> ,etmo <space>fT/test<return><return>/models<return><return><esc>:noh<return>
+    nnoremap <silent> ,ctmo :edit test/models
     "
-    nmap <silent> ,eve <space>fT/vendor<return><return><esc>:noh<return>
-    nnoremap <silent> ,cve :edit vendor/
+    nmap <silent> ,even <space>fT/vendor<return><return><esc>:noh<return>
+    nnoremap <silent> ,cven :edit vendor/
 
 
 
@@ -201,17 +205,17 @@
       " Html Form Full Errors
       nnoremap <silent> ,hffe a<%= render(partial: 'shared/full_errors', locals: { errors_hash: ChangeThisPls.errors.messages, ian: false }) %><esc>/ChangeThisPls<return>
       " Html Form Left Label wrapper
-      nnoremap <silent> ,hfll a<div class="row"><return><div class="col-12 col-sm-2 pr-0"><return><div class="form-row"><return><div class="form-group col-12 pr-0 mb-0"><return><%= label_tag(:ChangeThisPls, 'ChangeThisPls', class: 'col-form-label font-weight-bold pt-2 pb-0', style: 'hyphens: auto;') %><return></div><return></div><return></div><return><div class="col-12 col-sm-10"><return><div class="form-row"><return><%# ChangeThisPls - insert show label (label tag) and show element OR edit label (normal label), input and inline errors %><return></div><return></div><return></div><esc>/ChangeThisPls<return>
+      nmap <silent> ,hfll a<div class="row mb-2"><return><div class="col-12 col-sm-2 pr-0"><return><div class="form-row"><return><div class="form-group col-12 pr-0"><return><%= label_tag(:ChangeThisPls, 'ChangeThisPls:', class: 'col-form-label', style: 'hyphens: auto;') %><return></div><return></div><return></div><return><div class="col-12 col-sm-10"><return><div class="form-row"><return><esc>,form_group_options<return></div><return></div><return></div><esc>/ChangeThisPls<return>
       " Html Form ROw
       nmap <silent> ,hfro a<div class="form-row"><return></div><esc>,O
       " Html Form GRoup
-      nmap <silent> ,hfgr a<div class="form-group col-12"><return><%#<delete> ChangeThisPls - insert show label (label tag) and show element OR edit label (normal label), input and inline errors %><return></div><esc>/ChangeThisPls<return>
+      nmap <silent> ,hfgr a<div class="form-group col-12"><return><esc>,form_group_options<return></div><esc>/ChangeThisPls<return>
       " Html Form Group 2
-      nmap <silent> ,hfg2 a<div class="form-group col-12 col-sm-6"><return><%#<delete> ChangeThisPls - insert show label (label tag) and show element OR edit label (normal label), input and inline errors %><return></div><esc>/ChangeThisPls<return>
+      nmap <silent> ,hfg2 a<div class="form-group col-12 col-sm-6"><return><esc>,form_group_options<return></div><esc>/ChangeThisPls<return>
       " Html Form Group 3
-      nmap <silent> ,hfg3 a<div class="form-group col-12 col-sm-4"><return><%#<delete> ChangeThisPls - insert show label (label tag) and show element OR edit label (normal label), input and inline errors %><return></div><esc>/ChangeThisPls<return>
+      nmap <silent> ,hfg3 a<div class="form-group col-12 col-sm-4"><return><esc>,form_group_options<return></div><esc>/ChangeThisPls<return>
       " Html Form Group 4
-      nmap <silent> ,hfg4 a<div class="form-group col-12 col-sm-6 col-md-3"><return><%# ChangeThisPls - insert show label (label tag) and show element OR edit label (normal label), input and inline errors %><return></div><esc>/ChangeThisPls<return>
+      nmap <silent> ,hfg4 a<div class="form-group col-12 col-sm-6 col-md-3"><return><esc>,form_group_options<return></div><esc>/ChangeThisPls<return>
       " Htmo Form ATtrubutes common
       nnoremap <silent> ,hfat a, <return>autofocus: true, <return>autocomplete: 'ChangeThisPls', <return>placeholder: 'ChangeThisPls', <return>required: true <return><esc>/ChangeThisPls<return>
       " Htmo Form common ATtrubutes full
@@ -219,21 +223,21 @@
       " Htmo Form Attrubutes Other
       nnoremap <silent> ,hfao a, size: 'ChangeThisPls', <return>maxlength: 'ChangeThisPls', <return>min: 'ChangeThisPls', <return>max: 'ChangeThisPls', <return>step: 'ChangeThisPls', <return>checked: true, <return>readonly: true, <return>disabled: true, <return>multiple: true <return><esc>/ChangeThisPls<return>
       " Html Form Show element Simple
-      nnoremap <silent> ,hfss a<div class="sseb"><span>ChangeThisPls</span></div><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hfss a<div class="sse">ChangeThisPls</div><esc>/ChangeThisPls<return>
       " Html Form HIdden field
       nnoremap <silent> ,hfhi a<%= ChangeThisPls_form.hidden_field(:ChangeThisPls, value: ChangeThisPls) %><esc>/ChangeThisPls<return>
       " Html Form Hidden field Tag
       nnoremap <silent> ,hfht a<%= hidden_field_tag(:ChangeThisPls, ChangeThisPls) %><esc>/ChangeThisPls<return>
       " Html Form LAbel
-      nnoremap <silent> ,hfla a<%= ChangeThisPls_form.label(:ChangeThisPls, 'ChangeThisPls', class: 'col-form-label font-weight-bold') %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hfla a<%= ChangeThisPls_form.label(:ChangeThisPls, 'ChangeThisPls', class: 'col-form-label') %><esc>/ChangeThisPls<return>
       " Html Form Label Block
-      nnoremap <silent> ,hflb a<%= ChangeThisPls_form.label(:ChangeThisPls, class: 'col-form-label font-weight-bold') do %>ChangeThisPls<% end %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hflb a<%= ChangeThisPls_form.label(:ChangeThisPls, class: 'col-form-label') do %>ChangeThisPls<% end %><esc>/ChangeThisPls<return>
       " Html Form Label for Checkboxes
       " NOTE: this is used by the checkbox mappings so if you chnage this, you
       " need to update those as well...
       nnoremap <silent> ,hflc a<%= ChangeThisPls_form.label(:ChangeThisPls, 'ChangeThisPls', class: "custom-control-label text-wrap") %><return><%# NOTE: for blank label, make this a block with a space (" ") between the do and end %><esc>/ChangeThisPls<return>
       " Html Form Label Tag
-      nnoremap <silent> ,hflt a<%= label_tag(:ChangeThisPls, 'ChangeThisPls', class: 'col-form-label font-weight-bold') %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hflt a<%= label_tag(:ChangeThisPls, 'ChangeThisPls', class: 'col-form-label') %><esc>/ChangeThisPls<return>
       " Html Form Text Field
       nnoremap <silent> ,hftf a<%= ChangeThisPls_form.text_field(:ChangeThisPls, value: ChangeThisPls, class: 'form-control') %><esc>/ChangeThisPls<return>
       " Html Form Text Area
