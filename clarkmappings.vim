@@ -55,7 +55,7 @@
     nnoremap <silent> ,< O<!--<esc>o--><esc>Vx0
     "nnoremap <silent> 
 
-  " Misc. mapping
+  " Misc. mapping / messages
     " Misc. Reload Source
     nnoremap <silent> ,mrs :so ~/.dotfiles/clarkmappings.vim<return>
     " Misc. DD but combine to previous line instead of delete line
@@ -64,7 +64,7 @@
     " Misc. Dd but combine to Forward line instead of delete line
     " NOTE: this will delete first word if line has no indentation...
     nmap <silent> ,mdf A<esc>whvvxi<backspace><esc>
-    nnoremap <silent> ,form_group_options a<%# ChangeThisPls - options: show label (label tag), show element, edit label (normal label), input, inline errors %>
+    nnoremap <silent> ,mminsert_input a<%# ChangeThisPls - Replace this with HTML Form input %><esc>/ChangeThisPls<return>
 
   " Edit mappings
     "
@@ -204,18 +204,28 @@
       nnoremap <silent> ,hfwi a<%= form_with(scope: 'ChangeThisPls', url: ChangeThisPls, method: :ChangeThisPls) do \|ChangeThisPls_form\| %><esc>o<% end %><esc>/ChangeThisPls<return>
       " Html Form Full Errors
       nnoremap <silent> ,hffe a<%= render(partial: 'shared/full_errors', locals: { errors_hash: ChangeThisPls.errors.messages, ian: false }) %><esc>/ChangeThisPls<return>
-      " Html Form Left Label wrapper
-      nmap <silent> ,hfll a<div class="row mb-2"><return><div class="col-12 col-sm-2 pr-0"><return><div class="form-row"><return><div class="form-group col-12 pr-0"><return><%= label_tag(:ChangeThisPls, 'ChangeThisPls:', class: 'col-form-label', style: 'hyphens: auto;') %><return></div><return></div><return></div><return><div class="col-12 col-sm-10"><return><div class="form-row"><return><%#<delete> ChangeThisPls - insert form group %><return></div><return></div><return></div><esc>/ChangeThisPls<return>
+      " Html Form Left label show wrapper
+      nmap <silent> ,hfls a<div class="row mb-2"><return><div class="col-12 col-sm-2 pr-0"><return><div class="form-row"><return><div class="form-group col-12 pr-0"><return><%= label_tag(:ChangeThisPls, 'ChangeThisPls:', class: 'col-form-label', style: 'hyphens: auto;') %><return></div><return></div><return></div><return><div class="col-12 col-sm-10"><return><div class="form-row"><return><%#<delete> ChangeThisPls - insert form group %><return></div><return></div><return></div><esc>/ChangeThisPls<return>
+      " Html Form Left label edit wrapper
+      nmap <silent> ,hfle a<div class="row mb-2"><return><div class="col-12 col-sm-2 pr-0"><return><div class="form-row"><return><div class="form-group col-12 pr-0"><return><%= Change_this_form.label(:ChangeThisPls, 'ChangeThisPls:', class: 'col-form-label', style: 'hyphens: auto;') %><return></div><return></div><return></div><return><div class="col-12 col-sm-10"><return><div class="form-row"><return><%#<delete> ChangeThisPls - insert form group %><return></div><return></div><return></div><esc>/ChangeThisPls<return>
       " Html Form ROw
       nmap <silent> ,hfro a<div class="form-row"><return></div><esc>,O
-      " Html Form GRoup
-      nmap <silent> ,hfgr a<div class="form-group col-12"><return><esc>,form_group_options<return></div><esc>/ChangeThisPls<return>
-      " Html Form Group 2
-      nmap <silent> ,hfg2 a<div class="form-group col-12 col-sm-6"><return><esc>,form_group_options<return></div><esc>/ChangeThisPls<return>
-      " Html Form Group 3
-      nmap <silent> ,hfg3 a<div class="form-group col-12 col-sm-4"><return><esc>,form_group_options<return></div><esc>/ChangeThisPls<return>
-      " Html Form Group 4
-      nmap <silent> ,hfg4 a<div class="form-group col-12 col-sm-6 col-md-3"><return><esc>,form_group_options<return></div><esc>/ChangeThisPls<return>
+      " Html Form Show group 1
+      nmap <silent> ,hfs1 a<div class="form-group col-12"><return><esc>,hflt,o,hfssjo</div><esc>/ChangeThisPls<return>
+      " Html Form Show group 2
+      nmap <silent> ,hfs2 a<div class="form-group col-12 col-sm-6"><return><esc>,hflt,o,hfssjo</div><esc>/ChangeThisPls<return>
+      " Html Form Show group 3
+      nmap <silent> ,hfs3 a<div class="form-group col-12 col-sm-4"><return><esc>,hflt,o,hfssjo</div><esc>/ChangeThisPls<return>
+      " Html Form Show group 4
+      nmap <silent> ,hfs4 a<div class="form-group col-12 col-sm-6 col-md-3"><return><esc>,hflt,o,hfssjo</div><esc>/ChangeThisPls<return>
+      " Html Form Edit group 1
+      nmap <silent> ,hfe1 a<div class="form-group col-12"><return><esc>,hfla,o,mminsert_inputj,o,hfiejjo</div><esc>/ChangeThisPls<return>
+      " Html Form Edit group 2
+      nmap <silent> ,hfe2 a<div class="form-group col-12 col-sm-6"><return><esc>,hfla,o,mminsert_inputj,o,hfiejjo</div><esc>/ChangeThisPls<return>
+      " Html Form Edit group 3
+      nmap <silent> ,hfe3 a<div class="form-group col-12 col-sm-4"><return><esc>,hfla,o,mminsert_inputj,o,hfiejjo</div><esc>/ChangeThisPls<return>
+      " Html Form Edit group 4
+      nmap <silent> ,hfe4 a<div class="form-group col-12 col-sm-6 col-md-3"><return><esc>,hfla,o,mminsert_inputj,o,hfiejjo</div><esc>/ChangeThisPls<return>
       " Htmo Form ATtrubutes common
       nnoremap <silent> ,hfat a, <return>autofocus: true, <return>autocomplete: 'ChangeThisPls', <return>placeholder: 'ChangeThisPls', <return>required: true <return><esc>/ChangeThisPls<return>
       " Htmo Form common ATtrubutes full
@@ -225,7 +235,7 @@
       " Html Form Show element Simple
       nnoremap <silent> ,hfss a<div class="sse">ChangeThisPls</div><esc>/ChangeThisPls<return>
       " Html Form HIdden field
-      nnoremap <silent> ,hfhi a<%= ChangeThisPls_form.hidden_field(:ChangeThisPls, value: ChangeThisPls) %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hfhf a<%= ChangeThisPls_form.hidden_field(:ChangeThisPls, value: ChangeThisPls) %><esc>/ChangeThisPls<return>
       " Html Form Hidden field Tag
       nnoremap <silent> ,hfht a<%= hidden_field_tag(:ChangeThisPls, ChangeThisPls) %><esc>/ChangeThisPls<return>
       " Html Form LAbel
@@ -378,6 +388,12 @@
       nnoremap <silent> ,rcre arender 'ChangeThisPls'<esc>/ChangeThisPls<return>
       " Ruby Controller Redirect To
       nnoremap <silent> ,rcrt aredirect_to ChangeThisPls<esc>/ChangeThisPls<return>
+      " Ruby Controller Model impersonator New
+      nnoremap <silent> ,rcmn a@ChangeThisPls = ModelImpersonator.new<esc>/ChangeThisPls<return>
+      " Ruby Controller Model impersonator set Value
+      nnoremap <silent> ,rcmv a@ChangeThisPls.set_value(:ChangeAttribute, ChangeValue)<esc>/ChangeAttribute\\|ChangeValue<return>
+      " Ruby Controller Model impersonator add Error Message
+      nnoremap <silent> ,rcme a@ChangeThisPls.add_error_message(:ChangeAttribute, ChangeMessage)<esc>/ChangeAttribute\\|ChangeMessage<return>
       
 
   " javascript mappings 
