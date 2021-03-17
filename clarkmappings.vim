@@ -205,7 +205,7 @@
       " Html Form Full Errors
       nnoremap <silent> ,hffe a<%= render(partial: 'shared/full_errors', locals: { errors_hash: ChangeThisPls.errors.messages, ian: false }) %><esc>/ChangeThisPls<return>
       " Html Form Left Label wrapper
-      nmap <silent> ,hfll a<div class="row mb-2"><return><div class="col-12 col-sm-2 pr-0"><return><div class="form-row"><return><div class="form-group col-12 pr-0"><return><%= label_tag(:ChangeThisPls, 'ChangeThisPls:', class: 'col-form-label', style: 'hyphens: auto;') %><return></div><return></div><return></div><return><div class="col-12 col-sm-10"><return><div class="form-row"><return><esc>,form_group_options<return></div><return></div><return></div><esc>/ChangeThisPls<return>
+      nmap <silent> ,hfll a<div class="row mb-2"><return><div class="col-12 col-sm-2 pr-0"><return><div class="form-row"><return><div class="form-group col-12 pr-0"><return><%= label_tag(:ChangeThisPls, 'ChangeThisPls:', class: 'col-form-label', style: 'hyphens: auto;') %><return></div><return></div><return></div><return><div class="col-12 col-sm-10"><return><div class="form-row"><return><%#<delete> ChangeThisPls - insert form group %><return></div><return></div><return></div><esc>/ChangeThisPls<return>
       " Html Form ROw
       nmap <silent> ,hfro a<div class="form-row"><return></div><esc>,O
       " Html Form GRoup
@@ -273,7 +273,7 @@
       " Html Form OPtion
       nnoremap <silent> ,hfop a<option <%= "selected='true'" if ChangeThisPls %> value="<%= ChangeThisPls %>">ChangeThisPls</option><esc>/ChangeThisPls<return>
       " Html Form Inline Errors
-      nnoremap <silent> ,hfie a<%= render(partial: 'shared/inline_errors', locals: { errors_hash: ChangeThisPls.errors.messages, attribute: :ChangeThisPls, ian: false }) %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hfie a<%= render(partial: 'shared/inline_errors', locals: { errors_hash: ChangeThisPls.errors.messages, attribute: :ChangeThisPls, include_names: false }) %><esc>/ChangeThisPls<return>
       " Html Form SUbmit
       nnoremap <silent> ,hfsu a<%= ChangeThisPls_form.submit(:ChangeThisPls, class: 'btn btn-ChangeThisPls') %><esc>/ChangeThisPls<return>
       " Html Torm Submit with Image
@@ -291,13 +291,13 @@
       " Ruby Basics Puts Debugger
       nnoremap <silent> ,rbpd aputs 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts nil<return>puts ChangeThisPls<esc>/ChangeThisPls<return>
       " Ruby Basics Each Inline
-      nnoremap <silent> ,rbei a.each { <bar><bar>  }<esc>hhhi
+      nnoremap <silent> ,rbei aeach { <bar><bar>  }<esc>hhhi
       " Ruby Basics Each Block 
-      nnoremap <silent> ,rbeb a.each do \|ChangeThisPls\|<return>end<esc>/ChangeThisPls<return>
+      nnoremap <silent> ,rbeb aeach do \|ChangeThisPls\|<return>end<esc>/ChangeThisPls<return>
       " Ruby Basics Map Inline
-      nnoremap <silent> ,rbmi a.map { <bar><bar>  }<esc>hhhi
+      nnoremap <silent> ,rbmi amap { <bar><bar>  }<esc>hhhi
       " Ruby Basics Map Block 
-      nnoremap <silent> ,rbmb a.map do \|ChangeThisPls\|<return>end<esc>/ChangeThisPls<return>
+      nnoremap <silent> ,rbmb amap do \|ChangeThisPls\|<return>end<esc>/ChangeThisPls<return>
       " Ruby Basics IF
       nnoremap <silent> ,rbif aif ChangeThisPls<return>end<esc>/ChangeThisPls<return>
       " Ruby Basics If Else
