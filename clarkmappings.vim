@@ -123,7 +123,10 @@
     nnoremap <silent> ,ctco :edit test/controllers/
     "
     nmap <silent> ,etmo <space>fT/test<return><return>/models<return><return><esc>:noh<return>
-    nnoremap <silent> ,ctmo :edit test/models
+    nnoremap <silent> ,ctmo :edit test/models/
+    " Edit Test FIxtures
+    nmap <silent> ,etfi <space>fT/test<return><return>/fixtures<return><return><esc>:noh<return>
+    nnoremap <silent> ,ctfi :edit test/fixtures/
     "
     nmap <silent> ,even <space>fT/vendor<return><return><esc>:noh<return>
     nnoremap <silent> ,cven :edit vendor/
@@ -162,10 +165,12 @@
       nnoremap <silent> ,hecu a<ChangeThisPls></ChangeThisPls><esc>/ChangeThisPls<return>
       
     " Html Ruby (erb) 
-      " Html Ruby (erb) Erb Entered
-      nnoremap <silent> ,hree a<%=  %><esc>hhi
       " Html Ruby (erb) ERb
       nnoremap <silent> ,hrer a<%  %><esc>hhi
+      " Html Ruby (erb) Erb Entered
+      nnoremap <silent> ,hree a<%=  %><esc>hhi
+      " Html Ruby (erb) Erb # comment
+      nnoremap <silent> ,hre# a<%#  %><esc>hhi
       " Html Ruby (erb) IF
       nnoremap <silent> ,hrif a<% if  %><esc>o<% end %><esc>khhi
       " Html Ruby (erb) If Else
@@ -329,9 +334,9 @@
       " Ruby Models XX
       nnoremap <silent> ,rmxx iHello, World!<esc>
       " Ruby Models Can Model based
-      nnoremap <silent> ,rmcm acan [:ChangeThisPls], ChangeThisPls::ChangeThisPls, ChangeThisPls:{ ChangeThisPls: user.ChangeThisPls }<esc>/ChangeThisPls<enter>
+      nnoremap <silent> ,rmcm acan [:ChangeNameSpace_ChangeAction], ChangeModel, ChangeMethod: user.ChangeValue<esc>/ChangeNameSpace\\|ChangeAction\\|ChangeModel\\|ChangeMethod\\|ChangeValue<enter>
       " Ruby Models Can Model based full
-      nnoremap <silent> ,rmcM acan [:ChangeThisPls], ChangeThisPls::ChangeThisPls, ChangeThisPls:{ ChangeThisPls: user.ChangeThisPls, ChangeThisPls: { ChangeThisPls: ChangeThisPls::ChangeThisPls.where(ChangeThisPls: ChangeThisPls).ChangeThisPls } }<esc>/ChangeThisPls<enter>
+      nnoremap <silent> ,rmcM acan [:ChangeNameSpace_ChangeAction], ChangeModel, ChangeMethod: user.ChangeValue, ChangeMethod: [ChangeValue], ChangeMethod: { ChangeMethod: user.ChangeValue } <esc>/ChangeNameSpace\\|ChangeAction\\|ChangeModel\\|ChangeMethod\\|ChangeValue<enter>
       " Ruby Models Can Non-model based
       nnoremap <silent> ,rmcn acan [:ChangeThisPls], :ChangeThisPls<esc>/ChangeThisPls<enter>
       
