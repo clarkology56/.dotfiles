@@ -228,13 +228,13 @@
       " Html form Show ROw
       nmap <silent> ,hsro a<div class="form-row"><return></div><esc>,O
       " Html form Show Group 1
-      nmap <silent> ,hsg1 a<div class="form-group col-12"><return><esc>,hflt,o,hssijo</div><esc>/ChangeThisPls<return>
+      nmap <silent> ,hsg1 a<div class="form-group col-12"><return><%#<delete> DeleteThis: insert label tag if top label %><esc>,o,hssio</div><esc>/DeleteThis\\|ChangeThisPls<return>
       " Html form Show Group 2
-      nmap <silent> ,hsg2 a<div class="form-group col-12 col-sm-6"><return><esc>,hflt,o,hssijo</div><esc>/ChangeThisPls<return>
+      nmap <silent> ,hsg2 a<div class="form-group col-12 col-sm-6"><return><%#<delete> DeleteThis: insert label tag if top label %><esc>,o,hssio</div><esc>/DeleteThis\\|ChangeThisPls<return>
       " Html form Show Group 3
-      nmap <silent> ,hsg3 a<div class="form-group col-12 col-sm-4"><return><esc>,hflt,o,hssijo</div><esc>/ChangeThisPls<return>
+      nmap <silent> ,hsg3 a<div class="form-group col-12 col-sm-4"><return><%#<delete> DeleteThis: insert label tag if top label %><esc>,o,hssio</div><esc>/DeleteThis\\|ChangeThisPls<return>
       " Html form Show Group 4
-      nmap <silent> ,hsg4 a<div class="form-group col-12 col-sm-6 col-md-3"><return><esc>,hflt,o,hssijo</div><esc>/ChangeThisPls<return>
+      nmap <silent> ,hsg4 a<div class="form-group col-12 col-sm-6 col-md-3"><return><%#<delete> DeleteThis: insert label tag if top label %><esc>,o,hssio</div><esc>/DeleteThis\\|ChangeThisPls<return>
       " Html form Show element SImple
       nnoremap <silent> ,hssi a<div class="sse">ChangeThisPls</div><esc>/ChangeThisPls<return>
 
@@ -244,13 +244,13 @@
       " Html form Input ROw
       nmap <silent> ,hiro ,hsro
       " Html form Input Group 1
-      nmap <silent> ,hig1 a<div class="form-group col-12"><return><esc>,hfla,o,mminsert_inputj,o,hiiejjo</div><esc>/ChangeThisPls<return>
+      nmap <silent> ,hig1 a<div class="form-group col-12"><return><%#<delete> DeleteThis: insert label if top label %><esc>,o,mminsert_input,o,hiiejo</div><esc>/DeleteThis\\|ChangeThisPls<return>
       " Html form Input Group 2
-      nmap <silent> ,hig2 a<div class="form-group col-12 col-sm-6"><return><esc>,hfla,o,mminsert_inputj,o,hiiejjo</div><esc>/ChangeThisPls<return>
+      nmap <silent> ,hig2 a<div class="form-group col-12 col-sm-6"><return><%#<delete> DeleteThis: insert label if top label %><esc>,o,mminsert_input,o,hiiejo</div><esc>/DeleteThis\\|ChangeThisPls<return>
       " Html form Input Group 3
-      nmap <silent> ,hig3 a<div class="form-group col-12 col-sm-4"><return><esc>,hfla,o,mminsert_inputj,o,hiiejjo</div><esc>/ChangeThisPls<return>
+      nmap <silent> ,hig3 a<div class="form-group col-12 col-sm-4"><return><%#<delete> DeleteThis: insert label if top label %><esc>,o,mminsert_input,o,hiiejo</div><esc>/DeleteThis\\|ChangeThisPls<return>
       " Html form Input Group 4
-      nmap <silent> ,hig4 a<div class="form-group col-12 col-sm-6 col-md-3"><return><esc>,hfla,o,mminsert_inputj,o,hiiejjo</div><esc>/ChangeThisPls<return>
+      nmap <silent> ,hig4 a<div class="form-group col-12 col-sm-6 col-md-3"><return><%#<delete> DeleteThis: insert label if top label %><esc>,o,mminsert_input,o,hiiejo</div><esc>/DeleteThis\\|ChangeThisPls<return>
       " Htmo form Input ATtrubutes common
       nnoremap <silent> ,hiat a, <return>autofocus: true, <return>autocomplete: 'ChangeThisPls', <return>placeholder: 'ChangeThisPls', <return>required: true <return><esc>/ChangeThisPls<return>
       " Htmo form Input common ATtrubutes full
