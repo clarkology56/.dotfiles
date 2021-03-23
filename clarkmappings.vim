@@ -390,15 +390,17 @@
 
     " Ruby Controller mappings
       " Ruby Controller Strong Params
-      nnoremap <silent> ,rcsp adef ChangeThisPls_params<return>params.require('ChangeThisPls').permit(:ChangeThisPls)<return>end<esc>/ChangeThisPls<return>
+      nnoremap <silent> ,rcsp adef ChangeName_params<return>params.require('ChangeRequire').permit(:ChangeAttribute)<return>end<esc>/ChangeName\\|ChangeRequire\\|ChangeAttribute<return>
       " Ruby Controller Strong Params full
-      nnoremap <silent> ,rcsP adef ChangeThisPls_params<return>params.require('ChangeThisPls').permit(:ChangeThisPls, ChangeThisPls: [], ChangeThisPls: [:ChangeThisPls, ChangeThisPls: [], ChangeThisPls: [:ChangeThisPls]] )<return>end<esc>/ChangeThisPls<return>
+      nnoremap <silent> ,rcsP adef ChangeName_params<return>params.require('ChangeRequire').permit(:ChangeAttribute,<return>ChangeArrayAttribute: [],<return>ChangeChildModel: [:ChangeAttribue],<return>ChangeChildModels: [ChangeChildModel: [:ChangeAttribute]])<return>end<esc>/ChangeName\\|ChangeRequire\\|ChangeAttribute\\|ChangeArrayAttribute\\|ChangeChildModels\\|ChangeChildModel<return>
       " Ruby Controller Authorize Model based
       nnoremap <silent> ,rcam aauthorize!(:ChangeNamespace_ChangePermission, @ChangeModel)<esc>/ChangeNamespace\\|ChangePermission\\|ChangeModel<return>
       " Ruby Controller Authorize Non-model based
       nnoremap <silent> ,rcan aauthorize!(:ChangeNamespace_ChangeVerb, :ChangeObjects)<esc>/ChangeNamespace\\|ChangeVerb\\|ChangeObjects<return>
       " Ruby Controller Accessible By
       nnoremap <silent> ,rcab aChangeModel.accessible_by(current_ability, :ChangeNameSpace_ChangePermission)<esc>/ChangeModel\\|ChangeNameSpace\\|ChangePermission<enter>
+      " Ruby Controller Accessible By full
+      nnoremap <silent> ,rcaB a@pagy, @ChangeLoads = pagy(ChangeModel.accessible_by(current_ability, :ChangeNamespace_ChangePermission).search(params[:ChangeLoads_search]).index_scope)<esc>/ChangeLoads\\|ChangeModel\\|ChangeNameSpace\\|ChangePermission<enter>
       " Ruby Controller REnder
       nnoremap <silent> ,rcre arender 'ChangeTemplate'<esc>/ChangeTemplate<return>
       " Ruby Controller Redirect To
@@ -421,26 +423,26 @@
         nnoremap <silent> ,jvel a<space>else {<return>}<esc>O
         " Javascript Vanilla Else If
         nnoremap <silent> ,jvei a<space>else if (ChangeThisPls) {<return>}<esc>/ChangeThisPls<return>
-        "
+        " Javascrip Vanilla FOr
         nnoremap <silent> ,jvfo afor (ChangeThisPls of ChangeThisPls) {<return>}<esc>/ChangeThisPls<return>
-        inoremap <silent> ,jvfo for (ChangeThisPls of ChangeThisPls) {<return>}<esc>/ChangeThisPls<return>
         " Javascript Vanilla FUnction
         nnoremap <silent> ,jvfu afunction ChangeThisPls(){<return>}<esc>/ChangeThisPls<return>
-        inoremap <silent> ,jvfu function ChangeThisPls(){<return>}<esc>/ChangeThisPls<return>
+        " Javascript Vanilla Get Attribute
+        nnoremap <silent> ,jvga agetAttribute('ChangeAttribute')<esc>/ChangeAttribute<return>
 
     " Javascript jQuery   
         " Javascript jQiery SElect
-        nnoremap <silent> ,jqse a$()<esc>i
+        nnoremap <silent> ,jqse a$(ChangeSelector)<esc>/ChangeSelector<return>
         " Javascript jQiery Select Class
-        nnoremap <silent> ,jqsc a$('.')<esc>hi
+        nnoremap <silent> ,jqsc a$('.ChangeClass')<esc>/ChangeClass<return>
         " Javascript jQiery Select Id
-        nnoremap <silent> ,jqsi a$('#')<esc>hi
+        nnoremap <silent> ,jqsi a$('#ChangeId')<esc>/ChangeId<return>
         " Javascript jQiery Select Attribute
-        nnoremap <silent> ,jqsa a$('[ChangeThisPls="ChangeThisPls"]')<esc>/ChangeThisPls<return>
+        nnoremap <silent> ,jqsa a$('[ChangeAttribute="ChangeValue"]')<esc>/ChangeAttribute\\|ChangeValue<return>
         " Javascript jQiery Select Data attribute
-        nnoremap <silent> ,jqsd a$('[data-ChangeThisPls="ChangeThisPls"]')<esc>/ChangeThisPls<return>
+        nnoremap <silent> ,jqsd a$('[data-ChangeAttribute="ChangeValue"]')<esc>/ChangeAttribute\\|ChangeValue<return>
         " Javascript jQiery Document On 
-        nnoremap <silent> ,jqdo a$(document).on('ChangeThisPls', 'ChangeThisPls', {}, function(){})<esc>hi<return><esc>/ChangeThisPls<return>
+        nnoremap <silent> ,jqdo a$(document).on('ChangeEvent', 'ChangeSelectors', {}, function(event){})<esc>hi<return><esc>/ChangeEvent\\|ChangeSelectors<return>
         " Javascript jQiery Document Ready
         nnoremap <silent> ,jqdr a$(document).ready(function(){<return>ChangeThisPls<return>})<return>$(document).ajaxComplete(function(){<return>ChangeThisPls<return>})<esc>/ChangeThisPls<return>
         " Javascript jQiery Document Ajax complete
@@ -494,6 +496,6 @@
       " Templates Views Top label Edit
       nnoremap <silent> ,tvtb :read ../templates/views/form_options/top_label_edit.html.erb<return>/ChangeThisPls<return>
       " Templates views non-standard Forms Array Simple
-      nnoremap <silent> ,tfas :read ../templates/views/non_standard_forms/array_simple.html.erb<return>/ChangeParentForm\\|ChangeForm\\|ChangeAttributes\\|ChangeModels\\|ChangeModel\\|DeleteThis:\\|ChangeAttribute<return>
+      nnoremap <silent> ,tfas :read ../templates/views/non_standard_forms/array_simple.html.erb<return>/ChangeParentForm\\|ChangeAttributes\\|ChangeModels\\|ChangeModel\\|ChangeAttribute\\|ReplaceThis\\|DeleteThis:<return>
       " Templates views non-standard Forms Array Hash
-      nnoremap <silent> ,tfah :read ../templates/views/non_standard_forms/array_hash.html.erb<return>/ChangeParentForm\\|ChangeModels\\|ChangeModel\\|DeleteThis:\\|ChangeAttribute<return>
+      nnoremap <silent> ,tfah :read ../templates/views/non_standard_forms/array_hash.html.erb<return>/ChangeParentForm\\|ChangeModels\\|ChangeModel\\|ReplaceThis\\|DeleteThis:\\|ChangeAttribute<return>
