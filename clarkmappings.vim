@@ -38,7 +38,9 @@
     " return
       inoremap <silent> <return> <space><backspace><return>
       inoremap <silent> {{ {<space><space>}<left><left>
-      inoremap <silent> <bar><bar> <bar><bar><left>
+      inoremap <silent> <bar><bar><bar> <bar><bar><left>
+      inoremap <silent> <bar><bar><space> <bar><bar><space>
+      inoremap <silent> <bar><bar>= <bar><bar>=
 
 " normal mode mappings
   " single key mappings
@@ -178,6 +180,8 @@
       nnoremap <silent> ,hrel a<% else %><esc>o
       " Html Ruby (erb) Else If
       nnoremap <silent> ,hrei a<% elsif  %><esc>hhi
+      " Html Ruby (erb) UNless
+      nnoremap <silent> ,hrun a<% unless ChangeThisPls %><return><% end %><esc>/ChangeThisPls<return>
       " Html Ruby (erb) EAch
       nnoremap <silent> ,hrea a<% ChangeThisPls.each do <bar>ChangeThisPls<bar> %><return><% end %><esc>/ChangeThisPls<return>
       " Html Ruby (erb) Each With index
@@ -310,24 +314,37 @@
 
   " ruby mappings 
     " ruby basics
-      " Ruby Basics Puts Debugger
-      nnoremap <silent> ,rbpd aputs 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts nil<return>puts 'ChangeLabel:'<return>puts ChangeThisPls<esc>/ChangeLabel\\|ChangeThisPls<return>
-      " Ruby Basics Each Inline
-      nnoremap <silent> ,rbei aeach { <bar><bar>  }<esc>hhhi
-      " Ruby Basics Each Block 
-      nnoremap <silent> ,rbeb aeach do \|ChangeThisPls\|<return>end<esc>/ChangeThisPls<return>
-      " Ruby Basics Map Inline
-      nnoremap <silent> ,rbmi amap { <bar><bar>  }<esc>hhhi
-      " Ruby Basics Map Block 
-      nnoremap <silent> ,rbmb amap do \|ChangeThisPls\|<return>end<esc>/ChangeThisPls<return>
+      " Ruby Basics EAch block
+      nnoremap <silent> ,rbea aChangeThisPls.each do \|ChangeThisPls\|<return>ChangeThisPls<return>end<esc>/ChangeThisPls<return>
+      " Ruby Basics EAch inline
+      nnoremap <silent> ,rbeA aChangeThisPls.each { <bar>ChangeThisPls<bar> ChangeThisPls }<esc>/ChangeThisPls<return>
+      " Ruby Basics MAp block 
+      nnoremap <silent> ,rbma aChangeThisPls.map do \|ChangeThisPls\|<return>ChangeThisPls<return>end<esc>/ChangeThisPls<return>
+      " Ruby Basics MAp inline
+      nnoremap <silent> ,rbmA aChangeThisPls.map { <bar>ChangeThisPls<bar> ChangeThisPls }<esc>/ChangeThisPls<return>
+      " Ruby Basics SElect block
+      nnoremap <silent> ,rbse aChangeThisPls.select <bar>ChangeThisPls<bar><return>ChangeThisPls<return>end<esc>/ChangeThisPls<return>
+      " Ruby Basics SElect inline
+      nnoremap <silent> ,rbsE aChangeThisPls.select { <bar>ChangeThisPls<bar> ChangeThisPls }<esc>/ChangeThisPls<return>
       " Ruby Basics IF
-      nnoremap <silent> ,rbif aif ChangeThisPls<return>end<esc>/ChangeThisPls<return>
+      nnoremap <silent> ,rbif aif ChangeThisPls<return>ChangeThisPls<return>end<esc>/ChangeThisPls<return>
       " Ruby Basics If Else
-      nnoremap <silent> ,rbie aif ChangeThisPls<return>else<return>end<esc>/ChangeThisPls<return>
+      nnoremap <silent> ,rbie aif ChangeThisPls<return>ChangeThisPls<return>else<return>end<esc>/ChangeThisPls<return>
       " Ruby Basics ELse
       nnoremap <silent> ,rbel aelse<return>
       " Ruby Basics ElsIf
-      nnoremap <silent> ,rbei aelsif ChangeThisPls<esc>/ChangeThisPls<return>
+      nnoremap <silent> ,rbei aelsif ChangeThisPls<return>ChangeThisPls<esc>/ChangeThisPls<return>
+      " Ruby Basics Unless
+      nnoremap <silent> ,rbun aunless ChangeThisPls<return>ChangeThisPls<return>end<esc>/ChangeThisPls<return>
+      " Ruby Basics Unless
+      nnoremap <silent> ,rbuN aChangeThisPls unless ChangeThisPls<esc>/ChangeThisPls<return>
+      " Ruby Basics Puts Debugger
+      nnoremap <silent> ,rbpd aputs 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts nil<return>puts 'ChangeLabel:'<return>puts ChangeThisPls<esc>/ChangeLabel\\|ChangeThisPls<return>
+      " Ruby Basics puts Json pretty Generate 
+      nnoremap <silent> ,rbjg aputs JSON.pretty_generate(ChangeHash)<esc>/ChangeHash<return>
+      " Ruby Basics puts Json pretty Generate 
+      nnoremap <silent> ,rbjp aJSON.parse(ChangeNonHash)<esc>/ChangeNonHash<return>
+
 
       nnoremap <silent> ,rbde adef <esc>oend<esc>kla
 
@@ -471,9 +488,19 @@
   " templates
     " models
       " Templates Models BAse
-        nnoremap <silent> ,tmba :read ../templates/models/models/base_model.rb<return>ggdd/ChangeThisPls<return>
-      " Templates Models BLank
-        nnoremap <silent> ,tmbl :read ../templates/models/models/blank_model.rb<return>ggdd/ChangeThisPls<return>
+        nnoremap <silent> ,tmba :read ../templates/models/models/base.rb<return>ggdd/ChangeThisPls<return>
+      " Templates Models Base Virtual
+        nnoremap <silent> ,tmbv :read ../templates/models/models/base_virtual.rb<return>ggdd
+      " Templates Models VIrtual
+        nnoremap <silent> ,tmvi :read ../templates/models/models/virtual.rb<return>ggdd/ChangeThisPls<return>
+      " Templates Models CLass
+        nnoremap <silent> ,tmcl :read ../templates/models/models/class.rb<return>ggdd/ChangeThisPls\\|change_args<return>
+      " Templates Models Sub Class
+        nnoremap <silent> ,tmsu :read ../templates/models/models/sub_class.rb<return>ggdd/ChangeThisPls\\|change_args<return>
+      " Templates Models MOdule
+        nnoremap <silent> ,tmmo :read ../templates/models/models/module.rb<return>ggdd/ChangeThisPls<return>
+      " Templates Models SErvice
+        nnoremap <silent> ,tmse :read ../templates/models/models/service.rb<return>ggdd/ChangeThisPls<return>
     
     " controllers
       " Templates Controllers BAse
