@@ -167,21 +167,23 @@
       
     " Html Ruby (erb) 
       " Html Ruby (erb) ERb
-      nnoremap <silent> ,hrer a<%  %><esc>hhi
+      nnoremap <silent> ,hrer a<% ChangeThisPls %><esc>/ChangeThisPls<return>
       " Html Ruby (erb) Erb Entered
-      nnoremap <silent> ,hree a<%=  %><esc>hhi
+      nnoremap <silent> ,hree a<%= ChangeThisPls %><esc>/ChangeThisPls<return>
       " Html Ruby (erb) Erb # comment
-      nnoremap <silent> ,hre# a<%#  %><esc>hhi
+      nnoremap <silent> ,hre# a<%# ChangeThisPls %><esc>/ChangeThisPls<return>
       " Html Ruby (erb) IF
-      nnoremap <silent> ,hrif a<% if  %><esc>o<% end %><esc>khhi
+      nnoremap <silent> ,hrif a<% if ChangeThisPls %><esc>o<% end %><esc>/ChangeThisPls<return>
+      " Html Ruby (erb) IF inline
+      nnoremap <silent> ,hriF a<% ChangeThisPls if ChangeThisPls %><esc>/ChangeThisPls<return>
       " Html Ruby (erb) If Else
       nnoremap <silent> ,hrie a<% if ChangeThisPls %><esc>o<% else %><esc>o<% end %><esc>/ChangeThisPls<return>
-      " Html Ruby (erb) ELse
-      nnoremap <silent> ,hrel a<% else %><esc>o
-      " Html Ruby (erb) Else If
-      nnoremap <silent> ,hrei a<% elsif  %><esc>hhi
+      " Html Ruby (erb) If Else if else
+      nnoremap <silent> ,hriE a<% if ChangeThisPls %><esc>o<% elsif ChangeThisPls %><esc>o<% else %><esc>o<% end %><esc>/ChangeThisPls<return>
       " Html Ruby (erb) UNless
       nnoremap <silent> ,hrun a<% unless ChangeThisPls %><return><% end %><esc>/ChangeThisPls<return>
+      " Html Ruby (erb) UNless inline
+      nnoremap <silent> ,hruN a<% ChangeThisPls unless ChangeThisPls %><esc>/ChangeThisPls<return>
       " Html Ruby (erb) EAch
       nnoremap <silent> ,hrea a<% ChangeThisPls.each do <bar>ChangeThisPls<bar> %><return><% end %><esc>/ChangeThisPls<return>
       " Html Ruby (erb) Each With index
@@ -314,44 +316,45 @@
 
   " ruby mappings 
     " ruby basics
-      " Ruby Basics EAch block
+      " Ruby Basic EAch block
       nnoremap <silent> ,rbea aChangeThisPls.each do \|ChangeThisPls\|<return>ChangeThisPls<return>end<esc>/ChangeThisPls<return>
-      " Ruby Basics EAch inline
+      " Ruby Basic EAch inline
       nnoremap <silent> ,rbeA aChangeThisPls.each { <bar>ChangeThisPls<bar> ChangeThisPls }<esc>/ChangeThisPls<return>
-      " Ruby Basics MAp block 
+      " Ruby Basic MAp block 
       nnoremap <silent> ,rbma aChangeThisPls.map do \|ChangeThisPls\|<return>ChangeThisPls<return>end<esc>/ChangeThisPls<return>
-      " Ruby Basics MAp inline
+      " Ruby Basic MAp inline
       nnoremap <silent> ,rbmA aChangeThisPls.map { <bar>ChangeThisPls<bar> ChangeThisPls }<esc>/ChangeThisPls<return>
-      " Ruby Basics SElect block
+      " Ruby Basic SElect block
       nnoremap <silent> ,rbse aChangeThisPls.select <bar>ChangeThisPls<bar><return>ChangeThisPls<return>end<esc>/ChangeThisPls<return>
-      " Ruby Basics SElect inline
+      " Ruby Basic SElect inline
       nnoremap <silent> ,rbsE aChangeThisPls.select { <bar>ChangeThisPls<bar> ChangeThisPls }<esc>/ChangeThisPls<return>
-      " Ruby Basics IF
-      nnoremap <silent> ,rbif aif ChangeThisPls<return>ChangeThisPls<return>end<esc>/ChangeThisPls<return>
-      " Ruby Basics If Else
-      nnoremap <silent> ,rbie aif ChangeThisPls<return>ChangeThisPls<return>else<return>end<esc>/ChangeThisPls<return>
-      " Ruby Basics ELse
-      nnoremap <silent> ,rbel aelse<return>
-      " Ruby Basics ElsIf
-      nnoremap <silent> ,rbei aelsif ChangeThisPls<return>ChangeThisPls<esc>/ChangeThisPls<return>
-      " Ruby Basics Unless
-      nnoremap <silent> ,rbun aunless ChangeThisPls<return>ChangeThisPls<return>end<esc>/ChangeThisPls<return>
-      " Ruby Basics Unless
+      " Ruby Basic IF
+      nnoremap <silent> ,rbif aif ChangeThisPls<return>end<esc>/ChangeThisPls<return>
+      " Ruby Basic IF inline
+      nnoremap <silent> ,rbiF aChangeThisPls if ChangeThisPls<esc>/ChangeThisPls<return>
+      " Ruby Basic If Else
+      nnoremap <silent> ,rbie aif ChangeThisPls<return>else<return>end<esc>/ChangeThisPls<return>
+      " Ruby Basic If Else if else
+      nnoremap <silent> ,rbiE aif ChangeThisPls<return>elsif ChangeThisPls<return>else<return>end<esc>/ChangeThisPls<return>
+      " Ruby Basic Unless
+      nnoremap <silent> ,rbun aunless ChangeThisPls<return>end<esc>/ChangeThisPls<return>
+      " Ruby Basic Unless
       nnoremap <silent> ,rbuN aChangeThisPls unless ChangeThisPls<esc>/ChangeThisPls<return>
-      " Ruby Basics Puts Debugger
+      " Ruby Basic TErnary
+      nnoremap <silent> ,rbte aChangeBoolean ? ChangeTrueResult : ChangeFalseResult<esc>/ChangeBoolean\\|ChangeTrueResult\\|ChangeFalseResult<return>
+      " Ruby Basic Puts Debugger
       nnoremap <silent> ,rbpd aputs 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWW'<return>puts nil<return>puts 'ChangeLabel:'<return>puts ChangeThisPls<esc>/ChangeLabel\\|ChangeThisPls<return>
-      " Ruby Basics puts Json pretty Generate 
+      " Ruby Basic puts Json pretty Generate 
       nnoremap <silent> ,rbjg aputs JSON.pretty_generate(ChangeHash)<esc>/ChangeHash<return>
-      " Ruby Basics puts Json pretty Generate 
+      " Ruby Basic puts Json pretty Generate 
       nnoremap <silent> ,rbjp aJSON.parse(ChangeNonHash)<esc>/ChangeNonHash<return>
-
 
       nnoremap <silent> ,rbde adef <esc>oend<esc>kla
 
       nnoremap <silent> ,rbdo ado<return>end<esc>O
-      " Ruby Basics Can Model based
+      " Ruby Basic Can Model based
       nnoremap <silent> ,rbcm acan?(:ChangeNamespace_ChangePermission, @ChangeModel)<esc>/ChangeNamespace\\|ChangePermission\\|ChangeModel<return>
-      " Ruby Basics Can Non-mmodel Model based
+      " Ruby Basic Can Non-mmodel Model based
       nnoremap <silent> ,rbcn acan?(:ChangeNamespace_ChangeVerb, :ChangeObjects)<esc>/ChangeNamespace\\|ChangeVerb\\|ChangeObjects<return>
 
     " Ruby model mappings
@@ -451,18 +454,28 @@
     " Javascript Vanilla
         " Javascript Vanilla IF
         nnoremap <silent> ,jvif aif (ChangeThisPls) {<return>}<esc>/ChangeThisPls<return>
+        " Javascript Vanilla IF inline
+        nnoremap <silent> ,jviF aif (ChangeThisPls) ChangeThisPls<esc>/ChangeThisPls<return>
         " Javascript Vanilla If Else
         nnoremap <silent> ,jvie aif (ChangeThisPls) {<return>} else {<return>}<esc>/ChangeThisPls<return>
-        " Javascript Vanilla ELse
-        nnoremap <silent> ,jvel a<space>else {<return>}<esc>O
-        " Javascript Vanilla Else If
-        nnoremap <silent> ,jvei a<space>else if (ChangeThisPls) {<return>}<esc>/ChangeThisPls<return>
+        " Javascript Vanilla If Else if else
+        nnoremap <silent> ,jviE aif (ChangeThisPls) {<return>} else if (ChangeThisPls) {<return>} else {<return>}<esc>/ChangeThisPls<return>
+        " Javascript Vanilla TErnary
+        nnoremap <silent> ,jvte aChangeBoolean ? ChangeTrueResult : ChangeFalseResult<esc>/ChangeBoolean\\|ChangeTrueResult\\|ChangeFalseResult<return>
         " Javascrip Vanilla FOr
         nnoremap <silent> ,jvfo afor (ChangeThisPls of ChangeThisPls) {<return>}<esc>/ChangeThisPls<return>
         " Javascript Vanilla FUnction
         nnoremap <silent> ,jvfu afunction ChangeThisPls(){<return>}<esc>/ChangeThisPls<return>
         " Javascript Vanilla Get Attribute
         nnoremap <silent> ,jvga agetAttribute('ChangeAttribute')<esc>/ChangeAttribute<return>
+        " Javascript Vanilla Class list Contains
+        nnoremap <silent> ,jvcc aclassList.contains('ChangeClass')<esc>/ChangeClass<return>
+        " Javascript Vanilla Class list Add
+        nnoremap <silent> ,jvca aclassList.add('FirstClassToAdd', 'SecondClassToAdd', 'EtcClassToAdd')<esc>/FirstClassToAdd\\|SecondClassToAdd\\|EtcClassToAdd<return>
+        " Javascript Vanilla Class list Remove
+        nnoremap <silent> ,jvcr aclassList.add('FirstClassToRemove', 'SecondClassToRemove', 'EtcClassToRemove')<esc>/FirstClassToRemove\\|SecondClassToRemove\\|EtcClassToRemove<return>
+        " Javascript Vanilla Class list Toggle
+        nnoremap <silent> ,jvct aclassList.toggle('ChangeClass')<esc>/ChangeClass<return>
 
     " Javascript jQuery   
         " Javascript jQiery SElect
@@ -480,9 +493,10 @@
         " Javascript jQiery Document Ready
         nnoremap <silent> ,jqdr a$(document).ready(function(){<return>ChangeThisPls<return>})<return>$(document).ajaxComplete(function(){<return>ChangeThisPls<return>})<esc>/ChangeThisPls<return>
         " Javascript jQiery Document Ajax complete
-        nnoremap <silent> ,jqda a$(document).ajaxComplete(function(){<return>ChangeThisPls<return>})<esc>/ChangeThisPls<return>
+        nmap <silent> ,jqda a$(document).ajaxComplete(function(){<return>})<esc>,O
         " Javascript jQiery Element On 
         nnoremap <silent> ,jqeo a$(ChangeThisPls).on('ChangeThisPls', function(){})<esc>hi<return><esc>/ChangeThisPls<return>
+
 
 
   " templates
