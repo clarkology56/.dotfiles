@@ -485,7 +485,9 @@
         " Javascript jQiery Select Id
         nnoremap <silent> ,jqsi a$('#ChangeId')<esc>/ChangeId<return>
         " Javascript jQiery Select Attribute
-        nnoremap <silent> ,jqsa a$('[ChangeAttribute="ChangeValue"]')<esc>/ChangeAttribute\\|ChangeValue<return>
+        nnoremap <silent> ,jqsa a$('[ChangeAttribute]')<esc>/ChangeAttribute\\|ChangeValue<return>
+        " Javascript jQiery Select attribute Value
+        nnoremap <silent> ,jqsv a$('[ChangeAttribute="ChangeValue"]')<esc>/ChangeAttribute\\|ChangeValue<return>
         " Javascript jQiery Select Data attribute
         nnoremap <silent> ,jqsd a$('[data-ChangeAttribute="ChangeValue"]')<esc>/ChangeAttribute\\|ChangeValue<return>
         " Javascript jQiery Document On 
