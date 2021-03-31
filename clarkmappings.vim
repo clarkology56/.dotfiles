@@ -203,7 +203,7 @@
       " Html Ruby (erb) Javascript Pack
       nnoremap <silent> ,hrjp a<%= javascript_pack_tag('ChangeThisPls', 'data-turbolinks-track': 'reload') %><esc>/ChangeThisPls<return>
       " Html Ruby (erb) StyleSheet
-      nnoremap <silent> ,hrss aa<%= stylesheet_link_tag('ChangeThisPls') %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hrss a<%= stylesheet_link_tag('ChangeThisPls') %><esc>/ChangeThisPls<return>
       " Html Ruby (erb) Partial
       nnoremap <silent> ,hrpa a<%= render(partial: 'ChangeThisPls', locals: { ChangeThisPls }) %><esc>/ChangeThisPls<return>
       " Html Ruby Puts Debugger
@@ -547,6 +547,8 @@
     " Views
       " Templates Views PAge
       nnoremap <silent> ,tvpa :read ../templates/views/page_frame/pages.html.erb<return>ggdd/ChangeThisPls<return>
+      " Templates views Page full height columns
+      nnoremap <silent> ,tvpc :read ../templates/views/page_frame/full_height_columns.html.erb<return>/ChangeThisPls\\|ChangeColumnName\\|ChangeScreenSize\\|ChangeWidth<return>
       " Templates Views TAbs
       nnoremap <silent> ,tvta :read ../templates/views/page_frame/tabs.html.erb<return>ggdd/ChangeThisPls<return>
       " Templates Views CArd
