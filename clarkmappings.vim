@@ -150,6 +150,9 @@
       nnoremap <silent> ,hebu a<button class="btn btn-ChangeThisPls">ChangeThisPls</button><esc>/ChangeThisPls<return>
       " Html Elements TAble
       nnoremap <silent> ,heta a<table><esc>o</table><esc>k
+      " Html Elements TAble
+      " Html Elements TAble full
+      " Html Elements TAble really full
       " Html Elements Table capsHead
       nnoremap <silent> ,hetH a<thead><esc>o</thead><esc>k
       " Html Elements Table Row
@@ -162,6 +165,10 @@
       nnoremap <silent> ,hetd a<td><esc>o</td><esc>k
       " Html Elements Table Footer
       nnoremap <silent> ,hetf a<tfoot><esc>o</tfoot><esc>k
+      " Html Elements Ordered List
+      nnoremap <silent> ,heol a<ol><return><li>ChangeThisPls</li><return></ol><esc>/ChangeThisPls<return>
+      " Html Elements Unordered List
+      nnoremap <silent> ,heul a<ul><return><li>ChangeThisPls</li><return></ul><esc>/ChangeThisPls<return>
       " Html Elements CUstom
       nnoremap <silent> ,hecu a<ChangeThisPls></ChangeThisPls><esc>/ChangeThisPls<return>
       
@@ -185,13 +192,17 @@
       " Html Ruby (erb) UNless inline
       nnoremap <silent> ,hruN a<% ChangeThisPls unless ChangeThisPls %><esc>/ChangeThisPls<return>
       " Html Ruby (erb) EAch
-      nnoremap <silent> ,hrea a<% ChangeThisPls.each do <bar>ChangeThisPls<bar> %><return><% end %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hrea a<% ChangeThisPls.each do \|ChangeThisPls\| %><return><% end %><esc>/ChangeThisPls<return>
       " Html Ruby (erb) Each With index
       nnoremap <silent> ,hrew a<% ChangeThisPls.each_with_index do <bar>ChangeThisPls, index<bar> do %><return><% end %><esc>/ChangeThisPls<return>
+      " Html Ruby (erb) Ordere dList
+      nnoremap <silent> ,hrol a<ol><return><% ChangeThisPls.each do \|ChangeThisPls\| %><return><li>ChangeThisPls</li><return><% end %><return></ol><esc>/ChangeThisPls<return>
+      " Html Ruby (erb) Unordered List
+      nnoremap <silent> ,hrul a<ul><return><% ChangeThisPls.each do \|ChangeThisPls\| %><return><li>ChangeThisPls</li><return><% end %><return></ul><esc>/ChangeThisPls<return>
       " Html Ruby (erb) ENd
       nnoremap <silent> ,hren a<% end %><esc>
       " Html Ruby (erb) Link To
-      nnoremap <silent> ,hrlt a<%= link_to(ChangeThisPls, ChangeThisPls) %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hrlt a<%= link_to(ChangeDisplay, ChangeUrl) %><esc>/ChangeDisplay\\|ChangeUrl<return>
       " Html Ruby (erb) Link to Remote 
       nnoremap <silent> ,hrlr a<%= link_to(ChangeThisPls, ChangeThisPls, remote: true, method: 'ChangeThisPls') %><esc>/ChangeThisPls<return>
       " Html Ruby (erb) Link to Block 
@@ -319,7 +330,11 @@
       " Ruby Basic EAch block
       nnoremap <silent> ,rbea aChangeThisPls.each do \|ChangeThisPls\|<return>ChangeThisPls<return>end<esc>/ChangeThisPls<return>
       " Ruby Basic EAch inline
-      nnoremap <silent> ,rbeA aChangeThisPls.each { <bar>ChangeThisPls<bar> ChangeThisPls }<esc>/ChangeThisPls<return>
+      nnoremap <silent> ,rbeA aChangeThisPls.each { \|ChangeThisPls\| ChangeThisPls }<esc>/ChangeThisPls<return>
+      " Ruby Basic Each With index block
+      nnoremap <silent> ,rbew aChangeThisPls.each_with_index do \|ChangeThisPls, index\|<return>ChangeThisPls<return>end<esc>/ChangeThisPls<return>
+      " Ruby Basic Each With index inline
+      nnoremap <silent> ,rbeW aChangeThisPls.each_with_index { \|ChangeThisPls, index\| ChangeThisPls }<esc>/ChangeThisPls<return>
       " Ruby Basic MAp block 
       nnoremap <silent> ,rbma aChangeThisPls.map do \|ChangeThisPls\|<return>ChangeThisPls<return>end<esc>/ChangeThisPls<return>
       " Ruby Basic MAp inline
@@ -553,8 +568,8 @@
       nnoremap <silent> ,tvta :read ../templates/views/page_frame/tabs.html.erb<return>ggdd/ChangeThisPls<return>
       " Templates Views CArd
       nnoremap <silent> ,tvca :read ../templates/views/page_frame/cards.html.erb<return>ggdd/ChangeThisPls<return>
-      " Templates Views Card body Single
-      nnoremap <silent> ,tvcs :read ../templates/views/card_body_options/single.html.erb<return>/ChangeThisPls<return>
+      " Templates Views Card body Single show
+      nnoremap <silent> ,tvcs :read ../templates/views/card_body_options/single_show.html.erb<return>/ChangeThisPls<return>
       " Templates Views Top label Edit
       nnoremap <silent> ,tvtb :read ../templates/views/form_options/top_label_edit.html.erb<return>/ChangeThisPls<return>
       " Templates views non-standard Forms Array Simple
