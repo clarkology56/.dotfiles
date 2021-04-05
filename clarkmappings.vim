@@ -20,6 +20,7 @@
 "     Templates Models
 "     Templates Controllers
 "     Templates Helpers
+"   MiniTest
 "       
 "   
 " Caps lock in insert mode (press ctrl - ^ to toggle)
@@ -174,11 +175,11 @@
       
     " Html Ruby (erb) 
       " Html Ruby (erb) ERb
-      nnoremap <silent> ,hrer a<% ChangeThisPls %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hrer a<%  %><esc>hhh
       " Html Ruby (erb) Erb Entered
-      nnoremap <silent> ,hree a<%= ChangeThisPls %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hree a<%=  %><esc>hhh
       " Html Ruby (erb) Erb # comment
-      nnoremap <silent> ,hre# a<%# ChangeThisPls %><esc>/ChangeThisPls<return>
+      nnoremap <silent> ,hre# a<%#  %><esc>hhi
       " Html Ruby (erb) IF
       nnoremap <silent> ,hrif a<% if ChangeThisPls %><esc>o<% end %><esc>/ChangeThisPls<return>
       " Html Ruby (erb) IF inline
@@ -491,6 +492,9 @@
         nnoremap <silent> ,jvcr aclassList.add('FirstClassToRemove', 'SecondClassToRemove', 'EtcClassToRemove')<esc>/FirstClassToRemove\\|SecondClassToRemove\\|EtcClassToRemove<return>
         " Javascript Vanilla Class list Toggle
         nnoremap <silent> ,jvct aclassList.toggle('ChangeClass')<esc>/ChangeClass<return>
+        " Javascript Vanilla Class list Toggle
+        nnoremap <silent> ,jvcl aconsole.log(ChangeThisPls)<esc>/ChangeThisPls<return>
+
 
     " Javascript jQuery   
         " Javascript jQiery SElect
@@ -576,3 +580,31 @@
       nnoremap <silent> ,tfas :read ../templates/views/non_standard_forms/array_simple.html.erb<return>/ChangeParentForm\\|ChangeAttributes\\|ChangeModels\\|ChangeModel\\|ChangeAttribute\\|ReplaceThis\\|DeleteThis:<return>
       " Templates views non-standard Forms Array Hash
       nnoremap <silent> ,tfah :read ../templates/views/non_standard_forms/array_hash.html.erb<return>/ChangeParentForm\\|ChangeModels\\|ChangeModel\\|ReplaceThis\\|DeleteThis:\\|ChangeAttribute<return>
+    
+  " Automated testing
+    " Base
+      " Automated testing Base Controller Base
+      nnoremap <silent> ,abcb :read ../templates/tests/controller_base.rb<return>/ChangePathToTest\\|ChangeThisPls\\|ChangePermission\\|ChangeUserWithPermission\\|change_model_name\\|ChangeModel<return>
+      " Automated testing Base TEst
+      nnoremap <silent> ,abte atest 'Should ChangeThisPls when ChangeThisPls' do<return>end<esc>/ChangeThisPls<return>
+      " Automated testing Get Index
+      nnoremap <silent> ,abgi aget ChangeUrlHelper_path<esc>/ChangeUrlHelper<return>
+      " Automated testing Get Show (or New or Edit)
+      nnoremap <silent> ,abgs aget ChangeUrlHelper_path(ChangeModel)<esc>/ChangeUrlHelper\\|ChangeModel<return>
+      " Automated testing POst
+      nnoremap <silent> ,abpo apost ChangeUrlHelper_path, params: { ChangeParams }<esc>/ChangeUrlHelper\\|ChangeParams<return>
+      " Automated testing PAtch
+      nnoremap <silent> ,abpa apatch ChangeUrlHelper_path(ChangeModel), params: { ChangeParams }<esc>/ChangeUrlHelper\\|ChangeModel\\|ChangeParams<return>
+      " Automated testing DElete
+      nnoremap <silent> ,abde adelete ChangeUrlHelper_path(ChangeModel)<esc>/ChangeUrlHelper\\|ChangeModel<return>
+    " Models
+      " Automated Testing Belongs To
+      nnoremap <silent> ,ambt atest "ChangeModel should belong to ChangeAssociationName" do<return>assert_equal @ChangeParent, @ChangeModel.ChangeParent<return>end<esc>/ChangeModel\\|ChangeAssociationName\\|ChangeParent<return>
+      " Automated Testing Has Many
+      nnoremap <silent> ,amhm atest "ChangeModel should have many ChangeAssociationName" do<return>assert_equal @ChangeModel.ChangeAssociationName.count, ChangeModel.where(ChangeModel_id: ChangeModel.id).count<return>end<esc>/ChangeModel\\|ChangeAssociationName<return>
+      " Automated Testing Model VAlication
+      nnoremap <silent> ,amva atest "ChangeModel ChangeAttribute should be ChangeValidation" do<return>@ChangeModel.attrbitute = ChangeInvalidValue<return>assert_not @ChangeModel.valid?<return>end<esc>/ChangeModel\\|ChangeAttribute\\|ChangeValidation\\|ChangeInvalidValue<return>
+
+      
+        
+
