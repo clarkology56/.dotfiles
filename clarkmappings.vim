@@ -3,24 +3,23 @@
 "   One key comma (o, comments)
 "   Misc
 "   Edit
-"   HTML 
-"     HTML Elements
-"     HTML Ruby
-"     HTML Forms
-"     HTML Partials
+"   Html 
+"     Html Elements
+"     Html Ruby
+"     Html Forms
+"     Html form Inputs
+"     Html form Show elements
+"     Html Beagle
 "   Ruby
 "     Ruby Basic
 "     Ruby Models
 "     Ruby Routes
 "     Ruby Controllers
+"     Ruby Helpers
 "   Javascript
 "     Javascript Vanillia
 "     Javascript jQuery
-"   Templates
-"     Templates Models
-"     Templates Controllers
-"     Templates Helpers
-"   MiniTest
+"   Tests
 "       
 "   
 " Caps lock in insert mode (press ctrl - ^ to toggle)
@@ -323,6 +322,23 @@
       " Html Form CUstom Field
       nnoremap <silent> ,hicu a<%= ChangeThisPls_form.ChangeThisPls(:ChangeThisPls, class: 'form-control') %><esc>/ChangeThisPls<return>
             
+    " Html Beagle
+      " Html Beagle PAge
+      nnoremap <silent> ,hbpa :read ../templates/views/page_frame/pages.html.erb<return>ggdd/ChangeThisPls<return>
+      " Html Beagle Page full height columns
+      nnoremap <silent> ,hbpc :read ../templates/views/page_frame/full_height_columns.html.erb<return>/ChangeThisPls\\|ChangeColumnName\\|ChangeScreenSize\\|ChangeWidth<return>
+      " Html Beagle TAbs
+      nnoremap <silent> ,hbta :read ../templates/views/page_frame/tabs.html.erb<return>ggdd/ChangeThisPls<return>
+      " Html Beagle CArd
+      nnoremap <silent> ,hbca :read ../templates/views/page_frame/cards.html.erb<return>ggdd/ChangeThisPls<return>
+      " Html Beagle Card body Single show
+      nnoremap <silent> ,hbcs :read ../templates/views/card_body_options/single_show.html.erb<return>/ChangeThisPls<return>
+      " Html Beagle Top label Edit
+      nnoremap <silent> ,hbtb :read ../templates/views/form_options/top_label_edit.html.erb<return>/ChangeThisPls<return>
+      " Templates views non-standard Forms Array Simple
+      nnoremap <silent> ,tfas :read ../templates/views/non_standard_forms/array_simple.html.erb<return>/ChangeParentForm\\|ChangeAttributes\\|ChangeModels\\|ChangeModel\\|ChangeAttribute\\|ReplaceThis\\|DeleteThis:<return>
+      " Templates views non-standard Forms Array Hash
+      nnoremap <silent> ,tfah :read ../templates/views/non_standard_forms/array_hash.html.erb<return>/ChangeParentForm\\|ChangeModels\\|ChangeModel\\|ReplaceThis\\|DeleteThis:\\|ChangeAttribute<return>
 
 
 
@@ -400,6 +416,20 @@
       nnoremap <silent> ,rmoa ahas_one_attached :ChangeAttribute<esc>/ChangeAttribute<return>
       " Ruby Models has Many Attached
       nnoremap <silent> ,rmma ahas_many_attached :ChangeAttributes<esc>/ChangeAttributes<return>
+      " Ruby Models BAse
+      nnoremap <silent> ,rmba :read ../templates/models/models/base.rb<return>ggdd/ChangeThisPls<return>
+      " Ruby Models Base Virtual
+      nnoremap <silent> ,rmbv :read ../templates/models/models/base_virtual.rb<return>ggdd
+      " Ruby Models VIrtual
+      nnoremap <silent> ,rmvi :read ../templates/models/models/virtual.rb<return>ggdd/ChangeThisPls<return>
+      " Ruby Models CLass
+      nnoremap <silent> ,rmcl :read ../templates/models/models/class.rb<return>ggdd/ChangeThisPls\\|change_args<return>
+      " Ruby Models Sub Class
+      nnoremap <silent> ,rmsu :read ../templates/models/models/sub_class.rb<return>ggdd/ChangeThisPls\\|change_args<return>
+      " Ruby Models MOdule
+      nnoremap <silent> ,rmmo :read ../templates/models/models/module.rb<return>ggdd/ChangeThisPls<return>
+      " Ruby Models SErvice
+      nnoremap <silent> ,rmse :read ../templates/models/models/service.rb<return>ggdd/ChangeThisPls<return>
       
     " Ruby Routes 
       " main routes
@@ -464,8 +494,31 @@
       nnoremap <silent> ,rcmv a@ChangeThisPls.set_value(:ChangeAttribute, ChangeValue)<esc>/ChangeAttribute\\|ChangeValue<return>
       " Ruby Controller Model impersonator add Error Message
       nnoremap <silent> ,rcme a@ChangeThisPls.add_error_message(:ChangeAttribute, ChangeMessage)<esc>/ChangeAttribute\\|ChangeMessage<return>
-      
+      " Ruby Controllers BAse
+      nnoremap <silent> ,rcba :read ../templates/controllers/base_controller.rb<return>ggdd/ChangeThisPls<return>
+      " Ruby Controllers Index Base
+      nnoremap <silent> ,rcib :read ../templates/controllers/actions/index_base.rb<return>/ChangeLoads\\|ChangeModel\\|ChangeNamespace\\|ChangePermission\\|ChangeVerb\\|ChangeObjects<return>
+      " Ruby Controllers Show Base
+      nnoremap <silent> ,rcsb :read ../templates/controllers/actions/show_base.rb<return>/ChangeLoad\\|ChangeModel\\|ChangeNamespace\\|ChangePermission<return>
+      " Ruby Controllers Show Tab Router 
+      nnoremap <silent> ,rcsr :read ../templates/controllers/actions/show_router.rb<return>/ChangeLoad\\|ChangeModel\\|ChangeNamespace\\|ChangePermission\\|ChangeUrl<return>
+      " Ruby Controllers Show for Tab
+      nnoremap <silent> ,rcst :read ../templates/controllers/actions/show_tab.rb<return>/ChangeLoad\\|ChangeModel\\|ChangeNamespace\\|ChangePermission\\|ChangeTab<return>
+      " Ruby Controllers New Base
+      nmap <silent> ,rcnb ,tcsb/show<return>cgnnew<esc>/ChangeLoad\\|ChangeModel\\|ChangeNamespace\\|ChangePermission<return>
+      " Ruby Controllers Create Base
+      nnoremap <silent> ,rccb :read ../templates/controllers/actions/create_base.rb<return>/ChangeLoad\\|ChangeModel\\|ChangeAttributes\\|DeleteThis\\|ChangeNamespace\\|ChangePermission\\|ChangeObject\\|ChangeUrlHelper\\|ChangeTemplate<return>
+      " Ruby Controllers Edit Base
+      nmap <silent> ,rceb ,tcsb/show<return>cgnedit<esc>/ChangeLoad\\|ChangeModel\\|ChangeNamespace\\|ChangePermission<return>
+      " Ruby Controllers Update Base
+      nnoremap <silent> ,rcub :read ../templates/controllers/actions/update_base.rb<return>/ChangeLoad\\|ChangeModel\\|ChangeNamespace\\|ChangePermission\\|DeleteThis\\|ChangeObject\\|ChangeUrlHelper\\|ChangeTemplate<return>
+      " Ruby Controllers Destroy Base
+      nnoremap <silent> ,rcdb :read ../templates/controllers/actions/destroy_base.rb<return>/ChangeLoad\\|ChangeModel\\|ChangeNamespace\\|ChangePermission\\|ChangeObject\\|ChangeUrlHelper\\|ChangeTemplate<return>
 
+    " Ruby Helpers
+      " Ruby Helpers BAse
+      nnoremap <silent> ,thba :read ../templates/helpers/base_helper.rb<return>ggdd/ChangeThisPls<return>
+    "
   " javascript mappings 
     " Javascript Vanilla
         " Javascript Vanilla IF
@@ -518,93 +571,34 @@
         " Javascript jQiery Element On 
         nnoremap <silent> ,jqeo a$(ChangeThisPls).on('ChangeThisPls', function(){})<esc>hi<return><esc>/ChangeThisPls<return>
 
-
-
-  " templates
-    " models
-      " Templates Models BAse
-        nnoremap <silent> ,tmba :read ../templates/models/models/base.rb<return>ggdd/ChangeThisPls<return>
-      " Templates Models Base Virtual
-        nnoremap <silent> ,tmbv :read ../templates/models/models/base_virtual.rb<return>ggdd
-      " Templates Models VIrtual
-        nnoremap <silent> ,tmvi :read ../templates/models/models/virtual.rb<return>ggdd/ChangeThisPls<return>
-      " Templates Models CLass
-        nnoremap <silent> ,tmcl :read ../templates/models/models/class.rb<return>ggdd/ChangeThisPls\\|change_args<return>
-      " Templates Models Sub Class
-        nnoremap <silent> ,tmsu :read ../templates/models/models/sub_class.rb<return>ggdd/ChangeThisPls\\|change_args<return>
-      " Templates Models MOdule
-        nnoremap <silent> ,tmmo :read ../templates/models/models/module.rb<return>ggdd/ChangeThisPls<return>
-      " Templates Models SErvice
-        nnoremap <silent> ,tmse :read ../templates/models/models/service.rb<return>ggdd/ChangeThisPls<return>
     
-    " controllers
-      " Templates Controllers BAse
-        nnoremap <silent> ,tcba :read ../templates/controllers/base_controller.rb<return>ggdd/ChangeThisPls<return>
-      " Templates Controllers Index Base
-        nnoremap <silent> ,tcib :read ../templates/controllers/actions/index_base.rb<return>/ChangeLoads\\|ChangeModel\\|ChangeNamespace\\|ChangePermission\\|ChangeVerb\\|ChangeObjects<return>
-      " Templates Controllers Show Base
-        nnoremap <silent> ,tcsb :read ../templates/controllers/actions/show_base.rb<return>/ChangeLoad\\|ChangeModel\\|ChangeNamespace\\|ChangePermission<return>
-      " Templates Controllers Show Tab Router 
-        nnoremap <silent> ,tcsr :read ../templates/controllers/actions/show_router.rb<return>/ChangeLoad\\|ChangeModel\\|ChangeNamespace\\|ChangePermission\\|ChangeUrl<return>
-      " Templates Controllers Show for Tab
-        nnoremap <silent> ,tcst :read ../templates/controllers/actions/show_tab.rb<return>/ChangeLoad\\|ChangeModel\\|ChangeNamespace\\|ChangePermission\\|ChangeTab<return>
-      " Templates Controllers New Base
-        nmap <silent> ,tcnb ,tcsb/show<return>cgnnew<esc>/ChangeLoad\\|ChangeModel\\|ChangeNamespace\\|ChangePermission<return>
-      " Templates Controllers Create Base
-        nnoremap <silent> ,tccb :read ../templates/controllers/actions/create_base.rb<return>/ChangeLoad\\|ChangeModel\\|ChangeAttributes\\|DeleteThis\\|ChangeNamespace\\|ChangePermission\\|ChangeObject\\|ChangeUrlHelper\\|ChangeTemplate<return>
-      " Templates Controllers Edit Base
-        nmap <silent> ,tceb ,tcsb/show<return>cgnedit<esc>/ChangeLoad\\|ChangeModel\\|ChangeNamespace\\|ChangePermission<return>
-      " Templates Controllers Update Base
-        nnoremap <silent> ,tcub :read ../templates/controllers/actions/update_base.rb<return>/ChangeLoad\\|ChangeModel\\|ChangeNamespace\\|ChangePermission\\|DeleteThis\\|ChangeObject\\|ChangeUrlHelper\\|ChangeTemplate<return>
-      " Templates Controllers Destroy Base
-        nnoremap <silent> ,tcdb :read ../templates/controllers/actions/destroy_base.rb<return>/ChangeLoad\\|ChangeModel\\|ChangeNamespace\\|ChangePermission\\|ChangeObject\\|ChangeUrlHelper\\|ChangeTemplate<return>
-
-    " helpers 
-      " Templates Helpers BAse
-      nnoremap <silent> ,thba :read ../templates/helpers/base_helper.rb<return>ggdd/ChangeThisPls<return>
-      "
-    " Views
-      " Templates Views PAge
-      nnoremap <silent> ,tvpa :read ../templates/views/page_frame/pages.html.erb<return>ggdd/ChangeThisPls<return>
-      " Templates views Page full height columns
-      nnoremap <silent> ,tvpc :read ../templates/views/page_frame/full_height_columns.html.erb<return>/ChangeThisPls\\|ChangeColumnName\\|ChangeScreenSize\\|ChangeWidth<return>
-      " Templates Views TAbs
-      nnoremap <silent> ,tvta :read ../templates/views/page_frame/tabs.html.erb<return>ggdd/ChangeThisPls<return>
-      " Templates Views CArd
-      nnoremap <silent> ,tvca :read ../templates/views/page_frame/cards.html.erb<return>ggdd/ChangeThisPls<return>
-      " Templates Views Card body Single show
-      nnoremap <silent> ,tvcs :read ../templates/views/card_body_options/single_show.html.erb<return>/ChangeThisPls<return>
-      " Templates Views Top label Edit
-      nnoremap <silent> ,tvtb :read ../templates/views/form_options/top_label_edit.html.erb<return>/ChangeThisPls<return>
-      " Templates views non-standard Forms Array Simple
-      nnoremap <silent> ,tfas :read ../templates/views/non_standard_forms/array_simple.html.erb<return>/ChangeParentForm\\|ChangeAttributes\\|ChangeModels\\|ChangeModel\\|ChangeAttribute\\|ReplaceThis\\|DeleteThis:<return>
-      " Templates views non-standard Forms Array Hash
-      nnoremap <silent> ,tfah :read ../templates/views/non_standard_forms/array_hash.html.erb<return>/ChangeParentForm\\|ChangeModels\\|ChangeModel\\|ReplaceThis\\|DeleteThis:\\|ChangeAttribute<return>
-    
-  " Automated testing
+  " Tests
     " Base
-      " Automated testing Base Controller Base
-      nnoremap <silent> ,abcb :read ../templates/tests/controller_base.rb<return>/ChangePathToTest\\|ChangeThisPls\\|ChangePermission\\|ChangeUserWithPermission\\|change_model_name\\|ChangeModel<return>
-      " Automated testing Base TEst
-      nnoremap <silent> ,abte atest 'Should ChangeThisPls when ChangeThisPls' do<return>end<esc>/ChangeThisPls<return>
-      " Automated testing Get Index
-      nnoremap <silent> ,abgi aget ChangeUrlHelper_path<esc>/ChangeUrlHelper<return>
-      " Automated testing Get Show (or New or Edit)
-      nnoremap <silent> ,abgs aget ChangeUrlHelper_path(ChangeModel)<esc>/ChangeUrlHelper\\|ChangeModel<return>
-      " Automated testing POst
-      nnoremap <silent> ,abpo apost ChangeUrlHelper_path, params: { ChangeParams }<esc>/ChangeUrlHelper\\|ChangeParams<return>
-      " Automated testing PAtch
-      nnoremap <silent> ,abpa apatch ChangeUrlHelper_path(ChangeModel), params: { ChangeParams }<esc>/ChangeUrlHelper\\|ChangeModel\\|ChangeParams<return>
-      " Automated testing DElete
-      nnoremap <silent> ,abde adelete ChangeUrlHelper_path(ChangeModel)<esc>/ChangeUrlHelper\\|ChangeModel<return>
+      " Tests Base TEst
+      nnoremap <silent> ,tbte atest 'Should ChangeThisPls when ChangeThisPls' do<return>end<esc>/ChangeThisPls<return>
+    " Controller
+      " Tests Controller BAse
+      nnoremap <silent> ,tcba :read ../templates/tests/controller_base.rb<return>/ChangePathToTest\\|ChangeThisPls\\|ChangePermission\\|ChangeUserWithPermission\\|change_model_name\\|ChangeModel<return>
+      " Tests Controller Base Scenarios
+      nnoremap <silent> ,tcbs :read ../templates/tests/controller_base_scenarios.rb<return>/ChangePermission\\|ChangeMethodUrlAndParams\\|ChangeThisPls\\|ChangeTemplate\\|ChangeAssertions<return>
+      " Tests Controller REquest
+      nnoremap <silent> ,tcre  aChangeHtmlMethod ChangeUrlHelper_path<esc>/ChangeHtmlMethod\\|ChangeUrlHelper<return>
+      " Tests Controller REquest full
+      nnoremap <silent> ,tcrE  aChangeHtmlMethod ChangeUrlHelper_path, params: { ChangeParams }, headers{ ChangeHeaders }, env: ChangeEnvironment, xhr: true, as: :json<esc>/ChangeHtmlMethod\\|ChangeUrlHelper<return>
+      " Tests Controller Get Index
+      nnoremap <silent> ,tcgi aget ChangeUrlHelper_path<esc>/ChangeUrlHelper<return>
+      " Tests Controller Get Show (or New or Edit)
+      nnoremap <silent> ,tcgs aget ChangeUrlHelper_path(ChangeModel)<esc>/ChangeUrlHelper\\|ChangeModel<return>
+      " Tests Controller POst
+      nnoremap <silent> ,tcpo apost ChangeUrlHelper_path, params: { ChangeParams }<esc>/ChangeUrlHelper\\|ChangeParams<return>
+      " Tests Controller PAtch
+      nnoremap <silent> ,tcpa apatch ChangeUrlHelper_path(ChangeModel), params: { ChangeParams }<esc>/ChangeUrlHelper\\|ChangeModel\\|ChangeParams<return>
+      " Tests Controller DElete
+      nnoremap <silent> ,tcde adelete ChangeUrlHelper_path(ChangeModel)<esc>/ChangeUrlHelper\\|ChangeModel<return>
     " Models
-      " Automated Testing Belongs To
-      nnoremap <silent> ,ambt atest "ChangeModel should belong to ChangeAssociationName" do<return>assert_equal @ChangeParent, @ChangeModel.ChangeParent<return>end<esc>/ChangeModel\\|ChangeAssociationName\\|ChangeParent<return>
-      " Automated Testing Has Many
-      nnoremap <silent> ,amhm atest "ChangeModel should have many ChangeAssociationName" do<return>assert_equal @ChangeModel.ChangeAssociationName.count, ChangeModel.where(ChangeModel_id: ChangeModel.id).count<return>end<esc>/ChangeModel\\|ChangeAssociationName<return>
-      " Automated Testing Model VAlication
-      nnoremap <silent> ,amva atest "ChangeModel ChangeAttribute should be ChangeValidation" do<return>@ChangeModel.attrbitute = ChangeInvalidValue<return>assert_not @ChangeModel.valid?<return>end<esc>/ChangeModel\\|ChangeAttribute\\|ChangeValidation\\|ChangeInvalidValue<return>
-
-      
-        
-
+      " Tests Models Belongs To
+      nnoremap <silent> ,tmbt atest "ChangeModel should belong to ChangeAssociationName" do<return>assert_equal @ChangeParent, @ChangeModel.ChangeParent<return>end<esc>/ChangeModel\\|ChangeAssociationName\\|ChangeParent<return>
+      " Tests Models Has Many
+      nnoremap <silent> ,tmhm atest "ChangeModel should have many ChangeAssociationName" do<return>assert_equal @ChangeModel.ChangeAssociationName.count, ChangeModel.where(ChangeModel_id: ChangeModel.id).count<return>end<esc>/ChangeModel\\|ChangeAssociationName<return>
+      " Tests Models Model VAlication
+      nnoremap <silent> ,tmva atest "ChangeModel ChangeAttribute should be ChangeValidation" do<return>@ChangeModel.attrbitute = ChangeInvalidValue<return>assert_not @ChangeModel.valid?<return>end<esc>/ChangeModel\\|ChangeAttribute\\|ChangeValidation\\|ChangeInvalidValue<return>
