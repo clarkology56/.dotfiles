@@ -576,19 +576,23 @@
     " Base
       " Tests Base TEst
       nnoremap <silent> ,tbte atest 'Should ChangeThisPls when ChangeThisPls' do<return>end<esc>/ChangeThisPls<return>
+      " Tests Base Assertions and Tools
+      nnoremap <silent> ,tbat :read ../templates/tests/assertions_and_tools.rb<return>
     " Controller
       " Tests Controller BAse
-      nnoremap <silent> ,tcba :read ../templates/tests/controller_base.rb<return>/ChangePathToTest\\|ChangeThisPls\\|ChangePermission\\|ChangeUserWithPermission\\|change_model_name\\|ChangeModel<return>
+      nnoremap <silent> ,tcba :read ../templates/tests/controller_base.rb<return>ggdd/ChangePathToTest\\|ChangeThisPls\\|ChangeUserWithPermission\\|ChangeUserWithPermission\\|change_model_name\\|ChangeModel\\|DeleteThisIfNotNecessary<return>
       " Tests Controller Base Scenarios
-      nnoremap <silent> ,tcbs :read ../templates/tests/controller_base_scenarios.rb<return>/ChangePermission\\|ChangeMethodUrlAndParams\\|ChangeThisPls\\|ChangeTemplate\\|ChangeAssertions<return>
+      nnoremap <silent> ,tcbs :read ../templates/tests/controller_base_scenarios.rb<return>/ChangePermission\\|ChangeMethodUrlAndParams\\|ReplaceThisPls<return>
+      " Tests Controller Base Test
+      nnoremap <silent> ,tcbt :read ../templates/tests/controller_base_test.rb<return>/ChangeThisPls\\|ChangeUserWithPermission\\|ChangeMethodUrlAndParams\\|DeleteThisPls\\|ChangeTemplate\\|ChangePath<return>
       " Tests Controller REquest
       nnoremap <silent> ,tcre  aChangeHtmlMethod ChangeUrlHelper_path<esc>/ChangeHtmlMethod\\|ChangeUrlHelper<return>
       " Tests Controller REquest full
-      nnoremap <silent> ,tcrE  aChangeHtmlMethod ChangeUrlHelper_path, params: { ChangeParams }, headers{ ChangeHeaders }, env: ChangeEnvironment, xhr: true, as: :json<esc>/ChangeHtmlMethod\\|ChangeUrlHelper<return>
-      " Tests Controller Get Index
-      nnoremap <silent> ,tcgi aget ChangeUrlHelper_path<esc>/ChangeUrlHelper<return>
-      " Tests Controller Get Show (or New or Edit)
-      nnoremap <silent> ,tcgs aget ChangeUrlHelper_path(ChangeModel)<esc>/ChangeUrlHelper\\|ChangeModel<return>
+      nnoremap <silent> ,tcrE  aChangeHtmlMethod ChangeUrlHelper_path, params: { ChangeParams }, headers{ ChangeHeaders }, env: ChangeEnvironment, xhr: true, as: :json<esc>/ChangeHtmlMethod\\|ChangeUrlHelper\\|ChangeParams\\|ChangeHeaders\\|ChangeEnvironment\\|:json<return>
+      " Tests Controller GEt (index)
+      nnoremap <silent> ,tcge aget ChangeUrlHelper_path<esc>/ChangeUrlHelper<return>
+      " Tests Controller GEt full (show or new or edit)
+      nnoremap <silent> ,tcgE aget ChangeUrlHelper_path(ChangeModel)<esc>/ChangeUrlHelper\\|ChangeModel<return>
       " Tests Controller POst
       nnoremap <silent> ,tcpo apost ChangeUrlHelper_path, params: { ChangeParams }<esc>/ChangeUrlHelper\\|ChangeParams<return>
       " Tests Controller PAtch
@@ -596,9 +600,14 @@
       " Tests Controller DElete
       nnoremap <silent> ,tcde adelete ChangeUrlHelper_path(ChangeModel)<esc>/ChangeUrlHelper\\|ChangeModel<return>
     " Models
+      " Tests Model BAse
+      nnoremap <silent> ,tmba :read ../templates/tests/model_base.rb<return>ggdd/ChangePathToTest\\|ChangeThisPls\\|ChangePermission\\|ChangeUserWithPermission\\|change_model_name\\|ChangeModel<return>
       " Tests Models Belongs To
       nnoremap <silent> ,tmbt atest "ChangeModel should belong to ChangeAssociationName" do<return>assert_equal @ChangeParent, @ChangeModel.ChangeParent<return>end<esc>/ChangeModel\\|ChangeAssociationName\\|ChangeParent<return>
       " Tests Models Has Many
       nnoremap <silent> ,tmhm atest "ChangeModel should have many ChangeAssociationName" do<return>assert_equal @ChangeModel.ChangeAssociationName.count, ChangeModel.where(ChangeModel_id: ChangeModel.id).count<return>end<esc>/ChangeModel\\|ChangeAssociationName<return>
       " Tests Models Model VAlication
       nnoremap <silent> ,tmva atest "ChangeModel ChangeAttribute should be ChangeValidation" do<return>@ChangeModel.attrbitute = ChangeInvalidValue<return>assert_not @ChangeModel.valid?<return>end<esc>/ChangeModel\\|ChangeAttribute\\|ChangeValidation\\|ChangeInvalidValue<return>
+    " Integration
+      " Tests Integration BAse
+      nnoremap <silent> ,tiba :read ../templates/tests/integration_base.rb<return>ggdd/ChangePathToTest\\|ChangeThisPls\\|ChangePermission\\|DeleteThisIfNotNecessary<return>
