@@ -1,6 +1,8 @@
 function! myspacevim#before() abort
+
   " Maps leader to ,
   let g:mapleader  = ','
+
 
   " Puts new splits below to the right
   set splitbelow
