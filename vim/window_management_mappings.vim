@@ -55,9 +55,10 @@ endfunction
 " Window Split
 nnoremap <space>ws :sp<return>:set wrap<return>
 " Window split Vertically
-nnoremap <space>wv :vsp<return>:set wrap<return>
+nnoremap <space>wv :vsp<return><tab>:set wrap<return>
 " Window Close
 nnoremap <space>wc :close<return>
+nnoremap <space>wd :close<return>
 " Window Maximize (close all others)
 nnoremap <space>wm :only<return>
 " Window Terminal

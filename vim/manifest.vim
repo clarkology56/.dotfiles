@@ -1,13 +1,13 @@
-augroup CustomVimEntry
-  autocmd!
-  autocmd VimEnter * :only
-  autocmd VimEnter * :vsp
-  autocmd VimEnter * :ter
-  autocmd VimEnter * :close
-  " even though this is sourced in vimrc, it needs to be called again form
-  " some of the simple mappings to work...???
-  autocmd VimEnter * :so ~/.dotfiles/vim/manifest.vim
-augroup END
+"augroup CustomVimEntry
+"  autocmd!
+"  autocmd VimEnter * :only
+"  autocmd VimEnter * :vsp
+"  autocmd VimEnter * :ter
+"  autocmd VimEnter * :close
+"  " even though this is sourced in vimrc, it needs to be called again form
+"  " some of the simple mappings to work...???
+"  autocmd VimEnter * :so ~/.dotfiles/vim/manifest.vim
+"augroup END
 
 " mappings that help with vim
 so ~/.dotfiles/vim/vim_mappings.vim

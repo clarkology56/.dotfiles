@@ -32,7 +32,6 @@
   " Auto-update files
   set autoread
   au CursorHold * checktime
-
   " Solarized colorscheme config
   set termguicolors
   set background=dark
