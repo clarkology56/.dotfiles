@@ -1,14 +1,14 @@
-"augroup CustomVimEntry
-"  autocmd!
-"  autocmd VimEnter * :only
-"  autocmd VimEnter * :vsp
-"  autocmd VimEnter * :ter
-"  autocmd VimEnter * :close
-"  " even though this is sourced in vimrc, it needs to be called again form
-"  " some of the simple mappings to work...???
-"  autocmd VimEnter * :so ~/.dotfiles/vim/manifest.vim
-"augroup END
+augroup CustomVimEntry
+  " prevent autocommands from appearing twice if / when vimrc is sourced twice
+  autocmd!
+  " turn off error bells
+  autocmd VimEnter * :set belloff=all
+  "autocmd VimEnter * :ter
+  "autocmd VimEnter * :close
+augroup END
 
+" make clipboard same as yank???
+set clipboard=unnamed
 " mappings that help with vim
 so ~/.dotfiles/vim/vim_mappings.vim
 
