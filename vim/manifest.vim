@@ -18,10 +18,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
-" Color Scheme
-colorscheme nord
-
 " misc settings
+  " Color Scheme
+  colorscheme nord
   " make clipboard same as yank so (so you can yank and then cmd v)
   set clipboard=unnamed
   " set line numbers
@@ -31,10 +30,8 @@ colorscheme nord
 	set tabstop=2 " makes tab 2 spaces
   set softtabstop=2 " tbh idk what this does
 	set shiftwidth=0 " makes shift width same as tabstop
-  
-  
-  
-  
+  " remove timeout for mappings so you are not in a rush
+  set notimeout
   
 " Shared
 so ~/.dotfiles/vim/shared_functions.vim
