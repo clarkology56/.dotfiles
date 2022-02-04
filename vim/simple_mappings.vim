@@ -36,8 +36,11 @@
   inoremap <silent> $$ $()<left>
 
 " single key non-comma
+  " make > & < in normal mode the same as visual mode
+  nnoremap > v><esc>
+  nnoremap < v<<esc>
   " select word in visual mode (spacevim does this but I want to get rid of
-  " spacevim
+  " spacevim)
   vnoremap v iw
   " select entire page
   vnoremap aa <esc>ggVG

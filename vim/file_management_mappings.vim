@@ -55,6 +55,19 @@
       wa
     endif 
   endfunction
+
+  " Create directories before saving files in directories that do not exist
+  " Ex.:
+  " :e some_new_dir/some_file.txt
+  " :w
+  " before saving, a new directory 'some_new_dir' will be created so that
+  " 'some_file.txt' can be saved 
+  " works for multiple dirs at same time too. Ex:
+  " :e some new_dir/some_sub_dir/another/some_file.txt
+  augroup Mkdir
+    autocmd!
+    autocmd BufWritePre * call mkdir(expand("<afile>:p:h"), "p")
+  augroup END
   " File Save (all)
   nnoremap <silent> <space>fs :wa<return>
   " File Save (single)

@@ -1,22 +1,50 @@
+" Install vim-plug (a minimilist plugin manager) if not found
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+endif
+
 augroup CustomVimEntry
   " prevent autocommands from appearing twice if / when vimrc is sourced twice
   autocmd!
-  " turn off error bells
-  autocmd VimEnter * :set belloff=all
-  "autocmd VimEnter * :ter
-  "autocmd VimEnter * :close
+  " Run PlugInstall if there are missing plugins
+  autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+    \| PlugInstall --sync | source $MYVIMRC
+  \| endif
 augroup END
 
-" make clipboard same as yank???
-set clipboard=unnamed
-" mappings that help with vim
+" Plugins
+call plug#begin('~/.vim/plugged')
+  Plug 'arcticicestudio/nord-vim'
+call plug#end()
+
+" Color Scheme
+colorscheme nord
+
+" misc settings
+  " make clipboard same as yank so (so you can yank and then cmd v)
+  set clipboard=unnamed
+  " set line numbers
+	set number
+  " make tab 2 spaces
+  set expandtab " makes tab actually spaces istead of tab
+	set tabstop=2 " makes tab 2 spaces
+  set softtabstop=2 " tbh idk what this does
+	set shiftwidth=0 " makes shift width same as tabstop
+  
+  
+  
+  
+  
+" Shared
+so ~/.dotfiles/vim/shared_functions.vim
+
+" vim mappings
 so ~/.dotfiles/vim/vim_mappings.vim
+so ~/.dotfiles/vim/terminal_mode_mappings.vim
 
 " this should be cleaned and / or clarified...
 so ~/.dotfiles/vim/simple_mappings.vim
-
-" Shared
-so ~/.dotfiles/vim/shared_functions.vim
 
 " Vim / 'space' mappings
 so ~/.dotfiles/vim/git_mappings.vim
@@ -62,7 +90,7 @@ so ~/.dotfiles/vim/misc_process_mappings.vim
 
 " Misc. mapping
   " Misc. Reload Source
-  nnoremap <silent> ,mrs :so ~/.dotfiles/vim/manifest.vim<return>:echo "Source reloaded"<return>
+  nnoremap <silent> ,mrs :so ~/.vimrc<return>:echo "Source reloaded"<return>
   " Misc. DD but combine to previous line instead of delete line  (I<tab>
   " makes sure there is at least something on the line because viwx on empty
   " line deletes entire line and then grabs following line)

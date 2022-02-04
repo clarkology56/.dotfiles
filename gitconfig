@@ -7,6 +7,7 @@
 	email = clark.taylor.56@gmail.com
 [core]
 	editor = /usr/local/bin/nvim
+	pager = diff-so-fancy | less --tabs=4 -RFX
  	excludesfile = ~/.gitignore_global
 [push]
 	default = current

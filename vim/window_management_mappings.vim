@@ -53,28 +53,35 @@ function! GoToNextBuf(direction)
 endfunction
 
 " Window Split
-nnoremap <space>ws :sp<return>:set wrap<return>
+nnoremap <space>ws :sp<return>:call GoToNextWindow(1, 1)<return>:set wrap<return>
 " Window split Vertically
-nnoremap <space>wv :vsp<return><tab>:set wrap<return>
+nnoremap <space>wv :vsp<return>:call GoToNextWindow(1, 1)<return>:set wrap<return>
 " Window Close
 nnoremap <space>wc :close<return>
 nnoremap <space>wd :close<return>
 " Window Maximize (close all others)
 nnoremap <space>wm :only<return>
 " Window Terminal
-nnoremap <space>wt :call OpenTerminalInWindow()<return>
-function! OpenTerminalInWindow()
-  " find buffers in open windows and if terminlal is in an open window, switch
-  " to that window and skip the rest of the function
-  let l:blist = map(filter(copy(getbufinfo()), 'v:val.listed == 1 && v:val.hidden == 0'), 'v:val.bufnr')
+nnoremap <space>wt :call ToggleTerminalInWindow()<return>
+function! ToggleTerminalInWindow()
+  " set to false (this will be used later)
   let termInWindow = 0
-  for l:item in l:blist
-    if getbufvar(l:item, '&buftype') == 'terminal' && termInWindow != 1
-      let windowNr = bufwinnr(l:item)
-      execute windowNr 'wincmd w'
-      let termInWindow = 1
-    endif
-  endfor
+  " if buffer in current window is terminal, close window
+  if getbufvar(bufnr(), '&buftype') == 'terminal'
+    let termInWindow = 1
+    close
+  " else, find buffers in open windows and if terminlal is in an open window, switch
+  " to that window and skip the rest of the function
+  else
+    let l:blist = map(filter(copy(getbufinfo()), 'v:val.listed == 1 && v:val.hidden == 0'), 'v:val.bufnr')
+    for l:item in l:blist
+      if getbufvar(l:item, '&buftype') == 'terminal' && termInWindow == 0
+        let windowNr = bufwinnr(l:item)
+        execute windowNr 'wincmd w'
+        let termInWindow = 1
+      endif
+    endfor
+  endif
   " if none of the open windows include a terminal, continue 
   if termInWindow == 0
     " open a new window at the bottom of the screen
