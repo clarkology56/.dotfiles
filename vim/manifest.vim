@@ -7,7 +7,7 @@ endif
 augroup CustomVimEntry
   " prevent autocommands from appearing twice if / when vimrc is sourced twice
   autocmd!
-  " Run PlugInstall if there are missing plugins
+  " Run PlugInstall at VimEnter if there are missing plugins
   autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
     \| PlugInstall --sync | source $MYVIMRC
   \| endif
@@ -15,12 +15,15 @@ augroup END
 
 " Plugins
 call plug#begin('~/.vim/plugged')
-  Plug 'arcticicestudio/nord-vim'
+  Plug 'arcticicestudio/nord-vim' " cool nordic color scheme
+  Plug 'neomake/neomake' " run specific programs (ex. rubocop) asynchronously
 call plug#end()
 
 " misc settings
   " Color Scheme
   colorscheme nord
+  " run neomake at save (which calls rubocop because neomake supports rubocop)
+  call neomake#configure#automake('w')
   " make clipboard same as yank so (so you can yank and then cmd v)
   set clipboard=unnamed
   " set line numbers
