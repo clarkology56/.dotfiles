@@ -1,7 +1,7 @@
 " Do not tab to terminal window
-nnoremap <silent> <S-tab> :call GoToNextWindow(0, 1)<return><esc>
-nnoremap <silent> <tab> :call GoToNextWindow(1, 1)<return><esc>
-function GoToNextWindow(direction, attempt)
+nnoremap <silent> <S-tab> :call GoToNextWindow(0)<return><esc>
+nnoremap <silent> <tab> :call GoToNextWindow(1)<return><esc>
+function GoToNextWindow(direction)
   let window_count = winnr('$')
   let current_window = winnr()
   if a:direction == 1
@@ -18,13 +18,6 @@ function GoToNextWindow(direction, attempt)
     endif
   endif
   execute "normal! " . target_window . "\<C-w>\<C-w>"
-  " skip terminal windows
-  if getbufvar(bufnr(), '&buftype') == 'terminal' 
-    " prevent endless loop in case that all windows are terminals
-    if a:attempt < window_count
-      call GoToNextWindow(a:direction, a:attempt + 1)
-    endif
-  end
 endfunction
 
 function! GoToNextBuf(direction)
@@ -53,9 +46,9 @@ function! GoToNextBuf(direction)
 endfunction
 
 " Window Split
-nnoremap <space>ws :sp<return>:call GoToNextWindow(1, 1)<return>:set wrap<return>
+nnoremap <space>ws :sp<return>:call GoToNextWindow(1)<return>:set wrap<return>
 " Window split Vertically
-nnoremap <space>wv :vsp<return>:call GoToNextWindow(1, 1)<return>:set wrap<return>
+nnoremap <space>wv :vsp<return>:call GoToNextWindow(1)<return>:set wrap<return>
 " Window Close
 nnoremap <space>wc :close<return>
 nnoremap <space>wd :close<return>
