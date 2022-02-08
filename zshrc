@@ -108,12 +108,12 @@ PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 # Loads Nord dir colors.
-eval `dircolors -b ~/.dircolors`
+eval "$(gdircolors -b ~/.dircolors)"
 
 # Forces displaying colors
 alias ls="ls --color=always"
 
-# Initializes Rbenv
+# Initializes Rbenv (prevents having to run rbenv init all the time)
 eval "$(rbenv init -)"
 
 # Nvim environment variables

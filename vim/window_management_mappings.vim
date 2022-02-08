@@ -1,7 +1,7 @@
 " Do not tab to terminal window
-nnoremap <silent> <S-tab> :call GoToNextWindow(0, 1)<return><esc>
-nnoremap <silent> <tab> :call GoToNextWindow(1, 1)<return><esc>
-function GoToNextWindow(direction, attempt)
+nnoremap <silent> <S-tab> :call GoToNextWindow(0)<return><esc>
+nnoremap <silent> <tab> :call GoToNextWindow(1)<return><esc>
+function GoToNextWindow(direction)
   let window_count = winnr('$')
   let current_window = winnr()
   if a:direction == 1
@@ -18,13 +18,6 @@ function GoToNextWindow(direction, attempt)
     endif
   endif
   execute "normal! " . target_window . "\<C-w>\<C-w>"
-  " skip terminal windows
-  if getbufvar(bufnr(), '&buftype') == 'terminal' 
-    " prevent endless loop in case that all windows are terminals
-    if a:attempt < window_count
-      call GoToNextWindow(a:direction, a:attempt + 1)
-    endif
-  end
 endfunction
 
 function! GoToNextBuf(direction)
@@ -53,28 +46,36 @@ function! GoToNextBuf(direction)
 endfunction
 
 " Window Split
-nnoremap <space>ws :sp<return>:set wrap<return>
+nnoremap <space>ws :sp<return>:call GoToNextWindow(1)<return>:set wrap<return>
 " Window split Vertically
-nnoremap <space>wv :vsp<return><tab>:set wrap<return>
+nnoremap <space>wv :vsp<return>:call GoToNextWindow(1)<return>:set wrap<return>
 " Window Close
 nnoremap <space>wc :close<return>
 nnoremap <space>wd :close<return>
 " Window Maximize (close all others)
 nnoremap <space>wm :only<return>
 " Window Terminal
-nnoremap <space>wt :call OpenTerminalInWindow()<return>
-function! OpenTerminalInWindow()
-  " find buffers in open windows and if terminlal is in an open window, switch
-  " to that window and skip the rest of the function
-  let l:blist = map(filter(copy(getbufinfo()), 'v:val.listed == 1 && v:val.hidden == 0'), 'v:val.bufnr')
+nnoremap <space>wt :call ToggleTerminalInWindow()<return>
+function! ToggleTerminalInWindow()
+  " set to false (this will be used later)
   let termInWindow = 0
-  for l:item in l:blist
-    if getbufvar(l:item, '&buftype') == 'terminal' && termInWindow != 1
-      let windowNr = bufwinnr(l:item)
-      execute windowNr 'wincmd w'
-      let termInWindow = 1
-    endif
-  endfor
+  " if buffer in current window is terminal, close window (ie toggle)
+  if getbufvar(bufnr(), '&buftype') == 'terminal'
+    let termInWindow = 1
+    close
+  " else, find buffers in open windows and if terminlal is in an open window, switch
+  " to that window and skip the rest of the function
+  else
+    let l:blist = map(filter(copy(getbufinfo()), 'v:val.listed == 1 && v:val.hidden == 0'), 'v:val.bufnr')
+    for l:item in l:blist
+      if getbufvar(l:item, '&buftype') == 'terminal' && termInWindow == 0
+        let windowNr = bufwinnr(l:item)
+        execute windowNr 'wincmd w'
+        execute 'normal! a'
+        let termInWindow = 1
+      endif
+    endfor
+  endif
   " if none of the open windows include a terminal, continue 
   if termInWindow == 0
     " open a new window at the bottom of the screen
@@ -86,6 +87,7 @@ function! OpenTerminalInWindow()
     for l:item in l:blist
       if getbufvar(l:item, '&buftype') == 'terminal' && termInBuffer != 1
         execute ':buf' l:item
+        execute 'normal! a'
         let termInBuffer = 1
       endif
     endfor
@@ -93,6 +95,7 @@ function! OpenTerminalInWindow()
     " at bottom of screen
     if termInBuffer == 0
       execute ':ter'
+      execute 'normal! a'
     endif
   endif
   " would be nice to run: execute "normal! \<esc>\<C-c>\<esc>"

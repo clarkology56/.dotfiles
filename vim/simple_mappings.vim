@@ -36,8 +36,14 @@
   inoremap <silent> $$ $()<left>
 
 " single key non-comma
+  " make > & < in normal mode the same as visual mode
+  nnoremap <silent> > v><right><right><<esc>
+  nnoremap <silent> < v<<left><left><esc>
+  " make > & < in visual mode keep the highlighted section after tabbing
+  vnoremap <silent> > >gv<right><right>
+  vnoremap <silent> < <gv<left><left>
   " select word in visual mode (spacevim does this but I want to get rid of
-  " spacevim
+  " spacevim)
   vnoremap v iw
   " select entire page
   vnoremap aa <esc>ggVG
