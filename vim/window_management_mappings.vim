@@ -59,7 +59,7 @@ nnoremap <space>wt :call ToggleTerminalInWindow()<return>
 function! ToggleTerminalInWindow()
   " set to false (this will be used later)
   let termInWindow = 0
-  " if buffer in current window is terminal, close window
+  " if buffer in current window is terminal, close window (ie toggle)
   if getbufvar(bufnr(), '&buftype') == 'terminal'
     let termInWindow = 1
     close
@@ -71,6 +71,7 @@ function! ToggleTerminalInWindow()
       if getbufvar(l:item, '&buftype') == 'terminal' && termInWindow == 0
         let windowNr = bufwinnr(l:item)
         execute windowNr 'wincmd w'
+        execute 'normal! a'
         let termInWindow = 1
       endif
     endfor
@@ -86,6 +87,7 @@ function! ToggleTerminalInWindow()
     for l:item in l:blist
       if getbufvar(l:item, '&buftype') == 'terminal' && termInBuffer != 1
         execute ':buf' l:item
+        execute 'normal! a'
         let termInBuffer = 1
       endif
     endfor
@@ -93,6 +95,7 @@ function! ToggleTerminalInWindow()
     " at bottom of screen
     if termInBuffer == 0
       execute ':ter'
+      execute 'normal! a'
     endif
   endif
   " would be nice to run: execute "normal! \<esc>\<C-c>\<esc>"
