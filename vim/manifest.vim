@@ -4,13 +4,16 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 endif
 
+" Run commands on VimEnter
 augroup CustomVimEntry
-  " prevent autocommands from appearing twice if / when vimrc is sourced twice
+  " Prevent autocommands from appearing twice if / when vimrc is sourced twice
   autocmd!
-  " Run PlugInstall at VimEnter if there are missing plugins
+  " Run PlugInstall if there are missing plugins
   autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
     \| PlugInstall --sync | source $MYVIMRC
   \| endif
+  " Open explorer
+  autocmd VimEnter * execute "normal! :Explore\<return>"
 augroup END
 
 " Plugins
