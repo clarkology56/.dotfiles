@@ -16,6 +16,23 @@ function! GetTestFile()
   return substitute(file, 'app\|lib\|test', 'test', '')
 endfunction
 
+function! GetSpecFile()
+  let file = expand('%')
+  " if file is view, js or stylesheet, open test for related controller
+  if match(file, 'app/views') != -1
+    let file = substitute(expand('%:h'), 'views', 'controllers', '') . '_controller.rb'
+  elseif match(file, 'app/assets/stylesheets') != -1
+    let file = substitute(expand('%:h'), 'assets/stylesheets', 'controllers', '') . '_controller.rb'
+  elseif match(file, 'app/javascript/packs') != -1
+    let file = substitute(expand('%:h'), 'javascript/packs', 'controllers', '') . '_controller.rb'
+  endif
+  " modify file name for non spec files
+  if index(split(file, '/'), 'spec') == -1
+    let file = substitute(file, '.rb', '_spec.rb', '')
+  endif
+  return substitute(file, 'app\|lib\|test', 'spec', '')
+endfunction
+
 " Tests Included and Not included
 function! TestIncludedNotIncluded()
   execute "normal! aincluded = [ChangeTable(:ChangeFixture).id]\<return>included << ChangeTable(:ChangeFixture).id\<return>assert_equal included.sort, (result & included).sort\<return>not_included = [ChangeTable(:ChangeFixture).id]\<return>not_included << ChangeTable(:ChangeFixture).id\<return>assert_empty not_included & result"
@@ -127,4 +144,51 @@ function! IndentTemplate(start, delete_start, indentations, template)
     endif
   endif
   normal! gg
+endfunction
+
+function! ToggleTerminalInWindow()
+  " set to false (this will be used later)
+  let termInWindow = 0
+  " if buffer in current window is terminal, close window (ie toggle)
+  if getbufvar(bufnr(), '&buftype') == 'terminal'
+    let termInWindow = 1
+    close
+  " else, find buffers in open windows and if terminlal is in an open window, switch
+  " to that window and skip the rest of the function
+  else
+    let l:blist = map(filter(copy(getbufinfo()), 'v:val.listed == 1 && v:val.hidden == 0'), 'v:val.bufnr')
+    for l:item in l:blist
+      if getbufvar(l:item, '&buftype') == 'terminal' && termInWindow == 0
+        let windowNr = bufwinnr(l:item)
+        execute windowNr 'wincmd w'
+        execute 'normal! a'
+        let termInWindow = 1
+      endif
+    endfor
+  endif
+  " if none of the open windows include a terminal, continue 
+  if termInWindow == 0
+    " open a new window at the bottom of the screen
+    execute ':bo sp'
+    " if there is a terminal in a buffer, open that buffer in widnow at bottom
+    " of screen
+    let l:blist = map(filter(copy(getbufinfo()), 'v:val.listed == 1 && v:val.hidden == 1'), 'v:val.bufnr')
+    let termInBuffer = 0
+    for l:item in l:blist
+      if getbufvar(l:item, '&buftype') == 'terminal' && termInBuffer != 1
+        execute ':buf' l:item
+        execute 'normal! a'
+        let termInBuffer = 1
+      endif
+    endfor
+    " if no windows or buffers have terminal, open new terminal buffer in window
+    " at bottom of screen
+    if termInBuffer == 0
+      execute ':ter'
+      execute 'normal! a'
+    endif
+  endif
+  " would be nice to run: execute "normal! \<esc>\<C-c>\<esc>"
+  " but that doesn't work from shell... so any mapping that uses this needs to
+  " have that in it... sad
 endfunction

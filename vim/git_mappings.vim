@@ -10,6 +10,6 @@ function! GitPush()
   execute "normal! :! git push\<return>"
   execute "normal! :! git status\<return>"
 endfunction
-nnoremap <silent> <space>gP :wa<return>:call OpenTerminalInWindow()<return><C-c><esc>agacp<return>
+nnoremap <silent> <space>gP :wa<return>:call ToggleTerminalInWindow()<return><C-c><esc>agacp<return>
 " Git Status
 nnoremap <silent> <space>gs :wa<return>:! git status<return>

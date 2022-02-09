@@ -397,6 +397,25 @@
     endif
   endfunction
 
+  " File Edit SPec
+  nnoremap <silent> <space>fesp :call FileEditSpec()<return>
+  function FileEditSpec()
+    execute ':e' GetSpecFile()
+  endfunction
+
+  " File Edit Spec Source
+  nnoremap <silent> <space>fess :call FileEditSpecSource()<return>
+  function FileEditSpecSource()
+    let current_file = expand('%')
+    let file = substitute(current_file, '_spec.rb', '.rb', '')
+    if match(file, 'channel\|controller\|helper\|job\|mailer\|model') != -1
+      let file = substitute(file, 'spec', 'app', '')
+    else
+      let file = substitute(file, 'spec', 'lib', '')
+    endif
+    execute ':e' file
+  endfunction
+
   " File Edit TEst
   nnoremap <silent> <space>fete :call FileEditTest()<return>
   function FileEditTest()
