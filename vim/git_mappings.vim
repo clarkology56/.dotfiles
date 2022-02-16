@@ -16,7 +16,7 @@ endfunction
 nnoremap <silent> <space>gs :wa<return>:! git status<return>
 " Git Log Oneline
 nnoremap <silent> <space>gl :wa<return>:call ToggleTerminalInWindow()<return><C-c>git log --oneline --graph<return>
-" Git Rubocop (not really git but always done before committing
-nnoremap <silent> <space>gr :wa<return>:call ToggleTerminalInWindow()<return><C-c>rubocop<return>
 " Git Diff
 nnoremap <silent> <space>gd :wa<return>:call ToggleTerminalInWindow()<return><C-c>git diff<return>
+" Git Rubocop (not really git but always done before committing
+nnoremap <silent> <space>gr :wa<return>:call ToggleTerminalInWindow()<return><C-c>rubocop<return>

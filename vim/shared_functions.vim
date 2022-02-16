@@ -30,7 +30,7 @@ function! GetSpecFile()
   if index(split(file, '/'), 'spec') == -1
     let file = substitute(file, '.rb', '_spec.rb', '')
   endif
-  return substitute(file, 'app\|lib\|test', 'spec', '')
+  return substitute(file, 'app\|lib\|spec', 'spec', '')
 endfunction
 
 " Tests Included and Not included

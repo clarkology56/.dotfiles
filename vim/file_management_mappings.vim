@@ -464,6 +464,8 @@
   nnoremap <silent> <space>fege :e Gemfile<return>
   " File Edit REadme
   nnoremap <silent> <space>fere :e README.md<return>
+  " File Edit Swap Files (for deleting swap files
+  nnoremap <silent> <space>fesw :Explore ~/.local/share/nvim/swap/<return>
 
   
   
