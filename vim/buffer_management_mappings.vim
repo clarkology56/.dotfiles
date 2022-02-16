@@ -115,7 +115,7 @@ function! ClearBuffer()
       " close window
       if stridx(expand('%'), 'NERD_tree_') != -1
         execute ':bd ' . buf_number
-      " if file explorer, switch buffers before deleting buffer (so window
+      " if file explorer, switch buffers rather than deleting buffer (so window
       " does not close)
       elseif bufname() == expand('%:r')
         " try to go to buffer you came from 
@@ -125,7 +125,6 @@ function! ClearBuffer()
         else
           call GoToNextBuf(1)
         endif
-        execute ':bd ' . buf_number
       " in all other cases of non listted buffers, do not switch buffers. Delete
       " the non-listed buffer which will close the window
       else
@@ -134,7 +133,6 @@ function! ClearBuffer()
     " otherwise, go to the next buffer and delete the buffer you wanted to
     " delete.
     else
-      echo 4
       call GoToNextBuf(1)
       " if next buffer is same as current buffer, then there is only one
       " non-terminal / regular buffer left. Go to next buffer (if there is

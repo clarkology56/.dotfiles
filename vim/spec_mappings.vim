@@ -6,7 +6,7 @@
   function! SpecRunCurrentFile(use_shell)
     execute ':wa'
     let test_file = GetSpecFile()
-    let test_command = 'rspec ' . test_file
+    let test_command = 'bundle exec rspec ' . test_file
     if a:use_shell == 0
       execute ':!' test_command
     else 
@@ -14,6 +14,6 @@
     endif
   endfunction
   " Spec Run All Files in terminal
-  nnoremap <silent> ,sraf :wa<return>:call ToggleTerminalInWindow()<return><C-c>rspec spec<return>
+  nnoremap <silent> ,sraf :wa<return>:call ToggleTerminalInWindow()<return><C-c>bundle exec rspec spec<return>
   " Spec Run All Files
-  nnoremap <silent> ,sraF :wa<return>:! rspec spec<return>
+  nnoremap <silent> ,sraF :wa<return>:! bundle exec rspec spec<return>

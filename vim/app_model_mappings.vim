@@ -70,17 +70,17 @@
 
 " Callbacks
   " App Models Process Attributes
-  nnoremap <silent> ,ampa abefore_validation :process_attributes<return># DeleteThis - move this to private section<return><backspace><backspace><esc><up>:read ../templates/models/misc/process_attributes.rb<return>/DeleteThis\\|ChangeAttribute\\|ChangeValue\\|ChangeIndedependentAttribute<return>
+  nnoremap <silent> ,ampa abefore_validation :process_attributes<return># DeleteThis - move this to private section<return><backspace><backspace><esc><up>:call ReadTemplate('models/misc/process_attributes.rb')<return>/DeleteThis\\|ChangeAttribute\\|ChangeValue\\|ChangeIndedependentAttribute<return>
   " App Models Nil Parent on orphanable childrend
   nnoremap <silent> ,amnp abefore_destroy :nil_parent_id_on_orphanable_children<return># DeleteThis - move below method to private section<return><backspace><backspace>def nil_parent_id_on_orphanable_children<return># DeleteThis - make all children nil<return><backspace><backspace>ChangeChildren.update_all(ChangeForeignKey_id: nil)<return># DeleteThis - if this model can be the parent of one of it's parents (in a circular child / parent association), then remove the foreign key in the parent record<return><backspace><backspace>ChangeChild.update(ChangeForeignKey_id: nil) if ChangeParent.ChangeChildParent_id == id<return>end<esc>/DeleteThis\\|ChangeChildren\\|ChangeForeignKey\\|ChangeParent\\|ChangeChildParent<return>
 " Validations
   " App Models Validates Options
   function! RubyModlesValidatesOptions()
-    execute "normal! a,\<return>allow_nil: true,\<return>allow_blank: true,\<return>if: ChangeMethodOrProcOrArray,\<return>unless: ChangeMethodOrProcOrArray"
+    execute "normal! a,\<return># DeleteThis - if presence is validated elsewhere, make sure to allow_nil OR allow_blank so this isn't validating presence or erroring\<return>\<backspace>\<backspace>allow_nil: true,\<return>allow_blank: true,\<return>if: ChangeMethodOrProcOrArray,\<return>unless: ChangeMethodOrProcOrArray"
   endfunction
   " App Models Validates Search
   function! AppModelsValidatesSearch()
-    let @/ = 'ChangeAttributes\|ChangeAttribute\|ChangeValidation\|%<model>s %<attribute>s %<value>s\|ChangeMethodOrProcOrArray\|255ForStringOrSomeOtherLength\|ChangeThis\|ChangeRange\|DeleteThis\|ChangeAttachmentName\|ChangeMin\|ChangeMax\|ChangeSize\|ChangeByteType\|ChangeWidthInteger\|ChangeHeightInteger\|ChangeItems\|Changemessage\|ChangeLogic\|ChangeValue\|ChangeMessage'
+    let @/ = 'ChangeAttributes\|ChangeAttribute\|ChangeValidation\|%<model>s %<attribute>s %<value>s\|ChangeMethodOrProcOrArray\|255ForStringOrSomeOtherLength\|ChangeThis\|ChangeRange\|DeleteThis\|ChangeAttachmentName\|ChangeMin\|ChangeMax\|ChangeSize\|ChangeByteType\|ChangeWidthInteger\|ChangeHeightInteger\|ChangeItems\|Changemessage\|ChangeLogic\|ChangeValue\|ChangeMessage\|ChangeRegex'
     normal! n
   endfunction
   function! AppModelsValidatesMessage()
@@ -107,5 +107,23 @@
   nnoremap <silent> ,amvi avalidates :ChangeAttribute, inclusion: {<return>in: [ChangeItems],<return><space><backspace><esc>:call AppModelsValidatesMessage()<return>a}<esc>:call RubyModlesValidatesOptions()<return>:call AppModelsValidatesSearch()<return>
   " App Models Validates Exclusion
   nnoremap <silent> ,amve avalidates :ChangeAttribute, exclusion: {<return>in: [ChangeItems],<return><space><backspace><esc>:call AppModelsValidatesMessage()<return>a}<esc>:call RubyModlesValidatesOptions()<return>:call AppModelsValidatesSearch()<return>
+  " App Models Validates Format
+  nnoremap <silent> ,amvf avalidates :ChangeAttribute, format: {<return>with: ChangeRegex,<return><space><backspace><esc>:call AppModelsValidatesMessage()<return>a}<esc>:call RubyModlesValidatesOptions()<return>:call AppModelsValidatesSearch()<return>
+  " App Models Validates eMail
+  nnoremap <silent> ,amvm avalidates :ChangeAttribute, format: {<return>with: URI::MailTo::EMAIL_REGEXP,<return><space><backspace><esc>:call AppModelsValidatesMessage()<return>a}<esc>:call RubyModlesValidatesOptions()<return>:call AppModelsValidatesSearch()<return>
+  " App Models Validate Custom
+  nnoremap <silent> ,amvc :call AppModelsValidateCustom()<return>
+  function! AppModelsValidateCustom()
+    let attribute = input("what is the name of the attribute you are validating?: ")
+    if attribute == ''
+      let attribute = 'ChangeAttribute'
+    endif
+    let description = input("what is a description of the validation (snake case - this will be used to create method name): ")
+    if description == ''
+      let description = 'ChangeDescription'
+    endif
+    execute "normal! avalidate :" . attribute . "_" . description . "\<return># DeleteThis - move below to private section\<return>\<backspace>\<backspace>def " . attribute . "_" . description . "\<return># DeleteThis - insert guard clauses if needed ex. don't run validation if nil, etc.\<return>ChangeComment\<return>\<backspace>\<backspace>return unless " . attribute . "\<return># DeleteThis - insert validation logic\<return>ChangeComment\<return>\<backspace>\<backspace>return unless " . attribute . " == ChangeLogic\<esc>o\<esc>oerrors.add(:" . attribute . ", 'ChangeMessage')\<return>end"
+    let @/ = "ChangeAttribute\\|ChangeDescription\\|DeleteThis\\|ChangeComment\\|ChangeLogic\\|ChangeMessage"
+  endfunction
   " App Models Validates Each
   nnoremap <silent> ,amvE a# DeleteThis - make sure to add logic so that validation is not run if needed attributes are not present<return>DeleteThis - presence validations should test presence if precsence is needed<return><backspace><backspace>validates_each :ChangeAttribute do \|record, attr, value\|<return>record.errors.add(attr, 'ChangeMessage') if ChangeLogic<return>end<esc>:call AppModelsValidatesSearch()<return>

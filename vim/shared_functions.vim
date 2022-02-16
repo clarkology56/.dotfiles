@@ -192,3 +192,7 @@ function! ToggleTerminalInWindow()
   " but that doesn't work from shell... so any mapping that uses this needs to
   " have that in it... sad
 endfunction
+
+function! ReadTemplate(path)
+  execute "normal! :read " . g:path_to_templates . "/models/misc/process_attributes.rb\<return>"
+endfunction

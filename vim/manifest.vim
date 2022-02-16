@@ -41,6 +41,7 @@ call plug#end()
   
 " Shared
 so ~/.dotfiles/vim/shared_functions.vim
+so ~/.dotfiles/vim/globals.vim
 
 " vim mappings
 so ~/.dotfiles/vim/vim_mappings.vim
@@ -85,7 +86,7 @@ so ~/.dotfiles/vim/misc_process_mappings.vim
 " truly random one off stuff
   " Caps lock in insert mode (press ctrl - ^ to toggle)
     " Execute 'lnoremap x X' and 'lnoremap X x' for each letter a-z.
-    for c in range(char2nr('A'), char2nr('Z'))
+     for c in range(char2nr('A'), char2nr('Z'))
       execute 'lnoremap ' . nr2char(c+32) . ' ' . nr2char(c)
       execute 'lnoremap ' . nr2char(c) . ' ' . nr2char(c+32)
     endfor
@@ -103,6 +104,9 @@ so ~/.dotfiles/vim/misc_process_mappings.vim
   nmap <silent> ,mdf $<down>,mdd
   " Misc. Df but add <return> between each line
   nmap <silent> ,mdr $<down>,mddi<lt>return><esc>
+  " Misc. Dd but with space
+  nnoremap <silent> ,mds I<tab><esc>0viwxi<backspace><space><esc><right>
+  
   " one off
    nmap <silent> ,mn dd<space>fecl
    nmap <silent> ,mm /left-sidebar<return>cgnpage_content_left_menu<esc>/course_left_sidebar<return>cgncourses_left_menu<esc><space>fs

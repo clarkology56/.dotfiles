@@ -45,14 +45,20 @@ function! GoToNextBuf(direction)
   exec ':buf' nbuf 
 endfunction
 
-" Window Split
-nnoremap <space>ws :sp<return>:call GoToNextWindow(1)<return>:set wrap<return>
+" Window Split current window
+nnoremap <silent> <space>ws :sp<return>:call GoToNextWindow(1)<return>:set wrap<return><C-W>=
+" Window Split from entire screen
+nnoremap <silent> <space>wS :botright split<return>:call GoToNextWindow(1)<return>:set wrap<return><C-W>=
 " Window split Vertically
-nnoremap <space>wv :vsp<return>:call GoToNextWindow(1)<return>:set wrap<return>
+nnoremap <silent> <space>wv :vsp<return>:call GoToNextWindow(1)<return>:set wrap<return><C-W>=
+" Window split Vertically from entire screen
+nnoremap <silent> <space>wV :vertical botright split<return>:call GoToNextWindow(1)<return>:set wrap<return><C-W>=
+" Window equalize sizes
+nnoremap <silent> <space>we <C-W>=
 " Window Close
-nnoremap <space>wc :close<return>
-nnoremap <space>wd :close<return>
+nnoremap <silent> <space>wc :close<return><C-W>=
+nnoremap <silent> <space>wd :close<return><C-W>=
 " Window Maximize (close all others)
-nnoremap <space>wm :only<return>
+nnoremap <silent> <space>wm :only<return>
 " Window Terminal
-nnoremap <space>wt :call ToggleTerminalInWindow()<return>
+nnoremap <silent> <space>wt :call ToggleTerminalInWindow()<return>

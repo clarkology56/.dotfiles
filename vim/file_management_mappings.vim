@@ -152,6 +152,9 @@
     elseif match(current_file, 'test/controllers') != -1
       let directory = substitute(expand('%'), 'test/controllers', 'app/assets/stylesheets', '')
       let directory = substitute(directory, '_controller_test.rb', '', '')
+    elseif match(current_file, 'spec/controllers') != -1
+      let directory = substitute(expand('%'), 'spec/controllers', 'app/assets/stylesheets', '')
+      let directory = substitute(directory, '_controller_test.rb', '', '')
     else 
       let directory = 1
     endif
@@ -196,6 +199,9 @@
       let file = substitute(expand('%:h'), 'javascript/packs', 'controllers', '') . '_controller.rb'
     elseif match(current_file, 'app/views') != -1
       let file = substitute(expand('%:h'), 'views', 'controllers', '') . '_controller.rb'
+    elseif match(current_file, 'spec/controllers') != -1
+      let file = substitute(expand('%'), 'spec/controllers', 'app/controllers', '')
+      let file = substitute(file, 'controller_spec', 'controller', '')
     elseif match(current_file, 'test/controllers') != -1
       let file = substitute(expand('%'), 'test/controllers', 'app/controllers', '')
       let file = substitute(file, 'controller_test', 'controller', '')
@@ -231,6 +237,9 @@
       let file = substitute(expand('%:h'), 'javascript/packs', 'helpers', '') . '_helper.rb'
     elseif match(current_file, 'app/views') != -1
       let file = substitute(expand('%:h'), 'views', 'helpers', '') . '_helper.rb'
+    elseif match(current_file, 'spec') != -1
+      let file = substitute(expand('%'), 'spec/controllers', 'app/helpers', '')
+      let file = substitute(file, 'controller_spec', 'helper', '')
     elseif match(current_file, 'test') != -1
       let file = substitute(expand('%'), 'test/controllers', 'app/helpers', '')
       let file = substitute(file, 'controller_test', 'helper', '')
@@ -262,6 +271,9 @@
       let directory = expand('%:h')
     elseif match(current_file, 'app/views') != -1
       let directory = substitute(expand('%:h'), 'views', 'javascript/packs', '')
+    elseif match(current_file, 'spec/controllers') != -1
+      let directory = substitute(expand('%'), 'spec/controllers', 'app/javascript/packs', '')
+      let directory = substitute(directory, '_controller_spec.rb', '', '')
     elseif match(current_file, 'test/controllers') != -1
       let directory = substitute(expand('%'), 'test/controllers', 'app/javascript/packs', '')
       let directory = substitute(directory, '_controller_test.rb', '', '')
@@ -323,6 +335,9 @@
       let directory = substitute(expand('%:h'), 'javascript/packs', 'views', '')
     elseif match(current_file, 'app/views') != -1
       let directory = expand('%:h')
+    elseif match(current_file, 'spec/controllers') != -1
+      let directory = substitute(expand('%'), 'spec/controllers', 'app/views', '')
+      let directory = substitute(directory, '_controller_spec.rb', '', '')
     elseif match(current_file, 'test/controllers') != -1
       let directory = substitute(expand('%'), 'test/controllers', 'app/views', '')
       let directory = substitute(directory, '_controller_test.rb', '', '')
@@ -437,6 +452,8 @@
 
   " File Edit FIxtures
   nnoremap <silent> <space>fefi :e test/fixtures/
+  " File Edit FActory
+  nnoremap <silent> <space>fefa :e spec/factories.rb<return>
   " File Edit Schema
   nnoremap <silent> <space>fesc :e db/schema.rb<return>
   " File Edit ROutes

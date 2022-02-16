@@ -1,5 +1,8 @@
 alias rs='source ~/.zshrc'
 alias gs='git status'
+alias glo='git log --oneline --graph'
+alias gco='git checkout'
+alias gb='git branch'
 
 gacp(){
   msg=${1:-wip}
