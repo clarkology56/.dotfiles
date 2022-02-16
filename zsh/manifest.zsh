@@ -1,6 +1,8 @@
 alias rs='source ~/.zshrc'
+alias gp='git push'
 alias gs='git status'
 alias glo='git log --oneline --graph'
+alias gl='git log --oneline --graph'
 alias gco='git checkout'
 alias gb='git branch'
 

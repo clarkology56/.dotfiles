@@ -149,10 +149,10 @@ endfunction
 function! ToggleTerminalInWindow()
   " set to false (this will be used later)
   let termInWindow = 0
-  " if buffer in current window is terminal, close window (ie toggle)
+  " if buffer in current window is terminal, go to terminal mode
   if getbufvar(bufnr(), '&buftype') == 'terminal'
+    execute 'normal! a'
     let termInWindow = 1
-    close
   " else, find buffers in open windows and if terminlal is in an open window, switch
   " to that window and skip the rest of the function
   else
