@@ -1,2 +1,52 @@
 Host *
   UseKeychain yes
+
+Host highway-github-runner
+  User ubuntu
+  HostName 172.31.138.227
+  IdentityFile ~/.ssh/highway.pem
+
+Host redirect-server
+  User ubuntu
+  HostName 172.32.29.213
+  IdentityFile ~/.ssh/prod-highway.pem
+
+Host staging-highway-client
+  User ubuntu
+  HostName 172.31.128.71
+  IdentityFile ~/.ssh/highway.pem
+
+Host staging-highway-identity
+  User ubuntu
+  HostName 172.31.157.125
+  IdentityFile ~/.ssh/highway.pem
+
+Host staging-highway-connect
+  User ubuntu
+  HostName 172.31.102.251
+  IdentityFile ~/.ssh/highway.pem
+
+Host staging-highway-insurance
+  User ubuntu
+  HostName 172.31.136.211
+  IdentityFile ~/.ssh/highway.pem
+
+Host staging-highway-monitor
+  HostName 172.31.189.238
+  IdentityFile ~/.ssh/highway.pem
+  User ubuntu
+
+Host staging-highway-monitor-sidekiq
+  HostName 172.31.143.33
+  IdentityFile ~/.ssh/highway.pem
+  User ubuntu
+
+Host staging-highway-redis
+  HostName 172.31.112.117
+  IdentityFile ~/.ssh/highway.pem
+  User ubuntu
+
+Host staging-highway-proxy
+  HostName 172.31.129.57
+  IdentityFile ~/.ssh/highway.pem
+  User ubuntu

@@ -110,10 +110,16 @@
   endfunction
 
 " File Find
-  " File FINd
-  nnoremap <silent> <space>ffin :e **/*
+  " File Fing FIle
+  nnoremap <silent> <space>fffi :e **/*
   " File Find MOdel
   nnoremap <silent> <space>ffmo :e app/models/**/*
+  " File Find COnotroller
+  nnoremap <silent> <space>ffco :e app/controllers/**/*
+  " File Find JOb
+  nnoremap <silent> <space>ffjo :e app/jobs/**/*
+  " File Find MAilers
+  nnoremap <silent> <space>ffma :e app/mailers/**/*
 
 " File Edit (and Explore)
   " File Edit Current Path

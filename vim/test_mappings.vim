@@ -3,25 +3,16 @@ function! TestDisclaimer()
   exe "normal! a# DeleteThis - do not test things that can easily change (ie text in source code)\<return>DeleteThis - do not test things so that if one thing is changed in source code many tests will break"
 endfunction
 
-" Test Run
-  " File Test Current File in terminal
-  nnoremap <silent> ,trcf :call FileTestCurrentFile(1)<return>:call ToggleTerminalInWindow()<return><C-c><C-\><C-n>pa<return>
-  " File Test Current File
-  nnoremap <silent> ,trcF :call FileTestCurrentFile(0)<return>
-  function! FileTestCurrentFile(use_shell)
-    execute ':wa'
-    let test_file = GetTestFile()
-    let test_command = substitute(test_file, 'test', 'rails t test', '')
-    if a:use_shell == 0
-      execute ':!' test_command
-    else 
-      let @+ = test_command
-    endif
-  endfunction
-  " File Test All Files in terminal
-  nnoremap <silent> ,traF :wa<return>:call ToggleTerminalInWindow()<return><C-c>rails t<return>
-  " File Test All Files
-  nnoremap <silent> ,traf :wa<return>:! rails t<return>
+"" Test Run
+"  " File Test Current File in terminal
+"  nnoremap <silent> ,trcf :call FileTestCurrentFile(1)<return>:call ToggleTerminalInWindow()<return>q<return><C-c><C-\><C-n>pa<return>
+"  " File Test Current File
+"  nnoremap <silent> ,trcF :call FileTestCurrentFile(0)<return>
+"  " File Test All Files in terminal
+"  nnoremap <silent> ,traF :wa<return>:call ToggleTerminalInWindow()<return>q<return><C-c>rails t<return>
+"  " File Test All Files
+"  nnoremap <silent> ,traf :wa<return>:! rails t<return>
+  
 " Test Base
   " Tests Base Test Base
   nnoremap <silent> ,tbtb atest 'Should ChangeThisPls when ChangeThisPls' do<return>end<esc>/ChangeThisPls<return>

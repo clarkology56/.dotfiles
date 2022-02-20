@@ -66,6 +66,8 @@
   vnoremap <silent> p :<backspace><backspace><backspace><backspace><backspace>let previous_clipboard = @+<return>gvp:let @+ = previous_clipboard<return>
   " paste word and keep orignal 
   nnoremap <silent> - viwpviwy
+  " make - in visual work just like p in visual
+  vnoremap <silent> - :<backspace><backspace><backspace><backspace><backspace>let previous_clipboard = @+<return>gvp:let @+ = previous_clipboard<return>
   " paste word and copy word just replaced
   nnoremap <silent> = viwp
   " redo

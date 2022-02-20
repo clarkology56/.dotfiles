@@ -1,3 +1,14 @@
+" Run tests for current file
+function! FileTestCurrentFile(use_shell)
+  execute ':wa'
+  let test_file = GetTestFile()
+  let test_command = substitute(test_file, 'test', 'rails t test', '')
+  if a:use_shell == 0
+    execute ':!' test_command
+  else 
+    let @+ = test_command
+  endif
+endfunction
 " Get test file name
 function! GetTestFile()
   let file = expand('%')
@@ -16,6 +27,17 @@ function! GetTestFile()
   return substitute(file, 'app\|lib\|test', 'test', '')
 endfunction
 
+" Run spec for current file
+function! SpecRunCurrentFile(use_shell)
+  execute ':wa'
+  let test_file = GetSpecFile()
+  let test_command = 'bundle exec rspec ' . test_file
+  if a:use_shell == 0
+    execute ':!' test_command
+  else 
+    let @+ = test_command
+  endif
+endfunction
 function! GetSpecFile()
   let file = expand('%')
   " if file is view, js or stylesheet, open test for related controller
@@ -188,7 +210,7 @@ function! ToggleTerminalInWindow()
       execute 'normal! a'
     endif
   endif
-  " would be nice to run: execute "normal! \<esc>\<C-c>\<esc>"
+  " would be nice to run: execute "normal! \<esc>q<return>\<C-c>\<esc>"
   " but that doesn't work from shell... so any mapping that uses this needs to
   " have that in it... sad
 endfunction
