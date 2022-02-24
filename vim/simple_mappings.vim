@@ -1,4 +1,4 @@
-" visual mode non-leader key mappings
+" a visual mode non-leader key mappings
   " prevent changing case on accident
   vnoremap <silent> u <esc>u
   vnoremap <silent> U <esc>U
@@ -102,20 +102,38 @@
   nnoremap <silent> F VpVy
 
 " retrain d-pad
+  " : is used for dpad now so need to remap :
+  nnoremap <silent> ? :
   " up
   nnoremap <silent> l k
   vnoremap <silent> l k
   nnoremap <silent> dl dk
+  nnoremap <silent> <S-l> 3<up>
+  vnoremap <silent> <S-l> 3<up>
+  nnoremap <silent> <S-up> 3<up>
+  vnoremap <silent> <S-up> 3<up>
   " down
   nnoremap <silent> k j
   vnoremap <silent> k j
   nnoremap <silent> dk dj
+  nnoremap <silent> <S-k> 3<down>
+  vnoremap <silent> <S-k> 3<down>
+  nnoremap <silent> <S-down> 3<down>
+  vnoremap <silent> <S-down> 3<down>
   " left
   nnoremap <silent> j <left>
   vnoremap <silent> j <left>
+  nnoremap <silent> <S-j> 4<left>
+  vnoremap <silent> <S-j> 4<left>
+  nnoremap <silent> <S-left> 4<left>
+  vnoremap <silent> <S-left> 4<left>
   " right
   nnoremap <silent> ; <right>
   vnoremap <silent> ; <right>
+  nnoremap <silent> : 4<right>
+  vnoremap <silent> : 4<right>
+  nnoremap <silent> <S-right> 4<right>
+  vnoremap <silent> <S-left> 4<left>
   " far left
   nnoremap <silent> q ^
   vnoremap <silent> q ^
@@ -138,16 +156,6 @@
   " to bottom of page (make hh go to bottom like G)
   nnoremap <silent> hh G
   vnoremap <silent> hh G
-  " go up and down fast
-  nnoremap <silent> <S-l> 3<up>
-  vnoremap <silent> <S-l> 3<up>
-  nnoremap <silent> <S-up> 3<up>
-  vnoremap <silent> <S-up> 3<up>
-
-  nnoremap <silent> <S-k> 3<down>
-  vnoremap <silent> <S-k> 3<down>
-  nnoremap <silent> <S-down> 3<down>
-  vnoremap <silent> <S-down> 3<down>
     
 " single key comma mappings
   " visual mode
@@ -159,3 +167,8 @@
   " replace single quite with double quote and vice versa
   nnoremap <silent> ,' /"<return>cgn'<esc>N.:noh<return>
   nnoremap <silent> ," /'<return>cgn"<esc>N.:noh<return>
+  
+" single key space mappings
+ nnoremap <silent> <space>q :q<return>
+ nnoremap <silent> <space>; :
+ nnoremap <silent> <space>;n :noh<return>

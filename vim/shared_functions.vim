@@ -216,5 +216,6 @@ function! ToggleTerminalInWindow()
 endfunction
 
 function! ReadTemplate(path)
-  execute "normal! :read " . g:path_to_templates . "/models/misc/process_attributes.rb\<return>"
+  echo g:path_to_templates . a:path
+  execute "normal! :read " . g:path_to_templates . a:path . "\<return>"
 endfunction

@@ -80,7 +80,7 @@
 
 " View Modals
   " View Mdoels Info Modal and button
-  nmap <silent> ,vmim :read ../templates/views/modals/info_modal_and_button.html.erb<return>/ChangeModalId\\|ChangeTitle\\|ChangeContent<return>
+  nnoremap <silent> ,vmim :read ../templates/views/modals/info_modal_and_button.html.erb<return>/ChangeModalId\\|ChangeTitle\\|ChangeContent<return>
   " View Models BAse
   nnoremap <silent> ,vmba :read ../templates/views/modals/base.html.erb<return>ggdd/DeleteThis<return>
   " View Models Contents Base
@@ -94,5 +94,5 @@
   " View Mdoels Header Base
   nnoremap <silent> ,vmhb :read ../templates/views/modals/header_base.html.erb<return>/ChangeIconColor\\|DeleteThis\\|ChangeIconType\\|ChangeTitle<return>
   " View Mdoels Close button Group
-  nmap <silent> ,vmcg :read ../templates/views/modals/close_button_base.html.erb<return>/DeleteThis<return>
+  nnoremap <silent> ,vmcg :read ../templates/views/modals/close_button_base.html.erb<return>/DeleteThis<return>
 

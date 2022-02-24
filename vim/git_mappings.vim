@@ -1,7 +1,7 @@
 " Git Status
 nnoremap <silent> <space>gs :wa<return>:call ToggleTerminalInWindow()<return>q<return><C-c>git status<return><C-\><C-n>
 " Git Diff
-nnoremap <silent> <space>gd :wa<return>:call ToggleTerminalInWindow()<return>q<return><C-c>git diff<return><C-\><C-n>
+nnoremap <silent> <space>gd :wa<return>:call ToggleTerminalInWindow()<return>q<return><C-c>git diff<return>
 " Git Rubocop (not really git but always done before committing)
 nnoremap <silent> <space>gr :wa<return>:call ToggleTerminalInWindow()<return>q<return><C-c>rubocop<return><C-\><C-n>
 " Git rspEc (not really git but always done before committing)
@@ -30,4 +30,4 @@ function! GitPush()
   endif
 endfunction
 " Git Log Oneline
-nnoremap <silent> <space>gl :wa<return>:call ToggleTerminalInWindow()<return>q<return><C-c>git log --oneline --graph<return>
+nnoremap <silent> <space>gl :wa<return>:call ToggleTerminalInWindow()<return>q<return><C-c>git log --oneline --graph<return

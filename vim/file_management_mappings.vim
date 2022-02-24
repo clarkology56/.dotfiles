@@ -110,16 +110,30 @@
   endfunction
 
 " File Find
-  " File Fing FIle
-  nnoremap <silent> <space>fffi :e **/*
-  " File Find MOdel
-  nnoremap <silent> <space>ffmo :e app/models/**/*
-  " File Find COnotroller
-  nnoremap <silent> <space>ffco :e app/controllers/**/*
-  " File Find JOb
-  nnoremap <silent> <space>ffjo :e app/jobs/**/*
-  " File Find MAilers
-  nnoremap <silent> <space>ffma :e app/mailers/**/*
+  " File find FIle
+  nnoremap <silent> <space>ff :e **/*
+  " File find Assets
+  nnoremap <silent> <space>fas :e app/assets/**/*
+  " File find Chanells
+  nnoremap <silent> <space>fch :e app/channels/**/*
+  " File find COnotroller
+  nnoremap <silent> <space>fco :e app/controllers/**/*
+  " File find Helpers
+  nnoremap <silent> <space>fja :e app/helpers/**/*
+  " File find Javascriopt
+  nnoremap <silent> <space>fja :e app/javascript/**/*
+  " File find JOb
+  nnoremap <silent> <space>fjo :e app/jobs/**/*
+  " File find MAilers
+  nnoremap <silent> <space>fma :e app/mailers/**/*
+  " File find MOdel
+  nnoremap <silent> <space>fmo :e app/models/**/*
+  " File find VIews
+  nnoremap <silent> <space>fvi :e app/views/**/*
+  " File find LIb
+  nnoremap <silent> <space>fli :e lib/**/*
+  " File find SPec
+  nnoremap <silent> <space>fsp :e spec/**/*
 
 " File Edit (and Explore)
   " File Edit Current Path
@@ -535,80 +549,80 @@
 
 
 "" File edit specific files and paths (NEEDS CLEANING)
-"nmap <silent> <space>ftaas <space>fT/app<return><return>/assets<return><return><esc>:noh<return>
+"nnoremap <silent> <space>ftaas <space>fT/app<return><return>/assets<return><return><esc>:noh<return>
 "nnoremap <silent> <space>faas :edit app/assets/<space><backspace>
 "" Edit App Assets Css (stylesheets)
-"nmap <silent> <space>ftaaS <space>fT/app<return><return>/assets<return><return>/stylesheets<return><return><esc>:noh<return>
+"nnoremap <silent> <space>ftaaS <space>fT/app<return><return>/assets<return><return>/stylesheets<return><return><esc>:noh<return>
 "nnoremap <silent> <space>faaS :edit app/assets/stylesheets/<space><backspace>
 ""
-"nmap <silent> <space>ftach <space>fT/app<return><return>/channels<return><return><esc>:noh<return>
+"nnoremap <silent> <space>ftach <space>fT/app<return><return>/channels<return><return><esc>:noh<return>
 "nnoremap <silent> <space>fach :edit app/channels/<space><backspace>
 ""
-""nmap <silent> <space>ftaco <space>fT/app<return><return>/controllers<return><return><esc>:noh<return>
-"nmap <silent> <space>ftaco :e app/controllers/
+""nnoremap <silent> <space>ftaco <space>fT/app<return><return>/controllers<return><return><esc>:noh<return>
+"nnoremap <silent> <space>ftaco :e app/controllers/
 "nnoremap <silent> <space>faco :edit app/controllers/<space><backspace>
 ""
-"nmap <silent> <space>ftahe <space>fT/app<return><return>/helpers<return><return><esc>:noh<return>
+"nnoremap <silent> <space>ftahe <space>fT/app<return><return>/helpers<return><return><esc>:noh<return>
 "nnoremap <silent> <space>fahe :edit app/helpers/<space><backspace>
 ""
-"nmap <silent> <space>ftaJa <space>fT/app<return><return>/javascript<return><return><esc>:noh<return>
+"nnoremap <silent> <space>ftaJa <space>fT/app<return><return>/javascript<return><return><esc>:noh<return>
 "nnoremap <silent> <space>faJa :edit app/javascript/<space><backspace>
 ""
-"nmap <silent> <space>ftaJp <space>fT/app<return><return>/javascript<return><return>/packs<return><return><esc>:noh<return>
+"nnoremap <silent> <space>ftaJp <space>fT/app<return><return>/javascript<return><return>/packs<return><return><esc>:noh<return>
 "nnoremap <silent> <space>faJp :edit app/javascript/packs/<space><backspace>
 "nnoremap <silent> <space>faJs :edit app/javascript/packs/lib/show_edit_swap.js.erb<return>
 ""
-"nmap <silent> <space>ftajo <space>fT/app<return><return>/jobs<return><return><esc>:noh<return>
+"nnoremap <silent> <space>ftajo <space>fT/app<return><return>/jobs<return><return><esc>:noh<return>
 "nnoremap <silent> <space>fajo :edit app/jobs/<space><backspace>
 "" Edit App/MAilers
-"nmap <silent> <space>ftaMa <space>fT/app<return><return>/mailers<return><return><esc>:noh<return>
+"nnoremap <silent> <space>ftaMa <space>fT/app<return><return>/mailers<return><return><esc>:noh<return>
 "nnoremap <silent> <space>faMa :edit app/mailers/<space><backspace>
 "" Edit App/MOddels
-"nmap <silent> <space>ftamo <space>fT/app<return><return>/models<return><return><esc>:noh<return>
+"nnoremap <silent> <space>ftamo <space>fT/app<return><return>/models<return><return><esc>:noh<return>
 "nnoremap <silent> <space>famo :edit app/models/<space><backspace>
 "" Edit App/Mddels/aBility.rb Cancancan
-"nmap <silent> <space>famc :e app/models/ability.rb<return>
+"nnoremap <silent> <space>famc :e app/models/ability.rb<return>
 ""
-"nmap <silent> <space>ftavi <space>fT/app<return><return>/views<return><return><esc>:noh<return>
+"nnoremap <silent> <space>ftavi <space>fT/app<return><return>/views<return><return><esc>:noh<return>
 "nnoremap <silent> <space>favi :edit app/views/<space><backspace>
 ""
-"nmap <silent> <space>ftcon <space>fT/config<return><return><esc>:noh<return>
+"nnoremap <silent> <space>ftcon <space>fT/config<return><return><esc>:noh<return>
 "nnoremap <silent> <space>fcon :edit config/<space><backspace>
 ""
 "nnoremap <silent> <space>fcro :edit config/routes.rb<return>
 ""
 "nnoremap <silent> <space>fdsc :edit db/schema.rb<return>
 ""
-"nmap <silent> <space>ftdse <space>fT/db<return><return>/seeds<return><return><esc>:noh<return>
+"nnoremap <silent> <space>ftdse <space>fT/db<return><return>/seeds<return><return><esc>:noh<return>
 "nnoremap <silent> <space>fdse :edit db/seeds.rb<return>
 ""
-"nmap <silent> <space>ftdmi <space>fT/db<return><return>/migrate<return><return><esc>:noh<return>
+"nnoremap <silent> <space>ftdmi <space>fT/db<return><return>/migrate<return><return><esc>:noh<return>
 "nnoremap <silent> <space>fdmi :edit db/migrate/<space><backspace>
 ""
-"nmap <silent> <space>ftlib <space>fT/lib<return><return><esc>:noh<return>
+"nnoremap <silent> <space>ftlib <space>fT/lib<return><return><esc>:noh<return>
 "nnoremap <silent> <space>flib :edit lib/<space><backspace>
 ""
-"nmap <silent> <space>fttes <space>fT/test<return><return><esc>:noh<return>
+"nnoremap <silent> <space>fttes <space>fT/test<return><return><esc>:noh<return>
 "nnoremap <silent> <space>ftes :edit test/<space><backspace>
 ""
-"nmap <silent> <space>fttco <space>fT/test<return><return>/controllers<return><return><esc>:noh<return>
+"nnoremap <silent> <space>fttco <space>fT/test<return><return>/controllers<return><return><esc>:noh<return>
 "nnoremap <silent> <space>ftco :edit test/controllers/<space><backspace>
 ""
-"nmap <silent> <space>fttmo <space>fT/test<return><return>/models<return><return><esc>:noh<return>
+"nnoremap <silent> <space>fttmo <space>fT/test<return><return>/models<return><return><esc>:noh<return>
 "nnoremap <silent> <space>ftmo :edit test/models/<space><backspace>
 "" File Test FIxtures
-"nmap <silent> <space>fttfi <space>fT/test<return><return>/fixtures<return><return><esc>:noh<return>
+"nnoremap <silent> <space>fttfi <space>fT/test<return><return>/fixtures<return><return><esc>:noh<return>
 "nnoremap <silent> <space>ftfi :edit test/fixtures/<space><backspace>
 "" File Test Mailers
-"nmap <silent> <space>fttma <space>fT/test<return><return>/mailers<return><return><esc>:noh<return>
+"nnoremap <silent> <space>fttma <space>fT/test<return><return>/mailers<return><return><esc>:noh<return>
 "nnoremap <silent> <space>ftma :edit test/fixtures/mailers/<space><backspace>
 "" File Test Mailers Previews
-"nmap <silent> <space>fttmp <space>fT/test<return><return>/mailers<return><return>/previews<return><return><esc>:noh<return>
+"nnoremap <silent> <space>fttmp <space>fT/test<return><return>/mailers<return><return>/previews<return><return><esc>:noh<return>
 "nnoremap <silent> <space>ftmp :edit test/fixtures/mailers/previews/<space><backspace>
 ""
-"nmap <silent> <space>ftven <space>fT/vendor<return><return><esc>:noh<return>
+"nnoremap <silent> <space>ftven <space>fT/vendor<return><return><esc>:noh<return>
 "nnoremap <silent> <space>fven :edit vendor/<space><backspace>
 "" Edit GEMfile
-"nmap <silent> <space>fgem <space>fT/Gemfile<return><return><esc>:noh<return>
+"nnoremap <silent> <space>fgem <space>fT/Gemfile<return><return><esc>:noh<return>
 "" Edit REAdme
-"nmap <silent> <space>frea <space>fT/README.md<return><return><esc>:noh<return>
+"nnoremap <silent> <space>frea <space>fT/README.md<return><return><esc>:noh<return>

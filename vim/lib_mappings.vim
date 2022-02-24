@@ -1,8 +1,14 @@
 " Lib Tasks
   " Lib Tasks BAse
-  nmap <silent> ,ltba :read ../templates/tasks/base.rake<return>ggdd/insert first task<return>dd<up>,lttb
+  nnoremap <silent> ,ltba :call ReadTemplate('tasks/base.rake')<return>ggdd/insert first task<return>dd<up>:call LibTasksTaskBase()<return>:call LibTaskSearch()<return>
   " Lib Tasks Task Base
-  nmap <silent> ,lttb :read ../templates/tasks/task_base.rake<return>/ChangeApp\\|ChangeTaskType\\|ChangeCategory\\|ChangeDescription\\|ChangeTaskName\\|ChangeTask1\\|ChangeTask2\\|ChangeTask3\\|DeleteThis\\|ChangeMessage<return>
+  nnoremap <silent> ,lttb :call LibTasksTaskBase()<return>:call LibTaskSearch()<return>
+  function! LibTasksTaskBase()
+    call ReadTemplate('tasks/task_base.rake')
+  endfunction
+  function! LibTaskSearch()
+    let @/ = "ChangeApp\\|ChangeTaskType\\|ChangeCategory\\|ChangeDescription\\|ChangeTaskName\\|ChangeTask1\\|ChangeTask2\\|ChangeTask3\\|DeleteThis\\|ChangeMessage"
+  endfunction
   " Lib Tasks Date Helper
   nnoremap <silent> ,ltdh :read ../templates/tasks/date_helper.rake<return>/DeleteThis<return>
   " Lib Tasks Repeat  Helper

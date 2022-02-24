@@ -23,6 +23,8 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 " misc settings
+  " Enable mouse in normal and visual modes
+  set mouse=nv
   " Color Scheme
   colorscheme nord
   " run neomake at save (which calls rubocop because neomake supports rubocop)
@@ -101,13 +103,10 @@ so ~/.dotfiles/vim/misc_process_mappings.vim
   " line deletes entire line and then grabs following line)
   nnoremap <silent> ,mdd I<tab><esc>0viwxi<backspace><esc><right>
   " Misc. Dd but combine to Forward line instead of delete line
-  nmap <silent> ,mdf $<down>,mdd
+  nnoremap <silent> ,mdf $<down>I<tab><esc>0viwxi<backspace><esc><right>
   " Misc. Df but add <return> between each line
-  nmap <silent> ,mdr $<down>,mddi<lt>return><esc>
+  nnoremap <silent> ,mdr $<down>I<tab><esc>0viwxi<backspace><esc><right>i<lt>return><esc>
   " Misc. Dd but with space
   nnoremap <silent> ,mds I<tab><esc>0viwxi<backspace><space><esc><right>
   
   " one off
-   nmap <silent> ,mn dd<space>fecl
-   nmap <silent> ,mm /left-sidebar<return>cgnpage_content_left_menu<esc>/course_left_sidebar<return>cgncourses_left_menu<esc><space>fs
-  "app/views/layouts/training/_assignment_left_menu.html.erb
