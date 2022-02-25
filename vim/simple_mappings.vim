@@ -12,6 +12,8 @@
 
 
 " insert mode non-leader key mappings
+  " autofill
+  inoremap <silent> <C-space> <C-n>
   " prevent return from autocomplete (very annoying because to return you have
   " to hit space then return. Now, tab does autocomplete and return does
   " return

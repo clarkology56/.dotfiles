@@ -20,6 +20,7 @@ augroup END
 call plug#begin('~/.vim/plugged')
   Plug 'arcticicestudio/nord-vim' " cool nordic color scheme
   Plug 'neomake/neomake' " run specific programs (ex. rubocop) asynchronously
+  Plug 'maxboisvert/vim-simple-complete'
 call plug#end()
 
 " misc settings
