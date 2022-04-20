@@ -112,6 +112,8 @@
 " File Find
   " File find FIle
   nnoremap <silent> <space>ff :e **/*
+  " File find Admin
+  nnoremap <silent> <space>fad :e app/admin/**/*
   " File find Assets
   nnoremap <silent> <space>fas :e app/assets/**/*
   " File find Chanells
@@ -119,7 +121,7 @@
   " File find COnotroller
   nnoremap <silent> <space>fco :e app/controllers/**/*
   " File find Helpers
-  nnoremap <silent> <space>fja :e app/helpers/**/*
+  nnoremap <silent> <space>fhe :e app/helpers/**/*
   " File find Javascriopt
   nnoremap <silent> <space>fja :e app/javascript/**/*
   " File find JOb

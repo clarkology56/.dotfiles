@@ -144,11 +144,11 @@
   nnoremap <silent> w b
   vnoremap <silent> w b
   " forward to begiining of word
-  nnoremap <silent> t w
-  vnoremap <silent> t w
-  " forward to end of word (no mapping needed because it's already e)
-  "nnoremap <silent> e e
-  "vnoremap <silent> e e
+  nnoremap <silent> e w
+  vnoremap <silent> e w
+  " forward to end of word
+  nnoremap <silent> t e
+  vnoremap <silent> t e
   " far right (when in visual mode, use <left> to make sure to not get next line)
   nnoremap <silent> r $
   vnoremap <silent> r $<left>
@@ -158,19 +158,6 @@
   " to bottom of page (make hh go to bottom like G)
   nnoremap <silent> hh G
   vnoremap <silent> hh G
-    
-" single key comma mappings
-  " visual mode
-  nnoremap ,v <C-v>
-  " various comments
-  nnoremap <silent> ,< O<!--<esc>o--><esc>Vx0
-  
-  nnoremap <silent> ,,< /<!--<return>Nddmq/--><return>dd`q
-  " replace single quite with double quote and vice versa
-  nnoremap <silent> ,' /"<return>cgn'<esc>N.:noh<return>
-  nnoremap <silent> ," /'<return>cgn"<esc>N.:noh<return>
-  
-" single key space mappings
- nnoremap <silent> <space>q :q<return>
- nnoremap <silent> <space>; :
- nnoremap <silent> <space>;n :noh<return>
+
+  " remove highlights
+  nnoremap <silent> hn :noh<return>

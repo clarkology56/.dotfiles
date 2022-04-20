@@ -38,8 +38,15 @@ function! SpecRunCurrentFile(use_shell)
     let @+ = test_command
   endif
 endfunction
+
 function! GetSpecFile()
   let file = expand('%')
+  " if file is active admin, convert active admin file path to admin
+  " controller file path
+  if match(file, 'app/admin') != -1
+    let file = substitute(file, 'app/admin', 'app/controllers/admin', '')
+    let file = substitute(file, '.rb', '_controller.rb', '')
+  endif
   " if file is view, js or stylesheet, open test for related controller
   if match(file, 'app/views') != -1
     let file = substitute(expand('%:h'), 'views', 'controllers', '') . '_controller.rb'
@@ -101,7 +108,7 @@ function! CreateBaseFile(class_or_module, include_outer_followup, include_inner_
     let count = count + 1
   endwhile
 
-  execute "normal! ggi# frozen_string_literal: true\<return>\<backspace>\<backspace>"
+  execute "normal! ggi# frozen_string_literal: true\<return>\<return>\<backspace>\<backspace>"
 
   if a:include_outer_followup == 1
     normal! oouter_followup

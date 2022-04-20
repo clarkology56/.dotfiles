@@ -1,3 +1,4 @@
+nnoremap <space>gx :call OpenTerminal()<return>:only<return>:call ClearBuffer()<return>
 " Git Status
 nnoremap <silent> <space>gs :wa<return>:call ToggleTerminalInWindow()<return>q<return><C-c>git status<return><C-\><C-n>
 " Git Diff
@@ -7,7 +8,7 @@ nnoremap <silent> <space>gr :wa<return>:call ToggleTerminalInWindow()<return>q<r
 " Git rspEc (not really git but always done before committing)
 nnoremap <silent> <space>ge :wa<return>:call ToggleTerminalInWindow()<return>q<return><C-c>bundle exec rspec spec<return><C-\><C-n>
 " Spec Run Current File in terminal
-nnoremap <silent> <space>ge :call SpecRunCurrentFile(1)<return>:call ToggleTerminalInWindow()<return>q<return><C-c><C-\><C-n>pa<return><C-\><C-n>
+nnoremap <silent> <space>ge :call SpecRunCurrentFile(1)<return>:call ToggleTerminalInWindow()<return>aq<return><C-c><C-\><C-n>pa<return><C-\><C-n>
 " Spec Run All Files in terminal
 nnoremap <silent> <space>gE :wa<return>:call ToggleTerminalInWindow()<return>q<return><C-c>bundle exec rspec spec<return><C-\><C-n>
 " File Test Current File in terminal

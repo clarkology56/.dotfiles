@@ -55,6 +55,14 @@ nnoremap <silent> <space>wv :vsp<return>:call GoToNextWindow(1)<return>:set wrap
 nnoremap <silent> <space>wV :vertical botright split<return>:call GoToNextWindow(1)<return>:set wrap<return><C-W>=
 " Window equalize sizes
 nnoremap <silent> <space>we <C-W>=
+" window move
+nnoremap <silent> <space>wj <C-w>H
+nnoremap <silent> <space>wk <C-w>J
+nnoremap <silent> <space>wl <C-w>K
+nnoremap <silent> <space>w; <C-w>L
+
+
+
 " Window Close
 nnoremap <silent> <space>wc :close<return><C-W>=
 nnoremap <silent> <space>wd :close<return><C-W>=
