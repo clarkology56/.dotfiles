@@ -20,31 +20,6 @@ function GoToNextWindow(direction)
   execute "normal! " . target_window . "\<C-w>\<C-w>"
 endfunction
 
-function! GoToNextBuf(direction)
-  if a:direction == 1
-    let adj = 1
-  else
-    let adj = -1
-  end
-  let continue = 1
-  while continue 
-    let nbuf = NextBuf(adj)
-    if nbuf == bufnr()
-      let continue = 0
-    endif
-    if getbufvar(nbuf, '&buftype') == 'terminal'
-      if a:direction == 1
-        let adj = adj + 1
-      else
-        let adj = adj - 1
-      endif
-    else
-      let continue = 0
-    endif
-  endwhile
-  exec ':buf' nbuf 
-endfunction
-
 " Window Split current window
 nnoremap <silent> <space>ws :sp<return>:call GoToNextWindow(1)<return>:set wrap<return><C-W>=
 " Window Split from entire screen
@@ -61,11 +36,9 @@ nnoremap <silent> <space>wk <C-w>J
 nnoremap <silent> <space>wl <C-w>K
 nnoremap <silent> <space>w; <C-w>L
 
-
-
 " Window Close
-nnoremap <silent> <space>wc :close<return><C-W>=
-nnoremap <silent> <space>wd :close<return><C-W>=
+nnoremap <silent> <space>wc :call ClearBuffer()<return>:close<return><C-W>=
+nmap <silent> <space>wd <space>wc
 " Window Maximize (close all others)
 nnoremap <silent> <space>wm :only<return>:wa<return>:call ClearBuffers()<return>
 " Window Terminal
