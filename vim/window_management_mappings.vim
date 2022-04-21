@@ -67,6 +67,6 @@ nnoremap <silent> <space>w; <C-w>L
 nnoremap <silent> <space>wc :close<return><C-W>=
 nnoremap <silent> <space>wd :close<return><C-W>=
 " Window Maximize (close all others)
-nnoremap <silent> <space>wm :only<return>
+nnoremap <silent> <space>wm :only<return>:wa<return>:call ClearBuffers()<return>
 " Window Terminal
 nnoremap <silent> <space>wt :call ToggleTerminalInWindow()<return>

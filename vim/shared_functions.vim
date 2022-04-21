@@ -226,3 +226,17 @@ function! ReadTemplate(path)
   echo g:path_to_templates . a:path
   execute "normal! :read " . g:path_to_templates . a:path . "\<return>"
 endfunction
+
+function! ClearBuffers()
+  " listed is buffers in tabs; loaded is basiclly listed + any loaded files
+  " 
+  " that are not in the tabs - only example I have of this is nerd tree.
+  " Not hidden is any loaded buffer in a window plus all other non-loaded buffers.
+  " We want to clear the listed_hidden.
+  let l:blist = map(filter(copy(getbufinfo()), 'v:val.listed == 1 && v:val.hidden == 1'), 'v:val.bufnr')
+  for l:item in l:blist
+    if getbufvar(l:item, '&buftype') != 'terminal'
+      execute ':bd' l:item
+    endif
+  endfor
+endfunction

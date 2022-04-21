@@ -69,9 +69,7 @@
     autocmd BufWritePre * call mkdir(expand("<afile>:p:h"), "p")
   augroup END
   " File Save (all)
-  nnoremap <silent> <space>fs :wa<return>
-  " File Save (single)
-  nnoremap <silent> <space>fS :w<return>
+  nnoremap <silent> <space>fsa :wa<return>
   " File eXplore
   nnoremap <silent> <space>fx :let g:came_from_buf_num = bufnr()<return>:Explore<return>
   nnoremap <silent> <space>fX :Explore .git/..<return>
