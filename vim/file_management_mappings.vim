@@ -69,7 +69,7 @@
     autocmd BufWritePre * call mkdir(expand("<afile>:p:h"), "p")
   augroup END
   " File Save (all)
-  nnoremap <silent> <space>fsa :wa<return>
+  nnoremap <silent> <space>fs :wa<return>
   " File eXplore
   nnoremap <silent> <space>fx :let g:came_from_buf_num = bufnr()<return>:Explore<return>
   nnoremap <silent> <space>fX :Explore .git/..<return>
@@ -132,8 +132,8 @@
   nnoremap <silent> <space>fvi :e app/views/**/*
   " File find LIb
   nnoremap <silent> <space>fli :e lib/**/*
-  " File find SPec
-  nnoremap <silent> <space>fsp :e spec/**/*
+  " File find RSpec
+  nnoremap <silent> <space>frs :e spec/**/*
 
 " File Edit (and Explore)
   " File Edit Current Path

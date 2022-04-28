@@ -23,11 +23,11 @@ endfunction
 " Window Split current window
 nnoremap <silent> <space>ws :sp<return>:call GoToNextWindow(1)<return>:set wrap<return><C-W>=
 " Window Split from entire screen
-nnoremap <silent> <space>wS :botright split<return>:call GoToNextWindow(1)<return>:set wrap<return><C-W>=
+nnoremap <silent> <space>wS :botright split<return>:set wrap<return><C-W>=
 " Window split Vertically
 nnoremap <silent> <space>wv :vsp<return>:call GoToNextWindow(1)<return>:set wrap<return><C-W>=
 " Window split Vertically from entire screen
-nnoremap <silent> <space>wV :vertical botright split<return>:call GoToNextWindow(1)<return>:set wrap<return><C-W>=
+nnoremap <silent> <space>wV :vertical botright split<return>:set wrap<return><C-W>=
 " Window equalize sizes
 nnoremap <silent> <space>we <C-W>=
 " window move
@@ -37,8 +37,9 @@ nnoremap <silent> <space>wl <C-w>K
 nnoremap <silent> <space>w; <C-w>L
 
 " Window Close
-nnoremap <silent> <space>wc :call ClearBuffer()<return>:close<return><C-W>=
+nnoremap <silent> <space>wc :close<return>:call ClearBuffers()<return><C-W>=
 nmap <silent> <space>wd <space>wc
+
 " Window Maximize (close all others)
 nnoremap <silent> <space>wm :only<return>:wa<return>:call ClearBuffers()<return>
 " Window Terminal
