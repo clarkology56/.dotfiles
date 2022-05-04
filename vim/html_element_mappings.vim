@@ -48,8 +48,10 @@ nnoremap <silent> ,hecu a<ChangeThisPls></ChangeThisPls><esc>/ChangeThisPls<retu
 nnoremap <silent> ,heol a<ol><return><% ChangeThisPls.each do \|ChangeThisPls\| %><return><li>ChangeThisPls</li><return><% end %><return></ol><esc>/ChangeThisPls<return>
 " Html Elements Unordered List
 nnoremap <silent> ,heul a<ul><return><% ChangeThisPls.each do \|ChangeThisPls\| %><return><li>ChangeThisPls</li><return><% end %><return></ul><esc>/ChangeThisPls<return>
-" Html Elements ANchor
-nnoremap <silent> ,hean a<%= link_to(ChangeDisplay, ChangePath_path) %><esc>/ChangeDisplay\\|ChangePath<return>
+" Html Elements Anchor with Href
+nnoremap <silent> ,heah a<%= link_to(ChangeDisplay, ChangePath_path) %><esc>/ChangeDisplay\\|ChangePath<return>
+" Html Elements Anchor new Tab
+nnoremap <silent> ,heat a<%= link_to(ChangeDisplay, ChangePath_path, target: :_blank) %><esc>/ChangeDisplay\\|ChangePath<return>
 " Html Elements Anchor with Class
 nnoremap <silent> ,heac a<%= link_to(ChangeDisplay, ChangePath_path, class: 'ChangeClass') %><esc>/ChangeDisplay\\|ChangePath\\|ChangeClass<return>
 " Html Elements Anchor Icon (classes only)

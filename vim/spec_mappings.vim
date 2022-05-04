@@ -7,3 +7,9 @@
 "  nnoremap <silent> ,sraf :wa<return>:call ToggleTerminalInWindow()<return>q<return><C-c>bundle exec rspec spec<return>
 "  " Spec Run All Files
 "  nnoremap <silent> ,sraF :wa<return>:! bundle exec rspec spec<return>
+
+" Spec Attachable PDf
+nnoremap <silent> ,sapd aRack::Test::UploadedFile.new(Rails.root.join('spec', 'support', 'assets', 'pdfs', 'example.pdf'), 'application/pdf')<esc>
+
+" Spec Factories ATtachable
+nnoremap <silent> ,sfat atrait :with_ChangeAttachment do<return>ChangeAttachment do<return># DeleteThis - add attachment (,saXX)<return><backspace><backspace>end<return>end<esc>/ChangeAttachment\\|DeleteThis<return>
