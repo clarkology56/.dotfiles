@@ -2,9 +2,6 @@
 	clean = git hawser clean %f
 	smudge = git hawser smudge %f
 	required = true
-[user]
-	name = Clark Taylor
-	email = clark.taylor.56@gmail.com
 [core]
 	editor = /usr/local/bin/nvim
 	pager = diff-so-fancy | less --tabs=4 -RFX
@@ -21,3 +18,5 @@
 	helper = osxkeychain
 [pull]
 	rebase = false
+[init]
+	defaultBranch = master

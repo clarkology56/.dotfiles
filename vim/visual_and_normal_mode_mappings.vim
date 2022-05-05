@@ -9,6 +9,8 @@
   vnoremap <silent> # I#<esc>
   vnoremap <silent> " I"<esc>
   vnoremap <silent> / I//<esc>
+  " make insert work in visual mode
+  vnoremap <silent> i <esc>a
 
 
 " insert mode non-leader key mappings
@@ -48,13 +50,13 @@
   " spacevim)
   vnoremap v iw
   " select entire page
-  vnoremap aa <esc>ggVG
+  vnoremap ee <esc>ggVG
   " copy entire page
-  vnoremap ay <esc>ggVGy
+  vnoremap ey <esc>ggVGy
   " paste over entire page
-  vnoremap ap <esc>ggVGp
-  " delete entire page
-  vnoremap ax <esc>ggVGx
+  vnoremap ep <esc>ggVGp
+  " cut entire page
+  vnoremap ex <esc>ggVGx
   " copy word
   nnoremap <silent> y viwy
   " copy and search
