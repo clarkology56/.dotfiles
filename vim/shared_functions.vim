@@ -131,6 +131,37 @@ function! CreateBaseFile(class_or_module, include_outer_followup, include_inner_
   normal! n
 endfunction
 
+
+function! IndentTemplate2(start, template_path)
+  " set indentations
+  " if there is a starting point set indentations based on starting point
+  if a:start != ''
+    let @/ = a:start
+    normal! n
+    " when there is a starting point, the cursor is actually 1 column too
+    " far compared to when on an empty line so subtract 1
+    let indentations = (col('.') - 1) /  2
+  " if there is no starting point, set indentations based on current cursor
+  " position
+  else
+    let indentations = col('.') /  2
+  endif 
+  " if ther is a starting point, go back to it (cursor position is reset after
+  " each execute command, so if there is a start, it must be searched again
+  " and it must be search again and all in one inline command)
+  if a:start == ''
+    execute "normal! mbO\<esc>mt:read " . g:path_to_templates . a:template_path . " \<return>v`b" . indentations . ">"
+  else
+    execute "normal! /" . a:start . "\<return>mbO\<esc>mt:read " . g:path_to_templates . a:template_path . " \<return>0v`b" . indentations . ">"
+  endif
+  " Delete top and bottom
+  " delete starting point because read function reads one line after start
+  " which leaves an empy line at the beginning we need to delete (or leaves
+  " start text which we also want to delete)
+  normal! `tdd`bdd
+endfunction
+
+
 function! IndentTemplate(start, delete_start, indentations, template)
   " indent by indendations argument. If 0, indent based on current
   " cursor position
@@ -223,7 +254,6 @@ function! ToggleTerminalInWindow()
 endfunction
 
 function! ReadTemplate(path)
-  echo g:path_to_templates . a:path
   execute "normal! :read " . g:path_to_templates . a:path . "\<return>"
 endfunction
 
