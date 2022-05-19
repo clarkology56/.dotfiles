@@ -31,7 +31,7 @@ endfunction
 function! SpecRunCurrentFile(use_shell)
   execute ':wa'
   let test_file = GetSpecFile()
-  let test_command = 'bundle exec rspec ' . test_file
+  let test_command = 'bundle exec rspec ' . test_file . ' --fail-fast'
   if a:use_shell == 0
     execute ':!' test_command
   else 

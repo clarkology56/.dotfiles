@@ -50,13 +50,13 @@
   " spacevim)
   vnoremap v iw
   " select entire page
-  vnoremap ee <esc>ggVG
+  vnoremap ge <esc>ggVG
   " copy entire page
-  vnoremap ey <esc>ggVGy
+  vnoremap gy <esc>ggVGy
   " paste over entire page
-  vnoremap ep <esc>ggVGp
+  vnoremap gp <esc>ggVGp
   " cut entire page
-  vnoremap ex <esc>ggVGx
+  vnoremap gx <esc>ggVGx
   " copy word
   nnoremap <silent> y viwy
   " copy and search
@@ -145,12 +145,12 @@
   " back to beginning of word
   nnoremap <silent> w b
   vnoremap <silent> w b
-  " forward to begiining of word
-  nnoremap <silent> e w
-  vnoremap <silent> e w
   " forward to end of word
-  nnoremap <silent> t e
-  vnoremap <silent> t e
+  nnoremap <silent> e e
+  vnoremap <silent> e e
+  " forward to beginning of word
+  nnoremap <silent> t w
+  vnoremap <silent> t w
   " far right (when in visual mode, use <left> to make sure to not get next line)
   nnoremap <silent> r $
   vnoremap <silent> r $<left>
