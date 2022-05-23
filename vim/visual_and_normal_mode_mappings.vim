@@ -1,4 +1,4 @@
-" a visual mode non-leader key mappings
+" visual mode non-leader key mappings
   " prevent changing case on accident
   vnoremap <silent> u <esc>u
   vnoremap <silent> U <esc>U
@@ -10,7 +10,8 @@
   vnoremap <silent> " I"<esc>
   vnoremap <silent> / I//<esc>
   " make insert work in visual mode
-  vnoremap <silent> i <esc>a
+  vnoremap <silent> i <esc>i
+  vnoremap <silent> a <esc>a
 
 
 " insert mode non-leader key mappings
@@ -24,6 +25,45 @@
   inoremap <silent> {{ {<space><space>}<left><left>
   " ruby curley brace entered
   inoremap <silent> {<return> {<return><space><backspace><return>}<up><tab>
+  " opening and closing
+  inoremap <silent> ' '<esc>:call SingleQuotation()<return>a
+  function SingleQuotation()
+    if ("'" == matchstr(getline('.'), '\%' . (col('.') + 1) . 'c.'))
+      execute "normal! a\<delete>"
+    else
+      execute "normal! i'"
+    endif
+  endfunction
+  inoremap <silent> " "<esc>:call DoubleQuotation()<return>a
+  function DoubleQuotation()
+    if ('"' == matchstr(getline('.'), '\%' . (col('.') + 1) . 'c.'))
+      execute "normal! a\<delete>"
+    else
+      execute "normal! i\""
+    endif
+  endfunction
+  inoremap <silent> ( ()<esc>i
+  inoremap <silent> ) )<esc>:call CloseParenthesis()<return>a
+  function CloseParenthesis()
+    if (')' == matchstr(getline('.'), '\%' . (col('.') + 1) . 'c.'))
+      execute "normal! a\<delete>"
+    endif
+  endfunction
+  inoremap <silent> [ []<esc>i
+  inoremap <silent> ] ]<esc>:call CloseBracket()<return>a
+  function CloseBracket()
+    if ("]" == matchstr(getline('.'), '\%' . (col('.') + 1) . 'c.'))
+      execute "normal! a\<delete>"
+    endif
+  endfunction
+  inoremap <silent> { {}<esc>i
+  inoremap <silent> } }<esc>:call CloseBrace()<return>a
+  function CloseBrace()
+    if ("}" == matchstr(getline('.'), '\%' . (col('.') + 1) . 'c.'))
+      execute "normal! a\<delete>"
+    endif
+  endfunction
+  
   " bar options
   inoremap <silent> <bar><bar><bar> <bar><bar><left>
   inoremap <silent> <bar><bar><space> <bar><bar><space>
@@ -50,13 +90,13 @@
   " spacevim)
   vnoremap v iw
   " select entire page
-  vnoremap ge <esc>ggVG
+  vnoremap ae <esc>ggVG
   " copy entire page
-  vnoremap gy <esc>ggVGy
+  vnoremap ay <esc>ggVGy
   " paste over entire page
-  vnoremap gp <esc>ggVGp
+  vnoremap ap <esc>ggVGp
   " cut entire page
-  vnoremap gx <esc>ggVGx
+  vnoremap ax <esc>ggVGx
   " copy word
   nnoremap <silent> y viwy
   " copy and search
