@@ -44,3 +44,4 @@ nmap <silent> <space>wd <space>wc
 nnoremap <silent> <space>wm :only<return>:wa<return>:call ClearBuffers()<return>
 " Window Terminal
 nnoremap <silent> <space>wt :call ToggleTerminalInWindow()<return>
+nnoremap <space>wT :call OpenTerminal()<return>:only<return>:wa<return>:call ClearBuffers()<return>
