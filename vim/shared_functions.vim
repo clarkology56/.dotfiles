@@ -396,3 +396,10 @@ function! GoToNextBuf(direction)
   endwhile
   exec ':buf' nbuf 
 endfunction
+
+function WindowSplitVerdically()
+  vsp
+  call GoToNextWindow(1)
+  set wrap
+  execute "normal! \<C-W>="
+endfunction

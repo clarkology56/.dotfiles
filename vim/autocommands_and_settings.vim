@@ -30,14 +30,27 @@ autocmd InsertLeave * set iminsert=0
 call plug#begin('~/.vim/plugged')
   Plug 'arcticicestudio/nord-vim' " cool nordic color scheme
   Plug 'neomake/neomake' " run specific programs (ex. rubocop) asynchronously
-  Plug 'maxboisvert/vim-simple-complete' " a little buggy but mostly amazing and simple to install autocomplete
-call plug#end()
+  Plug 'maxboisvert/vim-simple-complete' " autocomplete - a little buggy but mostly amazing and simple to install
+  Plug 'jiangmiao/auto-pairs' " helps with {}, (), [], etc.
+  Plug 'pangloss/vim-javascript' " adds colors to js files (only difference I saw was color to funtion names). Probably does other stuff too...
+  Plug 'maxmellon/vim-jsx-pretty' " more colors and syntax stuff for react / react native 
+  Plug 'dense-analysis/ale' " Linter for js and others but can't remember which / need to set up
+  " Plug 'vim-ruby/vim-ruby' " Syntax highlighting for ruby - looks like a
+  " good plugin but I didn't see any differences from what I already have so I
+  " removed it... but want to keep here as a referene because I'd like to come
+  " back to it some day...
+
+  let g:ale_linters = { 'javascript': ['eslint'] }
+  let g:ale_fixers = { 'javascript': ['prettier', 'eslint'], 'scss': ['prettier'], 'html': ['prettier'] }
+  let g:ale_fix_on_save = 1
 
 " misc settings
   " Enable mouse in normal and visual modes
   set mouse=nv
   " Color Scheme
   colorscheme nord
+  " Use ruby syntax for jbuilder
+  au BufNewFile,BufRead *.json.jbuilder set ft=ruby
   " run neomake at save (which calls rubocop because neomake supports rubocop)
   call neomake#configure#automake('w')
   " make clipboard same as yank so (so you can yank and then cmd v)

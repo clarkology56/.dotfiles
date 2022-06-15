@@ -13,7 +13,6 @@
   vnoremap <silent> i <esc>i
   vnoremap <silent> a <esc>a
 
-
 " insert mode non-leader key mappings
   " autofill
   inoremap <silent> <C-space> <C-n>
@@ -23,46 +22,6 @@
   inoremap <silent> <return> <space><backspace><return>
   " ruby curley brace spacing
   inoremap <silent> {{ {<space><space>}<left><left>
-  " ruby curley brace entered
-  inoremap <silent> {<return> {<return><space><backspace><return>}<up><tab>
-  " opening and closing
-  inoremap <silent> ' '<esc>:call SingleQuotation()<return>a
-  function SingleQuotation()
-    if ("'" == matchstr(getline('.'), '\%' . (col('.') + 1) . 'c.'))
-      execute "normal! a\<delete>"
-    else
-      execute "normal! i'"
-    endif
-  endfunction
-  inoremap <silent> " "<esc>:call DoubleQuotation()<return>a
-  function DoubleQuotation()
-    if ('"' == matchstr(getline('.'), '\%' . (col('.') + 1) . 'c.'))
-      execute "normal! a\<delete>"
-    else
-      execute "normal! i\""
-    endif
-  endfunction
-  inoremap <silent> ( ()<esc>i
-  inoremap <silent> ) )<esc>:call CloseParenthesis()<return>a
-  function CloseParenthesis()
-    if (')' == matchstr(getline('.'), '\%' . (col('.') + 1) . 'c.'))
-      execute "normal! a\<delete>"
-    endif
-  endfunction
-  inoremap <silent> [ []<esc>i
-  inoremap <silent> ] ]<esc>:call CloseBracket()<return>a
-  function CloseBracket()
-    if ("]" == matchstr(getline('.'), '\%' . (col('.') + 1) . 'c.'))
-      execute "normal! a\<delete>"
-    endif
-  endfunction
-  inoremap <silent> { {}<esc>i
-  inoremap <silent> } }<esc>:call CloseBrace()<return>a
-  function CloseBrace()
-    if ("}" == matchstr(getline('.'), '\%' . (col('.') + 1) . 'c.'))
-      execute "normal! a\<delete>"
-    endif
-  endfunction
   
   " bar options
   inoremap <silent> <bar><bar><bar> <bar><bar><left>
@@ -203,3 +162,50 @@
 
   " remove highlights
   nnoremap <silent> hn :noh<return>
+  
+  
+  
+  
+  
+  " The below was removed in favor of jiangmiao/auto-pairs... but keeping in
+  " case I want to bring back later
+  "" ruby curley brace entered
+  "inoremap <silent> {<return> {<return><space><backspace><return>}<up><tab>
+  "" opening and closing
+  "inoremap <silent> ' '<esc>:call SingleQuotation()<return>a
+  "function SingleQuotation()
+  "  if ("'" == matchstr(getline('.'), '\%' . (col('.') + 1) . 'c.'))
+  "    execute "normal! a\<delete>"
+  "  else
+  "    execute "normal! i'"
+  "  endif
+  "endfunction
+  "inoremap <silent> " "<esc>:call DoubleQuotation()<return>a
+  "function DoubleQuotation()
+  "  if ('"' == matchstr(getline('.'), '\%' . (col('.') + 1) . 'c.'))
+  "    execute "normal! a\<delete>"
+  "  else
+  "    execute "normal! i\""
+  "  endif
+  "endfunction
+  "inoremap <silent> ( ()<esc>i
+  "inoremap <silent> ) )<esc>:call CloseParenthesis()<return>a
+  "function CloseParenthesis()
+  "  if (')' == matchstr(getline('.'), '\%' . (col('.') + 1) . 'c.'))
+  "    execute "normal! a\<delete>"
+  "  endif
+  "endfunction
+  "inoremap <silent> [ []<esc>i
+  "inoremap <silent> ] ]<esc>:call CloseBracket()<return>a
+  "function CloseBracket()
+  "  if ("]" == matchstr(getline('.'), '\%' . (col('.') + 1) . 'c.'))
+  "    execute "normal! a\<delete>"
+  "  endif
+  "endfunction
+  "inoremap <silent> { {}<esc>i
+  "inoremap <silent> } }<esc>:call CloseBrace()<return>a
+  "function CloseBrace()
+  "  if ("}" == matchstr(getline('.'), '\%' . (col('.') + 1) . 'c.'))
+  "    execute "normal! a\<delete>"
+  "  endif
+  "endfunction

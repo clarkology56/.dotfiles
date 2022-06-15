@@ -340,8 +340,9 @@
   endfunction
 
   " File Edit VIew
-  nnoremap <silent> <space>fevi :call FileEditView()<return>
-  function FileEditView()
+  nnoremap <silent> <space>fevi :call FileEditView(1)<return>
+  nnoremap <silent> <space>fevI :call FileEditView(0)<return>
+  function FileEditView(split_window)
     let current_file = expand('%')
     if match(current_file, 'app/assets/stylesheets') != -1
       let directory = substitute(expand('%:h'), 'assets/stylesheets', 'views', '')
@@ -368,12 +369,18 @@
       echo 'Unable to find views for' current_file
     else
       if isdirectory(directory)
+        if a:split_window == 1
+          call WindowSplitVerdically()
+        endif
         execute ':Explore' directory
       else
         let new_file = input("There are no view files yet. Create the first one!: " . directory . "/")
         if new_file == ''
           execute "normal! :echo"
         else
+          if a:split_window == 1
+            call WindowSplitVerdically()
+          endif
           execute ":e " . directory . "/" . new_file
         endif
       endif
@@ -433,8 +440,12 @@
   endfunction
 
   " File Edit SPec
-  nnoremap <silent> <space>fesp :call FileEditSpec()<return>
-  function FileEditSpec()
+  nnoremap <silent> <space>fesp :call FileEditSpec(1)<return>
+  nnoremap <silent> <space>fesP :call FileEditSpec(0)<return>
+  function FileEditSpec(split_window)
+    if a:split_window == 1
+      call WindowSplitVerdically()
+    endif
     execute ':e' GetSpecFile()
   endfunction
 
@@ -471,21 +482,29 @@
   endfunction
 
   " File Edit FIxtures
-  nnoremap <silent> <space>fefi :e test/fixtures/
+  nnoremap <silent> <space>fefi :call WindowSplitVerdically()<return>:e test/fixtures/
+  nnoremap <silent> <space>fefI :e test/fixtures/
   " File Edit FActory
-  nnoremap <silent> <space>fefa :e spec/factories.rb<return>
+  nnoremap <silent> <space>fefa :call WindowSplitVerdically()<return>:e spec/factories.rb<return>
+  nnoremap <silent> <space>fefA :e spec/factories.rb<return>
   " File Edit Schema
-  nnoremap <silent> <space>fesc :e db/schema.rb<return>
+  nnoremap <silent> <space>fesc :call WindowSplitVerdically()<return>:e db/schema.rb<return>
+  nnoremap <silent> <space>fesC :e db/schema.rb<return>
   " File Edit ROutes
-  nnoremap <silent> <space>fero :e config/routes.rb<return>
+  nnoremap <silent> <space>fero :call WindowSplitVerdically()<return>:e config/routes.rb<return>
+  nnoremap <silent> <space>ferO :e config/routes.rb<return>
   " File Edit ABility
-  nnoremap <silent> <space>feab :e app/models/ability.rb<return>
+  nnoremap <silent> <space>feab :call WindowSplitVerdically()<return>:e app/models/ability.rb<return>
+  nnoremap <silent> <space>feaB :e app/models/ability.rb<return>
   " File Edit GEmfile
-  nnoremap <silent> <space>fege :e Gemfile<return>
+  nnoremap <silent> <space>fege :call WindowSplitVerdically()<return>:e Gemfile<return>
+  nnoremap <silent> <space>fegE :e Gemfile<return>
   " File Edit REadme
-  nnoremap <silent> <space>fere :e README.md<return>
+  nnoremap <silent> <space>fere :call WindowSplitVerdically()<return>:e README.md<return>
+  nnoremap <silent> <space>ferE :e README.md<return>
   " File Edit Swap Files (for deleting swap files
-  nnoremap <silent> <space>fesw :Explore ~/.local/share/nvim/swap/<return>
+  nnoremap <silent> <space>fesw :call WindowSplitVerdically()<return>:Explore ~/.local/share/nvim/swap/<return>
+  nnoremap <silent> <space>fesW :Explore ~/.local/share/nvim/swap/<return>
 
   
   

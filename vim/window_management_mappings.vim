@@ -25,7 +25,7 @@ nnoremap <silent> <space>ws :sp<return>:call GoToNextWindow(1)<return>:set wrap<
 " Window Split from entire screen
 nnoremap <silent> <space>wS :botright split<return>:set wrap<return><C-W>=
 " Window split Vertically
-nnoremap <silent> <space>wv :vsp<return>:call GoToNextWindow(1)<return>:set wrap<return><C-W>=
+nnoremap <silent> <space>wv :call WindowSplitVerdically()<return>
 " Window split Vertically from entire screen
 nnoremap <silent> <space>wV :vertical botright split<return>:set wrap<return><C-W>=
 " Window equalize sizes

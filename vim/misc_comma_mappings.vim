@@ -11,3 +11,8 @@
   nnoremap <silent> ,mdr $<down>I<tab><esc>0viwxi<backspace><esc><right>i<lt>return><esc>
   " Misc. Dd but with space
   nnoremap <silent> ,mds I<tab><esc>0viwxi<backspace><space><esc><right>
+  
+  
+  
+  " temp - help test highway idienty signed onboarding packet contracts
+  nmap <silent> ,mdc vay<esc><space>wt<esc>pa<return>
