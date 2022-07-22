@@ -20,8 +20,6 @@
   " to hit space then return. Now, tab does autocomplete and return does
   " return
   inoremap <silent> <return> <space><backspace><return>
-  " ruby curley brace spacing
-  inoremap <silent> {{ {<space><space>}<left><left>
   
   " bar options
   inoremap <silent> <bar><bar><bar> <bar><bar><left>

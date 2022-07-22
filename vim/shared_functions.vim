@@ -100,6 +100,10 @@ function! CreateBaseFile(class_or_module, include_outer_followup, include_inner_
   endfor
 
   " make camel case by replacing all _x with X
+  " NOTE you can use the substitute funciton instead as long as the snake
+  " string starts with an underscore. Consider refactoring
+  " let camel_string = substitute(snake_string, '_\([a-zA-Z]\)', '\u\1',  'g')
+  " this would change _some_file_name to SomeFileName
   %s/_\([a-zA-Z]\)/\u\1/g
 
   let count = skip_levels

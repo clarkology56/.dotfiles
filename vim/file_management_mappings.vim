@@ -136,257 +136,438 @@
   nnoremap <silent> <space>frs :e spec/**/*
 
 " File Edit (and Explore)
-  " File Edit Current Path
-  nnoremap <silent> <space>fecp :let @+ = expand('%:h') . '/'<return>:e <C-R><C-R>+<space><backspace>
-  " File Edit Current File
-  nnoremap <silent> <space>fecf :let @+ = expand('%')<return>:e <C-R><C-R>+
-  " File Edit CLipboard
-  nnoremap <silent> <space>fecl :e <C-R><C-R>+<return>
-  " File Edit PArtial
-  nnoremap <silent> <space>fepa :call FileCreatePartial()<return>
-  function! FileCreatePartial()
-    let directory = expand('%:h')
-    let new_file = input("Create new partial (prefix of \"_\" and extention of \".html.erb\" will be added automatically): ")
-    execute ':e ' . directory . '/_' . new_file . '.html.erb'
-  endfunction
-
-  " File Edit ASets
-  nnoremap <silent> <space>feas :Explore .git/../app/assets<return>
-
-  " File Edit Style Sheet
-  nnoremap <silent> <space>fess :call FileEditStyleSheet()<return>
-  function FileEditStyleSheet()
-    let current_file = expand('%')
-    if match(current_file, 'app/assets/stylesheets') != -1
-      let directory = expand('%:h')
-    elseif match(current_file, 'app/controllers') != -1
-      let directory = substitute(expand('%'), 'controllers', 'assets/stylesheets', '')
-      let directory = substitute(directory, '_controller.rb', '', '')
-    elseif match(current_file, 'app/helpers') != -1
-      let directory = substitute(expand('%'), 'helpers', 'assets/stylesheets', '')
-      let directory = substitute(directory, '_helper.rb', '', '')
-    elseif match(current_file, 'app/javascript/packs') != -1
-      let directory = substitute(expand('%:h'), 'javascript/packs', 'assets/stylesheets', '')
-    elseif match(current_file, 'app/views') != -1
-      let directory = substitute(expand('%:h'), 'views', 'assets/stylesheets', '')
-    elseif match(current_file, 'test/controllers') != -1
-      let directory = substitute(expand('%'), 'test/controllers', 'app/assets/stylesheets', '')
-      let directory = substitute(directory, '_controller_test.rb', '', '')
-    elseif match(current_file, 'spec/controllers') != -1
-      let directory = substitute(expand('%'), 'spec/controllers', 'app/assets/stylesheets', '')
-      let directory = substitute(directory, '_controller_test.rb', '', '')
-    else 
-      let directory = 1
-    endif
-    if directory == 1
-      echo 'Unable to find stylesheet for' current_file
-    else
-      if isdirectory(directory)
-        execute ':Explore' directory
+  " Misc. Shortcuts
+    " File Edit Current Path
+    nnoremap <silent> <space>fecp :let @+ = expand('%:h') . '/'<return>:e <C-R><C-R>+<space><backspace>
+    " File Edit CLipboard
+    " nnoremap <silent> <space>fecl :e <C-R><C-R>+<return>
+    nnoremap <silent> <space>fecl :call FileEditClipBoad()<return>
+    function FileEditClipBoad()
+      let split = split(@+, ':')
+      let file = split[0]
+      if len(split) > 1
+        execute "normal! :e " . split[0]. "\<return>" . split[1] . "G"
       else
-        let new_file = input("There are no style sheet files yet. Create the first one!: " . directory . "/")
-        if new_file == ''
-          execute "normal! :echo"
-        else
-          execute ":e " . directory . "/" . new_file
-        endif
+        execute "normal! :e \<C-R>\<C-R>+\<return>"
       endif
-    endif
-  endfunction
-
-  " File Edit Parent Controller
-  nnoremap <silent> <space>fepc :call FileEditParentController()<return>
-  function! FileEditParentController()
-    let file = expand('%')
-    let split = split(file, '/')
-    call remove(split, -1)
-    let file = join(split, '/') . '_controller.rb'
-    execute ':e ' . file
-  endfunction
-
-  " File Edit COntroller
-  nnoremap <silent> <space>feco :call FileEditController()<return>
-  function FileEditController()
-    let current_file = expand('%')
-    if match(current_file, 'app/assets/stylesheets') != -1
-      let file = substitute(expand('%:h'), 'assets/stylesheets', 'controllers', '') . '_controller.rb'
-    elseif match(current_file, 'app/controllers') != -1
-      let file = current_file
-    elseif match(current_file, 'app/helpers') != -1
-      let file = substitute(expand('%'), 'helpers', 'controllers', '')
-      let file = substitute(file, '_helper.rb', '_controller.rb', '')
-    elseif match(current_file, 'app/javascript/packs') != -1
-      let file = substitute(expand('%:h'), 'javascript/packs', 'controllers', '') . '_controller.rb'
-    elseif match(current_file, 'app/views') != -1
-      let file = substitute(expand('%:h'), 'views', 'controllers', '') . '_controller.rb'
-    elseif match(current_file, 'spec/controllers') != -1
-      let file = substitute(expand('%'), 'spec/controllers', 'app/controllers', '')
-      let file = substitute(file, 'controller_spec', 'controller', '')
-    elseif match(current_file, 'test/controllers') != -1
-      let file = substitute(expand('%'), 'test/controllers', 'app/controllers', '')
-      let file = substitute(file, 'controller_test', 'controller', '')
-    elseif match(current_file, 'lib/loaders') != -1
-      let file = substitute(expand('%'), 'lib/loaders', 'app/controllers', '')
-      let file = substitute(file, '_loader.rb', '_controller.rb', '')
-    elseif match(current_file, 'lib/services') != -1
-      let file = substitute(expand('%:h'), 'lib/services', 'app/controllers', '') . '_controller.rb'
-    else 
-      let file = 1
-    endif
-    if file == current_file
-      echo 'Already on controller file'
-    elseif file == 1
-      echo 'Unable to find controller for' current_file
-    else
-      execute ':e' file
-    endif
-  endfunction
-
-  " File Edit HElper
-  nnoremap <silent> <space>fehe :call FileEditHelper()<return>
-  function FileEditHelper()
-    let current_file = expand('%')
-    if match(current_file, 'app/assets/stylesheets') != -1
-      let file = substitute(expand('%:h'), 'assets/stylesheets', 'helpers', '') . '_helper.rb'
-    elseif match(current_file, 'app/controllers') != -1
-      let file = substitute(current_file, 'controllers', 'helpers', '')
-      let file = substitute(file, '_controller.rb', '_helper.rb', '')
-    elseif match(current_file, 'app/helpers') != -1
-      let file = current_file
-    elseif match(current_file, 'app/javascript/packs') != -1
-      let file = substitute(expand('%:h'), 'javascript/packs', 'helpers', '') . '_helper.rb'
-    elseif match(current_file, 'app/views') != -1
-      let file = substitute(expand('%:h'), 'views', 'helpers', '') . '_helper.rb'
-    elseif match(current_file, 'spec') != -1
-      let file = substitute(expand('%'), 'spec/controllers', 'app/helpers', '')
-      let file = substitute(file, 'controller_spec', 'helper', '')
-    elseif match(current_file, 'test') != -1
-      let file = substitute(expand('%'), 'test/controllers', 'app/helpers', '')
-      let file = substitute(file, 'controller_test', 'helper', '')
-    else 
-      let file = 1
-    endif
-    if file == current_file
-      echo 'Already on helper file'
-    elseif file == 1
-      echo 'Unable to find helper for' current_file
-    else
-      execute ':e' file
-    endif
-  endfunction
-  "
-  " File Edit Javascrip Pack
-  nnoremap <silent> <space>fejp :call FileEditJavascriptPack()<return>
-  function FileEditJavascriptPack()
-    let current_file = expand('%')
-    if match(current_file, 'app/assets/stylesheets') != -1
-      let directory = substitute(expand('%:h'), 'assets/stylesheets', 'javascript/packs', '')
-    elseif match(current_file, 'app/controllers') != -1
-      let directory = substitute(expand('%'), 'controllers', 'javascript/packs', '')
-      let directory = substitute(directory, '_controller.rb', '', '')
-    elseif match(current_file, 'app/helpers') != -1
-      let directory = substitute(expand('%'), 'helpers', 'javascript/packs', '')
-      let directory = substitute(directory, '_helper.rb', '', '')
-    elseif match(current_file, 'app/javascript') != -1
+    endfunction
+    " File Edit PArtial
+    nnoremap <silent> <space>fepa :call FileCreatePartial()<return>
+    function! FileCreatePartial()
       let directory = expand('%:h')
-    elseif match(current_file, 'app/views') != -1
-      let directory = substitute(expand('%:h'), 'views', 'javascript/packs', '')
-    elseif match(current_file, 'spec/controllers') != -1
-      let directory = substitute(expand('%'), 'spec/controllers', 'app/javascript/packs', '')
-      let directory = substitute(directory, '_controller_spec.rb', '', '')
-    elseif match(current_file, 'test/controllers') != -1
-      let directory = substitute(expand('%'), 'test/controllers', 'app/javascript/packs', '')
-      let directory = substitute(directory, '_controller_test.rb', '', '')
-    else 
-      let directory = 1
-    endif
-    if directory == 1
-      echo 'Unable to find javascript pack for' current_file
-    else
-      if isdirectory(directory)
-        execute ':Explore' directory
-      else
-        let new_file = input("There are no javascript pack files yet. Create the first one!: " . directory . "/")
-        if new_file == ''
-          execute "normal! :echo"
-        else
-          execute ":e " . directory . "/" . new_file
-        endif
+      let new_file = input("Create new partial (prefix of \"_\" and extention of \".html.erb\" will be added automatically): ")
+      execute ':e ' . directory . '/_' . new_file . '.html.erb'
+    endfunction
+
+  " Explore specific diriectories & edit specific files
+    " File Edit ASets
+    nnoremap <silent> <space>feas :call WindowSplitVerdically()<return>:Explore .git/../app/assets<return>
+    nnoremap <silent> <space>feaS :Explore .git/../app/assets<return>
+    " File Edit FIxtures
+    nnoremap <silent> <space>fefi :call WindowSplitVerdically()<return>:Explore .git/../test/fixtures<return>
+    nnoremap <silent> <space>fefI :Explore .git/../test/fixtures<return>
+    " File Edit FActory
+    nnoremap <silent> <space>fefa :call WindowSplitVerdically()<return>:e spec/factories.rb<return>
+    nnoremap <silent> <space>fefA :e spec/factories.rb<return>
+    " File Edit Schema
+    nnoremap <silent> <space>feds :call WindowSplitVerdically()<return>:e db/schema.rb<return>
+    nnoremap <silent> <space>fedS :e db/schema.rb<return>
+    " File Edit ROutes
+    nnoremap <silent> <space>fero :call WindowSplitVerdically()<return>:e config/routes.rb<return>
+    nnoremap <silent> <space>ferO :e config/routes.rb<return>
+    " File Edit ABility
+    nnoremap <silent> <space>feab :call WindowSplitVerdically()<return>:e app/models/ability.rb<return>
+    nnoremap <silent> <space>feaB :e app/models/ability.rb<return>
+    " File Edit GEmfile
+    nnoremap <silent> <space>fege :call WindowSplitVerdically()<return>:e Gemfile<return>
+    nnoremap <silent> <space>fegE :e Gemfile<return>
+    " File Edit REadme
+    nnoremap <silent> <space>fere :call WindowSplitVerdically()<return>:e README.md<return>
+    nnoremap <silent> <space>ferE :e README.md<return>
+    " File Edit Swap Files (for deleting swap files
+    nnoremap <silent> <space>fesw :call WindowSplitVerdically()<return>:Explore ~/.local/share/nvim/swap/<return>
+    nnoremap <silent> <space>fesW :Explore ~/.local/share/nvim/swap/<return>
+
+  " Edit specific files dynamically
+    " File Edit STyles
+    nnoremap <silent> <space>fest :call FileEditeStyle()<return>
+    function FileEditeStyle()
+      let current_file = expand('%')
+      " Rails
+      if match(current_file, 'app/assets/stylesheets') != -1
+        let directory = expand('%:h')
+      elseif match(current_file, 'app/controllers') != -1
+        let directory = substitute(expand('%'), 'controllers', 'assets/stylesheets', '')
+        let directory = substitute(directory, '_controller.rb', '', '')
+      elseif match(current_file, 'app/helpers') != -1
+        let directory = substitute(expand('%'), 'helpers', 'assets/stylesheets', '')
+        let directory = substitute(directory, '_helper.rb', '', '')
+      elseif match(current_file, 'app/javascript/packs') != -1
+        let directory = substitute(expand('%:h'), 'javascript/packs', 'assets/stylesheets', '')
+      " Rails views will not end in .js
+      elseif (match(current_file, 'app/views') != -1) && (match(current_file, '.js') == -1)
+        let directory = substitute(expand('%:h'), 'views', 'assets/stylesheets', '')
+      elseif match(current_file, 'test/controllers') != -1
+        let directory = substitute(expand('%'), 'test/controllers', 'app/assets/stylesheets', '')
+        let directory = substitute(directory, '_controller_test.rb', '', '')
+      elseif match(current_file, 'spec/controllers') != -1
+        let directory = substitute(expand('%'), 'spec/controllers', 'app/assets/stylesheets', '')
+        let directory = substitute(directory, '_controller_test.rb', '', '')
+      " React native
+      " React Native views will end in .js
+      elseif (match(current_file, 'app/views') != -1) && (match(current_file, '.js') != -1)
+        let directory = 2
+        let file = substitute(expand('%'), 'app/views', 'app/styles', '')
+        let file = substitute(file, '_view.js', '_style.js', '')
+      elseif match(current_file, 'app/scripts') != -1
+        let directory = 2
+        let file = substitute(expand('%'), 'app/scripts', 'app/styles', '')
+        let file = substitute(file, '_script.js', '_style.js', '')
+      else 
+        let directory = 1
       endif
-    endif
-  endfunction
 
-  " File Edit MOdel
-  nnoremap <silent> <space>femo :call FileEditModel()<return>
-  function FileEditModel()
-    let current_file = expand('%')
-    if match(current_file, 'app/models') != -1
-      let file = current_file
-    elseif match(current_file, 'lib/services') != -1
-      let file = substitute(expand('%:h'), 'lib/services', 'app/models', '') . '.rb'
-    elseif match(current_file, 'test/models') != -1
-      let file = substitute(current_file, 'test/models', 'app/models', '')
-      let file = substitute(file, '_test.rb', '.rb', '')
-    else 
-      let file = 1
-    endif
-    if file == current_file
-      echo 'Already on model file'
-    elseif file == 1
-      echo 'Unable to find helper for' current_file
-    else
-      execute ':e' file
-    endif
-  endfunction
-
-  " File Edit VIew
-  nnoremap <silent> <space>fevi :call FileEditView(1)<return>
-  nnoremap <silent> <space>fevI :call FileEditView(0)<return>
-  function FileEditView(split_window)
-    let current_file = expand('%')
-    if match(current_file, 'app/assets/stylesheets') != -1
-      let directory = substitute(expand('%:h'), 'assets/stylesheets', 'views', '')
-    elseif match(current_file, 'app/controllers') != -1
-      let directory = substitute(current_file, 'controllers', 'views', '')
-      let directory = substitute(directory, '_controller.rb', '', '')
-    elseif match(current_file, 'app/helpers') != -1
-      let directory = substitute(expand('%'), 'helpers', 'views', '')
-      let directory = substitute(directory, '_helper.rb', '', '')
-    elseif match(current_file, 'app/javascript/packs') != -1
-      let directory = substitute(expand('%:h'), 'javascript/packs', 'views', '')
-    elseif match(current_file, 'app/views') != -1
-      let directory = expand('%:h')
-    elseif match(current_file, 'spec/controllers') != -1
-      let directory = substitute(expand('%'), 'spec/controllers', 'app/views', '')
-      let directory = substitute(directory, '_controller_spec.rb', '', '')
-    elseif match(current_file, 'test/controllers') != -1
-      let directory = substitute(expand('%'), 'test/controllers', 'app/views', '')
-      let directory = substitute(directory, '_controller_test.rb', '', '')
-    else 
-      let directory = 1
-    endif
-    if directory == 1
-      echo 'Unable to find views for' current_file
-    else
-      if isdirectory(directory)
-        if a:split_window == 1
+      " unable to find directory
+      if directory == 1
+        echo 'Unable to find styles for' current_file
+      " app is react native
+      elseif directory == 2
+        if file == current_file
+          echo 'Already on styles file'
+        else
           call WindowSplitVerdically()
+          execute ':e' file
         endif
-        execute ':Explore' directory
+      " app is rails
       else
-        let new_file = input("There are no view files yet. Create the first one!: " . directory . "/")
-        if new_file == ''
-          execute "normal! :echo"
+        if isdirectory(directory)
+          call WindowSplitVerdically()
+          execute ':Explore' directory
         else
-          if a:split_window == 1
+          let new_file = input("There are no style files yet. Create the first one!: " . directory . "/")
+          if new_file == ''
+            execute "normal! :echo"
+          else
             call WindowSplitVerdically()
+            execute ":e " . directory . "/" . new_file
           endif
-          execute ":e " . directory . "/" . new_file
         endif
       endif
-    endif
-  endfunction
+    endfunction
 
+    " File Edit Parent Controller
+    nnoremap <silent> <space>fepc :call FileEditParentController()<return>
+    function! FileEditParentController()
+      let file = expand('%')
+      let split = split(file, '/')
+      call remove(split, -1)
+      let file = join(split, '/') . '_controller.rb'
+      execute ':e ' . file
+    endfunction
+
+    " File Edit COntroller
+    nnoremap <silent> <space>feco :call FileEditController()<return>
+    function FileEditController()
+      let current_file = expand('%')
+      if match(current_file, 'app/assets/stylesheets') != -1
+        let file = substitute(expand('%:h'), 'assets/stylesheets', 'controllers', '') . '_controller.rb'
+      elseif match(current_file, 'app/controllers') != -1
+        let file = current_file
+      elseif match(current_file, 'app/helpers') != -1
+        let file = substitute(expand('%'), 'helpers', 'controllers', '')
+        let file = substitute(file, '_helper.rb', '_controller.rb', '')
+      elseif match(current_file, 'app/javascript/packs') != -1
+        let file = substitute(expand('%:h'), 'javascript/packs', 'controllers', '') . '_controller.rb'
+      elseif match(current_file, 'app/views') != -1
+        let file = substitute(expand('%:h'), 'views', 'controllers', '') . '_controller.rb'
+      elseif match(current_file, 'spec/controllers') != -1
+        let file = substitute(expand('%'), 'spec/controllers', 'app/controllers', '')
+        let file = substitute(file, 'controller_spec', 'controller', '')
+      elseif match(current_file, 'test/controllers') != -1
+        let file = substitute(expand('%'), 'test/controllers', 'app/controllers', '')
+        let file = substitute(file, 'controller_test', 'controller', '')
+      elseif match(current_file, 'lib/loaders') != -1
+        let file = substitute(expand('%'), 'lib/loaders', 'app/controllers', '')
+        let file = substitute(file, '_loader.rb', '_controller.rb', '')
+      elseif match(current_file, 'lib/services') != -1
+        let file = substitute(expand('%:h'), 'lib/services', 'app/controllers', '') . '_controller.rb'
+      else 
+        let file = 1
+      endif
+      if file == current_file
+        echo 'Already on controller file'
+      elseif file == 1
+        echo 'Unable to find controller for' current_file
+      else
+        execute ':e' file
+      endif
+    endfunction
+
+    " File Edit HElper
+    nnoremap <silent> <space>fehe :call FileEditHelper()<return>
+    function FileEditHelper()
+      let current_file = expand('%')
+      if match(current_file, 'app/assets/stylesheets') != -1
+        let file = substitute(expand('%:h'), 'assets/stylesheets', 'helpers', '') . '_helper.rb'
+      elseif match(current_file, 'app/controllers') != -1
+        let file = substitute(current_file, 'controllers', 'helpers', '')
+        let file = substitute(file, '_controller.rb', '_helper.rb', '')
+      elseif match(current_file, 'app/helpers') != -1
+        let file = current_file
+      elseif match(current_file, 'app/javascript/packs') != -1
+        let file = substitute(expand('%:h'), 'javascript/packs', 'helpers', '') . '_helper.rb'
+      elseif match(current_file, 'app/views') != -1
+        let file = substitute(expand('%:h'), 'views', 'helpers', '') . '_helper.rb'
+      elseif match(current_file, 'spec') != -1
+        let file = substitute(expand('%'), 'spec/controllers', 'app/helpers', '')
+        let file = substitute(file, 'controller_spec', 'helper', '')
+      elseif match(current_file, 'test') != -1
+        let file = substitute(expand('%'), 'test/controllers', 'app/helpers', '')
+        let file = substitute(file, 'controller_test', 'helper', '')
+      else 
+        let file = 1
+      endif
+      if file == current_file
+        echo 'Already on helper file'
+      elseif file == 1
+        echo 'Unable to find helper for' current_file
+      else
+        execute ':e' file
+      endif
+    endfunction
+    "
+    " File Edit Javascrip Pack
+    nnoremap <silent> <space>fejp :call FileEditJavascriptPack()<return>
+    function FileEditJavascriptPack()
+      let current_file = expand('%')
+      if match(current_file, 'app/assets/stylesheets') != -1
+        let directory = substitute(expand('%:h'), 'assets/stylesheets', 'javascript/packs', '')
+      elseif match(current_file, 'app/controllers') != -1
+        let directory = substitute(expand('%'), 'controllers', 'javascript/packs', '')
+        let directory = substitute(directory, '_controller.rb', '', '')
+      elseif match(current_file, 'app/helpers') != -1
+        let directory = substitute(expand('%'), 'helpers', 'javascript/packs', '')
+        let directory = substitute(directory, '_helper.rb', '', '')
+      elseif match(current_file, 'app/javascript') != -1
+        let directory = expand('%:h')
+      elseif match(current_file, 'app/views') != -1
+        let directory = substitute(expand('%:h'), 'views', 'javascript/packs', '')
+      elseif match(current_file, 'spec/controllers') != -1
+        let directory = substitute(expand('%'), 'spec/controllers', 'app/javascript/packs', '')
+        let directory = substitute(directory, '_controller_spec.rb', '', '')
+      elseif match(current_file, 'test/controllers') != -1
+        let directory = substitute(expand('%'), 'test/controllers', 'app/javascript/packs', '')
+        let directory = substitute(directory, '_controller_test.rb', '', '')
+      else 
+        let directory = 1
+      endif
+      if directory == 1
+        echo 'Unable to find javascript pack for' current_file
+      else
+        if isdirectory(directory)
+          execute ':Explore' directory
+        else
+          let new_file = input("There are no javascript pack files yet. Create the first one!: " . directory . "/")
+          if new_file == ''
+            execute "normal! :echo"
+          else
+            execute ":e " . directory . "/" . new_file
+          endif
+        endif
+      endif
+    endfunction
+
+    " File Edit MOdel
+    nnoremap <silent> <space>femo :call FileEditModel()<return>
+    function FileEditModel()
+      let current_file = expand('%')
+      if match(current_file, 'app/models') != -1
+        let file = current_file
+      elseif match(current_file, 'lib/services') != -1
+        let file = substitute(expand('%:h'), 'lib/services', 'app/models', '') . '.rb'
+      elseif match(current_file, 'test/models') != -1
+        let file = substitute(current_file, 'test/models', 'app/models', '')
+        let file = substitute(file, '_test.rb', '.rb', '')
+      else 
+        let file = 1
+      endif
+      if file == current_file
+        echo 'Already on model file'
+      elseif file == 1
+        echo 'Unable to find helper for' current_file
+      else
+        execute ':e' file
+      endif
+    endfunction
+
+    " File Edit SCript
+    nnoremap <silent> <space>fesc :call FileEditScript()<return>
+    function FileEditScript()
+      let current_file = expand('%')
+      " React Native
+      " React Native views will end in .js
+      if (match(current_file, 'app/views') != -1) && (match(current_file, '.js') != -1)
+        let file = substitute(expand('%'), 'app/views', 'app/scripts', '')
+        let file = substitute(file, '_view.js', '_script.js', '')
+      elseif match(current_file, 'app/styles') != -1
+        let file = substitute(expand('%'), 'app/styles', 'app/scripts', '')
+        let file = substitute(file, '_style.js', '_script.js', '')
+      else 
+        let file = 1
+      endif
+      
+      " unable to find file
+      if file == 1
+        echo 'Unable to find script for' current_file
+      else
+        if file == current_file
+          echo 'Already on script file'
+        else
+          call WindowSplitVerdically()
+          execute ':e' file
+        endif
+      endif
+    endfunction
+
+    " File Edit VIew
+    nnoremap <silent> <space>fevi :call FileEditView()<return>
+    function FileEditView()
+      let current_file = expand('%')
+      " Rails
+      if match(current_file, 'app/assets/stylesheets') != -1
+        let directory = substitute(expand('%:h'), 'assets/stylesheets', 'views', '')
+      elseif match(current_file, 'app/controllers') != -1
+        let directory = substitute(current_file, 'controllers', 'views', '')
+        let directory = substitute(directory, '_controller.rb', '', '')
+      elseif match(current_file, 'app/helpers') != -1
+        let directory = substitute(expand('%'), 'helpers', 'views', '')
+        let directory = substitute(directory, '_helper.rb', '', '')
+      elseif match(current_file, 'app/javascript/packs') != -1
+        let directory = substitute(expand('%:h'), 'javascript/packs', 'views', '')
+      " Rails views will not end in .js
+      elseif (match(current_file, 'app/views') != -1) && (match(current_file, '.js') == -1)
+        let directory = expand('%:h')
+      elseif match(current_file, 'spec/controllers') != -1
+        let directory = substitute(expand('%'), 'spec/controllers', 'app/views', '')
+        let directory = substitute(directory, '_controller_spec.rb', '', '')
+      elseif match(current_file, 'test/controllers') != -1
+        let directory = substitute(expand('%'), 'test/controllers', 'app/views', '')
+        let directory = substitute(directory, '_controller_test.rb', '', '')
+      " React Native
+      elseif match(current_file, 'app/styles') != -1
+        let directory = 2
+        let file = substitute(expand('%'), 'app/styles', 'app/views', '')
+        let file = substitute(file, '_style.js', '_view.js', '')
+      elseif match(current_file, 'app/scripts') != -1
+        let directory = 2
+        let file = substitute(expand('%'), 'app/scripts', 'app/views', '')
+        let file = substitute(file, '_script.js', '_view.js', '')
+      else 
+        let directory = 1
+      endif
+      
+      " unable to find directory
+      if directory == 1
+        echo 'Unable to find views for' current_file
+      " app is react native
+      elseif directory == 2
+        if file == current_file
+          echo 'Already on styles file'
+        else
+          call WindowSplitVerdically()
+          execute ':e' file
+        endif
+      " app is rails
+      else
+        if isdirectory(directory)
+          call WindowSplitVerdically()
+          execute ':Explore' directory
+        else
+          let new_file = input("There are no view files yet. Create the first one!: " . directory . "/")
+          if new_file == ''
+            execute "normal! :echo"
+          else
+            call WindowSplitVerdically()
+            execute ":e " . directory . "/" . new_file
+          endif
+        endif
+      endif
+    endfunction
+
+    " File Edit Service
+    nnoremap <silent> <space>fese :call FileEditService()<return>
+    function FileEditService()
+      let current_file = expand('%')
+      if match(current_file, 'lib/services') != -1
+        let directory = expand('%:h')
+      elseif match(current_file, 'app/controllers') != -1
+        let directory = substitute(current_file, 'app/controllers', 'lib/services', '')
+        let directory = substitute(directory, '_controller.rb', '', '')
+      elseif match(current_file, 'app/models') != -1
+        let directory = substitute(current_file, 'app/models', 'lib/services', '')
+        let directory = substitute(directory, '.rb', '', '')
+      else 
+        let directory = 1
+      endif
+      if directory == 1
+        echo 'Unable to find services for' current_file
+      else
+        if isdirectory(directory)
+          execute ':Explore' directory
+        else
+          let new_file = input("There are no service files yet. Create the first one!: " . directory . "/")
+          if new_file == ''
+            execute "normal! :echo"
+          else
+            execute ":e " . directory . "/" . new_file
+          endif
+        endif
+      endif
+    endfunction
+
+    " File Edit SPec
+    nnoremap <silent> <space>fesp :call FileEditSpec(1)<return>
+    nnoremap <silent> <space>fesP :call FileEditSpec(0)<return>
+    function FileEditSpec(split_window)
+      if a:split_window == 1
+        call WindowSplitVerdically()
+      endif
+      execute ':e' GetSpecFile()
+    endfunction
+
+    " File Edit Spec Source
+    nnoremap <silent> <space>fess :call FileEditSpecSource()<return>
+    function FileEditSpecSource()
+      let current_file = expand('%')
+      let file = substitute(current_file, '_spec.rb', '.rb', '')
+      if match(file, 'channel\|controller\|helper\|job\|mailer\|model') != -1
+        let file = substitute(file, 'spec', 'app', '')
+      else
+        let file = substitute(file, 'spec', 'lib', '')
+      endif
+      execute ':e' file
+    endfunction
+
+    " File Edit TEst
+    nnoremap <silent> <space>fete :call FileEditTest()<return>
+    function FileEditTest()
+      execute ':e' GetTestFile()
+    endfunction
+
+    " File Edit Test Source
+    nnoremap <silent> <space>fets :call FileEditTestSource()<return>
+    function FileEditTestSource()
+      let current_file = expand('%')
+      let file = substitute(current_file, '_test.rb', '.rb', '')
+      if match(file, 'channel\|controller\|helper\|job\|mailer\|model') != -1
+        let file = substitute(file, 'test', 'app', '')
+      else
+        let file = substitute(file, 'test', 'lib', '')
+      endif
+      execute ':e' file
+    endfunction
+ 
+" Everything below here needs to be refactored
   " File Edit LOader
   nnoremap <silent> <space>felo :call FileEditLoader()<return>
   function FileEditLoader()
@@ -407,110 +588,6 @@
       execute ':e' file
     endif
   endfunction
-
-  " File Edit Service
-  nnoremap <silent> <space>fese :call FileEditService()<return>
-  function FileEditService()
-    let current_file = expand('%')
-    if match(current_file, 'lib/services') != -1
-      let directory = expand('%:h')
-    elseif match(current_file, 'app/controllers') != -1
-      let directory = substitute(current_file, 'app/controllers', 'lib/services', '')
-      let directory = substitute(directory, '_controller.rb', '', '')
-    elseif match(current_file, 'app/models') != -1
-      let directory = substitute(current_file, 'app/models', 'lib/services', '')
-      let directory = substitute(directory, '.rb', '', '')
-    else 
-      let directory = 1
-    endif
-    if directory == 1
-      echo 'Unable to find services for' current_file
-    else
-      if isdirectory(directory)
-        execute ':Explore' directory
-      else
-        let new_file = input("There are no service files yet. Create the first one!: " . directory . "/")
-        if new_file == ''
-          execute "normal! :echo"
-        else
-          execute ":e " . directory . "/" . new_file
-        endif
-      endif
-    endif
-  endfunction
-
-  " File Edit SPec
-  nnoremap <silent> <space>fesp :call FileEditSpec(1)<return>
-  nnoremap <silent> <space>fesP :call FileEditSpec(0)<return>
-  function FileEditSpec(split_window)
-    if a:split_window == 1
-      call WindowSplitVerdically()
-    endif
-    execute ':e' GetSpecFile()
-  endfunction
-
-  " File Edit Spec Source
-  nnoremap <silent> <space>fess :call FileEditSpecSource()<return>
-  function FileEditSpecSource()
-    let current_file = expand('%')
-    let file = substitute(current_file, '_spec.rb', '.rb', '')
-    if match(file, 'channel\|controller\|helper\|job\|mailer\|model') != -1
-      let file = substitute(file, 'spec', 'app', '')
-    else
-      let file = substitute(file, 'spec', 'lib', '')
-    endif
-    execute ':e' file
-  endfunction
-
-  " File Edit TEst
-  nnoremap <silent> <space>fete :call FileEditTest()<return>
-  function FileEditTest()
-    execute ':e' GetTestFile()
-  endfunction
-
-  " File Edit Test Source
-  nnoremap <silent> <space>fets :call FileEditTestSource()<return>
-  function FileEditTestSource()
-    let current_file = expand('%')
-    let file = substitute(current_file, '_test.rb', '.rb', '')
-    if match(file, 'channel\|controller\|helper\|job\|mailer\|model') != -1
-      let file = substitute(file, 'test', 'app', '')
-    else
-      let file = substitute(file, 'test', 'lib', '')
-    endif
-    execute ':e' file
-  endfunction
-
-  " File Edit FIxtures
-  nnoremap <silent> <space>fefi :call WindowSplitVerdically()<return>:e test/fixtures/
-  nnoremap <silent> <space>fefI :e test/fixtures/
-  " File Edit FActory
-  nnoremap <silent> <space>fefa :call WindowSplitVerdically()<return>:e spec/factories.rb<return>
-  nnoremap <silent> <space>fefA :e spec/factories.rb<return>
-  " File Edit Schema
-  nnoremap <silent> <space>fesc :call WindowSplitVerdically()<return>:e db/schema.rb<return>
-  nnoremap <silent> <space>fesC :e db/schema.rb<return>
-  " File Edit ROutes
-  nnoremap <silent> <space>fero :call WindowSplitVerdically()<return>:e config/routes.rb<return>
-  nnoremap <silent> <space>ferO :e config/routes.rb<return>
-  " File Edit ABility
-  nnoremap <silent> <space>feab :call WindowSplitVerdically()<return>:e app/models/ability.rb<return>
-  nnoremap <silent> <space>feaB :e app/models/ability.rb<return>
-  " File Edit GEmfile
-  nnoremap <silent> <space>fege :call WindowSplitVerdically()<return>:e Gemfile<return>
-  nnoremap <silent> <space>fegE :e Gemfile<return>
-  " File Edit REadme
-  nnoremap <silent> <space>fere :call WindowSplitVerdically()<return>:e README.md<return>
-  nnoremap <silent> <space>ferE :e README.md<return>
-  " File Edit Swap Files (for deleting swap files
-  nnoremap <silent> <space>fesw :call WindowSplitVerdically()<return>:Explore ~/.local/share/nvim/swap/<return>
-  nnoremap <silent> <space>fesW :Explore ~/.local/share/nvim/swap/<return>
-
-  
-  
-  
-  
-" Everything below here needs to be refactored
   
 
 " File Edit Mailer
