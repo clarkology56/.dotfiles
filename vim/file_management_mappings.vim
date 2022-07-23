@@ -214,15 +214,24 @@
         let directory = substitute(expand('%'), 'spec/controllers', 'app/assets/stylesheets', '')
         let directory = substitute(directory, '_controller_test.rb', '', '')
       " React native
-      " React Native views will end in .js
-      elseif (match(current_file, 'app/views') != -1) && (match(current_file, '.js') != -1)
+      elseif match(current_file, 'styles.js') != -1
         let directory = 2
-        let file = substitute(expand('%'), 'app/views', 'app/styles', '')
-        let file = substitute(file, '_view.js', '_style.js', '')
-      elseif match(current_file, 'app/scripts') != -1
+        let file = current_file
+      elseif match(current_file, '.js') != -1
         let directory = 2
-        let file = substitute(expand('%'), 'app/scripts', 'app/styles', '')
-        let file = substitute(file, '_script.js', '_style.js', '')
+        let file = expand('%:h') . '/styles.js'
+      "elseif match(current_file, 'app/scripts') != -1
+      "  let directory = 2
+      "  let file = substitute(expand('%'), 'app/scripts', 'app/styles', '')
+      "  let file = substitute(file, '_script.js', '_style.js', '')
+      "elseif match(current_file, 'app/styles') != -1
+      "  let directory = 2
+      "  let file = current_file
+      "" React Native views will end in .js
+      "elseif (match(current_file, 'app/views') != -1) && (match(current_file, '.js') != -1)
+      "  let directory = 2
+      "  let file = substitute(expand('%'), 'app/views', 'app/styles', '')
+      "  let file = substitute(file, '_view.js', '_style.js', '')
       else 
         let directory = 1
       endif
@@ -405,13 +414,21 @@
     function FileEditScript()
       let current_file = expand('%')
       " React Native
-      " React Native views will end in .js
-      if (match(current_file, 'app/views') != -1) && (match(current_file, '.js') != -1)
-        let file = substitute(expand('%'), 'app/views', 'app/scripts', '')
-        let file = substitute(file, '_view.js', '_script.js', '')
-      elseif match(current_file, 'app/styles') != -1
-        let file = substitute(expand('%'), 'app/styles', 'app/scripts', '')
-        let file = substitute(file, '_style.js', '_script.js', '')
+      if match(current_file, 'scripts.js') != -1
+        let directory = 2
+        let file = current_file
+      elseif match(current_file, '.js') != -1
+        let directory = 2
+        let file = expand('%:h') . '/scripts.js'
+      "" React Native views will end in .js
+      "elseif (match(current_file, 'app/views') != -1) && (match(current_file, '.js') != -1)
+      "  let file = substitute(expand('%'), 'app/views', 'app/scripts', '')
+      "  let file = substitute(file, '_view.js', '_script.js', '')
+      "elseif match(current_file, 'app/styles') != -1
+      "  let file = substitute(expand('%'), 'app/styles', 'app/scripts', '')
+      "  let file = substitute(file, '_style.js', '_script.js', '')
+      "elseif match(current_file, 'app/scripts') != -1
+      "  let file = current_file
       else 
         let file = 1
       endif
@@ -419,13 +436,11 @@
       " unable to find file
       if file == 1
         echo 'Unable to find script for' current_file
+      elseif file == current_file
+        echo 'Already on script file'
       else
-        if file == current_file
-          echo 'Already on script file'
-        else
-          call WindowSplitVerdically()
-          execute ':e' file
-        endif
+        call WindowSplitVerdically()
+        execute ':e' file
       endif
     endfunction
 
@@ -454,14 +469,25 @@
         let directory = substitute(expand('%'), 'test/controllers', 'app/views', '')
         let directory = substitute(directory, '_controller_test.rb', '', '')
       " React Native
-      elseif match(current_file, 'app/styles') != -1
+      elseif match(current_file, '_view.js') != -1
         let directory = 2
-        let file = substitute(expand('%'), 'app/styles', 'app/views', '')
-        let file = substitute(file, '_style.js', '_view.js', '')
-      elseif match(current_file, 'app/scripts') != -1
+        let file = current_file
+      elseif match(current_file, '.js') != -1
         let directory = 2
-        let file = substitute(expand('%'), 'app/scripts', 'app/views', '')
-        let file = substitute(file, '_script.js', '_view.js', '')
+        let view_base_name = split(expand('%:h'), '/')[-1]
+        let file = expand('%:h') . '/' . view_base_name . '.js'
+      "elseif match(current_file, 'app/scripts') != -1
+      "  let directory = 2
+      "  let file = substitute(expand('%'), 'app/scripts', 'app/views', '')
+      "  let file = substitute(file, '_script.js', '_view.js', '')
+      "elseif match(current_file, 'app/styles') != -1
+      "  let directory = 2
+      "  let file = substitute(expand('%'), 'app/styles', 'app/views', '')
+      "  let file = substitute(file, '_style.js', '_view.js', '')
+      "" React Native views will end in .js
+      "elseif (match(current_file, 'app/views') != -1) && (match(current_file, '.js') != -1)
+      "  let directory = 2
+      "  let file = current_file
       else 
         let directory = 1
       endif
@@ -472,7 +498,7 @@
       " app is react native
       elseif directory == 2
         if file == current_file
-          echo 'Already on styles file'
+          echo 'Already on view file'
         else
           call WindowSplitVerdically()
           execute ':e' file
