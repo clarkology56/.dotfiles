@@ -71,8 +71,8 @@
   " File Save (all)
   nnoremap <silent> <space>fs :wa<return>
   " File eXplore
-  nnoremap <silent> <space>fx :let g:came_from_buf_num = bufnr()<return>:Explore<return>
-  nnoremap <silent> <space>fX :Explore .git/..<return>
+  nnoremap <silent> <space>fx :wa<return>:let g:came_from_buf_num = bufnr()<return>:Explore<return>
+  nnoremap <silent> <space>fX :wa<return>:Explore .git/..<return>
   
 " File Paste
   " File Paste Partial Path
@@ -220,18 +220,6 @@
       elseif match(current_file, '.js') != -1
         let directory = 2
         let file = expand('%:h') . '/styles.js'
-      "elseif match(current_file, 'app/scripts') != -1
-      "  let directory = 2
-      "  let file = substitute(expand('%'), 'app/scripts', 'app/styles', '')
-      "  let file = substitute(file, '_script.js', '_style.js', '')
-      "elseif match(current_file, 'app/styles') != -1
-      "  let directory = 2
-      "  let file = current_file
-      "" React Native views will end in .js
-      "elseif (match(current_file, 'app/views') != -1) && (match(current_file, '.js') != -1)
-      "  let directory = 2
-      "  let file = substitute(expand('%'), 'app/views', 'app/styles', '')
-      "  let file = substitute(file, '_view.js', '_style.js', '')
       else 
         let directory = 1
       endif
@@ -275,40 +263,66 @@
     endfunction
 
     " File Edit COntroller
+    " NOTE: thi is used for rails controllers AND react native components
     nnoremap <silent> <space>feco :call FileEditController()<return>
     function FileEditController()
       let current_file = expand('%')
       if match(current_file, 'app/assets/stylesheets') != -1
+        let controller = 1
         let file = substitute(expand('%:h'), 'assets/stylesheets', 'controllers', '') . '_controller.rb'
       elseif match(current_file, 'app/controllers') != -1
+        let controller = 1
         let file = current_file
       elseif match(current_file, 'app/helpers') != -1
+        let controller = 1
         let file = substitute(expand('%'), 'helpers', 'controllers', '')
         let file = substitute(file, '_helper.rb', '_controller.rb', '')
       elseif match(current_file, 'app/javascript/packs') != -1
+        let controller = 1
         let file = substitute(expand('%:h'), 'javascript/packs', 'controllers', '') . '_controller.rb'
       elseif match(current_file, 'app/views') != -1
+        let controller = 1
         let file = substitute(expand('%:h'), 'views', 'controllers', '') . '_controller.rb'
       elseif match(current_file, 'spec/controllers') != -1
+        let controller = 1
         let file = substitute(expand('%'), 'spec/controllers', 'app/controllers', '')
         let file = substitute(file, 'controller_spec', 'controller', '')
       elseif match(current_file, 'test/controllers') != -1
+        let controller = 1
         let file = substitute(expand('%'), 'test/controllers', 'app/controllers', '')
         let file = substitute(file, 'controller_test', 'controller', '')
       elseif match(current_file, 'lib/loaders') != -1
+        let controller = 1
         let file = substitute(expand('%'), 'lib/loaders', 'app/controllers', '')
         let file = substitute(file, '_loader.rb', '_controller.rb', '')
       elseif match(current_file, 'lib/services') != -1
+        let controller = 1
         let file = substitute(expand('%:h'), 'lib/services', 'app/controllers', '') . '_controller.rb'
-      else 
+      " React Native COMPONENTS
+      elseif match(current_file, '.js') == -1
+        let controller = 1
         let file = 1
+      elseif match(current_file, '.js') != -1
+        let controller = 0
+        let component_base_name = split(expand('%:h'), '/')[-1]
+        let file = expand('%:h') . '/' . component_base_name . '.js'
       endif
-      if file == current_file
-        echo 'Already on controller file'
-      elseif file == 1
-        echo 'Unable to find controller for' current_file
+      
+      if controller == 1
+        if file == current_file
+          echo 'Already on controller file'
+        elseif file == 1
+          echo 'Unable to find controller for' current_file
+        else
+          execute ':e' file
+        endif
       else
-        execute ':e' file
+        if file == current_file
+          echo 'Already on component file'
+        else
+          call WindowSplitVerdically()
+          execute ':e' file
+        endif
       endif
     endfunction
 
@@ -420,15 +434,6 @@
       elseif match(current_file, '.js') != -1
         let directory = 2
         let file = expand('%:h') . '/scripts.js'
-      "" React Native views will end in .js
-      "elseif (match(current_file, 'app/views') != -1) && (match(current_file, '.js') != -1)
-      "  let file = substitute(expand('%'), 'app/views', 'app/scripts', '')
-      "  let file = substitute(file, '_view.js', '_script.js', '')
-      "elseif match(current_file, 'app/styles') != -1
-      "  let file = substitute(expand('%'), 'app/styles', 'app/scripts', '')
-      "  let file = substitute(file, '_style.js', '_script.js', '')
-      "elseif match(current_file, 'app/scripts') != -1
-      "  let file = current_file
       else 
         let file = 1
       endif
@@ -476,18 +481,6 @@
         let directory = 2
         let view_base_name = split(expand('%:h'), '/')[-1]
         let file = expand('%:h') . '/' . view_base_name . '.js'
-      "elseif match(current_file, 'app/scripts') != -1
-      "  let directory = 2
-      "  let file = substitute(expand('%'), 'app/scripts', 'app/views', '')
-      "  let file = substitute(file, '_script.js', '_view.js', '')
-      "elseif match(current_file, 'app/styles') != -1
-      "  let directory = 2
-      "  let file = substitute(expand('%'), 'app/styles', 'app/views', '')
-      "  let file = substitute(file, '_style.js', '_view.js', '')
-      "" React Native views will end in .js
-      "elseif (match(current_file, 'app/views') != -1) && (match(current_file, '.js') != -1)
-      "  let directory = 2
-      "  let file = current_file
       else 
         let directory = 1
       endif

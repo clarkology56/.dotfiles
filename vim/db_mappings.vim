@@ -3,7 +3,7 @@ nnoremap <silent> ,dsba a# frozen_string_literal: true<return><backspace><backsp
 " Db Migration BAse
 nnoremap <silent> ,dmba ggO# frozen_string_literal: true<return><backspace><backspace><return># ChangeTopLevelDocumentation<esc>/ChangeTopLevelDocumentation<return>
 " Db Migration Foreign Key
-nnoremap <silent> ,dmfk a{ to_table: 'ChangeTableName' }<esc>/ChangeTableName<return>
+nnoremap <silent> ,dmfk a{ to_table: :ChangeTableName }<esc>/ChangeTableName<return>
 " Db Migration Up Down
 nnoremap <silent> ,dmud adef up<return># DeleteThis - insert migration methods for up<return><backspace><backspace>end<return><return>def down<return># DeleteThis - insert migration methods for down<return>DeleteThis - NOTE: if dropping table, no need to remove columns or indexes because they will be removed when dropping table<return>DeleteThis - NOTE if removing column, no need to remove index for that column, because they will be removed whyen removing column<return><backspace><backspace>end<esc>/DeleteThis<return>
 " Db Migration Add Column
