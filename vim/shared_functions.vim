@@ -69,16 +69,20 @@ endfunction
 
 function! CreateBaseFile(class_or_module, include_outer_followup, include_inner_followup)
   let current_file = expand('%:r')
+  " this is old - now was always skip 2 levels (we used to skip 2 for app and
+  " 1 for lib)
+  " ...
   " lib files and lib file tests (ie all non-app files that are tested) skip one level
   " (skip 'lib' or 'test') but do not skip second level (ie keep 'servies' or
   " 'integrations' etc.)
-  if match(current_file, '/channels\|/controllers\|/helpers\|p/jobs\|/mailers\|/models') == -1
-    let skip_levels = 1
-  " app files and app file tests skip 2 levels (skip 'app' or 'test' and next level, ex
-  " 'controllers' or 'helpers' etc.)
-  else
-    let skip_levels = 2
-  endif
+  " if match(current_file, '/channels\|/controllers\|/helpers\|/jobs\|/mailers\|/models') == -1
+  "   let skip_levels = 1
+  " " app files and app file tests skip 2 levels (skip 'app' or 'test' and next level, ex
+  " " 'controllers' or 'helpers' etc.)
+  " else
+  "   let skip_levels = 2
+  " endif
+  let skip_levels = 2
 
   let splits = split(current_file, '/')
   let length = len(splits)

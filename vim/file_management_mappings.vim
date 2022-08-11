@@ -161,6 +161,31 @@
 
   " Explore specific diriectories & edit specific files
     " Rails
+      " File Edit Children Files
+      nnoremap <silent> <space>fecf :call FileEditChildrenFiles()<return>
+      function FileEditChildrenFiles()
+        let directory = expand('%:r')
+        if isdirectory(directory)
+          call WindowSplitVerdically()
+          execute ':Explore' directory
+        else
+          let new_file = input("There are no children files yet. Create the first one!: " . directory . "/")
+          if new_file == ''
+            execute "normal! :echo"
+          else
+            call WindowSplitVerdically()
+            execute ":e " . directory . "/" . new_file
+          endif
+        endif
+      endfunction
+      " File Edit Parent Files
+      nnoremap <silent> <space>fepf :call FileEditParentFiles()<return>
+      function FileEditParentFiles()
+        let file = split(expand('%:r'), '/')[0] . ".rb"
+        call WindowSplitVerdically()
+        echo file
+        execute ':e' file
+      endfunction
       " File Edit ASets
       nnoremap <silent> <space>feas :call WindowSplitVerdically()<return>:Explore .git/../app/assets<return>
       nnoremap <silent> <space>feaS :Explore .git/../app/assets<return>
