@@ -109,7 +109,7 @@
 
 " File Find
   " File find FIle
-  nnoremap <silent> <space>fffi :e **/*
+  nnoremap <silent> <space>ffff :e **/*
   " File find Admin
   nnoremap <silent> <space>ffad :e app/admin/**/*
   " File find Assets
