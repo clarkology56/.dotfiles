@@ -13,22 +13,22 @@
 " it manually just to be safe
 " q<C-\><C-n>aq<C-c>!!!<return><C-c>
 " Git Status
-nnoremap <silent> <space>gs :wa<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c>git status<return><C-\><C-n>
+nnoremap <silent> <space>gist :wa<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c>git status<return><C-\><C-n>
 " Git Diff
-nnoremap <silent> <space>gd :wa<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c>git diff<return>
+nnoremap <silent> <space>gid :wa<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c>git diff<return>
 " Git Rubocop (not really git but always done before committing)
-nnoremap <silent> <space>gr :wa<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c>rubocop<return><C-\><C-n>
+nnoremap <silent> <space>giru :wa<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c>rubocop<return><C-\><C-n>
 " Git rspEc
-nnoremap <silent> <space>ge :call SpecRunCurrentFile(1)<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c><C-\><C-n>pa<return><C-\><C-n>
+nnoremap <silent> <space>gisp :call SpecRunCurrentFile(1)<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c><C-\><C-n>pa<return><C-\><C-n>
 " Git rspEc - all files
-nnoremap <silent> <space>gE :wa<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c>bundle exec rspec spec<return><C-\><C-n>
+nnoremap <silent> <space>gisP :wa<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c>bundle exec rspec spec<return><C-\><C-n>
 " Git Test
-nnoremap <silent> <space>gt :call FileTestCurrentFile(1)<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c><C-\><C-n>pa<return><C-\><C-n>
+nnoremap <silent> <space>gite :call FileTestCurrentFile(1)<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c><C-\><C-n>pa<return><C-\><C-n>
 " Git Test - all files
-nnoremap <silent> <space>gT :wa<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c>rails t<return><C-\><C-n>
+nnoremap <silent> <space>gitE wa<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c>rails t<return><C-\><C-n>
 
 " Git Push (saves, adds, commits with WIP, and pushes)
-nnoremap <silent> <space>gp :wa<return>:call GitPush()<return>
+nnoremap <silent> <space>gipu :wa<return>:call GitPush()<return>
 function! GitPush()
   let commitMessage = input("Please leave a commit message: ")
   if commitMessage == ""
@@ -42,4 +42,4 @@ function! GitPush()
   endif
 endfunction
 " Git Log Oneline
-nnoremap <silent> <space>gl :wa<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c>git log --oneline --graph<return
+nnoremap <silent> <space>gilo :wa<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c>git log --oneline --graph<return

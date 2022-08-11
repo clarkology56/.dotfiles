@@ -12,6 +12,8 @@ nnoremap <silent> ,dmac aadd_column :ChangeTableName, :ChangeColumn, :ChangeColu
 nnoremap <silent> ,dmar aadd_reference :ChangeTableName, :ChangeColumn, ChangeOptions<esc>/ChangeTableName\\|ChangeColumn\\|ChangeOptions<return>
 " Db Migration Change Column
 nnoremap <silent> ,dmcc a# DeleteThis - Change migration to Up / Down if not already changed<return>DeleteThis - add change to up method<return>ChangeDescriptionOfChange<return><backspace><backspace>change_column :ChangeTableName, :ChangeColumn, :ChangeColumnType, ChangeOptions<return># DeleteThis - add reversion to down method<return>ChangeDescriptionOfReversion<return><backspace><backspace>change_column :ChangeTableName, :ChangeColumn, :ChangeColumnType, ChangeOptions<esc>/DeleteThis\\|ChangeDescriptionOfChange\\|ChangeDescriptionOfReversion\\|ChangeTableName\\|ChangeColumnType\\|ChangeColumn\\|ChangeOptions<return>
+" Db Migration Rename Table
+nnoremap <silent> ,dmrt arename_table :ChangeOldTableName, :ChangeNewTableName<esc>/ChangeOldTableName\\|ChangeNewTableName<return>
 " Db Migration Add Index
 nnoremap <silent> ,dmai a# DeleteThis - remove "unique: true," if index does not need to be unique<space><backspace><return><backspace><backspace>add_index :ChangeTableName, %i[ChangeAttributeOrAttributesIfMultiple], unique: true, name: 'index_ChangeTableName_on_ChangeAttributeOrAttributesIfMultiple'<esc>/ChangeTableName\\|ChangeAttributeOrAttributesIfMultiple\\| unique: true,\\|DeleteThis<return>
 " Db Migration Add Index (case insensitive)

@@ -109,31 +109,31 @@
 
 " File Find
   " File find FIle
-  nnoremap <silent> <space>ff :e **/*
+  nnoremap <silent> <space>fffi :e **/*
   " File find Admin
-  nnoremap <silent> <space>fad :e app/admin/**/*
+  nnoremap <silent> <space>ffad :e app/admin/**/*
   " File find Assets
-  nnoremap <silent> <space>fas :e app/assets/**/*
+  nnoremap <silent> <space>ffas :e app/assets/**/*
   " File find Chanells
-  nnoremap <silent> <space>fch :e app/channels/**/*
+  nnoremap <silent> <space>ffch :e app/channels/**/*
   " File find COnotroller
-  nnoremap <silent> <space>fco :e app/controllers/**/*
+  nnoremap <silent> <space>ffco :e app/controllers/**/*
   " File find Helpers
-  nnoremap <silent> <space>fhe :e app/helpers/**/*
+  nnoremap <silent> <space>ffhe :e app/helpers/**/*
   " File find Javascriopt
-  nnoremap <silent> <space>fja :e app/javascript/**/*
+  nnoremap <silent> <space>ffja :e app/javascript/**/*
   " File find JOb
-  nnoremap <silent> <space>fjo :e app/jobs/**/*
+  nnoremap <silent> <space>ffjo :e app/jobs/**/*
   " File find MAilers
-  nnoremap <silent> <space>fma :e app/mailers/**/*
+  nnoremap <silent> <space>ffma :e app/mailers/**/*
   " File find MOdel
-  nnoremap <silent> <space>fmo :e app/models/**/*
+  nnoremap <silent> <space>ffmo :e app/models/**/*
   " File find VIews
-  nnoremap <silent> <space>fvi :e app/views/**/*
+  nnoremap <silent> <space>ffvi :e app/views/**/*
   " File find LIb
-  nnoremap <silent> <space>fli :e lib/**/*
+  nnoremap <silent> <space>ffli :e lib/**/*
   " File find RSpec
-  nnoremap <silent> <space>frs :e spec/**/*
+  nnoremap <silent> <space>ffrs :e spec/**/*
 
 " File Edit (and Explore)
   " Misc. Shortcuts
@@ -160,33 +160,39 @@
     endfunction
 
   " Explore specific diriectories & edit specific files
-    " File Edit ASets
-    nnoremap <silent> <space>feas :call WindowSplitVerdically()<return>:Explore .git/../app/assets<return>
-    nnoremap <silent> <space>feaS :Explore .git/../app/assets<return>
-    " File Edit FIxtures
-    nnoremap <silent> <space>fefi :call WindowSplitVerdically()<return>:Explore .git/../test/fixtures<return>
-    nnoremap <silent> <space>fefI :Explore .git/../test/fixtures<return>
-    " File Edit FActory
-    nnoremap <silent> <space>fefa :call WindowSplitVerdically()<return>:e spec/factories.rb<return>
-    nnoremap <silent> <space>fefA :e spec/factories.rb<return>
-    " File Edit Schema
-    nnoremap <silent> <space>feds :call WindowSplitVerdically()<return>:e db/schema.rb<return>
-    nnoremap <silent> <space>fedS :e db/schema.rb<return>
-    " File Edit ROutes
-    nnoremap <silent> <space>fero :call WindowSplitVerdically()<return>:e config/routes.rb<return>
-    nnoremap <silent> <space>ferO :e config/routes.rb<return>
-    " File Edit ABility
-    nnoremap <silent> <space>feab :call WindowSplitVerdically()<return>:e app/models/ability.rb<return>
-    nnoremap <silent> <space>feaB :e app/models/ability.rb<return>
-    " File Edit GEmfile
-    nnoremap <silent> <space>fege :call WindowSplitVerdically()<return>:e Gemfile<return>
-    nnoremap <silent> <space>fegE :e Gemfile<return>
-    " File Edit REadme
-    nnoremap <silent> <space>fere :call WindowSplitVerdically()<return>:e README.md<return>
-    nnoremap <silent> <space>ferE :e README.md<return>
-    " File Edit Swap Files (for deleting swap files
-    nnoremap <silent> <space>fesw :call WindowSplitVerdically()<return>:Explore ~/.local/share/nvim/swap/<return>
-    nnoremap <silent> <space>fesW :Explore ~/.local/share/nvim/swap/<return>
+    " Rails
+      " File Edit ASets
+      nnoremap <silent> <space>feas :call WindowSplitVerdically()<return>:Explore .git/../app/assets<return>
+      nnoremap <silent> <space>feaS :Explore .git/../app/assets<return>
+      " File Edit FIxtures
+      nnoremap <silent> <space>fefi :call WindowSplitVerdically()<return>:Explore .git/../test/fixtures<return>
+      nnoremap <silent> <space>fefI :Explore .git/../test/fixtures<return>
+      " File Edit FActory
+      nnoremap <silent> <space>fefa :call WindowSplitVerdically()<return>:e spec/factories.rb<return>
+      nnoremap <silent> <space>fefA :e spec/factories.rb<return>
+      " File Edit Db Schema
+      nnoremap <silent> <space>feds :call WindowSplitVerdically()<return>:e db/schema.rb<return>
+      nnoremap <silent> <space>fedS :e db/schema.rb<return>
+      " File Edit ROutes
+      nnoremap <silent> <space>fero :call WindowSplitVerdically()<return>:e config/routes.rb<return>
+      nnoremap <silent> <space>ferO :e config/routes.rb<return>
+      " File Edit ABility
+      nnoremap <silent> <space>feab :call WindowSplitVerdically()<return>:e app/models/ability.rb<return>
+      nnoremap <silent> <space>feaB :e app/models/ability.rb<return>
+      " File Edit GEmfile
+      nnoremap <silent> <space>fege :call WindowSplitVerdically()<return>:e Gemfile<return>
+      nnoremap <silent> <space>fegE :e Gemfile<return>
+      " File Edit REadme
+      nnoremap <silent> <space>fere :call WindowSplitVerdically()<return>:e README.md<return>
+      nnoremap <silent> <space>ferE :e README.md<return>
+    " react Native
+      " File Edit Config COlors
+      nnoremap <silent> <space>fecc :call WindowSplitVerdically()<return>:e app/config/colors.js<return>
+      nnoremap <silent> <space>fesW :Explore ~/.local/share/nvim/swap/<return>
+    " Vim
+      " File Edit Swap Files (for deleting swap files
+      nnoremap <silent> <space>fesw :call WindowSplitVerdically()<return>:Explore ~/.local/share/nvim/swap/<return>
+      nnoremap <silent> <space>fesW :Explore ~/.local/share/nvim/swap/<return>
 
   " Edit specific files dynamically
     " File Edit STyles

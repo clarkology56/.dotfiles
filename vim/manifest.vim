@@ -27,7 +27,11 @@ so ~/.dotfiles/vim/vim_mappings.vim
 so ~/.dotfiles/vim/ruby_mappings.vim
 so ~/.dotfiles/vim/javascript_mappings.vim
 so ~/.dotfiles/vim/html_element_mappings.vim
-so ~/.dotfiles/vim/react_native_mappings.vim
+so ~/.dotfiles/vim/react_native_components_mappings.vim
+so ~/.dotfiles/vim/react_native_import_mappings.vim
+so ~/.dotfiles/vim/react_native_scripts_mappings.vim
+so ~/.dotfiles/vim/react_native_styles_mappings.vim
+so ~/.dotfiles/vim/react_native_view_mappings.vim
 
 " Rails / Upserv specific / 'comma' mappings
 so ~/.dotfiles/vim/app_controller_mappings.vim
