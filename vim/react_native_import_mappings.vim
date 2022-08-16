@@ -17,3 +17,9 @@
     nnoremap <silent> ,niic a// DeleteThis - search icons here https://icons.expo.fyi/<return><backspace><backspace><backspace>import { ChangeDesigner } from '@expo/vector-icons'<esc>/DeleteThis\\|ChangeDesigner<return>
   " react Native Import Config Colors
     nnoremap <silent> ,nicc aimport colors from '../../config/colors'<esc>
+  " react Native Import Config Styles
+    nnoremap <silent> ,nids aimport defaultStyles from '../../config/default_styles'<esc>
+  " react Native Import SCripts 
+    nnoremap <silent> ,nisc aimport * as scripts from './scripts'<esc>
+  " react Native Import Styles 
+    nnoremap <silent> ,nist aimport styles from './styles'<esc>

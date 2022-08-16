@@ -181,9 +181,9 @@
       " File Edit Parent Files
       nnoremap <silent> <space>fepf :call FileEditParentFiles()<return>
       function FileEditParentFiles()
-        let file = split(expand('%:r'), '/')[0] . ".rb"
-        call WindowSplitVerdically()
-        echo file
+        let split = split(expand('%:r'), '/')
+        call remove(split, -1)
+        let file = join(split, '/') . '.rb'
         execute ':e' file
       endfunction
       " File Edit ASets
