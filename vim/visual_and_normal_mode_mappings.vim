@@ -57,7 +57,7 @@
   " copy word
   nnoremap <silent> y viwy
   " copy and search
-  nnoremap <silent> Y evby0/<C-R><C-R>+<return>
+  nnoremap <silent> Y viwy0/<C-R><C-R>+<return>
   vnoremap <silent> Y y0/<C-R><C-R>+<return>
   " cut word or highlighted
   nnoremap <silent> cx viwx<left>
