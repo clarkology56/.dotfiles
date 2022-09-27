@@ -29,7 +29,9 @@ autocmd InsertLeave * set iminsert=0
 " Plugins
 call plug#begin('~/.vim/plugged')
   Plug 'arcticicestudio/nord-vim' " cool nordic color scheme
-  Plug 'neomake/neomake' " simialr to ALE - run specific programs asynchronously. Currently only using for rubocop and nord
+  "Plug 'neomake/neomake' " simialr to ALE - run specific programs asynchronously. Was using for rubocop and allegedly also for nord... 
+  " but I got rubocop to run with Ale which is better because Ale has fixers on top of linters... and also when I removed neomake,
+  " nord kept working so maybe it isn't needed for nord... but I'm keeping it here in case I need to add it back later
   Plug 'dense-analysis/ale' " similar to Neomake - runs specific programs asynchonously. Currently using for eslint and prettier
   Plug 'maxboisvert/vim-simple-complete' " autocomplete - a little buggy but mostly amazing and simple to install
   Plug 'jiangmiao/auto-pairs' " helps with {}, (), [], etc.
@@ -48,11 +50,11 @@ call plug#end()
   colorscheme nord
   " Use ruby syntax for jbuilder
   au BufNewFile,BufRead *.json.jbuilder set ft=ruby
-  " run neomake at save (which calls rubocop because neomake supports rubocop)
-  call neomake#configure#automake('w')
-  " run eslint and prettier using ALE
-  let g:ale_linters = { 'javascript': ['eslint'] }
-  let g:ale_fixers = { 'javascript': ['prettier', 'eslint'], 'scss': ['prettier'], 'html': ['prettier'] }
+  " run linters and fixers with ale on save
+  " NOTE: I don't think the scss and html ones work... the ruby and javascript
+  " ones are working though...
+  let g:ale_linters = { 'ruby': ['rubocop'],  'javascript': ['eslint'], 'scss': ['prettier'], 'html': ['prettier'] }
+  let g:ale_fixers = { 'ruby': ['rubocop'], 'javascript': ['prettier', 'eslint'], 'scss': ['prettier'], 'html': ['prettier'] }
   let g:ale_fix_on_save = 1
   " make clipboard same as yank so (so you can yank and then cmd v)
   set clipboard=unnamed
@@ -65,3 +67,9 @@ call plug#end()
 	set shiftwidth=0 " makes shift width same as tabstop
   " remove timeout for mappings so you are not in a rush
   set notimeout
+  
+  
+  " Old / keeping in case I need to bring back someday
+  " remove neo make because I am using ale for rubocop now:
+    " run neomake at save (which calls rubocop because neomake supports rubocop)
+    " call neomake#configure#automake('w')

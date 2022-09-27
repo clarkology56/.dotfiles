@@ -28,6 +28,7 @@ so ~/.dotfiles/vim/ruby_mappings.vim
 so ~/.dotfiles/vim/javascript_mappings.vim
 so ~/.dotfiles/vim/html_element_mappings.vim
 so ~/.dotfiles/vim/react_native_components_mappings.vim
+so ~/.dotfiles/vim/react_native_hooks_mappings.vim
 so ~/.dotfiles/vim/react_native_import_mappings.vim
 so ~/.dotfiles/vim/react_native_scripts_mappings.vim
 so ~/.dotfiles/vim/react_native_styles_mappings.vim

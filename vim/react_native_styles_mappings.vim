@@ -1,6 +1,14 @@
+" 
 " react Native Style mappings
   " react Native Styles BAse
-  nnoremap <silent> ,nsba :call ReactNativeStyleBase('view_base')<return>n
+  nnoremap <silent> ,nsba aconst styles = StyleSheet.create({<return>ChangeStyleObject: {<return>ChangeStyleProp: ChangeValue,<return>},<return>})<esc>/ChangeStyleObject\\|ChangeStyleProp\\|ChangeValue<return>
+  " react Native Styles Platform Specific
+  nnoremap <silent> ,nsps a../..Platform.select({<return>ios: {<return>ChangeStyle: ChangeStyleValue,<return>},<return>android: {<return>ChangeStyle: ChangeStyleValue,<return>},<return>}),<esc>/ChangeStyleValue\\|ChangeStyle<return>
+  " react Native Styles IMage
+  nnoremap <silent> ,nsim aChangeStyleObject: {<return>height: ChangeHeight,<return>width: '100%',<return>},<esc>/ChangeStyleObject\\|ChangeHeight<return>
+  
+  " react Native Styles BAse
+  "nnoremap <silent> ,nsba :call ReactNativeStyleBase('view_base')<return>n
   " react Native Styles Base for View
   "nnoremap <silent> ,nsbv :call ReactNativeStyleBase('view_base')<return>n
   "nnoremap <silent> ,nsva :call ReactNativeStyleBase('view_absolute')<return>n
@@ -22,8 +30,3 @@
     "   let @/ = "ChangeStyleObject\\|ChangeStyles"
     " endif
   endfunction
-  " react Native Styles Platform Specific
-  nnoremap <silent> ,nsps a../..Platform.select({<return>ios: {<return>ChangeStyle: ChangeStyleValue,<return>},<return>android: {<return>ChangeStyle: ChangeStyleValue,<return>},<return>}),<esc>/ChangeStyleValue\\|ChangeStyle<return>
-  " react Native Styles IMage
-  nnoremap <silent> ,nsim aChangeStyleObject: {<return>height: ChangeHeight,<return>width: '100%',<return>},<esc>/ChangeStyleObject\\|ChangeHeight<return>
-  

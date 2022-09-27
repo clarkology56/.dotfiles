@@ -4,8 +4,8 @@
   function! ReactNativeComponentBase()
     let camel_prep =  '_' . split(expand('%:t'), '\.')[0]
     let file_camel = substitute(camel_prep, '_\([a-zA-Z]\)', '\u\1',  'g')
-    execute "normal! aimport React from 'react'\<return>import { ChangeComponent } from 'react-native'\<return>\<return>// import * as script from './scripts'\<return>\<backspace>\<backspace>\<backspace>import styles from './styles'\<return>\<return>export default function " . file_camel . "({ ChangeProps, children }) {\<return>return (\<return><ChangeComponent\<esc>ostyle={styles.ChangeStyleObject}\<esc>o>\<return>{children}\<esc>o</ChangeComponent>\<return>)\<return>}"
-    let @/ = "ChangeComponent\\|ChangeProps\\|ChangeStyleObject"
+    execute "normal! aimport { ChangeComponent, StyleSheet } from 'react-native'\<return>\<return>export default function " . file_camel . "({ ChangeProp }) {\<return>return (\<return><ChangeComponent\<esc>ostyle={styles.ChangeStyleObject}\<esc>o>\<return>{children}\<esc>o</ChangeComponent>\<return>)\<return>}\<return>\<return>const styles = StyleSheet.create({\<return>ChangeStyleObject: { ChangeStyleProp: ChangeValue },\<return>})"
+    let @/ = "ChangeComponent\\|ChangeProps\\|ChangeStyleObject\\|ChangeStyleProp\\|ChangeValue"
   endfunction
   " react Native Components VIew
   nnoremap <silent> ,ncvi a<View<space><backspace><return>style={styles.ChangeStyleObject}<esc>o><esc>o</View><esc>/ChangeStyleObject\\|ChangeAsset\\|ChangeWidth\\|ChangeHeight\\|ChangeUrl<return>

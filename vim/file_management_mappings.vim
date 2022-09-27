@@ -142,6 +142,7 @@
     " File Edit CLipboard
     " nnoremap <silent> <space>fecl :e <C-R><C-R>+<return>
     nnoremap <silent> <space>fecl :call FileEditClipBoad()<return>
+    nnoremap <silent> <space>fecL :call WindowSplitVerdically()<return>:call FileEditClipBoad()<return>
     function FileEditClipBoad()
       let split = split(@+, ':')
       let file = split[0]
