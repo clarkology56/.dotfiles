@@ -29,17 +29,17 @@ autocmd InsertLeave * set iminsert=0
 " Plugins
 call plug#begin('~/.vim/plugged')
   Plug 'arcticicestudio/nord-vim' " cool nordic color scheme
-  "Plug 'neomake/neomake' " simialr to ALE - run specific programs asynchronously. Was using for rubocop and allegedly also for nord... 
-  " but I got rubocop to run with Ale which is better because Ale has fixers on top of linters... and also when I removed neomake,
-  " nord kept working so maybe it isn't needed for nord... but I'm keeping it here in case I need to add it back later
   Plug 'dense-analysis/ale' " similar to Neomake - runs specific programs asynchonously. Currently using for eslint and prettier
   Plug 'maxboisvert/vim-simple-complete' " autocomplete - a little buggy but mostly amazing and simple to install
   Plug 'jiangmiao/auto-pairs' " helps with {}, (), [], etc.
   Plug 'pangloss/vim-javascript' " adds colors to js files (only difference I saw was color to funtion names). Probably does other stuff too...
   Plug 'maxmellon/vim-jsx-pretty' " more colors and syntax stuff for react / react native 
+  "Plug 'neomake/neomake' " simialr to ALE - run specific programs asynchronously. Was using for rubocop and allegedly also for nord... 
+  " but I got rubocop to run with Ale which is better because Ale has fixers on top of linters... and also when I removed neomake,
+  " nord kept working so maybe it isn't needed for nord... but I'm keeping it here in case I need to add it back later
   " Plug 'vim-ruby/vim-ruby' " Syntax highlighting for ruby - looks like a
   " good plugin but I didn't see any differences from what I already have so I
-  " removed it... but want to keep here as a referene because I'd like to come
+  " removed it... but want to keep here as a referene in case I come
   " back to it some day...
 call plug#end()
 
