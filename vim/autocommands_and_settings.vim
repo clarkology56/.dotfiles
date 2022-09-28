@@ -69,7 +69,7 @@ call plug#end()
   set notimeout
   
   
-  " Old / keeping in case I need to bring back someday
+" Old / keeping in case I need to bring back someday
   " remove neo make because I am using ale for rubocop now:
     " run neomake at save (which calls rubocop because neomake supports rubocop)
     " call neomake#configure#automake('w')
