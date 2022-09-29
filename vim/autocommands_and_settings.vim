@@ -68,7 +68,6 @@ call plug#end()
   " remove timeout for mappings so you are not in a rush
   set notimeout
   
-  
 " Old / keeping in case I need to bring back someday
   " remove neo make because I am using ale for rubocop now:
     " run neomake at save (which calls rubocop because neomake supports rubocop)
