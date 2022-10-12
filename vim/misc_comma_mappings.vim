@@ -15,4 +15,4 @@
   
   
   " temp - help test highway idienty signed onboarding packet contracts
-  nmap <silent> ,mdc vay<esc><space>wt<esc>pa<return>
+  nnoremap <silent> ,mdc I<tab><esc>0viwxi<backspace>',<esc><right>
