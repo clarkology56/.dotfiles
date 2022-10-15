@@ -34,6 +34,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'jiangmiao/auto-pairs' " helps with {}, (), [], etc.
   Plug 'pangloss/vim-javascript' " adds colors to js files (only difference I saw was color to funtion names). Probably does other stuff too...
   Plug 'maxmellon/vim-jsx-pretty' " more colors and syntax stuff for react / react native 
+  " - idk that this is needed... I think vim does it without the plucin.. Plug 'vim-matchit' " use the % character to bounce from do to end (and mabye others)
   "Plug 'neomake/neomake' " simialr to ALE - run specific programs asynchronously. Was using for rubocop and allegedly also for nord... 
   " but I got rubocop to run with Ale which is better because Ale has fixers on top of linters... and also when I removed neomake,
   " nord kept working so maybe it isn't needed for nord... but I'm keeping it here in case I need to add it back later
