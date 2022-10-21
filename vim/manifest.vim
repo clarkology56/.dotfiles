@@ -14,13 +14,6 @@ so ~/.dotfiles/vim/globals.vim
 so ~/.dotfiles/vim/visual_and_normal_mode_mappings.vim
 so ~/.dotfiles/vim/terminal_mode_mappings.vim
 
-" vim mappings
-so ~/.dotfiles/vim/vim_mappings.vim
-so ~/.dotfiles/vim/terminal_mode_mappings.vim
-
-" this should be cleaned and / or clarified...
-so ~/.dotfiles/vim/simple_mappings.vim
-
 " Vim / 'space' mappings
 so ~/.dotfiles/vim/single_space_mappings.vim
 so ~/.dotfiles/vim/git_mappings.vim
