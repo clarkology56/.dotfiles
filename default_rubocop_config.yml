@@ -7,14 +7,23 @@ AllCops:
 
 Layout/LineLength:
   Max: 80
+  Exclude:
+    - "config/environments/**/*"
+    - "Gemfile"
+    - "config/initializers/content_security_policy.rb"   
+    - "config/puma.rb"
+    - "db/seeds.rb"
+    - "db/migrate/**/*"
+    - "config/initializers/filter_parameter_logging.rb"
+    - "Rakefile"
     
 Metrics/AbcSize:
   Exclude:
-    - "db/migrate/*"
+    - "db/migrate/**/*"
       
 Metrics/BlockLength:    
   Exclude:
-    - "config/environments/development"
+    - "config/**/*"
 
 Metrics/MethodLength:
   Exclude:
