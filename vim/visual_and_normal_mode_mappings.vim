@@ -9,17 +9,18 @@
   vnoremap <silent> # I#<esc>
   vnoremap <silent> " I"<esc>
   vnoremap <silent> / I//<esc>
-
+  " make insert work in visual mode
+  vnoremap <silent> i <esc>i
+  vnoremap <silent> a <esc>a
 
 " insert mode non-leader key mappings
+  " autofill
+  inoremap <silent> <C-space> <C-n>
   " prevent return from autocomplete (very annoying because to return you have
   " to hit space then return. Now, tab does autocomplete and return does
   " return
   inoremap <silent> <return> <space><backspace><return>
-  " ruby curley brace spacing
-  inoremap <silent> {{ {<space><space>}<left><left>
-  " ruby curley brace entered
-  inoremap <silent> {<return> {<return><space><backspace><return>}<up><tab>
+  
   " bar options
   inoremap <silent> <bar><bar><bar> <bar><bar><left>
   inoremap <silent> <bar><bar><space> <bar><bar><space>
@@ -46,17 +47,17 @@
   " spacevim)
   vnoremap v iw
   " select entire page
-  vnoremap aa <esc>ggVG
+  vnoremap ae <esc>ggVG
   " copy entire page
   vnoremap ay <esc>ggVGy
   " paste over entire page
   vnoremap ap <esc>ggVGp
-  " delete entire page
+  " cut entire page
   vnoremap ax <esc>ggVGx
   " copy word
   nnoremap <silent> y viwy
   " copy and search
-  nnoremap <silent> Y evby0/<C-R><C-R>+<return>
+  nnoremap <silent> Y viwy0/<C-R><C-R>+<return>
   vnoremap <silent> Y y0/<C-R><C-R>+<return>
   " cut word or highlighted
   nnoremap <silent> cx viwx<left>
@@ -66,6 +67,8 @@
   vnoremap <silent> p :<backspace><backspace><backspace><backspace><backspace>let previous_clipboard = @+<return>gvp:let @+ = previous_clipboard<return>
   " paste word and keep orignal 
   nnoremap <silent> - viwpviwy
+  " make - in visual work just like p in visual
+  vnoremap <silent> - :<backspace><backspace><backspace><backspace><backspace>let previous_clipboard = @+<return>gvp:let @+ = previous_clipboard<return>
   " paste word and copy word just replaced
   nnoremap <silent> = viwp
   " redo
@@ -100,20 +103,38 @@
   nnoremap <silent> F VpVy
 
 " retrain d-pad
+  " : is used for dpad now so need to remap :
+  nnoremap <silent> ? :
   " up
   nnoremap <silent> l k
   vnoremap <silent> l k
   nnoremap <silent> dl dk
+  nnoremap <silent> <S-l> 3<up>
+  vnoremap <silent> <S-l> 3<up>
+  nnoremap <silent> <S-up> 3<up>
+  vnoremap <silent> <S-up> 3<up>
   " down
   nnoremap <silent> k j
   vnoremap <silent> k j
   nnoremap <silent> dk dj
+  nnoremap <silent> <S-k> 3<down>
+  vnoremap <silent> <S-k> 3<down>
+  nnoremap <silent> <S-down> 3<down>
+  vnoremap <silent> <S-down> 3<down>
   " left
   nnoremap <silent> j <left>
   vnoremap <silent> j <left>
+  nnoremap <silent> <S-j> 4<left>
+  vnoremap <silent> <S-j> 4<left>
+  nnoremap <silent> <S-left> 4<left>
+  vnoremap <silent> <S-left> 4<left>
   " right
   nnoremap <silent> ; <right>
   vnoremap <silent> ; <right>
+  nnoremap <silent> : 4<right>
+  vnoremap <silent> : 4<right>
+  nnoremap <silent> <S-right> 4<right>
+  vnoremap <silent> <S-left> 4<left>
   " far left
   nnoremap <silent> q ^
   vnoremap <silent> q ^
@@ -121,12 +142,12 @@
   " back to beginning of word
   nnoremap <silent> w b
   vnoremap <silent> w b
-  " forward to begiining of word
+  " forward to end of word
+  nnoremap <silent> e e
+  vnoremap <silent> e e
+  " forward to beginning of word
   nnoremap <silent> t w
   vnoremap <silent> t w
-  " forward to end of word (no mapping needed because it's already e)
-  "nnoremap <silent> e e
-  "vnoremap <silent> e e
   " far right (when in visual mode, use <left> to make sure to not get next line)
   nnoremap <silent> r $
   vnoremap <silent> r $<left>
@@ -136,24 +157,53 @@
   " to bottom of page (make hh go to bottom like G)
   nnoremap <silent> hh G
   vnoremap <silent> hh G
-  " go up and down fast
-  nnoremap <silent> <S-l> 3<up>
-  vnoremap <silent> <S-l> 3<up>
-  nnoremap <silent> <S-up> 3<up>
-  vnoremap <silent> <S-up> 3<up>
 
-  nnoremap <silent> <S-k> 3<down>
-  vnoremap <silent> <S-k> 3<down>
-  nnoremap <silent> <S-down> 3<down>
-  vnoremap <silent> <S-down> 3<down>
-    
-" single key comma mappings
-  " visual mode
-  nnoremap ,v <C-v>
-  " various comments
-  nnoremap <silent> ,< O<!--<esc>o--><esc>Vx0
+  " remove highlights
+  nnoremap <silent> hn :noh<return>
   
-  nnoremap <silent> ,,< /<!--<return>Nddmq/--><return>dd`q
-  " replace single quite with double quote and vice versa
-  nnoremap <silent> ,' /"<return>cgn'<esc>N.:noh<return>
-  nnoremap <silent> ," /'<return>cgn"<esc>N.:noh<return>
+  
+  
+  
+  
+  " The below was removed in favor of jiangmiao/auto-pairs... but keeping in
+  " case I want to bring back later
+  "" ruby curley brace entered
+  "inoremap <silent> {<return> {<return><space><backspace><return>}<up><tab>
+  "" opening and closing
+  "inoremap <silent> ' '<esc>:call SingleQuotation()<return>a
+  "function SingleQuotation()
+  "  if ("'" == matchstr(getline('.'), '\%' . (col('.') + 1) . 'c.'))
+  "    execute "normal! a\<delete>"
+  "  else
+  "    execute "normal! i'"
+  "  endif
+  "endfunction
+  "inoremap <silent> " "<esc>:call DoubleQuotation()<return>a
+  "function DoubleQuotation()
+  "  if ('"' == matchstr(getline('.'), '\%' . (col('.') + 1) . 'c.'))
+  "    execute "normal! a\<delete>"
+  "  else
+  "    execute "normal! i\""
+  "  endif
+  "endfunction
+  "inoremap <silent> ( ()<esc>i
+  "inoremap <silent> ) )<esc>:call CloseParenthesis()<return>a
+  "function CloseParenthesis()
+  "  if (')' == matchstr(getline('.'), '\%' . (col('.') + 1) . 'c.'))
+  "    execute "normal! a\<delete>"
+  "  endif
+  "endfunction
+  "inoremap <silent> [ []<esc>i
+  "inoremap <silent> ] ]<esc>:call CloseBracket()<return>a
+  "function CloseBracket()
+  "  if ("]" == matchstr(getline('.'), '\%' . (col('.') + 1) . 'c.'))
+  "    execute "normal! a\<delete>"
+  "  endif
+  "endfunction
+  "inoremap <silent> { {}<esc>i
+  "inoremap <silent> } }<esc>:call CloseBrace()<return>a
+  "function CloseBrace()
+  "  if ("}" == matchstr(getline('.'), '\%' . (col('.') + 1) . 'c.'))
+  "    execute "normal! a\<delete>"
+  "  endif
+  "endfunction

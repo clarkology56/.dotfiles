@@ -1,43 +1,18 @@
-" Install vim-plug (a minimilist plugin manager) if not found
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-endif
-
-augroup CustomVimEntry
-  " prevent autocommands from appearing twice if / when vimrc is sourced twice
-  autocmd!
-  " Run PlugInstall at VimEnter if there are missing plugins
-  autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-    \| PlugInstall --sync | source $MYVIMRC
-  \| endif
-augroup END
-
-" Plugins
-call plug#begin('~/.vim/plugged')
-  Plug 'arcticicestudio/nord-vim' " cool nordic color scheme
-  Plug 'neomake/neomake' " run specific programs (ex. rubocop) asynchronously
-call plug#end()
-
-" misc settings
-  " Color Scheme
-  colorscheme nord
-  " run neomake at save (which calls rubocop because neomake supports rubocop)
-  call neomake#configure#automake('w')
-  " make clipboard same as yank so (so you can yank and then cmd v)
-  set clipboard=unnamed
-  " set line numbers
-	set number
-  " make tab 2 spaces
-  set expandtab " makes tab actually spaces istead of tab
-	set tabstop=2 " makes tab 2 spaces
-  set softtabstop=2 " tbh idk what this does
-	set shiftwidth=0 " makes shift width same as tabstop
-  " remove timeout for mappings so you are not in a rush
-  set notimeout
+" NOTES
+" below should be reviewed, ex.:
+"   git mappings should be comma, not space
+"   IDK about misc comma mappings
+"   etc.
   
+" autocommands and settings
+so ~/.dotfiles/vim/autocommands_and_settings.vim
 " Shared
 so ~/.dotfiles/vim/shared_functions.vim
+so ~/.dotfiles/vim/globals.vim
+
+" Vim mappings (non-comma, non-space)
+so ~/.dotfiles/vim/visual_and_normal_mode_mappings.vim
+so ~/.dotfiles/vim/terminal_mode_mappings.vim
 
 " vim mappings
 so ~/.dotfiles/vim/vim_mappings.vim
@@ -47,15 +22,24 @@ so ~/.dotfiles/vim/terminal_mode_mappings.vim
 so ~/.dotfiles/vim/simple_mappings.vim
 
 " Vim / 'space' mappings
+so ~/.dotfiles/vim/single_space_mappings.vim
 so ~/.dotfiles/vim/git_mappings.vim
 so ~/.dotfiles/vim/file_management_mappings.vim
 so ~/.dotfiles/vim/buffer_management_mappings.vim
 so ~/.dotfiles/vim/window_management_mappings.vim
 
 " Language specific / 'comma' mappings
+so ~/.dotfiles/vim/misc_comma_mappings.vim
+so ~/.dotfiles/vim/vim_mappings.vim
 so ~/.dotfiles/vim/ruby_mappings.vim
 so ~/.dotfiles/vim/javascript_mappings.vim
 so ~/.dotfiles/vim/html_element_mappings.vim
+so ~/.dotfiles/vim/react_native_components_mappings.vim
+so ~/.dotfiles/vim/react_native_hooks_mappings.vim
+so ~/.dotfiles/vim/react_native_import_mappings.vim
+so ~/.dotfiles/vim/react_native_scripts_mappings.vim
+so ~/.dotfiles/vim/react_native_styles_mappings.vim
+so ~/.dotfiles/vim/react_native_view_mappings.vim
 
 " Rails / Upserv specific / 'comma' mappings
 so ~/.dotfiles/vim/app_controller_mappings.vim
@@ -71,12 +55,16 @@ so ~/.dotfiles/vim/html_ruby_mappings.vim
 so ~/.dotfiles/vim/config_mappings.vim
 so ~/.dotfiles/vim/db_mappings.vim
 so ~/.dotfiles/vim/lib_mappings.vim
+so ~/.dotfiles/vim/spec_mappings.vim
+so ~/.dotfiles/vim/spec_model_mappings.vim
 so ~/.dotfiles/vim/test_mappings.vim
 so ~/.dotfiles/vim/test_controller_mappings.vim
 so ~/.dotfiles/vim/test_model_mappings.vim
 
 " Rails specific misc process / 'comma' mappings
 so ~/.dotfiles/vim/misc_process_mappings.vim
+<<<<<<< HEAD
+=======
 
 " truly random one off stuff
   " Caps lock in insert mode (press ctrl - ^ to toggle)
@@ -103,3 +91,4 @@ so ~/.dotfiles/vim/misc_process_mappings.vim
    nmap <silent> ,mn dd<space>fecl
    nmap <silent> ,mm /left-sidebar<return>cgnpage_content_left_menu<esc>/course_left_sidebar<return>cgncourses_left_menu<esc><space>fs
   "app/views/layouts/training/_assignment_left_menu.html.erb
+>>>>>>> master

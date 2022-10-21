@@ -1,2 +1,4 @@
 Host *
   UseKeychain yes
+
+Include ~/.ssh/config_local 
