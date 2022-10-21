@@ -5,5 +5,5 @@ AllCops:
     - 'tmp/**/*'
   NewCops: enable
 
-  Layout/LineLength:
-    Max: 80
+Layout/LineLength:
+  Max: 80
