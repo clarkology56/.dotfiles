@@ -7,3 +7,15 @@ AllCops:
 
 Layout/LineLength:
   Max: 80
+    
+Metrics/AbcSize:
+  Exclude:
+    - "db/migrate/*"
+      
+Metrics/BlockLength:    
+  Exclude:
+    - "config/environments/development"
+
+Metrics/MethodLength:
+  Exclude:
+    - "db/migrate/*"
