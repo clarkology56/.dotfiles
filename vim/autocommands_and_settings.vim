@@ -54,8 +54,8 @@ call plug#end()
   " run linters and fixers with ale on save
   " NOTE: I don't think the scss and html ones work... the ruby and javascript
   " ones are working though...
-  let g:ale_linters = { 'ruby': ['rubocop', 'prettier'],  'javascript': ['eslint'], 'scss': ['prettier'], 'html': ['prettier'] }
-  let g:ale_fixers = { 'ruby': ['rubocop', 'prettier'], 'javascript': ['prettier', 'eslint'], 'scss': ['prettier'], 'html': ['prettier'] }
+  let g:ale_linters = { 'ruby': ['rubocop'],  'javascript': ['eslint'], 'scss': ['prettier'], 'html': ['prettier'] }
+  let g:ale_fixers = { 'ruby': ['rubocop'], 'javascript': ['prettier', 'eslint'], 'scss': ['prettier'], 'html': ['prettier'] }
   let g:ale_fix_on_save = 1
   " make clipboard same as yank so (so you can yank and then cmd v)
   set clipboard=unnamed
