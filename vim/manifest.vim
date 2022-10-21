@@ -14,6 +14,13 @@ so ~/.dotfiles/vim/globals.vim
 so ~/.dotfiles/vim/visual_and_normal_mode_mappings.vim
 so ~/.dotfiles/vim/terminal_mode_mappings.vim
 
+" vim mappings
+so ~/.dotfiles/vim/vim_mappings.vim
+so ~/.dotfiles/vim/terminal_mode_mappings.vim
+
+" this should be cleaned and / or clarified...
+so ~/.dotfiles/vim/simple_mappings.vim
+
 " Vim / 'space' mappings
 so ~/.dotfiles/vim/single_space_mappings.vim
 so ~/.dotfiles/vim/git_mappings.vim
@@ -56,3 +63,32 @@ so ~/.dotfiles/vim/test_model_mappings.vim
 
 " Rails specific misc process / 'comma' mappings
 so ~/.dotfiles/vim/misc_process_mappings.vim
+<<<<<<< HEAD
+=======
+
+" truly random one off stuff
+  " Caps lock in insert mode (press ctrl - ^ to toggle)
+    " Execute 'lnoremap x X' and 'lnoremap X x' for each letter a-z.
+    for c in range(char2nr('A'), char2nr('Z'))
+      execute 'lnoremap ' . nr2char(c+32) . ' ' . nr2char(c)
+      execute 'lnoremap ' . nr2char(c) . ' ' . nr2char(c+32)
+    endfor
+    " Kill the capslock when leaving insert mode.
+    autocmd InsertLeave * set iminsert=0
+
+" Misc. mapping
+  " Misc. Reload Source
+  nnoremap <silent> ,mrs :so ~/.vimrc<return>:echo "Source reloaded"<return>
+  " Misc. DD but combine to previous line instead of delete line  (I<tab>
+  " makes sure there is at least something on the line because viwx on empty
+  " line deletes entire line and then grabs following line)
+  nnoremap <silent> ,mdd I<tab><esc>0viwxi<backspace><esc><right>
+  " Misc. Dd but combine to Forward line instead of delete line
+  nmap <silent> ,mdf $<down>,mdd
+  " Misc. Df but add <return> between each line
+  nmap <silent> ,mdr $<down>,mddi<lt>return><esc>
+  " one off
+   nmap <silent> ,mn dd<space>fecl
+   nmap <silent> ,mm /left-sidebar<return>cgnpage_content_left_menu<esc>/course_left_sidebar<return>cgncourses_left_menu<esc><space>fs
+  "app/views/layouts/training/_assignment_left_menu.html.erb
+>>>>>>> master
