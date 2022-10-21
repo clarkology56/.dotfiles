@@ -4,3 +4,6 @@ AllCops:
     - 'bin/**/*'
     - 'tmp/**/*'
   NewCops: enable
+
+  Layout/LineLength:
+    Max: 80
