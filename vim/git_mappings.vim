@@ -18,10 +18,12 @@ nnoremap <silent> <space>gs :wa<return>:call ToggleTerminalInWindow()<return>q<C
 nnoremap <silent> <space>gd :wa<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c>git diff<return>
 " Git Rubocop (not really git but always done before committing)
 nnoremap <silent> <space>gr :wa<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c>rubocop<return><C-\><C-n>
-" Git rspEc
-nnoremap <silent> <space>ge :call SpecRunCurrentFile(1)<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c><C-\><C-n>pa<return><C-\><C-n>
+" Git rspEc - current line
+nnoremap <silent> <space>ge :call SpecRunCurrentFile(1, 0)<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c><C-\><C-n>pa<return><C-\><C-n>
+" Git rspEc - current file
+nnoremap <silent> <space>gE :call SpecRunCurrentFile(1, 1)<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c><C-\><C-n>pa<return><C-\><C-n>
 " Git rspEc - all files
-nnoremap <silent> <space>gE :wa<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c>rails parallel:spec<return><C-\><C-n>
+nnoremap <silent> <space>GE :wa<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c>rails parallel:spec<return><C-\><C-n>
 " Git Test
 nnoremap <silent> <space>gt :call FileTestCurrentFile(1)<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c><C-\><C-n>pa<return><C-\><C-n>
 " Git Test - all files

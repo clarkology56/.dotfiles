@@ -28,10 +28,15 @@ function! GetTestFile()
 endfunction
 
 " Run spec for current file
-function! SpecRunCurrentFile(use_shell)
+function! SpecRunCurrentFile(use_shell, entire_file)
   execute ':wa'
   let test_file = GetSpecFile()
-  let test_command = 'bundle exec rspec ' . test_file . ' --fail-fast'
+  if a:entire_file == 0
+    let suffix = ':'. line('.')
+  else 
+    let suffix = ' --fail-fast'
+  endif
+  let test_command = 'bundle exec rspec ' . test_file . suffix
   if a:use_shell == 0
     execute ':!' test_command
   else 
