@@ -108,31 +108,33 @@
   endfunction
 
 " File Find
-  " File find FIle
+  " File Find FIle
   nnoremap <silent> <space>ffff :e **/*
-  " File find Admin
+  " File Find Admin
   nnoremap <silent> <space>ffad :e app/admin/**/*
-  " File find Assets
+  " File Find Assets
   nnoremap <silent> <space>ffas :e app/assets/**/*
-  " File find Chanells
+  " File Find Chanells
   nnoremap <silent> <space>ffch :e app/channels/**/*
-  " File find COnotroller
+  " File Find COnotroller
   nnoremap <silent> <space>ffco :e app/controllers/**/*
-  " File find Helpers
+  " File Find Helpers
   nnoremap <silent> <space>ffhe :e app/helpers/**/*
-  " File find Javascriopt
+  " File Find Javascriopt
   nnoremap <silent> <space>ffja :e app/javascript/**/*
-  " File find JOb
+  " File Find JOb
   nnoremap <silent> <space>ffjo :e app/jobs/**/*
-  " File find MAilers
+  " File Find MAilers
   nnoremap <silent> <space>ffma :e app/mailers/**/*
-  " File find MOdel
+  " File Find MOdel
   nnoremap <silent> <space>ffmo :e app/models/**/*
-  " File find VIews
+  " File Find VIews
   nnoremap <silent> <space>ffvi :e app/views/**/*
-  " File find LIb
+  " File Find LIb
   nnoremap <silent> <space>ffli :e lib/**/*
-  " File find RSpec
+  " File Find Factories
+  nnoremap <silent> <space>fffa :e test/factories/**/*
+  " File Find RSpec
   nnoremap <silent> <space>ffrs :e spec/**/*
 
 " File Edit (and Explore)

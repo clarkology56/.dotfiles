@@ -21,6 +21,10 @@ Metrics/AbcSize:
   Exclude:
     - "db/migrate/**/*"
       
+Metrics/ClassLength:
+  Exclude:
+    - "test/models/**/*"
+      
 Metrics/BlockLength:    
   Exclude:
     - "config/**/*"
