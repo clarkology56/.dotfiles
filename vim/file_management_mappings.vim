@@ -136,6 +136,13 @@
   nnoremap <silent> <space>fffa :e test/factories/**/*
   " File Find RSpec
   nnoremap <silent> <space>ffrs :e spec/**/*
+  " react native stuff
+  nnoremap <silent> <space>ffcm :e app/components/**/*
+  nnoremap <silent> <space>ffho :e app/hooks/**/*
+  nnoremap <silent> <space>ffsc :e app/screens/**/*
+  nnoremap <silent> <space>ffse :e app/services/**/*
+  nnoremap <silent> <space>ffut :e app/utilities/**/*
+  
 
 " File Edit (and Explore)
   " Misc. Shortcuts

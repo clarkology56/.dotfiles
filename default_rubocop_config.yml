@@ -6,7 +6,7 @@ AllCops:
   NewCops: enable
 
 Layout/LineLength:
-  Max: 80
+  Max: 90
   Exclude:
     - "config/environments/**/*"
     - "Gemfile"

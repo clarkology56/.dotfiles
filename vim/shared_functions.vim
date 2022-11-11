@@ -1,8 +1,13 @@
 " Run tests for current file
-function! FileTestCurrentFile(use_shell)
+function! FileTestCurrentFile(use_shell, entire_file)
   execute ':wa'
   let test_file = GetTestFile()
-  let test_command = substitute(test_file, 'test', 'rails t test', '')
+  if a:entire_file == 0
+    let suffix = ':'. line('.')
+  else 
+    let suffix = ' -f'
+  endif
+  let test_command = 'rails t ' . test_file . suffix
   if a:use_shell == 0
     execute ':!' test_command
   else 
