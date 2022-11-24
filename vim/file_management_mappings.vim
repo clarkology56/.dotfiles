@@ -136,6 +136,8 @@
   nnoremap <silent> <space>fffa :e test/factories/**/*
   " File Find RSpec
   nnoremap <silent> <space>ffrs :e spec/**/*
+  " File Find TEst
+  nnoremap <silent> <space>ffte :e test/**/*
   " react native stuff
   nnoremap <silent> <space>ffcm :e app/components/**/*
   nnoremap <silent> <space>ffho :e app/hooks/**/*
@@ -205,6 +207,25 @@
       " File Edit FActory
       nnoremap <silent> <space>fefa :call WindowSplitVerdically()<return>:e spec/factories.rb<return>
       nnoremap <silent> <space>fefA :e spec/factories.rb<return>
+      nnoremap <silent> <space>fefa :call FileEditFactories(1)<return>
+      nnoremap <silent> <space>fefA :call FileEditFactories(0)<return>
+      function FileEditFactories(split_window)
+        if a:split_window == 1
+          call WindowSplitVerdically()
+        endif
+        " for Highway
+        if filereadable('spec/factories.rb') == 1
+          execute ':e spec/factories.rb'
+        " for my apps
+        else
+          if stridx(expand('%'), 'app/models') == 0
+            let app = split(expand('%'), '/')[2]
+            execute ':e test/factories/' . app
+          else
+            execute ':e test/factories'
+          endif
+        endif
+      endfunction
       " File Edit Db Schema
       nnoremap <silent> <space>feds :call WindowSplitVerdically()<return>:e db/schema.rb<return>
       nnoremap <silent> <space>fedS :e db/schema.rb<return>
@@ -305,8 +326,12 @@
 
     " File Edit COntroller
     " NOTE: thi is used for rails controllers AND react native components
-    nnoremap <silent> <space>feco :call FileEditController()<return>
-    function FileEditController()
+    nnoremap <silent> <space>feco :call FileEditController(1)<return>
+    nnoremap <silent> <space>fecO :call FileEditController(0)<return>
+    function FileEditController(split_window)
+      if a:split_window == 1
+        call WindowSplitVerdically()
+      endif
       let current_file = expand('%')
       if match(current_file, 'app/assets/stylesheets') != -1
         let controller = 1
@@ -609,8 +634,12 @@
     endfunction
 
     " File Edit TEst
-    nnoremap <silent> <space>fete :call FileEditTest()<return>
-    function FileEditTest()
+    nnoremap <silent> <space>fete :call FileEditTest(1)<return>
+    nnoremap <silent> <space>fetE :call FileEditTest(0)<return>
+    function FileEditTest(split_window)
+      if a:split_window == 1
+        call WindowSplitVerdically()
+      endif
       execute ':e' GetTestFile()
     endfunction
 

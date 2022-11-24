@@ -29,6 +29,7 @@ Metrics/BlockLength:
   Exclude:
     - "config/**/*"
     - "test/models/**/*"
+    - "test/factories/**/*"
 
 Metrics/MethodLength:
   Exclude:
