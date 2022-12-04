@@ -28,8 +28,9 @@ Metrics/ClassLength:
 Metrics/BlockLength:    
   Exclude:
     - "config/**/*"
-    - "test/models/**/*"
+    - "test/controllers/**/*"
     - "test/factories/**/*"
+    - "test/models/**/*"
 
 Metrics/MethodLength:
   Exclude:
