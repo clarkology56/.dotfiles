@@ -24,6 +24,7 @@ Metrics/AbcSize:
 Metrics/ClassLength:
   Exclude:
     - "test/models/**/*"
+    - "test/controllers/**/*"
       
 Metrics/BlockLength:    
   Exclude:
