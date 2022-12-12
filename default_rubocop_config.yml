@@ -36,3 +36,4 @@ Metrics/BlockLength:
 Metrics/MethodLength:
   Exclude:
     - "db/migrate/*"
+    - "app/models/ability.rb"
