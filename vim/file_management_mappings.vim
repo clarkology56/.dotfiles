@@ -138,12 +138,13 @@
   nnoremap <silent> <space>ffrs :e spec/**/*
   " File Find TEst
   nnoremap <silent> <space>ffte :e test/**/*
+  " File Find TeMplates
+  nnoremap <silent> <space>fftm :e templates/**/*
   " react native stuff
   nnoremap <silent> <space>ffcm :e app/components/**/*
   nnoremap <silent> <space>ffho :e app/hooks/**/*
   nnoremap <silent> <space>ffsc :e app/screens/**/*
-  nnoremap <silent> <space>ffse :e app/services/**/*
-  nnoremap <silent> <space>ffut :e app/utilities/**/*
+  nnoremap <silent> <space>ffut :e lib/utilities/**/*
   
 
 " File Edit (and Explore)

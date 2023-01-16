@@ -1,0 +1,42 @@
+inherit_from:
+  - https://raw.githubusercontent.com/clarkology56/.dotfiles/master/default_rubocop_config.yml
+
+inherit_mode:
+  merge:
+    - Exclude
+
+Lint/BooleanSymbol:
+  Exclude:
+    - "lib/utilities/boolean_utility.rb"
+
+Metrics/AbcSize:
+  Exclude:
+    - "test/test_helper/model_validations.rb"
+      
+Metrics/BlockLength:
+  Exclude:
+    - "app/models/kec/job_unit/hierarchy_associations.rb"
+    - "app/controllers/mobile_api_controller/rescue_blocks.rb"
+    - "app/models/kec/job/validations.rb"
+    - "test/test_helper/model_validations.rb"
+
+Metrics/ClassLength:
+  Exclude:
+    - "app/controllers/kec/accounts/customer_mass_uploads_controller.rb"
+
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - "test/test_helper/model_validations.rb"
+
+Metrics/ModuleLength:
+  Exclude:
+    - "test/test_helper/model_validations.rb"
+
+Metrics/MethodLength:
+  Exclude:
+    - "app/controllers/application_controller/instance_loaders.rb"
+    - "test/test_helper/model_validations.rb"
+
+Metrics/PerceivedComplexity:
+  Exclude:
+    - "test/test_helper/model_validations.rb"

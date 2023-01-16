@@ -105,3 +105,7 @@
   inoremap <silent> proca proc { \|\|<return>}<esc><up>$i
   inoremap <silent> proco proc { \|\| ChangeLogic }<esc>/ChangeLogic<return>2<left>i
   inoremap <silent> procx proc(&:ChangeMethod)<esc>/ChangeMethod<return>
+  " Ruby Block Sort By
+  inoremap <silent> sort_byb sort_by <esc>:call RubyBlockBlockInsertMode()<return>i
+  inoremap <silent> sort_byo sort_by { \|ChangeObject\| ChangeObjedt.ChangeLogic }<esc>/ChangeObject\\|ChangeLogic<return><esc>n
+  inoremap <silent> sort_byx sort_by(&:ChangeMethod)<esc>/ChangeMethod<return>

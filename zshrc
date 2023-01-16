@@ -1,6 +1,10 @@
 # include custom zsh aliases
 source ~/.dotfiles/zsh/manifest.zsh
 
+# This might be bad but it fixed broker rails tests. See here for discussion
+# https://stackoverflow.com/a/69405247/12054303
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
 # use openssl 1.1 for downloading home-brew gems. This can cause issues with older versions of ruby that require openssl 1.0 (or earlier versions)
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 

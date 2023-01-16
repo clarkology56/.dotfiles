@@ -34,6 +34,7 @@ nnoremap <space>bc :call ClearBuffers()<return>
 nnoremap <space>bC :%bd!\|e#\|bd#<return>
 " Buffer Terminal 
 nnoremap <space>bt :call OpenTerminal()<return>
+nnoremap <space>bT :ter<return>
 " need to fix this so that it opens first terminal not first zsh bucause 1)
 " some people might not use zsh and 2) there could be multiple terminal and /
 " or zsh buffers open

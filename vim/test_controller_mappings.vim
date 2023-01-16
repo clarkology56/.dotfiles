@@ -1,7 +1,7 @@
 " Tests Controller BAse
 nnoremap <silent> ,tcba :call CreateBaseFile(1, 1, 1)<return>/outer_followup<return>cgnrequire 'test_helper'<esc>o<esc>/class<return>A < ActionDispatch::IntegrationTest<esc>/ChangeTopLevelDocumentation<return><down>^wviwy/ChangeTopLevelDocumentation<return>viwpbiTest for <esc>0/Test<return>ncgn<esc>:call TestControllerBase()<return>
 function! TestControllerBase()
-  execute "normal! /inner_followup\<return>cgninclude FactoryBot::Syntax::Methods\<space>\<backspace>\<return>include Devise::Test::IntegrationHelpers\<space>\<backspace>\<return>test disclaimer\<esc>/test disclaimer\<return>cgn\<esc>:call TestDisclaimer()\<return>"
+  execute "normal! /inner_followup\<return>cgninclude FactoryBot::Syntax::Methods\<space>\<backspace>\<return>include ::Devise::Test::IntegrationHelpers\<space>\<backspace>\<return>test disclaimer\<esc>/test disclaimer\<return>cgn\<esc>:call TestDisclaimer()\<return>"
   let @/ = "DeleteThis"
 endfunction
 
