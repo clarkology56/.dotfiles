@@ -29,6 +29,7 @@ Metrics/ClassLength:
       
 Metrics/BlockLength:    
   Exclude:
+    - "app/admin/**/*"
     - "config/**/*"
     - "test/controllers/**/*"
     - "test/factories/**/*"
