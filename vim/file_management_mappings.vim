@@ -451,6 +451,42 @@
       endif
     endfunction
 
+    " File Edit Children
+    nnoremap <silent> <space>fech :call FileEditChild()<return>
+    function FileEditChild()
+      let current_file = expand('%')
+      let directory_of_children = split(current_file, '\.')[0]
+      if isdirectory(directory_of_children)
+        call WindowSplitVerdically()
+        execute ':Explore' directory_of_children
+      else
+        let new_file = input("There are no child files yet. Create the first one!: " . directory_of_children . "/")
+        if new_file == ''
+          execute "normal! :echo"
+        else
+          call WindowSplitVerdically()
+          execute ":e " . directory_of_children . "/" . new_file
+        endif
+      endif
+    endfunction
+
+    " File Edit Parent
+    nnoremap <silent> <space>fepa :call FileEditParent()<return>
+    function FileEditParent()
+      let current_file = expand('%')
+      let parent = join(split(current_file, '/')[0:-2], '/')
+      if filereadable(parent . '.rb')
+        call WindowSplitVerdically()
+        execute ':e' parent . '.rb'
+      elseif filereadable(parent . '.js')
+        call WindowSplitVerdically()
+        execute ':e' parent . '.js'
+      else
+        let grandparent = join(split(parent, '/')[0:-2], '/')
+        execute ':Explore ' grandparent
+      endif
+    endfunction
+
     " File Edit MOdel
     nnoremap <silent> <space>femo :call FileEditModel()<return>
     function FileEditModel()
