@@ -34,7 +34,7 @@
   " erb comment
   inoremap <silent> <<> <%#  %><left><left><left>
   " J Query Select
-  inoremap <silent> $$ $()<left>
+  inoremap <silent> $$ ${}<left>
 
 " single key non-comma
   " make > & < in normal mode the same as visual mode

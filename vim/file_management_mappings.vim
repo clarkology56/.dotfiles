@@ -108,39 +108,23 @@
   endfunction
 
 " File Find
-  " File Find FIle
   nnoremap <silent> <space>ffff :e **/*
-  " File Find Admin
   nnoremap <silent> <space>ffad :e app/admin/**/*
-  " File Find Assets
+  nnoremap <silent> <space>ffap :e app/api/**/*
   nnoremap <silent> <space>ffas :e app/assets/**/*
-  " File Find Chanells
   nnoremap <silent> <space>ffch :e app/channels/**/*
-  " File Find COnotroller
   nnoremap <silent> <space>ffco :e app/controllers/**/*
-  " File Find Helpers
   nnoremap <silent> <space>ffhe :e app/helpers/**/*
-  " File Find Javascriopt
   nnoremap <silent> <space>ffja :e app/javascript/**/*
-  " File Find JOb
   nnoremap <silent> <space>ffjo :e app/jobs/**/*
-  " File Find MAilers
   nnoremap <silent> <space>ffma :e app/mailers/**/*
-  " File Find MOdel
   nnoremap <silent> <space>ffmo :e app/models/**/*
-  " File Find VIews
   nnoremap <silent> <space>ffvi :e app/views/**/*
-  " File Find LIb
   nnoremap <silent> <space>ffli :e lib/**/*
-  " File Find Factories
   nnoremap <silent> <space>fffa :e test/factories/**/*
-  " File Find RSpec
   nnoremap <silent> <space>ffrs :e spec/**/*
-  " File Find TEst
   nnoremap <silent> <space>ffte :e test/**/*
-  " File Find TeMplates
   nnoremap <silent> <space>fftm :e templates/**/*
-  " react native stuff
   nnoremap <silent> <space>ffcm :e app/components/**/*
   nnoremap <silent> <space>ffho :e app/hooks/**/*
   nnoremap <silent> <space>ffsc :e app/screens/**/*
