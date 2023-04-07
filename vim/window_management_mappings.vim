@@ -20,14 +20,15 @@ function GoToNextWindow(direction)
   execute "normal! " . target_window . "\<C-w>\<C-w>"
 endfunction
 
-" Window Split current window
+" Window Split window go down
 nnoremap <silent> <space>ws :sp<return>:call GoToNextWindow(1)<return>:set wrap<return><C-W>=
-" Window Split from entire screen
-nnoremap <silent> <space>wS :botright split<return>:set wrap<return><C-W>=
-" Window split Vertically
+" Window Split stay up
+nnoremap <silent> <space>ws :sp<return>:call GoToNextWindow(1)<return>:set wrap<return><C-W>=
+" Window split Vertically go right
 nnoremap <silent> <space>wv :call WindowSplitVerdically()<return>
-" Window split Vertically from entire screen
-nnoremap <silent> <space>wV :vertical botright split<return>:set wrap<return><C-W>=
+" Window split Vertically stay left
+nnoremap <silent> <space>wV :call WindowSplitVerdically()<return><C-w>W
+
 " Window equalize sizes
 nnoremap <silent> <space>we <C-W>=
 " window move

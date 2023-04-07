@@ -390,6 +390,32 @@ function! ClearBuffer()
   endif
 endfunction
 
+function! GoToNextTer(direction)
+  if a:direction == 1
+    let adj = 1
+  else
+    let adj = -1
+  end
+  let continue = 1
+  while continue 
+    let nbuf = NextBuf(adj)
+    " exit if the next buf is the current buf (otherwise endless loop)
+    if nbuf == bufnr()
+      let continue = 0
+    endif
+    if getbufvar(nbuf, '&buftype') != 'terminal'
+      if a:direction == 1
+        let adj = adj + 1
+      else
+        let adj = adj - 1
+      endif
+    else
+      let continue = 0
+    endif
+  endwhile
+  exec ':buf' nbuf 
+endfunction
+
 function! GoToNextBuf(direction)
   if a:direction == 1
     let adj = 1
@@ -399,6 +425,7 @@ function! GoToNextBuf(direction)
   let continue = 1
   while continue 
     let nbuf = NextBuf(adj)
+    " exit if the next buf is the current buf (otherwise endless loop)
     if nbuf == bufnr()
       let continue = 0
     endif

@@ -109,6 +109,7 @@
 
 " File Find
   nnoremap <silent> <space>ffff :e **/*
+  nnoremap <silent> <space>ffac :e app/config/**/*
   nnoremap <silent> <space>ffad :e app/admin/**/*
   nnoremap <silent> <space>ffap :e app/api/**/*
   nnoremap <silent> <space>ffas :e app/assets/**/*
@@ -149,7 +150,7 @@
       endif
     endfunction
     " File Edit PArtial
-    nnoremap <silent> <space>fepa :call FileCreatePartial()<return>
+    nnoremap <silent> <space>fepr :call FileCreatePartial()<return>
     function! FileCreatePartial()
       let directory = expand('%:h')
       let new_file = input("Create new partial (prefix of \"_\" and extention of \".html.erb\" will be added automatically): ")
@@ -163,14 +164,12 @@
       function FileEditChildrenFiles()
         let directory = expand('%:r')
         if isdirectory(directory)
-          call WindowSplitVerdically()
           execute ':Explore' directory
         else
           let new_file = input("There are no children files yet. Create the first one!: " . directory . "/")
           if new_file == ''
             execute "normal! :echo"
           else
-            call WindowSplitVerdically()
             execute ":e " . directory . "/" . new_file
           endif
         endif
@@ -184,16 +183,14 @@
         execute ':e' file
       endfunction
       " File Edit ASets
-      nnoremap <silent> <space>feas :call WindowSplitVerdically()<return>:Explore .git/../app/assets<return>
-      nnoremap <silent> <space>feaS :Explore .git/../app/assets<return>
+      nnoremap <silent> <space>feas :Explore .git/../app/assets<return>
+      nnoremap <silent> <space>feaS :call WindowSplitVerdically()<return>:Explore .git/../app/assets<return>
       " File Edit FIxtures
-      nnoremap <silent> <space>fefi :call WindowSplitVerdically()<return>:Explore .git/../test/fixtures<return>
-      nnoremap <silent> <space>fefI :Explore .git/../test/fixtures<return>
+      nnoremap <silent> <space>fefi :Explore .git/../test/fixtures<return>
+      nnoremap <silent> <space>fefI :call WindowSplitVerdically()<return>:Explore .git/../test/fixtures<return>
       " File Edit FActory
-      nnoremap <silent> <space>fefa :call WindowSplitVerdically()<return>:e spec/factories.rb<return>
-      nnoremap <silent> <space>fefA :e spec/factories.rb<return>
-      nnoremap <silent> <space>fefa :call FileEditFactories(1)<return>
-      nnoremap <silent> <space>fefA :call FileEditFactories(0)<return>
+      nnoremap <silent> <space>fefa :call FileEditFactories(0)<return>
+      nnoremap <silent> <space>fefA :call FileEditFactories(1)<return>
       function FileEditFactories(split_window)
         if a:split_window == 1
           call WindowSplitVerdically()
@@ -212,28 +209,25 @@
         endif
       endfunction
       " File Edit Db Schema
-      nnoremap <silent> <space>feds :call WindowSplitVerdically()<return>:e db/schema.rb<return>
-      nnoremap <silent> <space>fedS :e db/schema.rb<return>
+      nnoremap <silent> <space>feds :e db/schema.rb<return>
+      nnoremap <silent> <space>fedS :call WindowSplitVerdically()<return>:e db/schema.rb<return>
       " File Edit ROutes
-      nnoremap <silent> <space>fero :call WindowSplitVerdically()<return>:e config/routes.rb<return>
-      nnoremap <silent> <space>ferO :e config/routes.rb<return>
+      nnoremap <silent> <space>fero :e config/routes.rb<return>
+      nnoremap <silent> <space>ferO :call WindowSplitVerdically()<return>:e config/routes.rb<return>
       " File Edit ABility
-      nnoremap <silent> <space>feab :call WindowSplitVerdically()<return>:e app/models/ability.rb<return>
-      nnoremap <silent> <space>feaB :e app/models/ability.rb<return>
+      nnoremap <silent> <space>feab :e app/models/ability.rb<return>
+      nnoremap <silent> <space>feaB :call WindowSplitVerdically()<return>:e app/models/ability.rb<return>
       " File Edit GEmfile
-      nnoremap <silent> <space>fege :call WindowSplitVerdically()<return>:e Gemfile<return>
-      nnoremap <silent> <space>fegE :e Gemfile<return>
+      nnoremap <silent> <space>fege :e Gemfile<return>
+      nnoremap <silent> <space>fegE :call WindowSplitVerdically()<return>:e Gemfile<return>
       " File Edit REadme
-      nnoremap <silent> <space>fere :call WindowSplitVerdically()<return>:e README.md<return>
-      nnoremap <silent> <space>ferE :e README.md<return>
+      nnoremap <silent> <space>fere :e README.md<return>
+      nnoremap <silent> <space>ferE :call WindowSplitVerdically()<return>:e README.md<return>
     " react Native
-      " File Edit Config COlors
-      nnoremap <silent> <space>fecc :call WindowSplitVerdically()<return>:e app/config/colors.js<return>
-      nnoremap <silent> <space>fesW :Explore ~/.local/share/nvim/swap/<return>
     " Vim
       " File Edit Swap Files (for deleting swap files
-      nnoremap <silent> <space>fesw :call WindowSplitVerdically()<return>:Explore ~/.local/share/nvim/swap/<return>
-      nnoremap <silent> <space>fesW :Explore ~/.local/share/nvim/swap/<return>
+      nnoremap <silent> <space>fesw :Explore ~/.local/share/nvim/swap/<return>
+      nnoremap <silent> <space>fesW :call WindowSplitVerdically()<return>:Explore ~/.local/share/nvim/swap/<return>
 
   " Edit specific files dynamically
     " File Edit STyles
@@ -279,40 +273,76 @@
         if file == current_file
           echo 'Already on styles file'
         else
-          call WindowSplitVerdically()
           execute ':e' file
         endif
       " app is rails
       else
         if isdirectory(directory)
-          call WindowSplitVerdically()
           execute ':Explore' directory
         else
           let new_file = input("There are no style files yet. Create the first one!: " . directory . "/")
           if new_file == ''
             execute "normal! :echo"
           else
-            call WindowSplitVerdically()
             execute ":e " . directory . "/" . new_file
           endif
         endif
       endif
     endfunction
 
-    " File Edit Parent Controller
-    nnoremap <silent> <space>fepc :call FileEditParentController()<return>
-    function! FileEditParentController()
-      let file = expand('%')
-      let split = split(file, '/')
-      call remove(split, -1)
-      let file = join(split, '/') . '_controller.rb'
-      execute ':e ' . file
+    " File Edit Children Controllers
+    nnoremap <silent> <space>fecc :call FileEditChildController(0)<return>
+    nnoremap <silent> <space>fecC :call FileEditChildController(1)<return>
+    function FileEditChildController(split_window)
+      let current_file = expand('%')
+      " remove 12 characters for _controller so that ex. jobs_controller
+      " becomes jobs
+      let directory_of_children = split(current_file, '\.')[0][0:-12]
+      if isdirectory(directory_of_children)
+        if a:split_window == 1
+          call WindowSplitVerdically()
+        endif
+        execute ':Explore' directory_of_children
+      else
+        let new_file = input("There are no child controller files yet. Create the first one!: " . directory_of_children . "/")
+        if new_file == ''
+          if a:split_window == 1
+            call WindowSplitVerdically()
+          endif
+          execute "normal! :echo"
+        else
+          if a:split_window == 1
+            call WindowSplitVerdically()
+          endif
+          execute ":e " . directory_of_children . "/" . new_file
+        endif
+      endif
+    endfunction
+
+    " File Edit Parent Controllers
+    nnoremap <silent> <space>fepc :call FileEditParentController(0)<return>
+    nnoremap <silent> <space>fepC :call FileEditParentController(1)<return>
+    function FileEditParentController(split_window)
+      let current_file = expand('%')
+      let parent = join(split(current_file, '/')[0:-2], '/') . '_controller.rb'
+      if filereadable(parent)
+        if a:split_window == 1
+          call WindowSplitVerdically()
+        endif
+        execute ':e' parent
+      else
+        let grandparent = join(split(parent, '/')[0:-2], '/')
+        if a:split_window == 1
+          call WindowSplitVerdically()
+        endif
+        execute ':Explore ' grandparent
+      endif
     endfunction
 
     " File Edit COntroller
-    " NOTE: thi is used for rails controllers AND react native components
-    nnoremap <silent> <space>feco :call FileEditController(1)<return>
-    nnoremap <silent> <space>fecO :call FileEditController(0)<return>
+    " NOTE: thi is used for rails controllers
+    nnoremap <silent> <space>feco :call FileEditController(0)<return>
+    nnoremap <silent> <space>fecO :call FileEditController(1)<return>
     function FileEditController(split_window)
       if a:split_window == 1
         call WindowSplitVerdically()
@@ -371,7 +401,6 @@
         if file == current_file
           echo 'Already on component file'
         else
-          call WindowSplitVerdically()
           execute ':e' file
         endif
       endif
@@ -452,40 +481,61 @@
     endfunction
 
     " File Edit Children
-    nnoremap <silent> <space>fech :call FileEditChild()<return>
-    function FileEditChild()
+    nnoremap <silent> <space>fech :call FileEditChild(0)<return>
+    nnoremap <silent> <space>fecH :call FileEditChild(1)<return>
+    function FileEditChild(split_window)
       let current_file = expand('%')
       let directory_of_children = split(current_file, '\.')[0]
       if isdirectory(directory_of_children)
-        call WindowSplitVerdically()
+        if a:split_window == 1
+          call WindowSplitVerdically()
+        endif
         execute ':Explore' directory_of_children
       else
         let new_file = input("There are no child files yet. Create the first one!: " . directory_of_children . "/")
         if new_file == ''
+          if a:split_window == 1
+            call WindowSplitVerdically()
+          endif
           execute "normal! :echo"
         else
-          call WindowSplitVerdically()
+          if a:split_window == 1
+            call WindowSplitVerdically()
+          endif
           execute ":e " . directory_of_children . "/" . new_file
         endif
       endif
     endfunction
 
     " File Edit Parent
-    nnoremap <silent> <space>fepa :call FileEditParent()<return>
-    function FileEditParent()
+    nnoremap <silent> <space>fepa :call FileEditParent(0)<return>
+    nnoremap <silent> <space>fepA :call FileEditParent(1)<return>
+    function FileEditParent(split_window)
       let current_file = expand('%')
       let parent = join(split(current_file, '/')[0:-2], '/')
       if filereadable(parent . '.rb')
-        call WindowSplitVerdically()
+        if a:split_window == 1
+          call WindowSplitVerdically()
+        endif
         execute ':e' parent . '.rb'
       elseif filereadable(parent . '.js')
-        call WindowSplitVerdically()
+        if a:split_window == 1
+          call WindowSplitVerdically()
+        endif
         execute ':e' parent . '.js'
       else
         let grandparent = join(split(parent, '/')[0:-2], '/')
+        if a:split_window == 1
+          call WindowSplitVerdically()
+        endif
         execute ':Explore ' grandparent
       endif
     endfunction
+    " File Edit Test Helper
+    nnoremap <silent> <space>fedm :Explore db/migrate<return>
+
+    " File Edit Test Helper
+    nnoremap <silent> <space>feth :Explore test/test_helper<return>
 
     " File Edit MOdel
     nnoremap <silent> <space>femo :call FileEditModel()<return>
@@ -531,7 +581,6 @@
       elseif file == current_file
         echo 'Already on script file'
       else
-        call WindowSplitVerdically()
         execute ':e' file
       endif
     endfunction
@@ -580,20 +629,17 @@
         if file == current_file
           echo 'Already on view file'
         else
-          call WindowSplitVerdically()
           execute ':e' file
         endif
       " app is rails
       else
         if isdirectory(directory)
-          call WindowSplitVerdically()
           execute ':Explore' directory
         else
           let new_file = input("There are no view files yet. Create the first one!: " . directory . "/")
           if new_file == ''
             execute "normal! :echo"
           else
-            call WindowSplitVerdically()
             execute ":e " . directory . "/" . new_file
           endif
         endif
@@ -632,8 +678,8 @@
     endfunction
 
     " File Edit SPec
-    nnoremap <silent> <space>fesp :call FileEditSpec(1)<return>
-    nnoremap <silent> <space>fesP :call FileEditSpec(0)<return>
+    nnoremap <silent> <space>fesp :call FileEditSpec(0)<return>
+    nnoremap <silent> <space>fesP :call FileEditSpec(1)<return>
     function FileEditSpec(split_window)
       if a:split_window == 1
         call WindowSplitVerdically()
@@ -655,8 +701,8 @@
     endfunction
 
     " File Edit TEst
-    nnoremap <silent> <space>fete :call FileEditTest(1)<return>
-    nnoremap <silent> <space>fetE :call FileEditTest(0)<return>
+    nnoremap <silent> <space>fete :call FileEditTest(0)<return>
+    nnoremap <silent> <space>fetE :call FileEditTest(1)<return>
     function FileEditTest(split_window)
       if a:split_window == 1
         call WindowSplitVerdically()
