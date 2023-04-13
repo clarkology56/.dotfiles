@@ -5,7 +5,7 @@ nnoremap <silent> <space>Q :wa!<return>:only<return>:q<return>
 nnoremap <silent> <space>; :
 " visual mode
 nnoremap <silent> <space>v <C-v>
-" comment
+" comment in normal mode (in visual mode you just press # or /)
 nnoremap <silent> <space># I# <esc>
 vnoremap <silent> <space># I# <esc>
 nnoremap <silent> <space>/ I// <esc>

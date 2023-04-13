@@ -16,6 +16,18 @@ augroup CustomVimEntry
   autocmd VimEnter * execute "normal! :Explore\<return>"
 augroup END
 
+" Create directories before saving files in directories that do not exist
+" Ex.:
+" :e some_new_dir/some_file.txt
+" :w
+" before saving, a new directory 'some_new_dir' will be created so that
+" 'some_file.txt' can be saved 
+" works for multiple dirs at same time too. Ex:
+" :e some new_dir/some_sub_dir/another/some_file.txt
+augroup Mkdir
+  autocmd!
+  autocmd BufWritePre * call mkdir(expand("<afile>:p:h"), "p")
+augroup END
 
 " Caps lock in insert mode (press ctrl - ^ to toggle)
 " Execute 'lnoremap x X' and 'lnoremap X x' for each letter a-z.

@@ -35,6 +35,7 @@ nnoremap <silent> <space>GT :wa<return>:call ToggleTerminalInWindow()<return>q<C
 
 " Git push Up
 nnoremap <silent> <space>gu :wa<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c>git push -u<return><C-\><C-n>
+
 " Git Push (saves, adds, commits with WIP, and pushes)
 nnoremap <silent> <space>gp :wa<return>:call GitPush()<return>
 function! GitPush()

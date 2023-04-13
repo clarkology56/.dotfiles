@@ -5,6 +5,9 @@
   " make insert work in visual mode
   vnoremap <silent> i <esc>i
   vnoremap <silent> a <esc>a
+  "comments
+  vnoremap <silent> # I# <esc>
+  vnoremap <silent> / I// <esc>
 
 
 " single key non-comma
