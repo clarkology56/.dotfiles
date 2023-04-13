@@ -2,10 +2,39 @@
   " prevent changing case on accident
   vnoremap <silent> u <esc>u
   vnoremap <silent> U <esc>U
+  " allow changing case
+  vnoremap <silent> ,u u
+  vnoremap <silent> ,U U
+  " comment
+  vnoremap <silent> # I#<esc>
+  vnoremap <silent> " I"<esc>
+  vnoremap <silent> / I//<esc>
   " make insert work in visual mode
   vnoremap <silent> i <esc>i
   vnoremap <silent> a <esc>a
 
+" insert mode non-leader key mappings
+  " autofill
+  inoremap <silent> <C-space> <C-n>
+  " prevent return from autocomplete (very annoying because to return you have
+  " to hit space then return. Now, tab does autocomplete and return does
+  " return
+  inoremap <silent> <return> <space><backspace><return>
+  
+  " bar options
+  inoremap <silent> <bar><bar><bar> <bar><bar><left>
+  inoremap <silent> <bar><bar><space> <bar><bar><space>
+  inoremap <silent> <bar><bar>= <bar><bar>=
+  " ruby interpolation
+  inoremap <silent> ## #{}<left>
+  " erb
+  inoremap <silent> <<< <%  %><left><left><left>
+  " erb entered
+  inoremap <silent> >>> <%=  %><left><left><left>
+  " erb comment
+  inoremap <silent> <<> <%#  %><left><left><left>
+  " J Query Select
+  inoremap <silent> $$ ${}<left>
 
 " single key non-comma
   " make > & < in normal mode the same as visual mode
@@ -18,7 +47,7 @@
   " spacevim)
   vnoremap v iw
   " select entire page
-  vnoremap aa <esc>ggVG
+  vnoremap ae <esc>ggVG
   " copy entire page
   vnoremap ay <esc>ggVGy
   " paste over entire page
@@ -47,6 +76,21 @@
   " o and O but remain in normal mode
   nnoremap <silent> b o <backspace><esc>
   nnoremap <silent> B O <backspace><esc>
+  " create empty line and then another line but in normal mode
+  nnoremap <silent> gb o<esc>o<space><backspace><esc>
+  nnoremap <silent> gB O<esc>O<space><backspace><esc>
+  " previously o and O were re-mapped and then several recursive mappigns
+  " used this new mapping. But that became almost impossible to track
+  " (because /o<return> is not helpful) so ,,o and ,,O were used
+  " instead because they are easier to find. They replicate 
+  " the original functionaligy of the remapped o and O and are easioer to
+  " search. However, each instance of ,,o and ,,O in any mapping file should probably
+  " be replaced with $a<return><space><backspace><esc>
+  " original remapping of o and O (jsut for reference): 
+  "nnoremap <silent> o o <backspace><esc>
+  "nnoremap <silent> O O <backspace><esc>
+  nnoremap <silent> ,,o o <backspace><esc>
+  nnoremap <silent> ,,O O <backspace><esc>
   " remap r to s (r is used by new dpad)
   nnoremap <silent> s r
   vnoremap <silent> s r
@@ -116,3 +160,50 @@
 
   " remove highlights
   nnoremap <silent> hn :noh<return>
+  
+  
+  
+  
+  
+  " The below was removed in favor of jiangmiao/auto-pairs... but keeping in
+  " case I want to bring back later
+  "" ruby curley brace entered
+  "inoremap <silent> {<return> {<return><space><backspace><return>}<up><tab>
+  "" opening and closing
+  "inoremap <silent> ' '<esc>:call SingleQuotation()<return>a
+  "function SingleQuotation()
+  "  if ("'" == matchstr(getline('.'), '\%' . (col('.') + 1) . 'c.'))
+  "    execute "normal! a\<delete>"
+  "  else
+  "    execute "normal! i'"
+  "  endif
+  "endfunction
+  "inoremap <silent> " "<esc>:call DoubleQuotation()<return>a
+  "function DoubleQuotation()
+  "  if ('"' == matchstr(getline('.'), '\%' . (col('.') + 1) . 'c.'))
+  "    execute "normal! a\<delete>"
+  "  else
+  "    execute "normal! i\""
+  "  endif
+  "endfunction
+  "inoremap <silent> ( ()<esc>i
+  "inoremap <silent> ) )<esc>:call CloseParenthesis()<return>a
+  "function CloseParenthesis()
+  "  if (')' == matchstr(getline('.'), '\%' . (col('.') + 1) . 'c.'))
+  "    execute "normal! a\<delete>"
+  "  endif
+  "endfunction
+  "inoremap <silent> [ []<esc>i
+  "inoremap <silent> ] ]<esc>:call CloseBracket()<return>a
+  "function CloseBracket()
+  "  if ("]" == matchstr(getline('.'), '\%' . (col('.') + 1) . 'c.'))
+  "    execute "normal! a\<delete>"
+  "  endif
+  "endfunction
+  "inoremap <silent> { {}<esc>i
+  "inoremap <silent> } }<esc>:call CloseBrace()<return>a
+  "function CloseBrace()
+  "  if ("}" == matchstr(getline('.'), '\%' . (col('.') + 1) . 'c.'))
+  "    execute "normal! a\<delete>"
+  "  endif
+  "endfunction

@@ -68,3 +68,8 @@ call plug#end()
 	set shiftwidth=0 " makes shift width same as tabstop
   " remove timeout for mappings so you are not in a rush
   set notimeout
+  
+" Old / keeping in case I need to bring back someday
+  " remove neo make because I am using ale for rubocop now:
+    " run neomake at save (which calls rubocop because neomake supports rubocop)
+    " call neomake#configure#automake('w')

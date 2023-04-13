@@ -264,10 +264,13 @@
   "" Html Show Group 1
   "nnoremap <silent> ,hsg1 a<div class="form-group col-12"><return><%#<delete> DeleteThis: insert label tag if top label (,hflt) %><return><esc>,hssc$a<return></div><esc>/DeleteThis\\|ChangeDisplay<return>
   "" Html Show Group 2
+  " NOTE: ,,o doesn't work anymore!
   "nnoremap <silent> ,hsg2 a<div class="form-group col-12 col-sm-6"><return><%#<delete> DeleteThis: insert label tag if top label (,hflt) %><esc>,,o,hssc$a<return></div><esc>/DeleteThis\\|ChangeDisplay<return><up>V3<down>yP
   "" Html Show Group 3
+  " NOTE: ,,o doesn't work anymore!
   "nnoremap <silent> ,hsg3 a<div class="form-group col-12 col-sm-4"><return><%#<delete> DeleteThis: insert label tag if top label (,hflt) %><esc>,,o,hssc$a<return></div><esc>/DeleteThis\\|ChangeDisplay<return><up>V3<down>yPP
   "" Html Show Group 4
+  " NOTE: ,,o doesn't work anymore!
   "nnoremap <silent> ,hsg4 a<div class="form-group col-12 col-sm-6 col-md-3"><return><%#<delete> DeleteThis: insert label tag if top label (,hflt) %><esc>,,o,hssc$a<return></div><esc>/DeleteThis\\|ChangeDisplay<return><up>V3<down>yPPP
   "" Html Show Simple Container
   "nnoremap <silent> ,hssc a<div class="sse">ChangeDisplay</div><esc>/ChangeDisplay<return>
