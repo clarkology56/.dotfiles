@@ -46,13 +46,13 @@ so ~/.dotfiles/vim/ruby_mappings.vim
 "so ~/.dotfiles/vim/html_ui_mappings.vim
 "so ~/.dotfiles/vim/html_ruby_mappings.vim
 "so ~/.dotfiles/vim/config_mappings.vim
-"so ~/.dotfiles/vim/db_mappings.vim
+so ~/.dotfiles/vim/db_mappings.vim
 "so ~/.dotfiles/vim/lib_mappings.vim
 "so ~/.dotfiles/vim/spec_mappings.vim
 "so ~/.dotfiles/vim/spec_model_mappings.vim
 so ~/.dotfiles/vim/test_mappings.vim
-"so ~/.dotfiles/vim/test_controller_mappings.vim
-"so ~/.dotfiles/vim/test_model_mappings.vim
+so ~/.dotfiles/vim/test_controller_mappings.vim
+so ~/.dotfiles/vim/test_model_mappings.vim
 "
 "" Rails specific misc process / 'comma' mappings
 "so ~/.dotfiles/vim/misc_process_mappings.vim

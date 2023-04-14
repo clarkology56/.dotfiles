@@ -8,7 +8,6 @@ nnoremap <silent> ,rbmo :call CreateBaseFile(0, 0, 0)<return>
 nnoremap <silent> ,rbco :call CreateBaseFile(0, 0, 1)<return>/inner_followup<return>cgnextend ActiveSupport::Concern<esc>
 
 
-
 "" Ruby Basic Code Challenge
 "nnoremap <silent> ,rbcc a# frozen_string_literal: true<return><backspace><backspace><return>Dir['./app/**/*.rb'].each do \|file\|<return>require file<return>end<esc>
 "" Ruby Basic IF

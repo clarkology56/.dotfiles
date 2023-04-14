@@ -119,7 +119,7 @@ function! CreateBaseFile(class_or_module, include_outer_followup, include_inner_
     let count = count + 1
   endwhile
 
-  execute "normal! ggi# frozen_string_literal: true\<return>\<backspace>\<backspace>"
+  execute "normal! ggi# frozen_string_literal: true\<esc>\<down>O"
 
   if a:include_outer_followup == 1
     normal! oouter_followup

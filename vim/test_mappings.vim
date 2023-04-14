@@ -4,7 +4,12 @@ nnoremap <silent> ,tMba :call CreateBaseFile(1, 1, 1)<return>/outer_followup<ret
 " Tests Mailer Test Base
 nnoremap <silent> ,tMtb :call IndentTemplate('', 'test/mailers/test_base.rb')<return>/ChangeMethod\\|ChangeThisMailer\\|DeleteThis\\|ChangeSubject\\|ChangeMailTo\\|ChangeMailFrom\\|ChangeSomeContent<return>
 
-"" Miscellaneous Messages Test
+
+" Tests Assert
+" Tests Assert Enqueued Emails
+nnoremap <silent> ,taee aassert_equal ChangeCount, enqueued_emails('ChangeMailerAndEmail').size<esc>/ChangeCount\\|ChangeMailerAndEmail<return>
+  
+" Miscellaneous Messages Test
 """ Test Run
 ""  " File Test Current File in terminal
 ""  nnoremap <silent> ,trcf :call FileTestCurrentFile(1)<return>:call ToggleTerminalInWindow()<return>q<return><C-c><C-\><C-n>pa<return>
@@ -31,8 +36,6 @@ nnoremap <silent> ,tMtb :call IndentTemplate('', 'test/mailers/test_base.rb')<re
 "  endfunction
 "
 "" Tests Assert
-"  " Tests Assert Enqueued Emails
-"  nnoremap <silent> ,taee aassert_equal ChangeCount, enqueued_emails('ChangeMailerAndEmail').size<esc>/ChangeCount\\|ChangeMailerAndEmail<return>
 "  " Tests Assert No enqueued Emails
 "  nnoremap <silent> ,tane aassert_no_enqueued_emails<esc>
 "  nnoremap <silent> ,tanE aassert_empty enqueued_emails('ChangeMailerAndEmail')<esc>/ChangeMailerAndEmail<return>
