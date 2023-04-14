@@ -1,5 +1,4 @@
-# functinos for the file edit mappitns
-
+" functinos for the file edit mappitns
 function FileEditClipBoad()
   let split = split(@+, ':')
   let file = split[0]

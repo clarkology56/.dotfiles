@@ -79,13 +79,13 @@ function! TestIncludedNotIncluded()
   execute "normal! aincluded = [ChangeTable(:ChangeFixture).id]\<return>included << ChangeTable(:ChangeFixture).id\<return>assert_equal included.sort, (result & included).sort\<return>not_included = [ChangeTable(:ChangeFixture).id]\<return>not_included << ChangeTable(:ChangeFixture).id\<return>assert_empty not_included & result"
 endfunction
 
-function! CreateBaseFile(class_or_module, include_outer_followup, include_inner_followup, skip_levels)
+function! CreateBaseFile(class_or_module, include_outer_followup, include_inner_followup)
   let current_file = expand('%:r')
   " default to skip 2 levels. Ex. we exclude app/controllers, lib/whatever,
   " test/models, etc. All class names in rails skip the first 2 levels for the
   " most part (or at least they should)
   "let l:skip_levels = get(a:args, 3, 2)
-  let l:skip_levels = get(a:args, 3, 2)
+  let l:skip_levels = 2
 
   let splits = split(current_file, '/')
   let length = len(splits)
@@ -119,7 +119,7 @@ function! CreateBaseFile(class_or_module, include_outer_followup, include_inner_
     let count = count + 1
   endwhile
 
-  execute "normal! ggi# frozen_string_literal: true\<return>\<return>\<backspace>\<backspace>"
+  execute "normal! ggi# frozen_string_literal: true\<return>\<backspace>\<backspace>"
 
   if a:include_outer_followup == 1
     normal! oouter_followup
@@ -143,7 +143,7 @@ function! CreateBaseFile(class_or_module, include_outer_followup, include_inner_
 endfunction
 
 
-function! IndentTemplate2(start, template_path)
+function! IndentTemplate(start, template_path)
   " set indentations
   " if there is a starting point set indentations based on starting point
   if a:start != ''
@@ -170,51 +170,6 @@ function! IndentTemplate2(start, template_path)
   " which leaves an empy line at the beginning we need to delete (or leaves
   " start text which we also want to delete)
   normal! `tdd`bdd
-endfunction
-
-
-function! IndentTemplate(start, delete_start, indentations, template)
-  " indent by indendations argument. If 0, indent based on current
-  " cursor position
-  if a:indentations == 0
-    " go to starting point if there is one.
-    if a:start != ''
-      let @/ = a:start
-      normal! n
-      " when there is a starting point, the cursor is actually 1 column too
-      " far compared to when on an empty line so subtract 1
-      let indentations = (col('.') - 1) /  2
-    else
-      let indentations = col('.') /  2
-    endif 
-  else
-    let indentations = a:indentations
-  endif
-  "before reading template, we go <up> one line. This breaks if we are on the
-  "first line, so add a line in that situation
-  if line('.') == 1
-    normal! o
-  endif
-  " search for start / cursor position is reset after each execute command, so if there is a
-  " start, it must be searched again and it must be search again and all in
-  " one inline command
-  if a:start == ''
-    if indentations == 0
-      execute "normal! \<up>:read " . a:template . " \<return>"
-    else
-      execute "normal! mt\<up>:read " . a:template . " \<return>0v`t" . indentations . ">"
-    endif
-  else
-    if indentations == 0
-      execute "normal! /" . a:start . "\<return>\<up>:read " . a:template . " \<return>"
-    else
-      execute "normal! /" . a:start . "\<return>mt\<up>:read " . a:template . " \<return>0v`t" . indentations . ">"
-    endif
-    if a:delete_start == 1
-      execute "normal! /" . a:start . "\<return>dd"
-    endif
-  endif
-  normal! gg
 endfunction
 
 function! ToggleTerminalInWindow()
@@ -440,4 +395,9 @@ function WindowSplitVerdically()
   call GoToNextWindow(1)
   set wrap
   execute "normal! \<C-W>="
+endfunction
+
+
+function! TestDisclaimer()
+  exe "normal! /test disclaimer\<return>cgn\<esc>a# DeleteThis - do not test things that can easily change (ie text in source code)\<return>DeleteThis - do not test things so that if one thing is changed in source code many tests will break"
 endfunction

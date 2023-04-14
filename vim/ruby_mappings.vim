@@ -1,14 +1,14 @@
 " Ruby Basic Frozen String
 nnoremap <silent> ,rbfs a# frozen_string_literal: true
+" Ruby Basic CLass
+nnoremap <silent> ,rbcl :call CreateBaseFile(1, 0, 0)<return>
+" Ruby Basic MOdule
+nnoremap <silent> ,rbmo :call CreateBaseFile(0, 0, 0)<return>
+" Ruby Basic Concern
+nnoremap <silent> ,rbco :call CreateBaseFile(0, 0, 1)<return>/inner_followup<return>cgnextend ActiveSupport::Concern<esc>
 
 
 
-"" Ruby Basic CLass
-"nnoremap <silent> ,rbcl :call CreateBaseFile(1, 0, 0)<return>
-"" Ruby Basic MOdule
-"nnoremap <silent> ,rbmo :call CreateBaseFile(0, 0, 0)<return>
-"" Ruby Basic Concern
-"nnoremap <silent> ,rbco :call CreateBaseFile(0, 0, 1)<return>/inner_followup<return>cgnextend ActiveSupport::Concern<esc>
 "" Ruby Basic Code Challenge
 "nnoremap <silent> ,rbcc a# frozen_string_literal: true<return><backspace><backspace><return>Dir['./app/**/*.rb'].each do \|file\|<return>require file<return>end<esc>
 "" Ruby Basic IF

@@ -1,16 +1,10 @@
-" 
+" Mailers
 " Tests Mailer BAse
-nnoremap <silent> ,tMba :call CreateBaseFile(1, 1, 1)<return>
-"/outer_followup<return>cgnrequire 'test_helper'<esc>o<esc>/class<return>A < ActionMailer::TestCase<esc>/ChangeTopLevelDocumentation<return><down>^wviwy/ChangeTopLevelDocumentation<return>viwpbiTest for <esc>0/Test<return>ncgn<esc>
-"nnoremap <silent> ,tMba :call ReadTemplate('tests/mailer_base.rb')<return>ggdd/ChangePathAndFileName<return>:call FileCopyCurrentFile()<return>viwp/test disclaimer<return>cgn<esc>:call TestDisclaimer()<return>/DeleteThis\\|add mailer test<return>dd<up>,tatb/ChangeThisPls\\|ChangeThis\\|ChangeObject\\|change_model_name\\|ChangeFixture\\|ChangeEmail\\|ChangeThis\\|DeleteThis\\|ChangeSubject\\|ChangeMailTo\\|ChangeMailFrom\\|ChangeSomeContent<return>
-
-
+nnoremap <silent> ,tMba :call CreateBaseFile(1, 1, 1)<return>/outer_followup<return>cgnrequire 'test_helper'<esc>o<esc>/class<return>A < ActionMailer::TestCase<esc>/ChangeTopLevelDocumentation<return><down>^wviwy/ChangeTopLevelDocumentation<return>viwpbiTest for <esc>0/Test<return>ncgn<esc>:call IndentTemplate('inner_followup', 'test/mailers/base.rb')<return>:call TestDisclaimer()<return>/DeleteThis<return>
+" Tests Mailer Test Base
+nnoremap <silent> ,tMtb :call IndentTemplate('', 'test/mailers/test_base.rb')<return>/ChangeMethod\\|ChangeThisMailer\\|DeleteThis\\|ChangeSubject\\|ChangeMailTo\\|ChangeMailFrom\\|ChangeSomeContent<return>
 
 "" Miscellaneous Messages Test
-"function! TestDisclaimer()
-"  exe "normal! a# DeleteThis - do not test things that can easily change (ie text in source code)\<return>DeleteThis - do not test things so that if one thing is changed in source code many tests will break"
-"endfunction
-"
 """ Test Run
 ""  " File Test Current File in terminal
 ""  nnoremap <silent> ,trcf :call FileTestCurrentFile(1)<return>:call ToggleTerminalInWindow()<return>q<return><C-c><C-\><C-n>pa<return>
@@ -67,13 +61,6 @@ nnoremap <silent> ,tMba :call CreateBaseFile(1, 1, 1)<return>
 "  nnoremap <silent> ,tjba :read ../templates/tests/job_base.rb<return>ggdd/ChangePathAndFileName<return>:call FileCopyCurrentFile()<return>viwp/test disclaimer<return>cgn<esc>:call TestDisclaimer()<return>/DeleteThis\\|ChangeThisPls\\|ChangeObject\\|ChangeTableName\\|ChangeFixtureName<return>
 "  nnoremap <silent> ,tjtb :read ../templates/tests/job_test_base.rb<return>/ChangeDescription\\|ChangeJobName\\|DeleteThis\\|ChangeJob\\|ChangeArgs\\|ChangeObject<return>
 "
-"" Mailers
-"  
-"  nnoremap <silent> ,tMba :call CreateBaseFile(1, 1, 1)<return>/outer_followup<return>cgnrequire 'test_helper'<esc>o<esc>/class<return>A < ActionMailer::TestCase<esc>:call IndentTemplate2('inner_followup', 'tests/mailer_base.rb')<return>/ChangeTopLevelDocumentation<return><down>^wviwy/ChangeTopLevelDocumentation<return>viwpbiTest for <esc>0/Test<return>ncgn model<esc>gg/test disclaimer<return>cgn<esc>:call TestDisclaimer()<return>/DeleteThis\\|ChangeThisPls\\|ChangePermission\\|ChangeUserWithPermission\\|change_model_name\\|ChangeModel<return>
-"  
-"  
-"  " Tests Mailer Test Base
-"  nnoremap <silent> ,tMtb :read ../templates/tests/mailer_test_base.rb<return>/ChangeEmail\\|ChangeThis\\|DeleteThis\\|ChangeSubject\\|ChangeMailTo\\|ChangeMailFrom\\|ChangeSomeContent<return>
 "
 "" Test Tasks
 "  " Test Tasks Base
