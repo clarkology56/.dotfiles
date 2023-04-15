@@ -1,23 +1,24 @@
 " Associations
 " App Models Belongs To association
-nnoremap <silent> ,ambt abelongs_to :ChangeParentName, autosave: false<esc>/ChangeParentName<return>
-" App Models Belongs To association - full (when in different namespace or 
-" association name doesn't match model name)
-nnoremap <silent> ,ambT abelongs_to :ChangeParentName, class_name: 'ChangeParentModel', inverse_of: :ChangeInverseAssociationInOtherModel, autosave: false<esc>/ChangeParentName\\|ChangeParentModel\\|ChangeInverseAssociationInOtherModel<return>
-"  " App Models Has One association
-"  nnoremap <silent> ,amho ahas_one :ChangeChildName, dependent: :destroy, autosave: false<esc>/ChangeChildName<return>
-"  " App Models Has One association - full (when in different namespace or 
-"  " association name doesn't match model name)
-"  nnoremap <silent> ,amhO ahas_one :ChangeChildName, class_name: 'ChangeChildModel', foreign_key: :ChangeParentName_id, inverse_of: :ChangeInverseAssociationInOtherModel, dependent: :destroy, autosave: false<esc>/ChangeChildName\\|ChangeChildModel\\|ChangeParentName\\|ChangeInverseAssociationInOtherModel<return>
-"  " App Models has One Through association
-"  nnoremap <silent> ,amHO ahas_one :ChangeChildOrParentName, through: :ChangeConnectingAssociationName, inverse_of: :ChangeInverseAssociationInOtherModel, autosave: false<esc>/ChangeChildOrParentName\\|ChangeConnectingAssociationName\\|ChangeInverseAssociationInOtherModel<return>
-"  " App Models Has Many association
-"  nnoremap <silent> ,amhm ahas_many :ChangeChildrenName, dependent: :destroy, autosave: false<esc>/ChangeChildrenName<return>
-"  " App Models Has Many association - full (when in different namespace or
-"  " association name doesn't match model name)
-"  nnoremap <silent> ,amhM ahas_many :ChangeChildrenName, class_name: 'ChangeChildModel', foreign_key: :ChangeParentName_id, inverse_of: :ChangeInverseAssociationInOtherModel, dependent: :destroy, autosave: false<esc>/ChangeChildrenName\\|ChangeChildModel\\|ChangeParentName\\|ChangeInverseAssociationInOtherModel<return>
-"  " App Models has Many Through association
-"  nnoremap <silent> ,amHM ahas_many :ChangeChildrenName, through: :ChangeConnectingAssociationName, inverse_of: :ChangeTopParentModel, autosave: false<esc>/ChangeChildrenName\\|ChangeChildrenName\\|ChangeConnectingAssociationName\\|ChangeTopParentModel<return>
+nnoremap <silent> ,ambt abelongs_to :ChangeParentName<esc>/ChangeParentName<return>
+" App Models Belongs To association - full (when in different namespace or association name doesn't match model name)
+nnoremap <silent> ,ambT abelongs_to :ChangeParentName, class_name: 'ChangeParentClass', inverse_of: :ChangeAssociationInOtherModel<esc>/ChangeParentName\\|ChangeParentClass\\|ChangeAssociationInOtherModel<return>
+" App Models Has One association
+nnoremap <silent> ,amho ahas_one :ChangeAssociation, dependent: :destroy<esc>/ChangeAssociation<return>
+" App Models Has One association - full (when in different namespace or association name doesn't match model name)
+nnoremap <silent> ,amhO ahas_one :ChangeAssociation, class_name: 'ChangeAssociationClass', foreign_key: :ChangeAssociation_id, inverse_of: :ChangeAssociationInOtherModel, dependent: :destroy<esc>/ChangeAssociationInOtherModel\\|ChangeAssociationClass\\|ChangeAssociation<return>
+" App Models has One through association
+nnoremap <silent> ,amHo ahas_one :ChangeAssociation, through: :ChangeConnectingAssociationName<esc>/ChangeAssociation\\|ChangeConnectingAssociationName<return>
+" App Models Has One through association - full (when in different namespace or association name doesn't match model name)
+nnoremap <silent> ,amHO ahas_one :ChangeAssociation, through: :ChangeConnectingAssociationName, class_name: 'ChangeAssociationClass', source: ChangeAssociationNameInConnectingModel, inverse_of: :ChangeAssociationInOtherModel<esc>/ChangeAssociationClass\\|ChangeConnectingAssociationName\\|ChangeAssociationInOtherModel\\|ChangeAssociationNameInConnectingModel\\|ChangeAssociation<return>
+" App Models Has Many association
+nnoremap <silent> ,amhm ahas_many :ChangeChildrenName, dependent: :destroy<esc>/ChangeChildrenName<return>
+" App Models Has Many association - full (when in different namespace or association name doesn't match model name)
+nnoremap <silent> ,amhM ahas_many :ChangeChildrenName, class_name: 'ChangeChildClass', foreign_key: :ChangeParentName_id, inverse_of: :ChangeAssociationInOtherModel, dependent: :destroy<esc>/ChangeChildrenName\\|ChangeChildClass\\|ChangeParentName\\|ChangeAssociationInOtherModel<return>
+" App Models has Many through association
+nnoremap <silent> ,amHm ahas_many :ChangeChildrenName, through: :ChangeConnectingAssociationName<esc>/ChangeChildrenName\\|ChangeChildrenName\\|ChangeConnectingAssociationName\\|ChangeTopParentModel<return>
+" App Models Has Many through association - full (when in different namespace or association name doesn't match model name)
+nnoremap <silent> ,amHM ahas_many :ChangeChildrenName, through: :ChangeConnectingAssociationName, class_name: 'ChangeAssociationClass', source: :ChangeAssociationNameInConnectingModel, inverse_of: :ChangeAssociationInOtherModel<esc>/ChangeAssociationNameInConnectingModel\\|ChangeChildrenName\\|ChangeChildrenName\\|ChangeConnectingAssociationName\\|ChangeClass\\|ChangeAssociationInOtherModel\\|ChangeAssociationClass<return>
 "  " App Models has Rich Text
 "  nnoremap <silent> ,amrt ahas_rich_text :ChangeAttribute<esc>/ChangeAttribute<return>
 "  " App Models has One Attached
