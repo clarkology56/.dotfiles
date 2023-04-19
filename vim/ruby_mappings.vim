@@ -1,5 +1,6 @@
 " Ruby Basic Frozen String
 nnoremap <silent> ,rbfs a# frozen_string_literal: true
+
 " Ruby Basic CLass
 nnoremap <silent> ,rbcl :call CreateBaseFile(1, 0, 0)<return>
 " Ruby Basic MOdule
@@ -7,6 +8,8 @@ nnoremap <silent> ,rbmo :call CreateBaseFile(0, 0, 0)<return>
 " Ruby Basic Concern
 nnoremap <silent> ,rbco :call CreateBaseFile(0, 0, 1)<return>/inner_followup<return>cgnextend ActiveSupport::Concern<esc>
 
+" Ruby Basic String from Time
+nnoremap <silent> ,rbst astrftime('%A, %B %-d, %Y')<return># DeleteThis - %A gets day spelled out - "Sunday"; %a gets day spelled out abbreviated - "Sun"<return>DeleteThis - %B gets month spelled out - "January"; %b gets month spelled out abbreviated - "Jan"<return>DeleteThis - %d gets day of month (ex 01-31); %-d gets day of month with blank instead of 0 padding (ex 1-31)<return>DeleteThis - %Y gets full year - 2021; %y gets last 2 digits of year - 21<return>DeleteThis - see here for more https://apidock.com/ruby/DateTime/strftime<return><esc>/%A, %B %-d, %Y\\|DeleteThis<return>
 
 "" Ruby Basic Code Challenge
 "nnoremap <silent> ,rbcc a# frozen_string_literal: true<return><backspace><backspace><return>Dir['./app/**/*.rb'].each do \|file\|<return>require file<return>end<esc>
@@ -53,5 +56,3 @@ nnoremap <silent> ,rbco :call CreateBaseFile(0, 0, 1)<return>/inner_followup<ret
 "nnoremap <silent> ,rbbe arescue StandardError => e<return># DeleteThis - some exception handling<return><backspace><backspace>else<return># DeleteThis - add logic to run only when no errors occur<return><backspace><backspace>ensure<return># DeleteThis - add logic to run whether there are error or not<esc>/DeleteThis<return>
 "" Ruby Basic BEgin (full)
 "nnoremap <silent> ,rbbE abegin<return># DeleteThis - have code that could possibly error<return><backspace><backspace>rescue StandardError => e<return># DeleteThis - some exception handling<return><backspace><backspace>else<return># DeleteThis - add logic to run only when no errors occur<return><backspace><backspace>ensure<return># DeleteThis - add logic to run whether there are error or not<return><backspace><backspace>end<esc>/DeleteThis<return>
-"" Ruby Basic String from Time
-"nnoremap <silent> ,rbst astrftime('%A, %B %-d, %Y')<return># DeleteThis - %A gets day spelled out - "Sunday"; %a gets day spelled out abbreviated - "Sun"<return>DeleteThis - %B gets month spelled out - "January"; %b gets month spelled out abbreviated - "Jan"<return>DeleteThis - %d gets day of month (ex 01-31); %-d gets day of month with blank instead of 0 padding (ex 1-31)<return>DeleteThis - %Y gets full year - 2021; %y gets last 2 digits of year - 21<return>DeleteThis - see here for more https://apidock.com/ruby/DateTime/strftime<return><esc>/%A, %B %-d, %Y\\|DeleteThis<return>

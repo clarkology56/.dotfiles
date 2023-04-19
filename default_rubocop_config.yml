@@ -32,6 +32,7 @@ Metrics/BlockLength:
     - "app/admin/**/*"
     - "config/**/*"
     - "test/controllers/**/*"
+    - "test/jobs/**/*"
     - "test/factories/**/*"
     - "test/models/**/*"
 
