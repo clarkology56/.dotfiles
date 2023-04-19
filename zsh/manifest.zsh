@@ -1,7 +1,6 @@
 alias rs='source ~/.zshrc'
 alias gs='git status'
 alias gd='git diff'
-alias gr='rubocop'
 alias ge='bundle exec rspec spec'
 alias gp='gacp'
 alias gu='git push -u'
@@ -9,6 +8,10 @@ alias gl='git log --oneline --graph'
 alias gc='git checkout'
 alias gb='git branch'
 alias gw='git switch'
+alias zs='lsof -ti:3000'
+alias zk='kill -9 '
+alias zr='rubocop'
+
 
 # git add commit push
 gacp(){

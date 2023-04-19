@@ -79,8 +79,35 @@ function! TestIncludedNotIncluded()
   execute "normal! aincluded = [ChangeTable(:ChangeFixture).id]\<return>included << ChangeTable(:ChangeFixture).id\<return>assert_equal included.sort, (result & included).sort\<return>not_included = [ChangeTable(:ChangeFixture).id]\<return>not_included << ChangeTable(:ChangeFixture).id\<return>assert_empty not_included & result"
 endfunction
 
+function! FindProjectRoot()
+  let current_file_with_extension = expand('%')
+  execute ":Explore .git/.."
+  let root_folder = getcwd()
+  execute ":e " . current_file_with_extension
+  return root_folder
+endfunction
+
+" Chat GPT suggested this but it doesn't work... So I'm using my solution
+" above which is hacky but at least it works
+function! FindProjectRoot2()
+  let currdir = getcwd()
+  let projdir = currdir
+
+  while projdir != '/'
+    if filereadable(projdir . '/.git')
+      return projdir
+    endif
+    let projdir = fnamemodify(projdir, ':h')
+  endwhile
+  return ''
+endfunction
+
 function! CreateBaseFile(class_or_module, include_outer_followup, include_inner_followup)
+  let root = FindProjectRoot()
   let current_file = expand('%:r')
+  " sometimes vim goes all the way to the very root directory but we only the
+  " project root... so this remove anything before the root
+  let current_file = split(current_file, root)[0]
   " default to skip 2 levels. Ex. we exclude app/controllers, lib/whatever,
   " test/models, etc. All class names in rails skip the first 2 levels for the
   " most part (or at least they should)
