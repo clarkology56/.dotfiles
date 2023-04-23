@@ -4,6 +4,7 @@ test disclaimer
 test '#valid?' do
   assert build(:ChangeModel).valid?
 end
+
 test '@destroy' do
   ChangeModel = create(:ChangeModel)
   # insert test to do what you expect
@@ -15,6 +16,7 @@ test '@destroy' do
   ChangeModel.destroy
   assert_raise(ActiveRecord::RecordNotFound) { ChangeModel.reload }
 end
+
 # DeleteThis - we typically do not test:
 #   constants
 #   attributes
