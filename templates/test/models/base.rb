@@ -5,7 +5,7 @@ test '#valid?' do
   assert build(:ChangeModel).valid?
 end
 
-test '@destroy' do
+test '#destroy' do
   ChangeModel = create(:ChangeModel)
   # insert test to do what you expect
   # example: raise an error if you it's protected

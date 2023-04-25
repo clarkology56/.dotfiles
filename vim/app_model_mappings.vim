@@ -1,5 +1,5 @@
 " App Models BAse
-nnoremap <silent> ,amba :call CreateBaseFile(1, 0, 1)<return>/class<return>wviwy/ChangeTopLevelDocumentation<return>viwpa model<esc><down>A < ApplicationRecord<esc>/inner_followup<esc>ddO# Constants<space><backspace><return><backspace><backspace><return># Class Methods<space><backspace><space><backspace><return><backspace><backspace><return># Attributes<space><backspace><return><backspace><backspace><return># Callbacks<space><backspace><return><backspace><backspace><return># Validations<space><backspace><return><backspace><backspace><return># Associations<space><backspace><esc>o<esc>x0Do# Scopes<space><backspace><return>DeleteThis - create default order (if necessary). User LOWER if it should be case insensitive. Otherwise, use regulare order method.<return><backspace><backspace>scope :order_by_ChangeDefault, -> { order('LOWER(ChangeAttribute)') }<return>scope :order_by_ChangeDefault, -> { order(:ChangeAttribute) }<esc>o<esc>x0Do# Services<space><backspace><esc>o<esc>x0Do# Instance Methods<esc>gg/DeleteThis\\|ChangeDefault\\|ChangeAttribute<return>
+nnoremap <silent> ,amba :call CreateBaseFile(1, 0, 1)<return>/class<return>wviwy/ChangeTopLevelDocumentation<return>viwpa model<esc><down>A < ApplicationRecord<esc>/inner_followup<esc>ddO# Constants<space><backspace><return><backspace><backspace><return># Class Methods<space><backspace><space><backspace><return><backspace><backspace><return># Attributes<space><backspace><return><backspace><backspace><return># Callbacks<space><backspace><return><backspace><backspace><return># Validations<space><backspace><return><backspace><backspace><return># Associations<space><backspace><esc>o<esc>x0Do# Scopes<space><backspace><return>DeleteThis - create default order (if necessary - usually this is to order by name). User LOWER if it should be case insensitive. Otherwise, use regulare order method.<return><backspace><backspace>scope :default_order, -> { order('LOWER(ChangeAttribute)') }<return>scope :default_order, -> { order(:ChangeAttribute) }<esc>o<esc>x0Do# Services<space><backspace><esc>o<esc>x0Do# Instance Methods<esc>gg/DeleteThis\\|ChangeDefault\\|ChangeAttribute<return>
 " Associations
 " App Models Belongs To association
 nnoremap <silent> ,ambt a# DeleteThis - include "polymorphic: true" if this association is polympolymorphic<esc><down>Obelongs_to :ChangeParentName<esc>/ChangeParentName\\|DeleteThis<return>
@@ -10,36 +10,31 @@ nnoremap <silent> ,amho a# DeleteThis - if this association is polympolymorphic,
 " App Models Has One association - full (when in different namespace or association name doesn't match model name)
 nnoremap <silent> ,amhO a# DeleteThis - if this association is polympolymorphic, include "as: name_of_belongs_to_in_child" and remvoe foreign_key and inverse_of<esc><down>Ohas_one :ChangeAssociation, class_name: 'ChangeAssociationClass', foreign_key: :ChangeAssociation_id, inverse_of: :ChangeAssociationInOtherModel, dependent: :destroy<esc>/ChangeAssociationInOtherModel\\|ChangeAssociationClass\\|ChangeAssociation\\|DeleteThis<return>
 " App Models has One through association
-nnoremap <silent> ,amHo ahas_one :ChangeAssociation, through: :ChangeConnectingAssociationName, inverse_of: ChangeAssociationInOtherModel<esc>/ChangeAssociationInOtherModel\\|ChangeAssociation\\|ChangeConnectingAssociationName<return>
+nnoremap <silent> ,amHo a# DeleteThis - if this association is polympolymorphic, include<esc>o"source_type: 'ChangeClassNameOfAssociationModel'" but only to<esc>othe side of the associate where it's needed (i'm<esc>ostruggling to explain what that means but you'll figure it out)<esc><down>Ohas_one :ChangeAssociation, through: :ChangeConnectingAssociationName, inverse_of: :ChangeAssociationInOtherModel<esc>/ChangeAssociationInOtherModel\\|ChangeAssociation\\|ChangeConnectingAssociationName\\|ChangeClassNameOfAssociationModel\\|DeleteThis<return>
 " App Models Has One through association - full (when in different namespace or association name doesn't match model name)
-nnoremap <silent> ,amHO ahas_one :ChangeAssociation, through: :ChangeConnectingAssociationName, class_name: 'ChangeAssociationClass', source: ChangeAssociationNameInConnectingModel, inverse_of: :ChangeAssociationInOtherModel<esc>/ChangeAssociationClass\\|ChangeConnectingAssociationName\\|ChangeAssociationInOtherModel\\|ChangeAssociationNameInConnectingModel\\|ChangeAssociation<return>
+nnoremap <silent> ,amHO a# DeleteThis - if this association is polympolymorphic, include<esc>o"source_type: 'ChangeClassNameOfAssociationModel'" but only to<esc>othe side of the associate where it's needed (i'm<esc>ostruggling to explain what that means but you'll figure it out)<esc><down>Ohas_one :ChangeAssociation, through: :ChangeConnectingAssociationName, class_name: 'ChangeAssociationClass', source: :ChangeAssociationNameInConnectingModel, inverse_of: :ChangeAssociationInOtherModel<esc>/ChangeAssociationClass\\|ChangeConnectingAssociationName\\|ChangeAssociationInOtherModel\\|ChangeAssociationNameInConnectingModel\\|ChangeAssociation\\|DeleteThis<return>
 " App Models Has Many association
 nnoremap <silent> ,amhm a# DeleteThis - if this association is polympolymorphic, include "as: name_of_belongs_to_in_child"<esc><down>Ohas_many :ChangeChildrenName, dependent: :destroy<esc>/ChangeChildrenName\\|DeleteThis<return>
 " App Models Has Many association - full (when in different namespace or association name doesn't match model name)
 nnoremap <silent> ,amhM a# DeleteThis - if this association is polympolymorphic, include "as: name_of_belongs_to_in_child" and remvoe foreign_key and inverse_of<esc><down>Ohas_many :ChangeChildrenName, class_name: 'ChangeChildClass', foreign_key: :ChangeParentName_id, inverse_of: :ChangeAssociationInOtherModel, dependent: :destroy<esc>/ChangeChildrenName\\|ChangeChildClass\\|ChangeParentName\\|ChangeAssociationInOtherModel\\|DeleteThis<return>
 " App Models has Many through association
-nnoremap <silent> ,amHm ahas_many :ChangeChildrenName, through: :ChangeConnectingAssociationName, inverse_of: ChangeAssociationInOtherModel<esc>/ChangeAssociationInOtherModel\\|ChangeChildrenName\\|ChangeChildrenName\\|ChangeConnectingAssociationName\\|ChangeTopParentModel<return>
+nnoremap <silent> ,amHm a# DeleteThis - if this association is polympolymorphic, include<esc>o"source_type: 'ChangeClassNameOfAssociationModel'" but only to<esc>othe side of the associate where it's needed (i'm<esc>ostruggling to explain what that means but you'll figure it out)<esc><down>Ohas_many :ChangeChildrenName, through: :ChangeConnectingAssociationName, inverse_of: :ChangeAssociationInOtherModel<esc>/ChangeAssociationInOtherModel\\|ChangeChildrenName\\|ChangeChildrenName\\|ChangeConnectingAssociationName\\|ChangeTopParentModel\\|DeleteThis<return>
 " App Models Has Many through association - full (when in different namespace or association name doesn't match model name)
-nnoremap <silent> ,amHM ahas_many :ChangeChildrenName, through: :ChangeConnectingAssociationName, class_name: 'ChangeAssociationClass', source: :ChangeAssociationNameInConnectingModel, inverse_of: :ChangeAssociationInOtherModel<esc>/ChangeAssociationNameInConnectingModel\\|ChangeChildrenName\\|ChangeChildrenName\\|ChangeConnectingAssociationName\\|ChangeClass\\|ChangeAssociationInOtherModel\\|ChangeAssociationClass<return>
-"  " App Models has Rich Text
-"  nnoremap <silent> ,amrt ahas_rich_text :ChangeAttribute<esc>/ChangeAttribute<return>
-"  " App Models has One Attached
-"  nnoremap <silent> ,amoa ahas_one_attached :ChangeAttribute<esc>/ChangeAttribute<return>
-"  " App Models has Many Attached
-"  nnoremap <silent> ,amma ahas_many_attached :ChangeAttributes<esc>/ChangeAttributes<return>
+nnoremap <silent> ,amHM a# DeleteThis - if this association is polympolymorphic, include<esc>o"source_type: 'ChangeClassNameOfAssociationModel'" but only to<esc>othe side of the associate where it's needed (i'm<esc>ostruggling to explain what that means but you'll figure it out)<esc><down>Ohas_many :ChangeChildrenName, through: :ChangeConnectingAssociationName, class_name: 'ChangeAssociationClass', source: :ChangeAssociationNameInConnectingModel, inverse_of: :ChangeAssociationInOtherModel<esc>/ChangeAssociationNameInConnectingModel\\|ChangeClassNameOfAssociationModel\\|ChangeChildrenName\\|ChangeChildrenName\\|ChangeConnectingAssociationName\\|ChangeClass\\|ChangeAssociationInOtherModel\\|ChangeAssociationClass\\|DeleteThis<return>
+" App Models has Rich Text
+nnoremap <silent> ,amrt ahas_rich_text :ChangeAttribute<esc>/ChangeAttribute<return>
+" App Models has One Attached
+nnoremap <silent> ,amoa ahas_one_attached :ChangeAttribute<esc>/ChangeAttribute<return>
+" App Models has Many Attached
+nnoremap <silent> ,amma ahas_many_attached :ChangeAttributes<esc>/ChangeAttributes<return>
 
 "Scopes
 " App Models SCope
 nnoremap <silent> ,amsc ascope :ChangeName, -> { ChangeLogic }<esc>/ChangeName\\|ChangeLogic<return>
 " App Models Scope with Argument(s)
 nnoremap <silent> ,amsa ascope :ChangeName, ->(ChangeArgument) { ChangeLogic }<esc>/ChangeName\\|ChangeArgument\\|ChangeLogic<return>
-" App Models Scope Multiline
-nnoremap <silent> ,amsm ascope :ChangeName, lambda { \|ChangeArgument\|<return>ChangeLogic<return>}<esc>/ChangeName\\|ChangeArgument\\|ChangeLogic<return>
-" App Models Scope Order
-nnoremap <silent> ,amso ascope :order_by_ChangeAttributes, -> { order(:ChangeAttribute, 'LOWER(ChangeTable.ChangeAttribute)') }<esc>/ChangeAttributes\\|ChangeTable\\|ChangeAttribute<return>
-nnoremap <silent> ,amsO ascope :order_and_distinct_on_ChangeAttributes, -> { select('DISTINCT ON (ChangeTable.ChangeAttribute, LOWER(ChangeTable.ChangeCaseInsensitiveAttribute)) ChangeTableToAccessAllAttributes.*').order('LOWER(ChangeTable.ChangeAttribute)') }<esc>/ChangeAttributes\\|ChangeTableToAccessAllAttributes\\|ChangeTable\\|ChangeAttribute\\|ChangeCaseInsensitiveAttribute<return>
-" App Models Scope Query
-nnoremap <silent> ,amsq ascope :query, ->(query) { where('ChangeTable.ChangeAttribute ILIKE :query', query: "%#{query}%") }<esc>/ChangeTable\\|ChangeAttribute<return>
+" App Models Scope Query (for search)
+nnoremap <silent> ,amsq ascope :query, ->(query) { where('ChangeAttribute ILIKE :query', query: "%#{query}%") }<esc>/ChangeAttribute<return>
 
 " Validations
 " App Models Validates Presence
@@ -48,6 +43,10 @@ nnoremap <silent> ,amvP :call AppModelsPresenceAbsenceNote()<return>avalidates :
 " App Models Validates Uniqueness
 nnoremap <silent> ,amvu avalidates :ChangeAttribute, uniqueness: { case_sensitive: false,<return>scope: %i[ChangeAttributes],<return><space><backspace><esc>:call AppModelValidatesOptions()<return>a }<esc>:call AppModelsValidatesSearch()<return>
 nmap <silent> ,amvU ,amvu
+" App Models Validates Inclusion
+nnoremap <silent> ,amvi avalidates :ChangeAttribute, inclusion: { in: [ChangeItems],<return><backspace><space><esc>:call AppModelValidatesOptions()<return>a }<esc>:call AppModelsValidatesSearch()<return>
+" App Models Validates Exclusion
+nnoremap <silent> ,amve avalidates :ChangeAttribute, exclusion: { in: [ChangeItems],<return><backspace><space><esc>:call AppModelValidatesOptions()<return>a }<esc>:call AppModelsValidatesSearch()<return>
 function! AppModelsPresenceAbsenceNote()
   execute "normal! a# DeleteThis - for booleans, use exclusion or inclusion rather\<esc>o than presence or absence because presence and absence\<esc>o use \"blank?\" and false.blank? is true\<esc>\<down>O\<space>\<backspace>"
 endfunction
@@ -75,10 +74,6 @@ endfunction
 "  nnoremap <silent> ,amvn avalidates :ChangeAttribute, numericality: {<return>only_integer: true,<return>allow_nil: true,<return>less_than: ChangeValue,<return>less_than_or_eqaul_to: ChangeValue,<return>equal_to: ChangeValue,<return>greater_than: ChangeValue,<return>greater_than_or_equal_to: ChangeValue,<return>other_than: ChangeValue,<return>odd: true,<return>even: true,<return>message: 'ChangeAttribute must be a number'<return><space><backspace><esc>:call AppModelsValidatesMessage()<return>a}<esc>:call AppModelValidatesOptions()<return>:call AppModelsValidatesSearch()<return>
 "  " App Models Validates Attachment
 "  nnoremap <silent> ,amvA a# DeleteThis - Active Storage Attachment Validations are only run if the attachment is attached so there is no need to include the "allow_blank: true" safety precaution<space><backspace><return>DeleteThis - the "attached" validation is effectively the same as the "presence" validation but attached is preferred because it is more intuitive when reading the codee (attached usees the "attached?" method and presence uses the "blank?" method but they work the same for active storage attachments. Just FYI)<return><backspace><backspace>validates :ChangeAttachmentName, attached: {<return><space><backspace><esc>:call AppModelsValidatesMessage()<return>a}<esc>:call AppModelValidatesOptionsLessNilAndBlank()<return>$a<return><return>validates :ChangeAttachmentName, content_type: {<return>in: %w[image/jpeg image/gif image/png image/heic application/pdf],<return>message: 'ChangeAttachmentName must be a valid format. Valid formats are: jpeg, gif, png, heic, pdf',<return>in: %w[video/quicktime video/mp4 video/webm audio/ogg],<return>message: 'ChangeAttachmentName must be a valid image video format. Valid formats are:  mp4, mov, webm, ogg',<return><space><backspace><esc>:call AppModelsValidatesMessage()<return>a}<esc>:call AppModelValidatesOptionsLessNilAndBlank()<return>$a<return><return>validates :ChangeAttachmentName, size: {<return># DeleteThis - Byte type an be "kilobytes", "megabytes" and probably others:<return><backspace><backspace> less_than: ChangeSize.ChangeByteType,<return>message: 'ChangeAttribute is too large (ChangeSize ChangeByteType max)',<return><space><backspace><esc>:call AppModelsValidatesMessage()<return>a}<esc>:call AppModelValidatesOptionsLessNilAndBlank()<return>$a<return><return>validates :ChangeAttachmentName, dimension: {<return>width: { min: ChangeMin, max: ChangeMax },<return>height: { min: ChangeMin, max: ChangeMax },<return><space><backspace><esc>:call AppModelsValidatesMessage()<return>a}<esc>:call AppModelValidatesOptionsLessNilAndBlank()<return>$a<return><return>validates :ChangeAttachmentName, aspect_ratio:<return># DeleteThis - Choose one:<return><backspace><backspace>:square<return>:portrate<return>:landscape<return>:is_16_9<return># DeleteThis - Or add a dynamic aspect ratio:<return><backspace><backspace>:is_ChangeWidthInteger_ChangeHeightInteger{<return><space><backspace><esc>:call AppModelsValidatesMessage()<return>a}<esc>:call AppModelValidatesOptionsLessNilAndBlank()<return>:call AppModelsValidatesSearch()<return>
-"  " App Models Validates Inclusion
-"  nnoremap <silent> ,amvi avalidates :ChangeAttribute, inclusion: {<return>in: [ChangeItems],<return><space><backspace><esc>:call AppModelsValidatesMessage()<return>a}<esc>:call AppModelValidatesOptions()<return>:call AppModelsValidatesSearch()<return>
-"  " App Models Validates Exclusion
-"  nnoremap <silent> ,amve avalidates :ChangeAttribute, exclusion: {<return>in: [ChangeItems],<return><space><backspace><esc>:call AppModelsValidatesMessage()<return>a}<esc>:call AppModelValidatesOptions()<return>:call AppModelsValidatesSearch()<return>
 "  " App Models Validates Format
 "  nnoremap <silent> ,amvf avalidates :ChangeAttribute, format: {<return>with: ChangeRegex,<return><space><backspace><esc>:call AppModelsValidatesMessage()<return>a}<esc>:call AppModelValidatesOptions()<return>:call AppModelsValidatesSearch()<return>
 "  " App Models Validates eMail
@@ -110,6 +105,11 @@ endfunction
 
 
 
+"" App Models Scope Multiline
+"nnoremap <silent> ,amsm ascope :ChangeName, lambda { \|ChangeArgument\|<return>ChangeLogic<return>}<esc>/ChangeName\\|ChangeArgument\\|ChangeLogic<return>
+"" App Models Scope Order
+"nnoremap <silent> ,amso ascope :order_by_ChangeAttributes, -> { order(:ChangeAttribute, 'LOWER(ChangeTable.ChangeAttribute)') }<esc>/ChangeAttributes\\|ChangeTable\\|ChangeAttribute<return>
+"nnoremap <silent> ,amsO ascope :order_and_distinct_on_ChangeAttributes, -> { select('DISTINCT ON (ChangeTable.ChangeAttribute, LOWER(ChangeTable.ChangeCaseInsensitiveAttribute)) ChangeTableToAccessAllAttributes.*').order('LOWER(ChangeTable.ChangeAttribute)') }<esc>/ChangeAttributes\\|ChangeTableToAccessAllAttributes\\|ChangeTable\\|ChangeAttribute\\|ChangeCaseInsensitiveAttribute<return>
 "" Base / Misc
 "  
 "  " App Models Cancancan Non-model based
