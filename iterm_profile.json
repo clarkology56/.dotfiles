@@ -24,11 +24,11 @@
     "Green Component" : 0.29435792565345764
   },
   "Ansi 7 Color" : {
-    "Red Component" : 0.87367779016494751,
-    "Color Space" : "Calibrated",
-    "Blue Component" : 0.92620980739593506,
+    "Red Component" : 0.89803921568627454,
+    "Color Space" : "sRGB",
+    "Blue Component" : 0.94117647058823528,
     "Alpha Component" : 1,
-    "Green Component" : 0.8916594386100769
+    "Green Component" : 0.9137254901960784
   },
   "Bold Color" : {
     "Red Component" : 0.90727746486663818,
@@ -91,18 +91,18 @@
     "telnet"
   ],
   "Ansi 15 Color" : {
-    "Red Component" : 0.90727746486663818,
-    "Color Space" : "Calibrated",
-    "Blue Component" : 0.94574689865112305,
+    "Red Component" : 0.92549019607843142,
+    "Color Space" : "sRGB",
+    "Blue Component" : 0.95686274509803926,
     "Alpha Component" : 1,
-    "Green Component" : 0.92092084884643555
+    "Green Component" : 0.93333333333333335
   },
   "Foreground Color" : {
-    "Red Component" : 0.84705882352941175,
+    "Red Component" : 0.8165196695364827,
     "Color Space" : "sRGB",
-    "Blue Component" : 0.90980392156862744,
+    "Blue Component" : 0.88485276699066162,
     "Alpha Component" : 1,
-    "Green Component" : 0.87058823529411766
+    "Green Component" : 0.84214458108179979
   },
   "Working Directory" : "\/Users\/clarktaylor",
   "Use Tab Color" : false,
@@ -139,11 +139,11 @@
   "Use Bold Font" : true,
   "Option Key Sends" : 0,
   "Selected Text Color" : {
-    "Red Component" : 0.81214714050292969,
-    "Color Space" : "Calibrated",
-    "Blue Component" : 0.89225924015045166,
+    "Red Component" : 0.84705882352941175,
+    "Color Space" : "sRGB",
+    "Blue Component" : 0.90980392156862744,
     "Alpha Component" : 1,
-    "Green Component" : 0.83857882022857666
+    "Green Component" : 0.87058823529411766
   },
   "Background Color" : {
     "Red Component" : 0.047175525949569419,
