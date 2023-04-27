@@ -366,6 +366,7 @@ function! ClearBuffer()
 endfunction
 
 function! GoToNextTer(direction)
+  echo 'asdf'
   if a:direction == 1
     let adj = 1
   else

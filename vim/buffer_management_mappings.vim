@@ -1,11 +1,11 @@
 " scroll through terminal buffers
-noremap <silent> <S-A-left> :call GoToNextTer(0)<return>
-noremap <silent> <S-A-right> :call GoToNextTer(1)<return>
+noremap <silent> <S-C-left> :call GoToNextTer(0)<return>
+noremap <silent> <S-C-right> :call GoToNextTer(1)<return>
 noremap <silent> <S-C-k> :call GoToNextTer(0)<return>
 noremap <silent> <S-C-l> :call GoToNextTer(1)<return>
 " scroll through non terminal buffers
-noremap <silent> <A-left> :call GoToNextBuf(0)<return>
-noremap <silent> <A-right> :call GoToNextBuf(1)<return>
+noremap <silent> <C-left> :call GoToNextBuf(0)<return>
+noremap <silent> <C-right> :call GoToNextBuf(1)<return>
 noremap <silent> <C-k> :call GoToNextBuf(0)<return>
 noremap <silent> <C-l> :call GoToNextBuf(1)<return>
 " Buffer Delete
