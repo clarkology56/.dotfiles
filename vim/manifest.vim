@@ -8,7 +8,7 @@ so ~/.dotfiles/vim/globals.vim
 " Vim mappings (non-comma, non-space)
 so ~/.dotfiles/vim/insert_mode_mappings.vim
 so ~/.dotfiles/vim/visual_and_normal_mode_mappings.vim
-so ~/.dotfiles/vim/terminal_mode_mappings.vim
+so ~/.dotfiles/vim/terminal_mappings.vim
 "
 " Vim / 'space' mappings
 so ~/.dotfiles/vim/single_space_mappings.vim

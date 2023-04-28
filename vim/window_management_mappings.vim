@@ -18,13 +18,10 @@ nnoremap <silent> <space>wl <C-w>K
 nnoremap <silent> <space>w; <C-w>L
 " Window Close
 nnoremap <silent> <space>wc :close<return>:call ClearBuffers()<return><C-W>=
-" Windo Delete - alias for windo close 
+" Windo Delete (alias for window close)
 nmap <silent> <space>wd <space>wc
 " Window Maximize (close all others)
 nnoremap <silent> <space>wm :only<return>:wa<return>:call ClearBuffers()<return>
-" Window Terminal - go to terminal or open new window with terminal
-nnoremap <silent> <space>wt :call ToggleTerminalInWindow(0)<return>
-nnoremap <space>wT :call OpenTerminal()<return>:only<return>:wa<return>:call ClearBuffers()<return>
 
 " functions
 function GoToNextWindow(direction)

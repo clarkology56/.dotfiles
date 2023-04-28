@@ -12,6 +12,8 @@ augroup CustomVimEntry
   autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
     \| PlugInstall --sync | source $MYVIMRC
   \| endif
+  " set base terminals
+  autocmd VimEnter * call SetTerminals()
   " Open explorer
   autocmd VimEnter * execute "normal! :Explore\<return>"
 augroup END
