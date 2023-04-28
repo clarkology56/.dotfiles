@@ -21,13 +21,13 @@
   " spacevim)
   vnoremap v iw
   " select entire page
-  vnoremap aa <esc>ggVG
+  vnoremap sa <esc>ggVG
   " copy entire page
-  vnoremap ay <esc>ggVGy
+  vnoremap sy <esc>ggVGy
   " paste over entire page
-  vnoremap ap <esc>ggVGp
+  vnoremap sp <esc>ggVGp
   " cut entire page
-  vnoremap ax <esc>ggVGx
+  vnoremap sx <esc>ggVGx
   " copy word
   nnoremap <silent> y viwy
   " copy and search

@@ -199,6 +199,46 @@ function! IndentTemplate(start, template_path)
   normal! `tdd`bdd
 endfunction
 
+
+
+function! SetTerminals()
+  " we want 5 terminals
+    " Base terminal
+    " Console
+    " Server
+    " Debugger
+    " Test
+  let l:missingTerminalCount = 5 - TerminalCount()
+  
+  while l:missingTerminalCount > 0  
+    vsp
+    call GoToNextWindow(1)
+    ter
+    close
+    let l:missingTerminalCount = l:missingTerminalCount - 1
+  endwhile
+  echo len(GetTerminals())
+endfunction
+function! GetTerminals()
+  let l:blist = map(filter(copy(getbufinfo()), 'v:val.listed == 1'), 'v:val.bufnr')
+  let l:terminals = []
+  for l:item in l:blist
+    if getbufvar(l:item, '&buftype') == 'terminal'
+      call add(l:terminals, {'bufnr': bufnr(l:item), 'winnr': bufwinnr(l:item)})
+    endif
+  endfor
+  return l:terminals 
+endfunction
+function! TerminalCount()
+  let l:blist = map(filter(copy(getbufinfo()), 'v:val.listed == 1'), 'v:val.bufnr')
+  let l:terminalCount = 0
+  for l:item in l:blist
+    if getbufvar(l:item, '&buftype') == 'terminal'
+      let l:terminalCount = l:terminalCount + 1
+    endif
+  endfor
+  return l:terminalCount
+endfunction
 function! ToggleTerminalInWindow()
   " set to false (this will be used later)
   let termInWindow = 0
@@ -252,10 +292,10 @@ endfunction
 
 function! ClearBuffers()
   " listed is buffers in tabs; loaded is basiclly listed + any loaded files
-  " 
   " that are not in the tabs - only example I have of this is nerd tree.
   " Not hidden is any loaded buffer in a window plus all other non-loaded buffers.
   " We want to clear the listed_hidden.
+  " except not the termnals
   let l:blist = map(filter(copy(getbufinfo()), 'v:val.listed == 1 && v:val.hidden == 1'), 'v:val.bufnr')
   for l:item in l:blist
     if getbufvar(l:item, '&buftype') != 'terminal'

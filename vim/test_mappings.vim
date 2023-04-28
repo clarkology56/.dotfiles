@@ -5,11 +5,17 @@ nnoremap <silent> ,tsba :call CreateBaseFile(1, 1, 1)<return>/outer_followup<ret
 nnoremap <silent> ,tMba :call CreateBaseFile(1, 1, 1)<return>/outer_followup<return>cgnrequire 'test_helper'<esc>o<esc>/class<return>A < ActionMailer::TestCase<esc>/ChangeTopLevelDocumentation<return><down>^wviwy/ChangeTopLevelDocumentation<return>viwpbiTest for <esc>0/Test<return>ncgn<esc>:call IndentTemplate('inner_followup', 'test/mailers/base.rb')<return>:call TestDisclaimer()<return>/DeleteThis<return>
 " Tests Mailer Test Base
 nnoremap <silent> ,tMtb :call IndentTemplate('', 'test/mailers/test_base.rb')<return>/ChangeMethod\\|ChangeThisMailer\\|DeleteThis\\|ChangeSubject\\|ChangeMailTo\\|ChangeMailFrom\\|ChangeSomeContent<return>
-
 " Tests Assert Enqueued Emails
 nnoremap <silent> ,taee aassert_equal ChangeCount, enqueued_emails('ChangeMailerAndEmail').size<esc>/ChangeCount\\|ChangeMailerAndEmail<return>
-  
+
+" Helper
+" Tests Helper BAse
+nnoremap <silent> ,thba :call CreateBaseFile(1, 1, 1)<return>/outer_followup<return>cgnrequire 'test_helper'<esc>o<esc>/class<return>A < ActionView::TestCase<esc>/ChangeTopLevelDocumentation<return><down>^wviwy/ChangeTopLevelDocumentation<return>viwpbiTest for <esc>0/Test<return>ncgn<esc>:call IndentTemplate('inner_followup', 'test/helpers/base.rb')<return>:call TestDisclaimer()<return>/DeleteThis\\|ChangeMethod<return>
+
+" nnoremap <silent> ,tsba :call CreateBaseFile(1, 1, 1)<return>/outer_followup<return>cgnrequire 'test_helper'<esc>o<esc>/class<return>A < ActiveSupport::TestCase<esc>/ChangeTopLevelDocumentation<return><down>^wviwy/ChangeTopLevelDocumentation<return>viwpbiTest for <esc>0/Test<return>ncgn<esc>:call IndentTemplate('inner_followup', 'test/services/base.rb')<return>:call TestDisclaimer()<return>/DeleteThis\\|ChangeMethod<return>
 " Miscellaneous Messages Test
+" 
+" 
 """ Test Run
 ""  " File Test Current File in terminal
 ""  nnoremap <silent> ,trcf :call FileTestCurrentFile(1)<return>:call ToggleTerminalInWindow()<return>q<return><C-c><C-\><C-n>pa<return>
@@ -50,10 +56,6 @@ nnoremap <silent> ,taee aassert_equal ChangeCount, enqueued_emails('ChangeMailer
 "  nnoremap <silent> ,tani aassert_nil ChangeThis<esc>/ChangeThis<return>
 "  nnoremap <silent> ,tann aassert_not_nil ChangeThis<esc>/ChangeThis<return>
 "
-"" Helper
-"  " Tests Helper BAse
-"  "nnoremap <silent> ,thba :read ../templates/tests/helper_base.rb<return>ggdd/ChangePathAndFileName<return>:call FileCopyCurrentFile()<return>viwp/test disclaimer<return>cgn<esc>:call TestDisclaimer()<return>/DeleteThis\\|ChangeThisPls\\|change_model_name\\|ChangeFixture<return>
-"nnoremap <silent> ,thba :call CreateBaseFile(1, 1, 1)<return>/outer_followup<return>cgnrequire 'test_helper'<esc>o<esc>/class<return>A < ActionView::TestCase<esc>:call IndentTemplate('inner_followup', 1, 0, '../templates/tests/helper_base.rb')<return>/ChangeTopLevelDocumentation<return><down>^wviwy/ChangeTopLevelDocumentation<return>viwpbiTest for <esc>0/Test<return>ncgn<esc>gg/test disclaimer<return>cgn<esc>:call TestDisclaimer()<return>/DeleteThis\\|ChangeHelper\\|ChangeObject\\|ChangeTable\\|ChangeFixture<return>
 "
 "" Integration
 "  " Tests Integration BAse
