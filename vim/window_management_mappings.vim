@@ -23,7 +23,7 @@ nmap <silent> <space>wd <space>wc
 " Window Maximize (close all others)
 nnoremap <silent> <space>wm :only<return>:wa<return>:call ClearBuffers()<return>
 " Window Terminal - go to terminal or open new window with terminal
-nnoremap <silent> <space>wt :call ToggleTerminalInWindow()<return>
+nnoremap <silent> <space>wt :call ToggleTerminalInWindow(0)<return>
 nnoremap <space>wT :call OpenTerminal()<return>:only<return>:wa<return>:call ClearBuffers()<return>
 
 " functions

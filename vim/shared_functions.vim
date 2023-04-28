@@ -202,12 +202,12 @@ endfunction
 
 
 function! SetTerminals()
-  " we want 5 terminals
-    " Base terminal
-    " Console
-    " Server
-    " Debugger
-    " Test
+  " we want 5 terminals (using 0 array start)
+    " 0. Base terminal
+    " 1. Console
+    " 2. Server
+    " 3. Debugger
+    " 4. Test
   let l:missingTerminalCount = 5 - TerminalCount()
   
   while l:missingTerminalCount > 0  
@@ -217,9 +217,8 @@ function! SetTerminals()
     close
     let l:missingTerminalCount = l:missingTerminalCount - 1
   endwhile
-  echo len(GetTerminals())
 endfunction
-function! GetTerminals()
+function! GetTerminalInfo()
   let l:blist = map(filter(copy(getbufinfo()), 'v:val.listed == 1'), 'v:val.bufnr')
   let l:terminals = []
   for l:item in l:blist
@@ -239,53 +238,25 @@ function! TerminalCount()
   endfor
   return l:terminalCount
 endfunction
-function! ToggleTerminalInWindow()
-  " set to false (this will be used later)
-  let termInWindow = 0
-  " if buffer in current window is terminal, go to terminal mode
-  if getbufvar(bufnr(), '&buftype') == 'terminal'
+
+function! ToggleTerminalInWindow(terminalNumber)
+  " See note in SetTerminals function mapping terminal number
+  " to purpose
+  " Make sure defult terminals have been set
+  call SetTerminals()
+  let l:terminalInfo = GetTerminalInfo()[a:terminalNumber]
+  if l:terminalInfo['winnr'] != -1
+    execute l:terminalInfo['winnr'] 'wincmd w'
     execute 'normal! a'
-    let termInWindow = 1
-  " else, find buffers in open windows and if terminlal is in an open window, switch
-  " to that window and skip the rest of the function
   else
-    let l:blist = map(filter(copy(getbufinfo()), 'v:val.listed == 1 && v:val.hidden == 0'), 'v:val.bufnr')
-    for l:item in l:blist
-      if getbufvar(l:item, '&buftype') == 'terminal' && termInWindow == 0
-        let windowNr = bufwinnr(l:item)
-        execute windowNr 'wincmd w'
-        execute 'normal! a'
-        let termInWindow = 1
-      endif
-    endfor
-  endif
-  " if none of the open windows include a terminal, continue 
-  if termInWindow == 0
-    " open a new window at the bottom of the screen
     execute ':bo sp'
-    " if there is a terminal in a buffer, open that buffer in widnow at bottom
-    " of screen
-    let l:blist = map(filter(copy(getbufinfo()), 'v:val.listed == 1 && v:val.hidden == 1'), 'v:val.bufnr')
-    let termInBuffer = 0
-    for l:item in l:blist
-      if getbufvar(l:item, '&buftype') == 'terminal' && termInBuffer != 1
-        execute ':buf' l:item
-        execute 'normal! a'
-        let termInBuffer = 1
-      endif
-    endfor
-    " if no windows or buffers have terminal, open new terminal buffer in window
-    " at bottom of screen
-    if termInBuffer == 0
-      execute ':ter'
-      execute 'normal! a'
-    endif
+    execute ':buf' l:terminalInfo['bufnr']
+    execute 'normal! a'
   endif
   " would be nice to run: execute "normal! \<esc>q<return>\<C-c>\<esc>"
   " but that doesn't work from shell... so any mapping that uses this needs to
   " have that in it... sad
 endfunction
-
 function! ReadTemplate(path)
   execute "normal! :read " . g:path_to_templates . a:path . "\<return>"
 endfunction

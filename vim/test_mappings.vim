@@ -18,11 +18,11 @@ nnoremap <silent> ,thba :call CreateBaseFile(1, 1, 1)<return>/outer_followup<ret
 " 
 """ Test Run
 ""  " File Test Current File in terminal
-""  nnoremap <silent> ,trcf :call FileTestCurrentFile(1)<return>:call ToggleTerminalInWindow()<return>q<return><C-c><C-\><C-n>pa<return>
+""  nnoremap <silent> ,trcf :call FileTestCurrentFile(1)<return>:call ToggleTerminalInWindow(4)<return>q<return><C-c><C-\><C-n>pa<return>
 ""  " File Test Current File
 ""  nnoremap <silent> ,trcF :call FileTestCurrentFile(0)<return>
 ""  " File Test All Files in terminal
-""  nnoremap <silent> ,traF :wa<return>:call ToggleTerminalInWindow()<return>q<return><C-c>rails t<return>
+""  nnoremap <silent> ,traF :wa<return>:call ToggleTerminalInWindow(4)<return>q<return><C-c>rails t<return>
 ""  " File Test All Files
 ""  nnoremap <silent> ,traf :wa<return>:! rails t<return>
 "  
