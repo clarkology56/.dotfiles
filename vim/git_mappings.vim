@@ -25,12 +25,12 @@ nnoremap <silent> <space>gR :call SpecRunCurrentFile(1, 1)<return>:call ToggleTe
 " Git rspEc - all files
 nnoremap <silent> <space>GR :wa<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c>rubocop && rails parallel:spec<return><C-\><C-n>
 " Git Test
-nnoremap <silent> <space>gt :call FileTestCurrentFile(1, 0)<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c><C-\><C-n>pa<return><C-\><C-n>
+nnoremap <silent> <space>gt :let current_window = winnr()<return>:call FileTestCurrentFile(1, 0)<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c><C-\><C-n>pa<return><C-\><C-n><esc>:execute current_window . " wincmd w"<return>
 
-nnoremap <silent> <space>gT :call FileTestCurrentFile(1, 1)<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c><C-\><C-n>pa<return><C-\><C-n>
+nnoremap <silent> <space>gT :let current_window = winnr()<return>:call FileTestCurrentFile(1, 1)<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c><C-\><C-n>pa<return><C-\><C-n><esc>:execute current_window . " wincmd w"<return>
 
 " Git Test - all files
-nnoremap <silent> <space>GT :wa<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c>rubocop && rails test:all<return><C-\><C-n>
+nnoremap <silent> <space>GT :let current_window = winnr()<return>:wa<return>:call ToggleTerminalInWindow()<return>q<C-\><C-n>aq<C-c>!!!<return><C-c>rubocop && rails test:all<return><C-\><C-n><esc>:execute current_window . " wincmd w"<return>
 
 
 " Git push Up

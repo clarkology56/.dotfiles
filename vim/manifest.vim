@@ -16,6 +16,7 @@ so ~/.dotfiles/vim/git_mappings.vim
 so ~/.dotfiles/vim/file_copy_and_paste_mappings.vim
 so ~/.dotfiles/vim/file_simple_mappings.vim
 so ~/.dotfiles/vim/file_find_mappings.vim
+so ~/.dotfiles/vim/file_create_mappings.vim
 so ~/.dotfiles/vim/file_edit_mappings.vim
 so ~/.dotfiles/vim/file_edit_mapping_functions.vim
 so ~/.dotfiles/vim/buffer_management_mappings.vim
