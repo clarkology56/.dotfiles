@@ -13,7 +13,8 @@
 " it manually just to be safe
 " q<C-\><C-n>aq<C-c>!!!<return><C-c>
 " Git Status
-nnoremap <silent> <space>gs :wa<return>:call ToggleTerminalInWindow(0)<return>q<C-\><C-n>aq<C-c>!!!<return><C-c>git status<return><C-\><C-n>
+nnoremap <silent> <space>gS :wa<return>:call ToggleTerminalInWindow(0)<return>q<C-\><C-n>aq<C-c>!!!<return><C-c>git status<return><C-\><C-n>
+nnoremap <silent> <space>gs :wa<return>:! git status<return>
 " Git Diff
 nnoremap <silent> <space>gd :wa<return>:call ToggleTerminalInWindow(0)<return>q<C-\><C-n>aq<C-c>!!!<return><C-c>git diff<return>
 " Git Rubocop (not really git but always done before committing)
