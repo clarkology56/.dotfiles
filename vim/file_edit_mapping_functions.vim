@@ -294,7 +294,7 @@ function FileEditModel()
   endif
 endfunction
 
-function FileEditView()
+function FileEditView(split_window)
   let current_file = expand('%')
   " Rails
   if match(current_file, 'app/assets/stylesheets') != -1
@@ -307,8 +307,7 @@ function FileEditView()
     let directory = substitute(directory, '_helper.rb', '', '')
   elseif match(current_file, 'app/javascript/packs') != -1
     let directory = substitute(expand('%:h'), 'javascript/packs', 'views', '')
-  " Rails views will not end in .js
-  elseif (match(current_file, 'app/views') != -1) && (match(current_file, '.js') == -1)
+  elseif (match(current_file, 'app/views') != -1)
     let directory = expand('%:h')
   elseif match(current_file, 'spec/controllers') != -1
     let directory = substitute(expand('%'), 'spec/controllers', 'app/views', '')
@@ -316,14 +315,6 @@ function FileEditView()
   elseif match(current_file, 'test/controllers') != -1
     let directory = substitute(expand('%'), 'test/controllers', 'app/views', '')
     let directory = substitute(directory, '_controller_test.rb', '', '')
-  " React Native
-  elseif match(current_file, '_view.js') != -1
-    let directory = 2
-    let file = current_file
-  elseif match(current_file, '.js') != -1
-    let directory = 2
-    let view_base_name = split(expand('%:h'), '/')[-1]
-    let file = expand('%:h') . '/' . view_base_name . '.js'
   else 
     let directory = 1
   endif
@@ -331,22 +322,21 @@ function FileEditView()
   " unable to find directory
   if directory == 1
     echo 'Unable to find views for' current_file
-  " app is react native
-  elseif directory == 2
-    if file == current_file
-      echo 'Already on view file'
-    else
-      execute ':e' file
-    endif
-  " app is rails
+  " directory is found
   else
     if isdirectory(directory)
+      if a:split_window == 1
+        call WindowSplitVerdically()
+      endif
       execute ':Explore' directory
     else
       let new_file = input("There are no view files yet. Create the first one!: " . directory . "/")
       if new_file == ''
         execute "normal! :echo"
       else
+        if a:split_window == 1
+          call WindowSplitVerdically()
+        endif
         execute ":e " . directory . "/" . new_file
       endif
     endif
