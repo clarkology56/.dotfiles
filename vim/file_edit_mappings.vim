@@ -60,7 +60,7 @@ nnoremap <silent> <space>femo :call FileEditModel()<return>
 nnoremap <silent> <space>femo :call FileEditModel()<return>
 " File Edit VIew
 nnoremap <silent> <space>fevi :call FileEditView(1)<return>
-nnoremap <silent> <space>fevi :call FileEditView(0)<return>
+nnoremap <silent> <space>fevI :call FileEditView(0)<return>
 " File Edit SPec
 nnoremap <silent> <space>fesp :call FileEditSpec(1)<return>
 nnoremap <silent> <space>fesP :call FileEditSpec(0)<return>

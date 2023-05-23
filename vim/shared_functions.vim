@@ -102,6 +102,18 @@ function! FindProjectRoot2()
   return ''
 endfunction
 
+function! ConvertSnakeToPascalCase(str)
+  let words = split(a:str, '/')
+  let pascalCase = []
+  for word in words
+    let camelCaseWord = substitute(word, '\(\w\)\(\w*\)', '\u\1\2', '')
+    let pascalCaseWord = substitute(camelCaseWord, '_\(\w\)', '\u\1', '')
+    call add(pascalCase, pascalCaseWord)
+  endfor
+  let result = join(pascalCase, '::')
+  return result
+endfunction
+
 function! CreateBaseFile(class_or_module, include_outer_followup, include_inner_followup)
   let root = FindProjectRoot()
   let current_file = expand('%:r')
@@ -257,8 +269,13 @@ function! ToggleTerminalInWindow(terminalNumber)
   " but that doesn't work from shell... so any mapping that uses this needs to
   " have that in it... sad
 endfunction
-function! ReadTemplate(path)
-  execute "normal! :read " . g:path_to_templates . a:path . "\<return>"
+
+function! ReadTemplate(template_path)
+  " mark bottom then do O in case we are on empty file. This way, whether we are 
+  " starting on a file that already has contents or is empty, we have an empty
+  " line at before and after the tempalte which we can then delete afer
+  " reading the tempalte. This creates consistency.
+  execute "normal! mbO\<esc>mt:read " . g:path_to_templates . a:template_path . "\<return>`bdd`tdd"
 endfunction
 
 function! ClearBuffers()

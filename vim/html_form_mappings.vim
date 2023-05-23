@@ -1,3 +1,15 @@
+" Html Form BAse
+nnoremap <silent> ,hfba a<%= form_with(scope: 'ChangeScope', url: ChangeUrl_path(ChangeObject), method: :ChangeHTMLMethod) do \|f\| %><return><return><%# DeleteThis - insert hidden fields here if necessary %><return><%# DeleteThis - insert label type (or fields for if necessary) %><return><%# DeleteThis - insert form buttons %><return><return><% end %><esc>/ChangeObject\\|ChangeScope\\|ChangeUrl\\|ChangeHTMLMethod\\|DeleteThis<return>
+
+
+
+
+
+
+
+
+
+
 "" Html Form Select Optional
 "nnoremap <silent> ,hfso a<%= f.select(<return>  :ChangeAttribute,<return>ChangeOptionsList,<return><space><backspace><esc>:call HtmlInputSelectValueNote()<return>a{ include_blank: 'Select' },<return><space><backspace><esc>:call HtmlInputSelectIncludeBlankNote()<return>a{<return><tab>class: 'form-control',<return>autofocus: MakeTrueOrRemoveThisLine<return><backspace>)<backspace>})<return>%><esc>:call HtmlInputSearch()<return>
 "" Html Form Select Required
