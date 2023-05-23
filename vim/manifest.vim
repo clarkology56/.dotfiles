@@ -40,7 +40,7 @@ so ~/.dotfiles/vim/app_controller_mappings.vim
 so ~/.dotfiles/vim/app_channel_mappings.vim
 "so ~/.dotfiles/vim/javascript_ajax_mappings.vim
 "so ~/.dotfiles/vim/app_helper_mappings.vim
-"so ~/.dotfiles/vim/app_job_mappings.vim
+so ~/.dotfiles/vim/app_job_mappings.vim
 "so ~/.dotfiles/vim/app_mailer_mappings.vim
 so ~/.dotfiles/vim/app_model_mappings.vim
 "so ~/.dotfiles/vim/view_mappings.vim
