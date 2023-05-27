@@ -41,8 +41,8 @@ nnoremap <silent> <space>fepC :call FileEditParentController(0)<return>
 nnoremap <silent> <space>feco :call FileEditController(1)<return>
 nnoremap <silent> <space>fecO :call FileEditController(0)<return>
 " File Edit HElper
-nnoremap <silent> <space>fehe :call FileEditHelper()<return>
-nnoremap <silent> <space>fehe :call FileEditHelper()<return>
+nnoremap <silent> <space>fehe :call FileEditHelper(1)<return>
+nnoremap <silent> <space>fehE :call FileEditHelper(0)<return>
 " File Edit Children
 nnoremap <silent> <space>fech :call FileEditChild(1)<return>
 nnoremap <silent> <space>fecH :call FileEditChild(0)<return>

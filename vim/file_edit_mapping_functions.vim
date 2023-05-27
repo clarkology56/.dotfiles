@@ -197,7 +197,7 @@ function FileEditController(split_window)
   endif
 endfunction
 
-function FileEditHelper()
+function FileEditHelper(split_window)
   let current_file = expand('%')
   if match(current_file, 'app/assets/stylesheets') != -1
     let file = substitute(expand('%:h'), 'assets/stylesheets', 'helpers', '') . '_helper.rb'
@@ -224,6 +224,9 @@ function FileEditHelper()
   elseif file == 1
     echo 'Unable to find helper for' current_file
   else
+    if a:split_window == 1
+      call WindowSplitVerdically()
+    endif
     execute ':e' file
   endif
 endfunction
