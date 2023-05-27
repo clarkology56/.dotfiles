@@ -6,10 +6,7 @@ function! TestControllerBase()
 endfunction
 
 " Tests Controller Web Show
-nnoremap <silent> ,tcws :call IndentTemplate()
-" asdf
-"  
-"
+nnoremap <silent> ,tcws :call IndentTemplate('test/controllers.rb/web/show.rb')<return>/ChangeRoute\\|ChangeFactory\\|DeleteThis\\|ChangeResource<return>
 
 
 

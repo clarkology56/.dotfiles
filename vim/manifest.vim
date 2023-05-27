@@ -54,6 +54,9 @@ so ~/.dotfiles/vim/db_mappings.vim
 "so ~/.dotfiles/vim/spec_model_mappings.vim
 so ~/.dotfiles/vim/test_mappings.vim
 so ~/.dotfiles/vim/test_controller_mappings.vim
+so ~/.dotfiles/vim/test_channel_mappings.vim
+so ~/.dotfiles/vim/test_helper_mappings.vim
+so ~/.dotfiles/vim/test_mailer_mappings.vim
 so ~/.dotfiles/vim/test_model_mappings.vim
 "
 "" Rails specific misc process / 'comma' mappings

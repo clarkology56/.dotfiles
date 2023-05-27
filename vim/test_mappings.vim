@@ -1,31 +1,13 @@
-" Tests Channel BAse
-nnoremap <silent> ,tCba :call CreateBaseFile(1, 1, 1)<return>/outer_followup<return>cgnrequire 'test_helper'<esc>o<esc>/class<return>A < ActionCable::Channel::TestCase<esc>/ChangeTopLevelDocumentation<return><down>^wviwy/ChangeTopLevelDocumentation<return>viwpbiTest for <esc>0/Test<return>ncgn<esc>/inner_followup<return>cgn<esc>:call IndentTemplate('test/channels/base.rb')<return>/DeleteThis<return>
-" Tests Channel ACtion
-nnoremap <silent> ,tCac :call IndentTemplate('test/channels/action.rb')<return>:call TestsChannelAction()<return>
-function! TestsChannelAction()
-  let name = expand('%')
-  let name = split(name, '/channels/')[1]
-  let name = substitute(name, '_test.rb', '', '')
-  execute "normal! /channel_name\<return>cgn" . name
-endfunction
-
-" Tests Services BAse
-nnoremap <silent> ,tsba :call CreateBaseFile(1, 1, 1)<return>/outer_followup<return>cgnrequire 'test_helper'<esc>o<esc>/class<return>A < ActiveSupport::TestCase<esc>/ChangeTopLevelDocumentation<return><down>^wviwy/ChangeTopLevelDocumentation<return>viwpbiTest for <esc>0/Test<return>ncgn<esc>:call IndentTemplateFrom('inner_followup', 'test/services/base.rb')<return>:call TestDisclaimer()<return>/DeleteThis\\|ChangeMethod<return>
-
-" Tests Mailer BAse
-nnoremap <silent> ,tMba :call CreateBaseFile(1, 1, 1)<return>/outer_followup<return>cgnrequire 'test_helper'<esc>o<esc>/class<return>A < ActionMailer::TestCase<esc>/ChangeTopLevelDocumentation<return><down>^wviwy/ChangeTopLevelDocumentation<return>viwpbiTest for <esc>0/Test<return>ncgn<esc>:call IndentTemplateFrom('inner_followup', 'test/mailers/base.rb')<return>:call TestDisclaimer()<return>/DeleteThis<return>
-" Tests Mailer Test Base
-nnoremap <silent> ,tMtb :call IndentTemplate('test/mailers/test_base.rb')<return>/ChangeMethod\\|ChangeThisMailer\\|DeleteThis\\|ChangeSubject\\|ChangeMailTo\\|ChangeMailFrom\\|ChangeSomeContent<return>
 " Tests Assert Enqueued Emails
 nnoremap <silent> ,taee aassert_equal ChangeCount, enqueued_emails('ChangeMailerAndEmail').size<esc>/ChangeCount\\|ChangeMailerAndEmail<return>
+" Tests Assert Encueued Jobs
+nnoremap <silent> ,taej aassert_equal 1, enqueued_jobs.length<esc>oassert_equal ChangeJobClass, enqueued_jobs.first[:job]<esc>/ChangeJobClass<return>
 
-" Helper
-" Tests Helper BAse
-nnoremap <silent> ,thba :call CreateBaseFile(1, 1, 1)<return>/outer_followup<return>cgnrequire 'test_helper'<esc>o<esc>/class<return>A < ActionView::TestCase<esc>/ChangeTopLevelDocumentation<return><down>^wviwy/ChangeTopLevelDocumentation<return>viwpbiTest for <esc>0/Test<return>ncgn<esc>:call IndentTemplateFrom('inner_followup', 'test/helpers/base.rb')<return>:call TestDisclaimer()<return>/DeleteThis\\|ChangeMethod<return>
 
 " nnoremap <silent> ,tsba :call CreateBaseFile(1, 1, 1)<return>/outer_followup<return>cgnrequire 'test_helper'<esc>o<esc>/class<return>A < ActiveSupport::TestCase<esc>/ChangeTopLevelDocumentation<return><down>^wviwy/ChangeTopLevelDocumentation<return>viwpbiTest for <esc>0/Test<return>ncgn<esc>:call IndentTemplateFrom('inner_followup', 'test/services/base.rb')<return>:call TestDisclaimer()<return>/DeleteThis\\|ChangeMethod<return>
-" Miscellaneous Messages Test
 " 
+"" Tests Services BAse
+"nnoremap <silent> ,tsba :call CreateBaseFile(1, 1, 1)<return>/outer_followup<return>cgnrequire 'test_helper'<esc>o<esc>/class<return>A < ActiveSupport::TestCase<esc>/ChangeTopLevelDocumentation<return><down>^wviwy/ChangeTopLevelDocumentation<return>viwpbiTest for <esc>0/Test<return>ncgn<esc>:call IndentTemplateFrom('inner_followup', 'test/services/base.rb')<return>:call TestDisclaimer()<return>/DeleteThis\\|ChangeMethod<return>
 " 
 """ Test Run
 ""  " File Test Current File in terminal

@@ -183,7 +183,7 @@ endfunction
 
 
 function! IndentTemplate(template_path)
-  call IndentTemplateFrom('', template_path)
+  call IndentTemplateFrom('', a:template_path)
 endfunction
 function! IndentTemplateFrom(start, template_path)
   " set indentations
