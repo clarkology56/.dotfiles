@@ -182,7 +182,10 @@ function! CreateBaseFile(class_or_module, include_outer_followup, include_inner_
 endfunction
 
 
-function! IndentTemplate(start, template_path)
+function! IndentTemplate(template_path)
+  call IndentTemplateFrom('', template_path)
+endfunction
+function! IndentTemplateFrom(start, template_path)
   " set indentations
   " if there is a starting point set indentations based on starting point
   if a:start != ''

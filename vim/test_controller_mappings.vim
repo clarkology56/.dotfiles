@@ -5,6 +5,12 @@ function! TestControllerBase()
   let @/ = "DeleteThis"
 endfunction
 
+" Tests Controller Web Show
+nnoremap <silent> ,tcws :call IndentTemplate()
+" asdf
+"  
+"
+
 
 
 
