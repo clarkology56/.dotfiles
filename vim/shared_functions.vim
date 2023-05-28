@@ -455,8 +455,3 @@ function WindowSplitVerdically()
   set wrap
   execute "normal! \<C-W>="
 endfunction
-
-
-function! TestDisclaimer()
-  exe "normal! /test disclaimer\<return>cgn\<esc>a# DeleteThis - do not test things that can easily change (ie text in source code)\<return>DeleteThis - do not test things so that if one thing is changed in source code many tests will break"
-endfunction
