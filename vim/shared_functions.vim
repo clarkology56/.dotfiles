@@ -254,7 +254,7 @@ function! TerminalCount()
   return l:terminalCount
 endfunction
 
-function! ToggleTerminalInWindow(terminalNumber)
+function! ToggleTerminalInWindow(terminalNumber, split_window)
   " See note in SetTerminals function mapping terminal number
   " to purpose
   " Make sure defult terminals have been set
@@ -264,7 +264,9 @@ function! ToggleTerminalInWindow(terminalNumber)
     execute l:terminalInfo['winnr'] 'wincmd w'
     execute 'normal! a'
   else
-    execute ':bo sp'
+    if a:split_window == 1
+      execute ':bo sp'
+    endif
     execute ':buf' l:terminalInfo['bufnr']
     execute 'normal! a'
   endif
