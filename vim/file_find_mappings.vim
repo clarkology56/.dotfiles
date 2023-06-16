@@ -26,6 +26,14 @@ nnoremap <silent> <space>fftm :e templates/**/*
 nnoremap <silent> <space>ffli :e lib/**/*
 nnoremap <silent> <space>ffcn :e config/**/*
 
-" need
-"   app/config (maybe move react native config outside of app to match rails?)
+" depends on project type
+nnoremap <silent> <space>ffcn :call FileFindConfig()<return>:e <C-R>=system('pbpaste')<CR>
+function! FileFindConfig()
+  let l:project_type = ProjectType()
+  if l:project_type == 'rails'
+    let @+ = 'config/**/*'
+  elseif l:project_type == 'react native' || l:project_type == 'react native expo'
+    let @+ = 'app/config/**/*'
+  endif
+endfunction
 "   lib/utilities (maybe move rails utilities to app to match react native?)

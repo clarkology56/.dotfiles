@@ -9,34 +9,42 @@ Layout/LineLength:
   Max: 90
   Exclude:
     - "config/environments/**/*"
-    - "Gemfile"
     - "config/initializers/content_security_policy.rb"   
-    - "config/puma.rb"
-    - "db/seeds.rb"
-    - "db/migrate/**/*"
     - "config/initializers/filter_parameter_logging.rb"
+    - "config/puma.rb"
+    - "db/migrate/**/*"
+    - "db/seeds.rb"
+    - "Gemfile"
     - "Rakefile"
     
 Metrics/AbcSize:
   Exclude:
-    - "db/migrate/**/*"
     - "app/models/ability.rb"
-      
-Metrics/ClassLength:
-  Exclude:
-    - "test/models/**/*"
-    - "test/controllers/**/*"
+    - "db/migrate/**/*"
       
 Metrics/BlockLength:    
   Exclude:
     - "app/admin/**/*"
     - "config/**/*"
     - "test/controllers/**/*"
-    - "test/jobs/**/*"
     - "test/factories/**/*"
+    - "test/jobs/**/*"
     - "test/models/**/*"
 
+Metrics/ClassLength:
+  Exclude:
+    - "test/controllers/**/*"
+    - "test/models/**/*"
+      
 Metrics/MethodLength:
   Exclude:
-    - "db/migrate/*"
     - "app/models/ability.rb"
+    - "db/migrate/*"
+      
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - "templates/**/*"
+
+Style/GlobalVars:
+  Exclude:
+    - "config/initializers/redis.rb"

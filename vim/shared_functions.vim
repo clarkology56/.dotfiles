@@ -457,3 +457,76 @@ function WindowSplitVerdically()
   set wrap
   execute "normal! \<C-W>="
 endfunction
+
+
+function! ProjectType()
+  let l:project_type = 'unknown'
+  if IsRailsProject()
+    let l:project_type = 'rails'
+  elseif IsReactNativeExpoProject()
+    let l:project_type = 'react native expo'
+  elseif IsReactNativeProject()
+    let l:project_type = 'react native'
+  endif
+  return l:project_type
+endfunction 
+
+function! IsRailsProject()
+  " Get the path of the current file
+  let l:current_file = expand('%:p')
+  " Check if the Gemfile exists in the current directory or any parent directories
+  let l:gemfile_path = findfile('Gemfile', '.;')
+  " Check if the config/application.rb file exists in the current directory or any parent directories
+  let l:application_rb_path = findfile('config/application.rb', '.;')
+  " Check if the app directory exists in the current directory or any parent directories
+  let l:app_directory_path = finddir('app', '.;')
+  " Check if all the required files/directories were found
+  if !empty(l:gemfile_path) && !empty(l:application_rb_path) && !empty(l:app_directory_path)
+    return 1
+  else
+    return 0
+  endif
+endfunction
+
+function! IsReactNativeExpoProject()
+  " Get the path of the current file
+  let l:current_file = expand('%:p')
+  " Check if package.json exists in the current directory or any parent directories
+  let l:package_json_path = findfile('package.json', '.;')
+  " Check if app.json exists in the current directory or any parent directories
+  let l:app_json_path = findfile('app.json', '.;')
+  " Check if the node_modules directory exists in the current directory or any parent directories
+  let l:node_modules_directory_path = finddir('node_modules', '.;')
+  " Check if the expo directory exists in the current directory or any parent directories
+  let l:expo_directory_path = finddir('.expo', '.;')
+  " Check if all the required files/directories were found
+  if !empty(l:package_json_path) && !empty(l:app_json_path) && !empty(l:node_modules_directory_path) && !empty(l:expo_directory_path)
+    return 1
+  else
+    return 0
+  endif
+endfunction
+
+function! IsReactNativeProject()
+  " Get the path of the current file
+  let l:current_file = expand('%:p')
+
+  " Check if package.json exists in the current directory or any parent directories
+  let l:package_json_path = findfile('package.json', '.;')
+
+  " Check if metro.config.js exists in the current directory or any parent directories
+  let l:metro_config_js_path = findfile('metro.config.js', '.;')
+
+  " Check if the android directory exists in the current directory or any parent directories
+  let l:android_directory_path = finddir('android', '.;')
+
+  " Check if the ios directory exists in the current directory or any parent directories
+  let l:ios_directory_path = finddir('ios', '.;')
+
+  " Check if all the required files/directories were found
+  if !empty(l:package_json_path) && !empty(l:metro_config_js_path) && !empty(l:android_directory_path) && !empty(l:ios_directory_path)
+    return 1
+  else
+    return 0
+  endif
+endfunction

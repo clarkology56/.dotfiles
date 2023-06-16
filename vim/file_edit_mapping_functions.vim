@@ -33,6 +33,19 @@ function FileEditFactories(split_window)
   endif
 endfunction
 
+function FileEditLocales(split_window)
+  if a:split_window == 1
+    call WindowSplitVerdically()
+  endif
+  let l:project_type = ProjectType()
+  if l:project_type == 'rails'
+    execute ':e config/locales'
+  elseif l:project_type == 'react native' || l:project_type == 'react native expo'
+    execute ':e app/config/locales'
+  endif
+endfunction
+
+
 function FileEditeStyle()
   let current_file = expand('%')
   " Rails

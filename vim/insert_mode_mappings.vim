@@ -74,3 +74,7 @@ inoremap <silent> procx proc(&:ChangeMethod)<esc>/ChangeMethod<return>
 inoremap <silent> sort_byb sort_by <esc>:call RubyBlockBlockInsertMode()<return>i
 inoremap <silent> sort_byo sort_by { \|ChangeObject\| ChangeObjedt.ChangeLogic }<esc>/ChangeObject\\|ChangeLogic<return><esc>n
 inoremap <silent> sort_byx sort_by(&:ChangeMethod)<esc>/ChangeMethod<return>
+
+" react native
+" useEffect
+inoremap <silent> useEffect() useEffect(() => {}, [])<esc>5<left>i<return><esc>O
