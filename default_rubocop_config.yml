@@ -34,6 +34,7 @@ Metrics/BlockLength:
 
 Metrics/ClassLength:
   Exclude:
+    - "app/controllers/**/broadcasts.rb"
     - "test/controllers/**/*"
     - "test/models/**/*"
       
