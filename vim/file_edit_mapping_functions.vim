@@ -104,6 +104,68 @@ function FileEditeStyle()
   endif
 endfunction
 
+function FileEditChild(split_window)
+  let l:current_file = expand('%')
+  if match(l:current_file, '_controller\.rb$') != -1
+    call FileEditChildController(a:split_window)
+  else
+    call FileEditChildRegular(a:split_window)
+  endif
+endfunction
+
+function FileEditChildRegular(split_window)
+  let current_file = expand('%')
+  let directory_of_children = split(current_file, '\.')[0]
+  if isdirectory(directory_of_children)
+    if a:split_window == 1
+      call WindowSplitVerdically()
+    endif
+    execute ':Explore' directory_of_children
+  else
+    let new_file = input("There are no child files yet. Create the first one!: " . directory_of_children . "/")
+    if new_file == ''
+      execute "normal! :echo"
+    else
+      if a:split_window == 1
+        call WindowSplitVerdically()
+      endif
+      execute ":e " . directory_of_children . "/" . new_file
+    endif
+  endif
+endfunction
+  
+function FileEditParent(split_window)
+  let l:current_file = expand('%')
+  if match(l:current_file, '_controller\.rb$') != -1
+    call FileEditParentController(a:split_window)
+  else
+    call FileEditParentRegular(a:split_window)
+  endif
+endfunction
+function FileEditParentRegular(split_window)
+  let current_file = expand('%')
+  let split = split(current_file, '/')
+  call remove(split, -1)
+  let parent = join(split, '/')
+  if filereadable(parent . '.rb')
+    if a:split_window == 1
+      call WindowSplitVerdically()
+    endif
+    execute ':e' parent . '.rb'
+  elseif filereadable(parent . '.js')
+    if a:split_window == 1
+      call WindowSplitVerdically()
+    endif
+    execute ':e' parent . '.js'
+  else
+    let grandparent = join(split(parent, '/')[0:-2], '/')
+    if a:split_window == 1
+      call WindowSplitVerdically()
+    endif
+    execute ':Explore ' grandparent
+  endif
+endfunction
+
 function FileEditChildController(split_window)
   let current_file = expand('%')
   " remove 12 characters for _controller so that ex. jobs_controller
@@ -241,51 +303,6 @@ function FileEditHelper(split_window)
       call WindowSplitVerdically()
     endif
     execute ':e' file
-  endif
-endfunction
-
-function FileEditChild(split_window)
-  let current_file = expand('%')
-  let directory_of_children = split(current_file, '\.')[0]
-  if isdirectory(directory_of_children)
-    if a:split_window == 1
-      call WindowSplitVerdically()
-    endif
-    execute ':Explore' directory_of_children
-  else
-    let new_file = input("There are no child files yet. Create the first one!: " . directory_of_children . "/")
-    if new_file == ''
-      execute "normal! :echo"
-    else
-      if a:split_window == 1
-        call WindowSplitVerdically()
-      endif
-      execute ":e " . directory_of_children . "/" . new_file
-    endif
-  endif
-endfunction
-  
-function FileEditParent(split_window)
-  let current_file = expand('%')
-  let split = split(current_file, '/')
-  call remove(split, -1)
-  let parent = join(split, '/')
-  if filereadable(parent . '.rb')
-    if a:split_window == 1
-      call WindowSplitVerdically()
-    endif
-    execute ':e' parent . '.rb'
-  elseif filereadable(parent . '.js')
-    if a:split_window == 1
-      call WindowSplitVerdically()
-    endif
-    execute ':e' parent . '.js'
-  else
-    let grandparent = join(split(parent, '/')[0:-2], '/')
-    if a:split_window == 1
-      call WindowSplitVerdically()
-    endif
-    execute ':Explore ' grandparent
   endif
 endfunction
 

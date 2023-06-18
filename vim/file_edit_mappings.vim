@@ -1,3 +1,13 @@
+" Functional based on purpose
+" File Edit Children
+nnoremap <silent> <space>fech :call FileEditChild(1)<return>
+nnoremap <silent> <space>fecH :call FileEditChild(0)<return>
+" File Edit Parent
+nnoremap <silent> <space>fepa :call FileEditParent(1)<return>
+nnoremap <silent> <space>fepA :call FileEditParent(0)<return>
+
+
+" Alphabetical based on file type
 " File Edit ABility
 nnoremap <silent> <space>feab :call WindowSplitVerdically()<return>:e app/models/ability.rb<return>
 nnoremap <silent> <space>feaB :e app/models/ability.rb<return>
@@ -38,22 +48,10 @@ nnoremap <silent> <space>fest :call FileEditeStyle()<return>
 nnoremap <silent> <space>fesw :call WindowSplitVerdically()<return>:Explore ~/.local/share/nvim/swap/<return>
 nnoremap <silent> <space>fesW :Explore ~/.local/share/nvim/swap/<return>
 
-" NEED TO ALPABETIZE BELOW:
-" File Edit Children Controllers
-nnoremap <silent> <space>fecc :call FileEditChildController(1)<return>
-nnoremap <silent> <space>fecC :call FileEditChildController(0)<return>
-" File Edit Parent Controllers
-nnoremap <silent> <space>fepc :call FileEditParentController(1)<return>
-nnoremap <silent> <space>fepC :call FileEditParentController(0)<return>
+" need to alphabetize / organize below
 " File Edit HElper
 nnoremap <silent> <space>fehe :call FileEditHelper(1)<return>
 nnoremap <silent> <space>fehE :call FileEditHelper(0)<return>
-" File Edit Children
-nnoremap <silent> <space>fech :call FileEditChild(1)<return>
-nnoremap <silent> <space>fecH :call FileEditChild(0)<return>
-" File Edit Parent
-nnoremap <silent> <space>fepa :call FileEditParent(1)<return>
-nnoremap <silent> <space>fepA :call FileEditParent(0)<return>
 " File Edit Test Helper
 nnoremap <silent> <space>fedm :Explore db/migrate<return>
 nnoremap <silent> <space>fedm :Explore db/migrate<return>
