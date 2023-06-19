@@ -10,19 +10,19 @@ nnoremap <silent> ,hmis a<i class="link fa-solid fa-pen-to-square" data-target-m
 " Html Modal Icon trigger Javascrtip dynamic
 nnoremap <silent> ,hmij a<i class="link fa-solid fa-pen-to-square" <%= ChangeHelperMethod %>></i><esc>/ChangeHelperMethod<return>
 " Html Modal Icon trigger Destroy
-nnoremap <silent> ,hmij a<i class="link link-danger fa-solid fa-trash-can" data-target-modal="ChangeModel-<%= ChangeModel.id %>-delete-modal"></i><esc>/ChangeModel<return>
+nnoremap <silent> ,hmid a<i class="link link-danger fa-solid fa-trash-can" data-target-modal="ChangeModel-<%= ChangeModel.id %>-delete-modal"></i><esc>/ChangeModel<return>
 " Html Modal Button trigger Static
-nnoremap <silent> ,hmbj a<button class="btn" data-target-modal="ChangeModel-<%= ChangeModel.id %>-ChangeActionOrDescription-modal">ChangeAction</button><esc>/ChangeModel\\|ChangeActionOrDescription\\|ChangeAction<return>
+nnoremap <silent> ,hmbs a<button class="btn" data-target-modal="ChangeModel-<%= ChangeModel.id %>-ChangeActionOrDescription-modal">ChangeAction</button><esc>/ChangeModel\\|ChangeActionOrDescription\\|ChangeAction<return>
 " Html Modal Button trigger Javascrtip dynamic
 nnoremap <silent> ,hmbj a<button class="btn" <%= ChangeHelperMethod %>>ChangeAction</button><esc>/ChangeHelperMethod\\|ChangeAction<return>
 " Html Modal Button trigger Destroy
-nnoremap <silent> ,hmbj a<button class="btn btn-danger" data-target-modal="ChangeModel-<%= ChangeModel.id %>-delete-modal">Delete ChangeModelDisplay</button><esc>/ChangeModelDisplay\\|ChangeModel<return>
+nnoremap <silent> ,hmbd a<button class="btn btn-danger" data-target-modal="ChangeModel-<%= ChangeModel.id %>-delete-modal">Delete ChangeModelDisplay</button><esc>/ChangeModelDisplay\\|ChangeModel<return>
 " Html Modal Link trigger Static
-nnoremap <silent> ,hmlj a<a class="link" data-target-modal="ChangeModel-<%= ChangeModel.id %>-ChangeActionOrDescription-modal">ChangeAction</a><esc>/ChangeModel\\|ChangeActionOrDescription\\|ChangeAction<return>
+nnoremap <silent> ,hmls a<a class="link" data-target-modal="ChangeModel-<%= ChangeModel.id %>-ChangeActionOrDescription-modal">ChangeAction</a><esc>/ChangeModel\\|ChangeActionOrDescription\\|ChangeAction<return>
 " Html Modal Link trigger Javascrtip dynamic
 nnoremap <silent> ,hmlj a<a class="link" <%= ChangeHelperMethod %>>ChangeAction</a><esc>/ChangeHelperMethod\\|ChangeAction<return>
 " Html Modal Link trigger Destroy
-nnoremap <silent> ,hmlj a<a class="link link-danger" data-target-modal="ChangeModel-<%= ChangeModel.id %>-delete-modal">Delete ChangeModelDisplay</a><esc>/ChangeModelDisplay\\|ChangeModel<return>
+nnoremap <silent> ,hmld a<a class="link link-danger" data-target-modal="ChangeModel-<%= ChangeModel.id %>-delete-modal">Delete ChangeModelDisplay</a><esc>/ChangeModelDisplay\\|ChangeModel<return>
 
 
 
