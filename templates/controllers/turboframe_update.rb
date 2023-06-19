@@ -1,37 +1,45 @@
+def show
+  load_ChangeModel
+  # DeleteThis - use this for grouped permissions
+  authorize! :ChangeAbility, @ChangeModel
+  # DeleteThis - use this for granular controller action permissions
+  authorize_controller_action! @ChangeModel
+end
+
+def edit
+  load_ChangeModel
+  # DeleteThis - use this for grouped permissions
+  authorize! :ChangeAbility, @ChangeModel
+  # DeleteThis - use this for granular controller action permissions
+  authorize_controller_action! @ChangeModel
+end
+
 def update
   load_ChangeModel
+  # DeleteThis - use this for grouped permissions
   authorize! :ChangeAbility, @ChangeModel
+  # DeleteThis - use this for granular controller action permissions
+  authorize_controller_action! @ChangeModel
   @ChangeModel.update(update_params) ? render_update : render_invalid_update
 end
 
 private
 
 def render_update
-  # ajax
-  # [render add modal (so it closes first)]
-  broadcast_flash_success 'Changethis updated'
-  # [render index / intem / other]
-  # [render modals for new item (ofent edit modal and / or destroy modal)]
-
-  # turboframe
   broadcast_flash_success 'ChangeModelDisplay updated', skip_render: true
-  redirect_to changethis_path(current_account, @changethis)
-  # insert turbo methods as needed
+  # DeleteThis - redirect to show
+  redirect_to ChangePath(current_account, @ChangeModel)
+  # DeleteThis - render other items as needed.
 end
 
 def render_invalid_update
-  # insert turbo methods
-  # ajax
-  broadcast_flash_danger @changethis
-  broadcast_flash_danger @changethis,
-                         target: "changethis-#{@changethis.id}-update-modal-flash"
-  # turboframe
-  # eventually we should be rendering the form with inlcine errors.. and then doing
-  # skip render in teh flash below
-  # flash
-  broadcast_flash_danger @changethis
-  broadcast_flash_danger @changethis,
-                         target: "changethis-#{@changethis.id}-update-modal-flash"
+  # DeleteThis - if not coming from modal
+  broadcast_flash_danger @ChangeModel
+  # DeleteThis - if coming from modal
+  broadcast_flash_danger @ChangeModel,
+                         target: "ChangeModel-#{@ChangeModel.id}-update-modal-flash"
+  # DeleteThis - redirect to edit and show errors
+  redirect_to ChangePath(current_account, @ChangeModel)
 end
 
 def update_params
