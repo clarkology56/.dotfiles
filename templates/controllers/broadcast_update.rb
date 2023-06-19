@@ -17,7 +17,7 @@ def render_update
   render_edit_modal
   broadcast_flash_success 'ChangeModelDisplay updated'
   # DeleteThis - render other items as needed.
-  # Deletethis - remember to re-render any other modals associated
+  # DeleteThis - remember to re-render any other modals associated
   #              because modals are rendered from the bottom of the
   #              template so rendering the "user partial" for example
   #              will not make any updats the the "delete user modal".
