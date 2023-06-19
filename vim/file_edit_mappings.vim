@@ -5,6 +5,9 @@ nnoremap <silent> <space>fecH :call FileEditChild(0)<return>
 " File Edit Parent
 nnoremap <silent> <space>fepa :call FileEditParent(1)<return>
 nnoremap <silent> <space>fepA :call FileEditParent(0)<return>
+" File Edit Swap Files (for deleting swap files
+nnoremap <silent> <space>fesw :call WindowSplitVerdically()<return>:Explore ~/.local/share/nvim/swap/<return>
+nnoremap <silent> <space>fesW :Explore ~/.local/share/nvim/swap/<return>
 
 
 " Alphabetical based on file type
@@ -44,9 +47,9 @@ nnoremap <silent> <space>ferO :e config/routes.rb<return>
 " File Edit STyles
 nnoremap <silent> <space>fest :call FileEditeStyle()<return>
 nnoremap <silent> <space>fest :call FileEditeStyle()<return>
-" File Edit Swap Files (for deleting swap files
-nnoremap <silent> <space>fesw :call WindowSplitVerdically()<return>:Explore ~/.local/share/nvim/swap/<return>
-nnoremap <silent> <space>fesW :Explore ~/.local/share/nvim/swap/<return>
+" File Edit VIew
+nnoremap <silent> <space>fevi :call FileEditView(1)<return>
+nnoremap <silent> <space>fevI :call FileEditView(0)<return>
 
 " need to alphabetize / organize below
 " File Edit HElper
@@ -61,9 +64,6 @@ nnoremap <silent> <space>feth :Explore test/test_helper<return>
 " File Edit MOdel
 nnoremap <silent> <space>femo :call FileEditModel()<return>
 nnoremap <silent> <space>femo :call FileEditModel()<return>
-" File Edit VIew
-nnoremap <silent> <space>fevi :call FileEditView(1)<return>
-nnoremap <silent> <space>fevI :call FileEditView(0)<return>
 " File Edit SPec
 nnoremap <silent> <space>fesp :call FileEditSpec(1)<return>
 nnoremap <silent> <space>fesP :call FileEditSpec(0)<return>

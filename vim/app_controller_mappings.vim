@@ -5,4 +5,3 @@ nnoremap <silent> ,acbc :call CreateBaseFile(1, 0, 1)<return>/ChangeTopLevelDocu
 
 " App Controllers Broadcast Update
 nnoremap <silent> ,acbu :call IndentTemplate('controllers/broadcast_update.rb')<return>/ChangeModelDisplay\\|ChangeModel\\|ChangeAbility\\|DeleteThis\\|ChangeControllerName<return>
-
