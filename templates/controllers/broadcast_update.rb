@@ -11,7 +11,7 @@ private
 
 def render_update
   # DeleteThis - If coming from a modal, re-render it first, which will
-  #              close the modal. It's important to render first otherwise
+  #              close the modal. It's important to call this first otherwise
   #              it looks bad for the page to start changing before the
   #              modal is closed
   close_ChangeControllerName_edit_modal
