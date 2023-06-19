@@ -29,5 +29,6 @@ endfunction
 " File Copy Partial Path
 nnoremap <silent> <space>fcpp :call FileCopyPartialPath()<return>
 function! FileCopyPartialPath()
-  let @+ = substitute(expand('%:h'), 'app/views/', '', '')
+  let current_file_path = expand('%:h')
+  let @+ = split(current_file_path, 'app/views/')[-1]
 endfunction

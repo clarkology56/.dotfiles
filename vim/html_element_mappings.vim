@@ -1,5 +1,18 @@
+" Html Elements Render Partial
+nnoremap <silent> ,herp a<%= render '<esc>:call FileCopyPartialPath()<return>pa/ChangePartial', ChangeLocal: ChangeLocal %><esc>/ChangePartial\\|ChangeLocal<return>
 " Html Elements Anchor with Href
 nnoremap <silent> ,heah a<%= link_to(ChangeDisplay, ChangePath_path) %><esc>/ChangeDisplay\\|ChangePath<return>
+" Html Elements Icon
+nnoremap <silent> ,heic a<i class="text-primary pressable fa-solid ChangeIcon"></i><esc>/ChangeIcon<return>
+" Html Elements Icon List
+nnoremap <silent> ,heil :call IndentTemplate('views/elements/icon_list.html.erb')<return>
+
+
+
+
+
+
+
 "" Html Elements Anchor new Tab
 "nnoremap <silent> ,heat a<%= link_to(ChangeDisplay, ChangePath_path, target: :_blank) %><esc>/ChangeDisplay\\|ChangePath<return>
 "" Html Elements Anchor with Class
