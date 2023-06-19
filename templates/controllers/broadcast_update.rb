@@ -1,41 +1,32 @@
 def update
-  load_changethis
-  authorize! :changethis, @changethis
-  if @changethis.update(update_params)
-    render_update
-  else
-    render_invalid_update
-  end
+  load_ChangeModel
+  authorize! :ChangeAbility, @ChangeModel
+  @ChangeModel.update(update_params) ? render_update : render_invalid_update
 end
 
 private
 
 def render_update
-  # ajax
-  # [render add modal (so it closes first)]
-  broadcast_flash_success 'Changethis updated'
-  # [render index / intem / other]
-  # [render modals for new item (ofent edit modal and / or destroy modal)]
-
-  # turboframe
-  broadcast_flash_success 'Changethis updated', skip_render: true
-  redirect_to changethis_path(current_account, @changethis)
-  # insert turbo methods as needed
+  # DeleteThis - If coming from a modal, re-render it first, which will
+  #              close the modal. It's important to render first otherwise
+  #              it looks bad for the page to start changing before the
+  #              modal is closed
+  render_edit_modal
+  broadcast_flash_success 'ChangeModelDisplay updated'
+  # DeleteThis - render other items as needed.
+  # Deletethis - remember to re-render any other modals associated
+  #              because modals are rendered from the bottom of the
+  #              template so rendering the "user partial" for example
+  #              will not make any updats the the "delete user modal".
 end
 
 def render_invalid_update
-  # insert turbo methods
-  # ajax
-  broadcast_flash_danger @changethis
-  broadcast_flash_danger @changethis,
-                         target: "changethis-#{@changethis.id}-update-modal-flash"
-  # turboframe
-  # eventually we should be rendering the form with inlcine errors.. and then doing
-  # skip render in teh flash below
-  # flash
-  broadcast_flash_danger @changethis
-  broadcast_flash_danger @changethis,
-                         target: "changethis-#{@changethis.id}-update-modal-flash"
+  # DeleteThis - if not coming from modal
+  broadcast_flash_danger @ChangeModel
+  # DeleteThis - if coming from modal
+  broadcast_flash_danger @ChangeModel,
+                         target: "ChangeModel-#{@ChangeModel.id}-update-modal-flash"
+  # DeleteThis - render other items as needed.
 end
 
 def update_params

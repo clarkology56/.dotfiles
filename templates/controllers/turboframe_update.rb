@@ -1,11 +1,7 @@
 def update
-  load_changethis
-  authorize! :changethis, @changethis
-  if @changethis.update(update_params)
-    render_update
-  else
-    render_invalid_update
-  end
+  load_ChangeModel
+  authorize! :ChangeAbility, @ChangeModel
+  @ChangeModel.update(update_params) ? render_update : render_invalid_update
 end
 
 private
@@ -18,7 +14,7 @@ def render_update
   # [render modals for new item (ofent edit modal and / or destroy modal)]
 
   # turboframe
-  broadcast_flash_success 'Changethis updated', skip_render: true
+  broadcast_flash_success 'ChangeModelDisplay updated', skip_render: true
   redirect_to changethis_path(current_account, @changethis)
   # insert turbo methods as needed
 end
