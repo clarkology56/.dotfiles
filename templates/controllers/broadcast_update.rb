@@ -14,7 +14,7 @@ def render_update
   #              close the modal. It's important to render first otherwise
   #              it looks bad for the page to start changing before the
   #              modal is closed
-  render_edit_modal
+  close_ChangeControllerName_edit_modal
   broadcast_flash_success 'ChangeModelDisplay updated'
   # DeleteThis - render other items as needed.
   # DeleteThis - remember to re-render any other modals associated
