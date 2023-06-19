@@ -1,6 +1,9 @@
 def update
   load_ChangeModel
+  # DeleteThis - use this for grouped permissions
   authorize! :ChangeAbility, @ChangeModel
+  # DeleteThis - use this for granular controller action permissions
+  authorize_controller_action! @ChangeModel
   @ChangeModel.update(update_params) ? render_update : render_invalid_update
 end
 
