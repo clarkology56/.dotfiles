@@ -1,0 +1,13 @@
+<% modal id: "ChangeModel-#{ChangeModel.id}-ChangeActionOrDescription-modal" do %>
+  <div id="ChangeModel-<%= ChangeModel.id %>-ChangeActionOrDescription-modal-flash" class="flash-messages"></div>
+  <% card_header do %>
+    <p>Delete ChangeModelDisplay</p>
+  <% end %> 
+  <% card_body do %> 
+    <p>Would you like to delete this ChangeModelDisplay? This action cannot be undone.</p>
+    <div class="pt-2 flex justify-end">
+      <%= content_tag('A', 'Cancel', class: 'btn btn-secondary mr-2', data: { action: 'click->modal#hide' }) %>
+      <%= link_to('Delete Object', ChangePath(account, ChangeModel), data: { turbo_method: :delete }, class: 'btn btn-danger') %>
+    </div>
+  <% end %> 
+<% end %> 

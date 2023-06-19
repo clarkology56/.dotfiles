@@ -1,0 +1,15 @@
+<% modal id: "ChangeModel-#{ChangeModel.id}-ChangeActionOrDescription-modal" do %>
+  <div id="ChangeModel-<%= ChangeModel.id %>-ChangeActionOrDescription-modal-flash" class="flash-messages"></div>
+  <% card_header do %>
+    ChangeHeader
+  <% end %> 
+  <% card_body do %> 
+    <%= form_with(model: ChangeModel, url: ChangePath(account, ChangeModel), method: :ChangeHtmlMethod) do |f| %>
+      <%# insert form fields %>
+      <div class="pt-2 flex justify-end">
+        <%= content_tag('A', 'Cancel', class: 'btn btn-secondary mr-2', data: { action: 'click->modal#hide' }) %>
+        <%= f.submit('ChangeSubmitToAddForNewOrSaveForUpdate', class: 'btn') %>
+      </div>
+    <% end %> 
+  <% end %> 
+<% end %>
