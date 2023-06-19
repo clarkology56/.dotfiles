@@ -345,12 +345,6 @@ function FileEditView(split_window)
   if match(current_file, 'app/assets/stylesheets') != -1
     let directory = substitute(expand('%:h'), 'assets/stylesheets', 'views', '')
   elseif match(current_file, 'app/controllers') != -1
-    let l:namespaces = split(current_file, '/')
-    " if there are 6 namespaces then we are in a child controller so change
-    " the current file to be the parent controller
-    if len(l:namespaces) == 6
-      let current_file = join(l:namespaces[:-2], '/') . '/_controller.rb'
-    endif
     let directory = substitute(current_file, 'controllers', 'views', '')
     let directory = substitute(directory, '_controller.rb', '', '')
   elseif match(current_file, 'app/helpers') != -1
