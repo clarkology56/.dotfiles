@@ -2,10 +2,9 @@
 nnoremap <silent> ,hfba a<%= form_with(model: ChangeModel, url: ChangePath(account, ChangeObject), method: :ChangeHtmlMethod) do \|f\| %><return><return><%# DeleteThis - insert hidden fields here if necessary %><return><%# DeleteThis - insert label type (or fields for if necessary) %><return><%# DeleteThis - insert form buttons %><return><return><% end %><esc>/ChangeModel\\|ChangePath\\|ChangeHtmlMethod\\|DeleteThis<return>
 
 " Html Form Layout Top label
-nnoremap <silent> ,hflt a<div class="form-group"><return><%= f.label(:ChangeLabel) %><return><%# DeleteThis - insert input %><return></div><esc>
+nnoremap <silent> ,hflt a<div class="form-group"><return><%= f.label(:ChangeLabel) %><return><%# DeleteThis - insert input %><return><%= inline_errors_for ChangeModel, :ChangeAttribute %><return></div><esc>/ChangeLabel\\|DeleteThis\\|ChangeModel\\|ChangeAttribute<return>
 " Html Form Layout Left label
-nnoremap <silent> ,hflt a<div class="form-group"><return><%= f.label(:ChangeLabel) %><return><%# DeleteThis - insert input %><return></div><esc>
-
+" ...
 
 
 
