@@ -9,12 +9,6 @@ function FileEditClipBoad()
   endif
 endfunction
 
-function! FileCreatePartial()
-  let directory = expand('%:h')
-  let new_file = input("Create new partial (prefix of \"_\" and extention of \".html.erb\" will be added automatically): ")
-  execute ':e ' . directory . '/_' . new_file . '.html.erb'
-endfunction
-
 function FileEditFactories(split_window)
   if a:split_window == 1
     call WindowSplitVerdically()

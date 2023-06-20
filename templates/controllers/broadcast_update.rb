@@ -14,6 +14,10 @@ def render_update
   #              close the modal. It's important to call this first otherwise
   #              it looks bad for the page to start changing before the
   #              modal is closed
+  # DeleteThis - NOTE: ALWAYS close the modal using current_user_stream_for
+  #              and NOT stream_for because you don't want user A to interrupt
+  #              user B's experience. Closing modal should only close the current
+  #              user's modal, not others
   close_ChangeControllerName_edit_modal
   broadcast_flash_success 'ChangeModelDisplay updated'
   # DeleteThis - render other items as needed.

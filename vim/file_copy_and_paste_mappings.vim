@@ -2,8 +2,7 @@
 nnoremap <silent> <space>fppp :call FilePastePartialPath()<return>
 function! FilePastePartialPath()
   let @+ = substitute(expand('%:h'), 'app/views/', '', '')
-  let @/ = 'ChangePath'
-  normal! nviwp
+  normal! p
 endfunction
 
 " File Copy Current File

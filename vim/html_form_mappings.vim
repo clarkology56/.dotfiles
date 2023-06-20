@@ -1,5 +1,10 @@
 " Html Form BAse
-nnoremap <silent> ,hfba a<%= form_with(scope: 'ChangeScope', url: ChangeUrl_path(ChangeObject), method: :ChangeHTMLMethod) do \|f\| %><return><return><%# DeleteThis - insert hidden fields here if necessary %><return><%# DeleteThis - insert label type (or fields for if necessary) %><return><%# DeleteThis - insert form buttons %><return><return><% end %><esc>/ChangeObject\\|ChangeScope\\|ChangeUrl\\|ChangeHTMLMethod\\|DeleteThis<return>
+nnoremap <silent> ,hfba a<%= form_with(model: ChangeModel, url: ChangePath(account, ChangeObject), method: :ChangeHtmlMethod) do \|f\| %><return><return><%# DeleteThis - insert hidden fields here if necessary %><return><%# DeleteThis - insert label type (or fields for if necessary) %><return><%# DeleteThis - insert form buttons %><return><return><% end %><esc>/ChangeModel\\|ChangePath\\|ChangeHtmlMethod\\|DeleteThis<return>
+
+" Html Form Layout Top label
+nnoremap <silent> ,hflt a<div class="form-group"><return><%= f.label(:ChangeLabel) %><return><%# DeleteThis - insert input %><return></div><esc>
+" Html Form Layout Left label
+nnoremap <silent> ,hflt a<div class="form-group"><return><%= f.label(:ChangeLabel) %><return><%# DeleteThis - insert input %><return></div><esc>
 
 
 
@@ -42,23 +47,6 @@ nnoremap <silent> ,hfos aoptions_for_select(ChangeOptionsListDisplayFirstValueSe
 "   " Html Single Item Image partial
 "   nnoremap <silent> ,hsiI a<%= form_with(scope: 'ChangeScope', url: ChangePath_path(ChangeObject), method: :ChangeMethod) do \|sii_form\| %><return><%= sii_form.label(:ChangeAttribute, class: 'm-0') do %><return><i class="c-pointer icon px-3 fs-4 text-secondary mdi mdi-camera"></i><return><% end %><return><%= sii_form.file_field(<return><tab>:ChangeAttribute,<return>data: { siiId: 'ChangeSiiId' },<return># DeleteThis - by default, images over 25MB are not allowed and images larger than 5MB will be resized to 5MB<return>DeleteThis - these can be changed by setting "removeIfOverMb" and "resizeIfOverMb" data attributes to an integer<return>DeleteThis - ex. "resizeIfOverMb: '1'" will attach message to any photo over 1MB (actual resizing must be set up in back end)<return>DeleteThis - ex. "removeIfOverMb: '10'" will attach message to any photo over 10MB and will hide form submit button<return><backspace><backspace>accept: 'image/*',<return># DeleteThis - limit to specific types of images by updating accept attribute<return>DeleteThis - common formats are: image/jpeg image/gif image/png image/heic<return>DeleteThis - keep image/* for now until I do more research and test different types.<return><backspace><backspace>multiple: ChangeToTrueOrRemove<return>) %><return><tab><%= render(<return><tab>'shared/single_input_images_modal',<return>siiId: 'ChangeSiiId',<return>title: 'Changetitle',<return># DeleteThis - Change title... typically "Preview Photo" or "Preview Photos" if mulitiple<return><backspace><backspace>form: sii_form<return>)%><return><% end %><esc>/ChangeScope\\|ChangePath\\|ChangeObject\\|ChangeMethod\\|ChangeAttribute\\|ChangeToTrueOrRemove\\|ChangeSiiId\\|Changetitle\\|DeleteThis<return>
 " 
-" " Html Show edit swap
-"   " Html Show edit swap BAse
-"   nnoremap <silent> ,hsba a<div id="ChangeSesId-ses-show"><return><%= render('ChangePath/ChangeSubController/show') %><return></div><return><return><div id="ChangeSesId-ses-edit"><return><%= render('ChangePath/ChangeSubController/edit') %><return></div><esc>/ChangeSesId\\|ChangePath\\|ChangeSubController<return>
-"   " Html Show edit swap Base for Single item
-"   nnoremap <silent> ,hsbs a<div class="d-flex"><return><div id="ChangeSesId-ses-show" class="ses-single-show"><return><span><%= ChangeDisplay %></span><return></div><return><return><div id="ChangeSesId-ses-edit"><return><%= render('ChangePath/ChangeSubController/edit', ChangeObject: ChangeObject) %><return></div><return></div><esc>/ChangeSesId\\|ChangeDisplay\\|ChangePath\\|ChangeSubController\\|ChangeObject<return>
-"   " Html Show edit swap Base for Single item - mulitple
-"   nnoremap <silent> ,hsbS a<%# DeleteThis - align-items-start is important so that items stay aligned even when there is an error message %><return><div class="d-flex flex-wrap align-items-start"><return><% ChangeObjects.each do \|ChangeObject\| %><return><%# DeleteThis - adjust padding below above as needed %><return><div class="d-flex pr-2"><return><div id="ChangeSesId-ses-show" class="ChangeSesId-ses-edit-button ses-single-show"><return><span><%= ChangeDisplay %></span><return></div><return><return><div id="ChangeSesId-ses-edit"><return><%= render('ChangePath/ChangeSubController/edit', ChangeObject: ChangeObject) %><return></div><return></div><return><% end %><return></div><esc>/DeleteThis\\|ChangeObjects\\|ChangeObject\\|ChangeSesId\\|ChangeDisplay\\|ChangePath\\|ChangeSubController<return>
-" 
-"   " Html Show edit swap Edit button - Button
-"   nnoremap <silent> ,hseb a<a class="btn btn-primary ChangeSesId-ses-edit-button">AddForCreateOrSaveForUpdate</a><esc>/ChangeSesId\\|AddForCreateOrSaveForUpdate<return>
-"   " Html Show edit swap Edit button - Icon
-"   nnoremap <silent> ,hsei a<a class="no-href-icon px-3 fs-4 text-primary mdi mdi-edit ChangeSesId-ses-edit-button"></a><esc>/ChangeSesId<return>
-"   " Html Show edit swap Edit button - Link
-"   nnoremap <silent> ,hsel a<a class="no-href-link ChangeSesId-ses-edit-button">AddForCreateOrSaveForUpdate</a><esc>/ChangeSesId\\|AddForCreateOrSaveForUpdate<return>
-"   " Html Show edit swap Edit button - Class
-"   nnoremap <silent> ,hsec aChangeSesId-ses-edit-button<esc>/ChangeSesId<return>
-"   
 "   " Html Form Single Item
 "   nnoremap <silent> ,hfsi a<%= form_with(scope: 'ChangeScope', url: ChangePath_path(ChangeObject), method: :ChangeMethod) do \|f\| %><return><div class="ses-single-input-container"><return><%# DeleteThis - use text feild or change input type %><return><%= f.text_field(<return>  :ChangeAttribute,<return># DeleteThis - typically looks better to manage input witdh by setting html size attribute; otherwise input width will default to 100% which doesn't look as good.<return>DeleteThis - if value is nil, delete size attribute and use default of 100% width. If value could be nil, use safe navigation.<return><backspace><backspace>size: ChangeObject.ChangeAttribute.length,<return># DeleteThis - include class "page-head" if for page header<return>DeleteThis - include class "card-head" if for card header<return><backspace><backspace>class: 'form-control ses-single-input',<return># DeleteThis - goal is for edit form to look like show but with border and buttons. If above classes do not work, try adding custom styles:<return><backspace><backspace># DeleteOrUseThis - style: 'height: XXpx !important; font-size: XXpx; font-weight: XXX; Etc...',<return><backspace><backspace><esc>:call HtmlInputMainAttributes()<return>o) %><return>  <a class="pl-3 pr-2 fs-4 c-pointer text-secondary mdi mdi-close-circle-o ChangeSesId-ses-cancel-button"></a><return><button class="pl-2 pr-3 fs-4 btn-no-background text-primary mdi mdi-check-circle ses-do-not-disable"></button><return></div><return><%= render('shared/inline_errors', errors: ChangeObject.errors.messages[:ChangeAttribute], html_attributes: 'class="input_error ses-single"') %><return><% end %><esc>:call HtmlInputSearch()<return>
 "   
@@ -69,17 +57,7 @@ nnoremap <silent> ,hfos aoptions_for_select(ChangeOptionsListDisplayFirstValueSe
 "   " Html Form non-standard forms Array Hash
 "   nnoremap <silent> ,hfah :read ../templates/views/forms/non_standard_forms/array_hash.html.erb<return>/ChangeModel\\|ChangeScop\\|ChangeUrl\\|ChangeMethod\\|ChangeParentForm\\|ChangeObjects\\|ChangeObject\\|ReplaceThis\\|DeleteThis:\\|ChangeAttribute<return>
 "   
-"   
-"   
-"   
-"   
-"   
 " " Above needs major refactor - see form packages in docs
-" 
-" 
-" 
-" 
-" 
 " 
 " " Html Show
 "   " Html Show Left Label wrapper
