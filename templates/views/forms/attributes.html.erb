@@ -1,10 +1,10 @@
 value: ChangeObject.ChangeAttribute, # set automatically if form uses model argument. Specifies the intial value for the input. If type = "checkbox" or type = "radio" this attribute is required. This is not necessary for select.
 placeholder: 'Enter ChangeValue', # html-5 text Specifies a short hint that describes the expected value.
-required: ChangeValue, # html-5 required Specifies that an input field must be filled out before submitting the form.
+required: ChangeOrRemove, # html-5 required Specifies that an input field must be filled out before submitting the form.
 alt: ChangeValue, # text This specifies text to be used in case the browser/user agent can't render the input control.
 autocomplete: ChangeValue, # html-5 on off Specifies for enabling or disabling of autocomplete in INPUT element.
-autofocus: ChangeValue, # html-5 autofocus pecifies that INPUT element should automatically get focus when the page loads.
-checked: ChangeValue, # checked If type = "radio" or type = "checkbox" it will already be selected when the page loads.
+autofocus: ChangeOrRemove, # html-5 autofocus pecifies that INPUT element should automatically get focus when the page loads.
+checked: ChangeOrRemove, # checked If type = "radio" or type = "checkbox" it will already be selected when the page loads.
 max: ChangeValue, # html-5 autofocus Specifies the maximum value.
 maxlength: ChangeValue, # number (set to 255 for strings) Defines the maximum number of characters allowed in a text field.
 min: ChangeValue, # html-5 number Specifies the minimum value.

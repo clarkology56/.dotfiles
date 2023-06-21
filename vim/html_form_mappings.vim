@@ -11,7 +11,9 @@ nnoremap <silent> ,hfsm :call IndentTemplate('views/forms/submit_buttons_modal.h
 " Html Form Group Top label
 nnoremap <silent> ,hfgt :call IndentTemplate('views/forms/groups_top_label.html.erb')<return>/ChangeLabelDisplay\\|ChangeLabel\\|DeleteThis\\|ChangeAttribute<return>
 " Html Form Group left label for Checkboxes  
-nnoremap <silent> ,hfgc :call IndentTemplate('views/forms/groups_left_label_for_checkboxes.html.erb')<return>/ChangeLabelDisplay\\|ChangeLabel\\|DeleteThis\\|ChangeAttributeDisplay\\|ChangeAttribute\\|ChangeTrueOrRemove\\|ChangeOrRemove<return>
+nnoremap <silent> ,hfgc :call IndentTemplate('views/forms/groups_left_label_for_checkboxes.html.erb')<return>/ChangeLabelDisplay\\|ChangeLabel\\|DeleteThis\\|ChangeAttributeDisplay\\|ChangeAttribute\\|ChangeOrRemove<return>
+" Html Form Group left label for Radio buttons  
+nnoremap <silent> ,hfgr :call IndentTemplate('views/forms/groups_left_label_for_radio_buttons.html.erb')<return>/ChangeLabelDisplay\\|ChangeLabel\\|DeleteThis\\|ChangeDisplay\\|ChangeAttribute\\|ChangeOrRemove\\|ChangeValue<return>
 " Html Form Group Left label
 nnoremap <silent> ,hfgt :call IndentTemplate('views/forms/groups_left_label.html.erb')<return>/ChangeLabelDisplay\\|ChangeLabel\\|DeleteThis\\|ChangeAttribute<return>
 " Html Form Group left label 2
@@ -22,11 +24,11 @@ nnoremap <silent> ,hfg3 :call IndentTemplate('views/forms/groups_left_label3.htm
 nnoremap <silent> ,hfg4 :call IndentTemplate('views/forms/groups_left_label4.html.erb')<return>/ChangeLabelDisplay\\|ChangeLabel\\|DeleteThis\\|ChangeAttribute<return>
 
 " Html Input Checkboxes Base
-nnoremap <silent> ,hicb :call IndentTemplate('views/forms/inputs_checkboxes_base.html.erb')<return>/DeleteThis\\|ChangeAttributeDisplay\\|ChangeAttribute\\|ChangeTrueOrRemove\\|ChangeOrRemove<return>
+nnoremap <silent> ,hicb :call IndentTemplate('views/forms/inputs_checkboxes_base.html.erb')<return>/DeleteThis\\|ChangeAttributeDisplay\\|ChangeAttribute\\|ChangeOrRemove<return>
 " Html Input Checkbox Stand alone
-nnoremap <silent> ,hics :call IndentTemplate('views/forms/inputs_checkbox_stand_alone.html.erb')<return>/ChangeAttributeDisplay\\|ChangeAttribute\\|ChangeTrueOrRemove\\|ChangeOrRemove<return>
+nnoremap <silent> ,hics :call IndentTemplate('views/forms/inputs_checkbox_stand_alone.html.erb')<return>/ChangeAttributeDisplay\\|ChangeAttribute\\|ChangeOrRemove<return>
 " Html Input Checkbox stand alone Label first
-nnoremap <silent> ,hicl :call IndentTemplate('views/forms/inputs_checkbox_stand_alone_label_first.html.erb')<return>/ChangeAttributeDisplay\\|ChangeAttribute\\|ChangeTrueOrRemove\\|ChangeOrRemove<return>
+nnoremap <silent> ,hicl :call IndentTemplate('views/forms/inputs_checkbox_stand_alone_label_first.html.erb')<return>/ChangeAttributeDisplay\\|ChangeAttribute\\|ChangeOrRemove<return>
 
 " Html Input Attributes Main
 nnoremap <silent> ,hiam :call IndentTemplate('views/forms/attributes.html.erb')<return>/ChangeAttributeDisplay\\|ChangeAttribute<return>
