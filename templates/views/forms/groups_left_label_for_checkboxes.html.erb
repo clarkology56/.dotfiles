@@ -1,0 +1,22 @@
+<div class="form-group left-label inline">
+  <%# DeleteThis - change left label width as needed but make sure all inputs on form match %>
+  <div class="left-label-container w-20">
+    <%= f.label :ChangeLabel, 'ChangeLabelDisplay:' %>
+  </div>
+  <div class="left-label-input">
+    <%# DeleteThis - group of checkboxes add by default. Change for single checkbox if necessary %>
+    <%# DeleteThis - default for group of checkboxes is stacked. To make inline, add class inline to div below (or inline-no-wrap for no wrapping) %>
+    <div class="checkbox-group-container">
+      <%# DeleteThis - duplicate checkbox-container as needed %>
+      <div class="checkbox-container">
+        <%= f.check_box :ChangeAttribute, class: 'form-control' %>
+        <%= f.label :ChangeAttribute, 'ChangeAttributeDisplay' %>
+      </div>
+      <div class="checkbox-container">
+        <%= f.check_box :ChangeAttribute, class: 'form-control' %>
+        <%= f.label :ChangeAttribute, 'ChangeAttributeDisplay' %>
+      </div>
+    </div>
+    <%= f.inline_errors :ChangeAttribute %>
+  </div>
+</div>
