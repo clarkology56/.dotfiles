@@ -15,10 +15,18 @@ nnoremap <silent> ,hfgt :call IndentTemplate('views/forms/groups_left_label.html
 " Html Form Layout left label 2
 nnoremap <silent> ,hfg2 :call IndentTemplate('views/forms/groups_left_label2.html.erb')<return>/ChangeLabelDisplay\\|ChangeLabel\\|DeleteThis\\|ChangeAttribute<return>
 " Html Form Layout left label 3
-nnoremap <silent> ,hfg2 :call IndentTemplate('views/forms/groups_left_label3.html.erb')<return>/ChangeLabelDisplay\\|ChangeLabel\\|DeleteThis\\|ChangeAttribute<return>
+nnoremap <silent> ,hfg3 :call IndentTemplate('views/forms/groups_left_label3.html.erb')<return>/ChangeLabelDisplay\\|ChangeLabel\\|DeleteThis\\|ChangeAttribute<return>
 " Html Form Layout left label 4
-nnoremap <silent> ,hfg2 :call IndentTemplate('views/forms/groups_left_label4.html.erb')<return>/ChangeLabelDisplay\\|ChangeLabel\\|DeleteThis\\|ChangeAttribute<return>
+nnoremap <silent> ,hfg4 :call IndentTemplate('views/forms/groups_left_label4.html.erb')<return>/ChangeLabelDisplay\\|ChangeLabel\\|DeleteThis\\|ChangeAttribute<return>
 
+" Html Form Checkbox Group
+nnoremap <silent> ,hfcg a<div class="pt-1"><return><%# DeleteThis - default is stacked checkboxes. To make inline, add class "d-flex" to div above %><return><space><backspace><esc>:call HtmlInputCheckbox()<return>`qo<space><backspace><esc>:call HtmlInputCheckbox()<return>`qo</div><esc>n
+" Html Form CheckBox
+nnoremap <silent> ,hfcb :call HtmlInputCheckbox()<return>
+function! HtmlInputCheckbox()
+ execute "normal! a<div class=\"pr-2 custom-control custom-checkbox\">\<return><%= f.check_box(:ChangeAttribute, class: 'custom-control-input') %>\<return><%= f.label(:ChangeAttribute, 'ChangeDisplay', class: \"custom-control-label form-text2\") %>\<return><%# DeleteThis - for blank label, make label above a block with a blank space (\" \") between the do and end %>\<return></div>\<esc>mq"
+ let @/ = "ChangeAttribute\\|ChangeDisplay\\|DeleteThis"
+endfunction
 
 
 
@@ -225,14 +233,6 @@ nnoremap <silent> ,hfos aoptions_for_select(ChangeOptionsListDisplayFirstValueSe
 "   nnoremap <silent> ,hfpa a<%= f.password_field(<return>  :ChangeAttribute,<return>class: 'form-control',<return>autofocus: true,<return>placeholder: 'Enter ChangePlaceholder',<return>required: true,<return>size: ChangeSize,<return>minlength: ChangeMinLength) %><esc>/ChangeAttribute\\|ChangePlaceholder\\|ChangeSize\\|ChangeMinLength<return>
 "   " Html Form Rich Text
 "   nnoremap <silent> ,hfrt a<%= f.rich_text_area(:ChangeThisPls, value: ChangeThisPls, class: 'form-control') %><esc>/ChangeThisPls<return>
-"   " Html Form Checkbox Group
-"   nnoremap <silent> ,hfcg a<div class="pt-1"><return><%# DeleteThis - default is stacked checkboxes. To make inline, add class "d-flex" to div above %><return><space><backspace><esc>:call HtmlInputCheckbox()<return>`qo<space><backspace><esc>:call HtmlInputCheckbox()<return>`qo</div><esc>n
-"   " Html Form CheckBox
-"   nnoremap <silent> ,hfcb :call HtmlInputCheckbox()<return>
-"   function! HtmlInputCheckbox()
-"     execute "normal! a<div class=\"pr-2 custom-control custom-checkbox\">\<return><%= f.check_box(:ChangeAttribute, class: 'custom-control-input') %>\<return><%= f.label(:ChangeAttribute, 'ChangeDisplay', class: \"custom-control-label form-text2\") %>\<return><%# DeleteThis - for blank label, make label above a block with a blank space (\" \") between the do and end %>\<return></div>\<esc>mq"
-"     let @/ = "ChangeAttribute\\|ChangeDisplay\\|DeleteThis"
-"   endfunction
 "   " Html Form Radio Inline
 "   nnoremap <silent> ,hfri a<div class="pt-1"><return><label class="custom-control custom-radio custom-control-inline"><return><%= f.radio_button(:ChangeAttribute, ChangeValue, class: 'custom-control-input') %><return><span class="custom-control-label form-text2">ChangeDisplay</span><return></label><return><%# DeleteThis - copy label and contents for additional options %><return></div><esc>/ChangeAttribute\\|ChangeValue\\|ChangeDisplay\\|DeleteThis<return>
 "   " Html Form Radio Stacked
