@@ -5,9 +5,9 @@
   </div>
   <div class="left-label-input">
     <%# DeleteThis - default for group of radio buttons is stacked. To make inline, add class inline to div below (or inline-no-wrap for no wrapping) %>
-    <div class="checkbox-group-container">
-      <%# DeleteThis - duplicate checkbox-container as needed %>
-      <div class="checkbox-container">
+    <div class="checkable-group-container">
+      <%# DeleteThis - duplicate checkable-container as needed %>
+      <div class="checkable-container">
         <%= f.radio_button :ChangeAttribute, ChangeValue,
           class: 'form-control',
           autofocus: ChangeOrRemove,
@@ -16,7 +16,7 @@
         %>
         <%= f.label :ChangeAttribute_ChangeValue, 'ChangeDisplay' %>
       </div>
-      <div class="checkbox-container">
+      <div class="checkable-container">
         <%= f.radio_button :ChangeAttribute, ChangeValue,
           class: 'form-control',
           autofocus: ChangeOrRemove,

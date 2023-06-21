@@ -29,6 +29,8 @@ nnoremap <silent> ,hicb :call IndentTemplate('views/forms/inputs_checkboxes_base
 nnoremap <silent> ,hics :call IndentTemplate('views/forms/inputs_checkbox_stand_alone.html.erb')<return>/ChangeAttributeDisplay\\|ChangeAttribute\\|ChangeOrRemove<return>
 " Html Input Checkbox stand alone Label first
 nnoremap <silent> ,hicl :call IndentTemplate('views/forms/inputs_checkbox_stand_alone_label_first.html.erb')<return>/ChangeAttributeDisplay\\|ChangeAttribute\\|ChangeOrRemove<return>
+" Html Input Radio Buttons
+nnoremap <silent> ,hirb :call IndentTemplate('views/forms/inputs_radio_buttons.html.erb')<return>/DeleteThis\\|ChangeAttribute\\|ChangeValue\\|ChangeOrRemove\\|ChangeDisplay<return>
 
 " Html Input Attributes Main
 nnoremap <silent> ,hiam :call IndentTemplate('views/forms/attributes.html.erb')<return>/ChangeAttributeDisplay\\|ChangeAttribute<return>

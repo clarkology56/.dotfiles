@@ -1,0 +1,23 @@
+<%# DeleteThis - NOTE: make sure form-group above is inline! Should be: "form-group left-label inline" %>
+<%# DeleteThis - default for group of radio buttons is stacked. To make inline, add class inline to div below (or inline-no-wrap for no wrapping) %>
+<div class="checkable-group-container">
+  <%# DeleteThis - duplicate checkable-container as needed %>
+  <div class="checkable-container">
+    <%= f.radio_button :ChangeAttribute, ChangeValue,
+      class: 'form-control',
+      autofocus: ChangeOrRemove,
+      checked: ChangeOrRemove,
+      required: ChangeOrRemove
+    %>
+    <%= f.label :ChangeAttribute_ChangeValue, 'ChangeDisplay' %>
+  </div>
+  <div class="checkable-container">
+    <%= f.radio_button :ChangeAttribute, ChangeValue,
+      class: 'form-control',
+      autofocus: ChangeOrRemove,
+      checked: ChangeOrRemove,
+      required: ChangeOrRemove
+    %>
+    <%= f.label :ChangeAttribute_ChangeValue, 'ChangeDisplay' %>
+  </div>
+</div>

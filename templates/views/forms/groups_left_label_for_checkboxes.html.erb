@@ -5,13 +5,13 @@
   </div>
   <div class="left-label-input">
     <%# DeleteThis - default for group of checkboxes is stacked. To make inline, add class inline to div below (or inline-no-wrap for no wrapping) %>
-    <div class="checkbox-group-container">
-      <%# DeleteThis - duplicate checkbox-and-errors-container as needed, or if only one checkbox is needed and no label, then simply keep one checkbox-container and remove the label %>
+    <div class="checkable-group-container">
+      <%# DeleteThis - duplicate checkbox-and-errors-container as needed, or if only one checkbox is needed and no label, then simply keep one checkable-container and remove the label %>
       <div class="checkbox-and-errors-container">
-        <div class="checkbox-container">
+        <div class="checkable-container">
           <%= f.check_box :ChangeAttribute,
             class: 'form-control',
-            autofocus: ChangeTrueOrRemove,
+            autofocus: ChangeOrRemove,
             checked: ChangeOrRemove
           %>
           <%= f.label :ChangeAttribute, 'ChangeAttributeDisplay' %>
@@ -19,10 +19,10 @@
         <%= f.inline_errors :ChangeAttribute %>
       </div>
       <div class="checkbox-and-errors-container">
-        <div class="checkbox-container">
+        <div class="checkable-container">
           <%= f.check_box :ChangeAttribute,
             class: 'form-control',
-            autofocus: ChangeTrueOrRemove,
+            autofocus: ChangeOrRemove,
             checked: ChangeOrRemove
           %>
           <%= f.label :ChangeAttribute, 'ChangeAttributeDisplay' %>
