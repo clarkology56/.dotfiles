@@ -1,12 +1,23 @@
 " Html Form BAse
-nnoremap <silent> ,hfba a<%= form_with(model: ChangeModel, url: ChangePath(account, ChangeObject), method: :ChangeHtmlMethod) do \|f\| %><return><return><%# DeleteThis - insert hidden fields here if necessary %><return><%# DeleteThis - insert label type (or fields for if necessary) %><return><%# DeleteThis - insert form buttons %><return><return><% end %><esc>/ChangeModel\\|ChangePath\\|ChangeHtmlMethod\\|DeleteThis<return>
+nnoremap <silent> ,hfba a<%= form_with(model: ChangeModel, url: ChangePath(account, ChangeModel), method: :ChangeHtmlMethod) do \|f\| %><return><%# DeleteThis - insert hidden fields here if necessary %><return><%# DeleteThis - insert form groups and files (or fields for if necessary) %><return><% end %><esc>/ChangeModel\\|ChangePath\\|ChangeHtmlMethod\\|DeleteThis<return>
 
-" Html Form Layout Top label
-nnoremap <silent> ,hflt a<div class="form-group"><return><%= f.label(:ChangeLabel) %><return><%# DeleteThis - insert input %><return><%= inline_errors_for ChangeModel, :ChangeAttribute %><return></div><esc>/ChangeLabel\\|DeleteThis\\|ChangeModel\\|ChangeAttribute<return>
+" Html Form Submit buttons Turboframe
+nnoremap <silent> ,hfst :call IndentTemplate('views/forms/submit_buttons_turboframe.html.erb')<return>/ChangeSubmitToAddForNewOrSaveForUpdate\\|ChangePath\\|ChangeModel<return>
+" Html Form Submit buttons Html (ie non-turboframe)
+nnoremap <silent> ,hfsh :call IndentTemplate('views/forms/submit_buttons_html.html.erb')<return>/ChangeSubmitToAddForNewOrSaveForUpdate<return>
+" Html Form Submit buttons modal
+nnoremap <silent> ,hfsm :call IndentTemplate('views/forms/submit_buttons_modal.html.erb')<return>/ChangeSubmitToAddForNewOrSaveForUpdate<return>
+
+" Html Form Group Top label
+nnoremap <silent> ,hfgt :call IndentTemplate('views/forms/groups_top_label.html.erb')<return>/ChangeLabelDisplay\\|ChangeLabel\\|DeleteThis\\|ChangeAttribute<return>
 " Html Form Layout Left label
-" ...
-
-
+nnoremap <silent> ,hfgt :call IndentTemplate('views/forms/groups_left_label.html.erb')<return>/ChangeLabelDisplay\\|ChangeLabel\\|DeleteThis\\|ChangeAttribute<return>
+" Html Form Layout left label 2
+nnoremap <silent> ,hfg2 :call IndentTemplate('views/forms/groups_left_label2.html.erb')<return>/ChangeLabelDisplay\\|ChangeLabel\\|DeleteThis\\|ChangeAttribute<return>
+" Html Form Layout left label 3
+nnoremap <silent> ,hfg2 :call IndentTemplate('views/forms/groups_left_label3.html.erb')<return>/ChangeLabelDisplay\\|ChangeLabel\\|DeleteThis\\|ChangeAttribute<return>
+" Html Form Layout left label 4
+nnoremap <silent> ,hfg2 :call IndentTemplate('views/forms/groups_left_label4.html.erb')<return>/ChangeLabelDisplay\\|ChangeLabel\\|DeleteThis\\|ChangeAttribute<return>
 
 
 

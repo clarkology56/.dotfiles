@@ -4,11 +4,12 @@
     ChangeHeader
   <% end %> 
   <% card_body do %> 
-    <%= form_with(model: ChangeModel, url: ChangePath(account, ChangeModel), method: :ChangeHtmlMethod) do |f| %>
-      <%# insert form fields %>
-      <div class="pt-2 flex justify-end">
+    <%= form_with model: ChangeModel, url: ChangePath(account, ChangeModel), method: :ChangeHtmlMethod do |f| %>
+      <%# DeleteThis - insert hidden fields here if necessary %>
+      <%# DeleteThis - insert form groups and files (or fields for if necessary) %>
+      <div class="form-submit-buttons">
         <%= content_tag('A', 'Cancel', class: 'btn btn-secondary mr-2', data: { action: 'click->modal#hide' }) %>
-        <%= f.submit('ChangeSubmitToAddForNewOrSaveForUpdate', class: 'btn') %>
+        <%= f.submit 'ChangeSubmitToAddForNewOrSaveForUpdate', class: 'btn' %>
       </div>
     <% end %> 
   <% end %> 
