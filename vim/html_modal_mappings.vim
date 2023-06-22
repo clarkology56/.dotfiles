@@ -6,11 +6,11 @@ nnoremap <silent> ,hmde :call IndentTemplate('views/modals/destroy_modal.html.er
 nnoremap <silent> ,hmin :call IndentTemplate('views/modals/info_modal.html.erb')<return>/ChangeModel\\|ChangeActionOrDescription\\|ChangeHeader\\|ChangeInfo<return>
 
 " Html Modal Icon trigger Static
-nnoremap <silent> ,hmis a<%# DeleteThis - use ,heil to see list of available icons %><return><i class="link fa-solid fa-pen-to-square" data-target-modal="ChangeModel-<%= ChangeModel.id %>-ChangeSubControllerNameOrRemoveThis-ChangeActionOrDescription-modal"></i><esc>/DeleteThis\\|ChangeModel\\|ChangeSubControllerNameOrRemoveThis\\|ChangeActionOrDescription<return>
+nnoremap <silent> ,hmis a<%# DeleteThis - use ,heil to see list of available icons %><return><i class="link no-underline fa-solid fa-pen-to-square" data-target-modal="ChangeModel-<%= ChangeModel.id %>-ChangeSubControllerNameOrRemoveThis-ChangeActionOrDescription-modal"></i><esc>/DeleteThis\\|ChangeModel\\|ChangeSubControllerNameOrRemoveThis\\|ChangeActionOrDescription<return>
 " Html Modal Icon trigger Javascrtip dynamic
-nnoremap <silent> ,hmij a<%# DeleteThis - use ,heil to see list of available icons %><return><i class="link fa-solid fa-pen-to-square" <%= ChangeHelperMethod %>></i><esc>/DeleteThis\\|ChangeHelperMethod<return>
+nnoremap <silent> ,hmij a<%# DeleteThis - use ,heil to see list of available icons %><return><i class="link no-underline fa-solid fa-pen-to-square" <%= ChangeHelperMethod %>></i><esc>/DeleteThis\\|ChangeHelperMethod<return>
 " Html Modal Icon trigger Destroy
-nnoremap <silent> ,hmid a<i class="link link-danger fa-solid fa-trash-can" data-target-modal="ChangeModel-<%= ChangeModel.id %>-ChangeSubControllerNameOrRemoveThis-destroy-modal"></i><esc>/ChangeSubControllerNameOrRemoveThis\\|ChangeModel<return>
+nnoremap <silent> ,hmid a<i class="link no-underline link-danger fa-solid fa-trash-can" data-target-modal="ChangeModel-<%= ChangeModel.id %>-ChangeSubControllerNameOrRemoveThis-destroy-modal"></i><esc>/ChangeSubControllerNameOrRemoveThis\\|ChangeModel<return>
 " Html Modal Button trigger Static
 nnoremap <silent> ,hmbs a<button class="btn" data-target-modal="ChangeModel-<%= ChangeModel.id %>-ChangeSubControllerNameOrRemoveThis-ChangeActionOrDescription-modal">ChangeAction</button><esc>/ChangeModel\\|ChangeSubControllerNameOrRemoveThis\\|ChangeActionOrDescription\\|ChangeAction<return>
 " Html Modal Button trigger Javascrtip dynamic
