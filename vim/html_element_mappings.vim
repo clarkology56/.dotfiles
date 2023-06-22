@@ -1,7 +1,7 @@
 " Html Elements Render Partial
 nnoremap <silent> ,herp a<%= render '<esc>:call FileCopyPartialPath()<return>pa/ChangePartial', ChangeLocal: ChangeLocal %><esc>/ChangePartial\\|ChangeLocal<return>
-" Html Elements Anchor with Href
-nnoremap <silent> ,heah a<%= link_to(ChangeDisplay, ChangePath_path) %><esc>/ChangeDisplay\\|ChangePath<return>
+" Html Elements Anchor
+nnoremap <silent> ,hean a<%= link_to(ChangeDisplay, ChangePath_path) %><esc>/ChangeDisplay\\|ChangePath<return>
 " Html Elements Icon
 nnoremap <silent> ,heic a<i class="text-primary pressable fa-solid ChangeIcon"></i><esc>/ChangeIcon<return>
 " Html Elements Icon List

@@ -4,6 +4,7 @@
     ChangeHeader
   <% end %> 
   <% card_body do %> 
+    <%# DeleteThis - if form does not use an instance of a active record model, replace model: with scope: and add value: option to inputs as needed %>
     <%= form_with model: ChangeModel, url: ChangePath(account, ChangeModel), method: :ChangeHtmlMethod do |f| %>
       <%# DeleteThis - insert hidden fields here if necessary %>
 
