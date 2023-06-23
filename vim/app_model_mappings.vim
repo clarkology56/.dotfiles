@@ -25,8 +25,12 @@ nnoremap <silent> ,amHM a# DeleteThis - if this association is polympolymorphic,
 nnoremap <silent> ,amrt ahas_rich_text :ChangeAttribute<esc>/ChangeAttribute<return>
 " App Models has One Attached
 nnoremap <silent> ,amoa ahas_one_attached :ChangeAttribute<esc>/ChangeAttribute<return>
+" App Models has One Attached with variants
+nnoremap <silent> ,amoA ahas_one_attached :ChangeAttribute do \|ChangeAttribute\|<return>ChangeAttribute.variant :ChangeVariant, ChangeTransformationType: ChangeTransformationValue<return>end<esc>/ChangeAttribute\\|ChangeVariant\\|ChangeTransformationType\\|ChangeTransformationValue<return>
 " App Models has Many Attached
 nnoremap <silent> ,amma ahas_many_attached :ChangeAttributes<esc>/ChangeAttributes<return>
+" App Models has Many Attached with variants
+nnoremap <silent> ,ammA ahas_many_attached :ChangeAttributes do \|ChangeAttribute\|<return>ChangeAttribute.variant :ChangeVariant, ChangeTransformationType: ChangeTransformationValue<return>end<esc>/ChangeAttribute\\|ChangeVariant\\|ChangeTransformationType\\|ChangeTransformationValue<return>
 
 "Scopes
 " App Models SCope
