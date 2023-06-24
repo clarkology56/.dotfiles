@@ -32,7 +32,11 @@ nnoremap <silent> ,amma ahas_many_attached :ChangeAttributes<esc>/ChangeAttribut
 " App Models has Many Attached with variants
 nnoremap <silent> ,ammA ahas_many_attached :ChangeAttributes do \|ChangeAttribute\|<return>ChangeAttribute.variant :ChangeVariant, ChangeTransformationType: ChangeTransformationValue<return>end<esc>/ChangeAttribute\\|ChangeVariant\\|ChangeTransformationType\\|ChangeTransformationValue<return>
 
-"Scopes
+" Attributes
+" Enum - NOTE WHEN YOU DO THIS, ADD SOME NOTE ABOUT MAKING NOTE OF ENUM
+" DISPLAY, VALUE AND DB VALUE - see MTP mobile keys - app/models/core/mobile_key.rb
+
+" Scopes
 " App Models SCope
 nnoremap <silent> ,amsc ascope :ChangeName, -> { ChangeLogic }<esc>/ChangeName\\|ChangeLogic<return>
 " App Models Scope with Argument(s)
