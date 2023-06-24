@@ -3,7 +3,7 @@ nnoremap <silent> ,heic a<i class="text-primary pressable fa-solid ChangeIcon"><
 " Html Elements Icon List
 nnoremap <silent> ,heil :call IndentTemplate('views/elements/icon_list.html.erb')<return>
 " Html Elements Image Tag
-nnoremap <silent> ,heit :call IndentTemplate('views/elements/image_tag.html.erb')<return>
+nnoremap <silent> ,heit :call IndentTemplate('views/elements/image_tag.html.erb')<return>/DeleteThis\\|ChangeModel\\|ChangeAttachment\\|ChangeOrRemove<return>
 " Html Elements Link To
 nnoremap <silent> ,helt a<%= link_to ChangeDisplay, ChangePath_path %><esc>/ChangeDisplay\\|ChangePath<return>
 " Html Elements Link to Attachment
@@ -13,7 +13,7 @@ nnoremap <silent> ,held :call IndentTemplate('views/elements/link_to_download.ht
 " Html Elements Render Partial
 nnoremap <silent> ,herp a<%= render '<esc>:call FileCopyPartialPath()<return>pa/ChangePartial', ChangeLocal: ChangeLocal %><esc>/ChangePartial\\|ChangeLocal<return>
 " Html Elements Video Tag
-nnoremap <silent> ,hevt :call IndentTemplate('views/elements/video_tag.html.erb')<return>
+nnoremap <silent> ,hevt :call IndentTemplate('views/elements/video_tag.html.erb')<return>/DeleteThis\\|ChangeModel\\|ChangeAttachment\\|ChangeOrRemove<return>
 
 
 

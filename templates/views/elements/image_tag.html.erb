@@ -1,7 +1,23 @@
-<%# DeleteThis - representations...???  %>
-<%# DeleteThis - previews...???  %>
-<%# DeleteThis - add transformations like this: some_record.some_attachment.variant(ChangeTransformationType: ChangeTransformationValue) %>
-<%# DeleteThis - add predifined variants (image attachments only) like this: some_record.some_attachment.variant(:ChangeVariant) %>
-<%# DeleteThis - non-active storage images...??? %>
-<%# DeleteThis - common CSS... ??? %>
-<%= image_tag ChangeModel.ChangeAttachment, class: 'ChangeCss', height: ChangeThis, width: ChangeThis, alt: ChangeThis, .... UPDATE ATTRIBUTES %> 
+<%# DeleteThis - you can replace ChangeModel.ChangeAttachment with any image url %>
+<%# DeleteThis - variant, representation and preview can include transformation, ex:
+      user.profile_image.variant(resize_to_limit: [200, 200])
+      user.profile_image.representation(resize_to_limit: [100, 100])
+      user.profile_image.preview(resize_to_limit: [500, 500])  %>
+<%# DeleteThis - variant can also use pre-defined transformations (this will not work for representation or preview) 
+      user.profile_image.variant(:thumbnail) %>
+<%# DeleteThis - common CSS:
+      parent with set height and width, and image with
+        object-contain
+        object-cover
+        other object-fit options (https://tailwindcss.com/docs/object-fit)
+      classic "cover image"
+        make parent width 100% and max-height of some value
+        make image object-cover
+      what else?
+%>
+<%= image_tag ChangeModel.ChangeAttachment,
+  class: 'ChangeOrRemove',
+  alt: ChangeOrRemove,
+  height: ChangeOrRemove,
+  width: ChangeOrRemove
+%> 
