@@ -15,7 +15,7 @@
   controlslist: ChangeOrRemove, # Specifies the set of controls to be shown in the UI. Options include "nodownload" (hide the download button), "nofullscreen" (hide the fullscreen button), "nodownload nofullscreen" (hide both buttons), or "nodownload", "nofullscreen" (hide each button individually).
   autoplay: ChangeOrRemove,
   loop: ChangeOrRemove,
-  poster: ChangeOrRemove, # Specifies an image that is displayed as a placeholder or preview before the video starts playing.
+  poster: url_for(ChangeModel.ChangeAttachment.preview({})), # Specifies an image that is displayed as a placeholder or preview before the video starts playing.
   muted: ChangeOrRemove, 
   height: ChagneOrRemove,
   width: ChagneOrRemove
