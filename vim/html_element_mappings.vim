@@ -7,9 +7,9 @@ nnoremap <silent> ,heit :call IndentTemplate('views/elements/image_tag.html.erb'
 " Html Elements Link To
 nnoremap <silent> ,helt a<%= link_to ChangeDisplay, ChangePath_path %><esc>/ChangeDisplay\\|ChangePath<return>
 " Html Elements Link to Attachment
-nnoremap <silent> ,hela a<%= link_to_attachment ChangeDisplay, ChangeModel.ChangeAttachment, target: :_blank %><esc>/ChangeDisplay\\|ChangeModel\\|ChangeAttachment<return>
+nnoremap <silent> ,hela :call IndentTemplate('views/elements/link_to_attachment.html.erb')<return>/DeleteThis\\|ChangeDisplay\\|ChangeModel\\|ChangeAttachment<return>
 " Html Elements Link to Download
-nnoremap <silent> ,held a<%= link_to ChangeDisplay, rails_blob_path(ChangeModel.ChangeAttachment, disposition: 'attachment') %><esc>/ChangeDisplay\\|ChangeModel\\|ChangeAttachment<return>
+nnoremap <silent> ,held :call IndentTemplate('views/elements/link_to_download.html.erb')<return>/DeleteThis\\|ChangeDisplay\\|ChangeModel\\|ChangeAttachment<return>
 " Html Elements Render Partial
 nnoremap <silent> ,herp a<%= render '<esc>:call FileCopyPartialPath()<return>pa/ChangePartial', ChangeLocal: ChangeLocal %><esc>/ChangePartial\\|ChangeLocal<return>
 " Html Elements Video Tag
