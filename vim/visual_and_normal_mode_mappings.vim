@@ -108,8 +108,8 @@
   nnoremap <silent> t w
   vnoremap <silent> t w
   " far right (when in visual mode, use <left> to make sure to not get next line)
-  nnoremap <silent> r $
-  vnoremap <silent> r $<left>
+  nnoremap <silent> r g_
+  vnoremap <silent> r g_
   nnoremap <silent> R A
   " to top of page (keep same gg)
   "
