@@ -10,7 +10,9 @@ nnoremap <silent> ,acub :call IndentTemplate('controllers/actions/update_broadca
 " App Controllers Update Turboframe
 nnoremap <silent> ,acut :call IndentTemplate('controllers/actions/update_turboframe.rb')<return>/ChangeModelDisplay\\|ChangeModel\\|ChangeAbility\\|DeleteThis\\|ChangePath<return>
 
-" App Controllers Broadcast Actions
-nnoremap <silent> ,acba :call IndentTemplate('controllers/broadcasts/actions.rb')<return>/DeleteThis\\|ChangeDescription\\|ChangeArgs\\|ChangeTurboAction\\|ChangeTemplate\\|ChangeResource\\|ChangeHmtlId\\|ChangePartialPath<return>
 " App Controllers Broadcast Remove
-nnoremap <silent> ,acba :call IndentTemplate('controllers/broadcasts/remove.rb')<return>/DeleteThis\\|ChangeDescription\\|ChangeArgs\\|ChangeTemplate\\|ChangeResource\\|ChangeHmtlId<return>
+nnoremap <silent> ,acbr :call IndentTemplate('controllers/broadcasts/remove.rb')<return>/DeleteThis\\|ChangeDescription\\|ChangeArgs\\|ChangeTemplate\\|ChangeResource\\|ChangeHmtlId<return>
+" App Controllers Broadcast close Modal
+nnoremap <silent> ,acbm :call IndentTemplate('controllers/broadcasts/close_modal.rb')<return>/DeleteThis\\|ChangeDescription\\|ChangeArgs\\|ChangeTemplate\\|ChangeResource\\|ChangeHmtlId\\|ChangePartialPath<return>
+" App Controllers Broadcast all other Actions
+nnoremap <silent> ,acba :call IndentTemplate('controllers/broadcasts/actions.rb')<return>/DeleteThis\\|ChangeDescription\\|ChangeArgs\\|ChangeTurboAction\\|ChangeTemplate\\|ChangeResource\\|ChangeHmtlId\\|ChangePartialPath<return>
