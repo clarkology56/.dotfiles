@@ -9,6 +9,8 @@ nnoremap <silent> ,acbb :call CreateBaseFile(0, 0, 0)<return>/ChangeTopLevelDocu
 nnoremap <silent> ,acub :call IndentTemplate('controllers/actions/update_broadcast.rb')<return>/ChangeModelDisplay\\|ChangeModel\\|ChangeAbility\\|DeleteThis\\|ChangeControllerName<return>
 " App Controllers Update Turboframe
 nnoremap <silent> ,acut :call IndentTemplate('controllers/actions/update_turboframe.rb')<return>/ChangeModelDisplay\\|ChangeModel\\|ChangeAbility\\|DeleteThis\\|ChangePath<return>
+" App Controllers Destroy Broadcast
+nnoremap <silent> ,acdb :call IndentTemplate('controllers/actions/destroy_broadcast.rb')<return>/ChangeModelDisplay\\|ChangeModel\\|ChangeAbility\\|DeleteThis\\|ChangeControllerName<return>
 
 " App Controllers Broadcast Remove
 nnoremap <silent> ,acbr :call IndentTemplate('controllers/broadcasts/remove.rb')<return>/DeleteThis\\|ChangeDescription\\|ChangeArgs\\|ChangeTemplate\\|ChangeResource\\|ChangeHmtlId<return>
