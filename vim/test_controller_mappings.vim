@@ -2,8 +2,9 @@
 nnoremap <silent> ,tcba :call CreateBaseFile(1, 1, 1)<return>/outer_followup<return>cgnrequire 'test_helper'<esc>o<esc>/class<return>A < ActionDispatch::IntegrationTest<esc>/ChangeTopLevelDocumentation<return><down>^wviwy/ChangeTopLevelDocumentation<return>viwpbiTest for <esc>0/Test<return>ncgn<esc>/inner_followup<return>:call IndentTemplate('test/controllers/base.rb')<return>/DeleteThis<return>
 
 " Tests Controller Web Show
-nnoremap <silent> ,tcws :call IndentTemplate('test/controllers.rb/web/show.rb')<return>/ChangeRoute\\|ChangeFactory\\|DeleteThis\\|ChangeResource<return>
-
+nnoremap <silent> ,tcsh :call IndentTemplate('test/controllers/web/show.rb')<return>/ChangePath\\|ChangeFactory\\|DeleteThis\\|ChangeResource<return>
+" Test Controllers Update Broadcast
+nnoremap <silent> ,tcub :call IndentTemplate('test/controllers/web/broadcast_update.rb')<return>/ChangeModelDisplay\\|ChangeModel\\|ChangeAbility\\|DeleteThis\\|ChangeControllerName<return>
 
 
 

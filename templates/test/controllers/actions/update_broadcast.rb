@@ -1,0 +1,23 @@
+# DeleteThis - add "skip_account_auth: true" option if authorization is not account specific
+# DeleteThis - add "base_user_can_access: true" if action can be accessed by base user
+test_web_auth :patch, :ChangeRoute_path, :ChangeFactory
+
+test '#update' do
+  set_account_set_user_and_sign_in
+  ChangeResource = create(:ChangeFactory)
+  patch ChangePath(account, ChangeResource),
+        params: { ChangeParam: { ChangeParam: ChangeParam } }
+  assert_response :success
+  assert_equal ChangeResource, ChangeResource.reload.ChangeMethod
+  assert_equal ChangeResource, ChangeResource.ChangeMethod
+end
+
+test '#update - invalid' do
+  set_account_set_user_and_sign_in
+  ChangeResource = create(:ChangeFactory)
+  patch ChangePath(account, ChangeResource),
+        params: { ChangeParam: { ChangeParam: ChangeParam } }
+  assert_response 422
+  assert_equal ChangeResource, ChangeResource.reload.ChangeMethod
+  assert_equal ChangeResource, ChangeResource.ChangeMethod
+end
