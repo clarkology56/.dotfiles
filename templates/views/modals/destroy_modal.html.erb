@@ -4,10 +4,10 @@
     Delete ChangeModelDisplay
   <% end %> 
   <% card_body do %> 
-    <p>Would you like to delete this ChangeModelDisplay? This action cannot be undone.</p>
+    <p>Are you sure you would like to delete this ChangeModelDisplay? This action cannot be undone.</p>
     <div class="pt-2 flex justify-end">
       <%= content_tag('A', 'Cancel', class: 'btn btn-secondary mr-2', data: { action: 'click->modal#hide' }) %>
-      <%= link_to('Delete Object', ChangePath(account, ChangeModel), data: { turbo_method: :delete }, class: 'btn btn-danger') %>
+      <%= link_to('Delete ChangeModelDisplay', ChangePath(account, ChangeModel), data: { turbo_method: :delete }, class: 'btn btn-danger') %>
     </div>
   <% end %> 
 <% end %> 
