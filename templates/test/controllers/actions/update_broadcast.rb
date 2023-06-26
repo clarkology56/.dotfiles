@@ -3,7 +3,7 @@
 test_web_auth :patch, :ChangePath, :ChangeFactory
 test '#update' do
   set_account_set_user_and_sign_in
-  ChangeResource = create(:ChangeFactory)
+  ChangeResource = create(:ChangeFactory, ChangeFactoryOptions)
   patch ChangePath(account, ChangeResource),
         params: { ChangeParam: { ChangeParam: ChangeParam } }
   assert_response :success
@@ -13,7 +13,7 @@ end
 
 test '#update - invalid' do
   set_account_set_user_and_sign_in
-  ChangeResource = create(:ChangeFactory)
+  ChangeResource = create(:ChangeFactory, ChangeFactoryOptions)
   patch ChangePath(account, ChangeResource),
         params: { ChangeParam: { ChangeParam: ChangeParam } }
   assert_response 422

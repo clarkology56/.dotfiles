@@ -3,7 +3,7 @@
 test_web_auth :delete, :ChangePath, :ChangeFactory
 test '#destroy' do
   set_account_set_user_and_sign_in
-  ChangeResource = create(:ChangeFactory)
+  ChangeResource = create(:ChangeFactory, ChangeFactoryOptions)
   ChangeResource_count = ChangeResourceClass.count
   delete ChangePath(account, ChangeResource)
   assert_response :success
@@ -13,7 +13,7 @@ end
 
 test '#destroy - invalid' do
   set_account_set_user_and_sign_in
-  ChangeResource = create(:ChangeFactory)
+  ChangeResource = create(:ChangeFactory, ChangeFactoryOptions)
   ChangeResource_count = ChangeResourceClass.count
   delete ChangePath(account, ChangeResource)
   assert_response 422

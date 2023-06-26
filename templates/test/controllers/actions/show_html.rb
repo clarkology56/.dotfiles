@@ -3,7 +3,7 @@
 test_web_auth :get, :ChangePath, :ChangeFactory
 test '#show' do
   set_account_set_user_and_sign_in
-  ChangeResource = create(:ChangeFactory)
+  ChangeResource = create(:ChangeFactory, ChangeFactoryOptions)
   get ChangePath(account, ChangeResource)
   assert_response :success
   assert_template :show
