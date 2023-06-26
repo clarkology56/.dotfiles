@@ -2,10 +2,11 @@
 nnoremap <silent> ,tcba :call CreateBaseFile(1, 1, 1)<return>/outer_followup<return>cgnrequire 'test_helper'<esc>o<esc>/class<return>A < ActionDispatch::IntegrationTest<esc>/ChangeTopLevelDocumentation<return><down>^wviwy/ChangeTopLevelDocumentation<return>viwpbiTest for <esc>0/Test<return>ncgn<esc>/inner_followup<return>:call IndentTemplate('test/controllers/base.rb')<return>/DeleteThis<return>
 
 " Tests Controller Web Show
-nnoremap <silent> ,tcsh :call IndentTemplate('test/controllers/web/show.rb')<return>/ChangePath\\|ChangeFactory\\|DeleteThis\\|ChangeResource<return>
+nnoremap <silent> ,tcsh :call IndentTemplate('test/controllers/actions/show.rb')<return>/DeleteThis\\|ChangePath\\|ChangeFactory\\|ChangeResource<return>
+" Test Controllers Update Turboframe
+nnoremap <silent> ,tcut :call IndentTemplate('test/controllers/actions/update_turboframe.rb')<return>/DeleteThis\\|ChangePath\\|ChangeFactory\\|ChangeResource\\|ChangeParam\\|ChangeMethod<return>
 " Test Controllers Update Broadcast
-nnoremap <silent> ,tcub :call IndentTemplate('test/controllers/web/broadcast_update.rb')<return>/ChangeModelDisplay\\|ChangeModel\\|ChangeAbility\\|DeleteThis\\|ChangeControllerName<return>
-
+nnoremap <silent> ,tcub :call IndentTemplate('test/controllers/actions/update_broadcast.rb')<return>/DeleteThis\\|ChangePath\\|ChangeFactory\\|ChangeResource\\|ChangeParam\\|ChangeMethod<return>
 
 
 "" Tests Controller AUthorization
