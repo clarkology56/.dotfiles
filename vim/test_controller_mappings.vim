@@ -4,9 +4,9 @@ nnoremap <silent> ,tcba :call CreateBaseFile(1, 1, 1)<return>/outer_followup<ret
 " Tests Controller Web Show
 nnoremap <silent> ,tcsh :call IndentTemplate('test/controllers/actions/show.rb')<return>/DeleteThis\\|ChangePath\\|ChangeFactory\\|ChangeResource<return>
 " Test Controllers Update Turboframe
-nnoremap <silent> ,tcut :call IndentTemplate('test/controllers/actions/update_turboframe.rb')<return>/DeleteThis\\|ChangePath\\|ChangeFactory\\|ChangeResource\\|ChangeParam\\|ChangeMethod<return>
+nnoremap <silent> ,tcut :call IndentTemplate('test/controllers/actions/update_turboframe.rb')<return>/DeleteThis\\|ChangePath\\|ChangeFactory\\|ChangeResource\\|ChangeParam\\|ChangeValue\\|ChangeMethod<return>
 " Test Controllers Update Broadcast
-nnoremap <silent> ,tcub :call IndentTemplate('test/controllers/actions/update_broadcast.rb')<return>/DeleteThis\\|ChangePath\\|ChangeFactory\\|ChangeResource\\|ChangeParam\\|ChangeMethod<return>
+nnoremap <silent> ,tcub :call IndentTemplate('test/controllers/actions/update_broadcast.rb')<return>/DeleteThis\\|ChangePath\\|ChangeFactory\\|ChangeResource\\|ChangeParam\\|ChangeValue\\|ChangeMethod<return>
 
 
 "" Tests Controller AUthorization

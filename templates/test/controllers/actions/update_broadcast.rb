@@ -17,6 +17,6 @@ test '#update - invalid' do
   patch ChangePath(account, ChangeResource),
         params: { ChangeParam: { ChangeParam: ChangeParam } }
   assert_response 422
-  assert_equal ChangeResource, ChangeResource.reload.ChangeMethod
-  assert_equal ChangeResource, ChangeResource.ChangeMethod
+  assert_equal ChangeValue, ChangeResource.reload.ChangeMethod
+  assert_equal ChangeValue, ChangeResource.ChangeMethod
 end
