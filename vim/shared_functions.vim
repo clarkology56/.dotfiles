@@ -1,5 +1,14 @@
 " this probably needs to be cleaned. Idk if all of these are still used
 
+" get current file
+" use this instead of expand('%') because expand sometimes does from project
+" root and other times from computer root
+function! GetCurrentFile()
+  let project_root = finddir('.git', ';')
+  let current_file = expand('%')
+  return fnamemodify(current_file, ':~:' . project_root . ':t')
+endfunction
+"
 " Run tests for current file
 function! FileTestCurrentFile(use_shell, entire_file)
   execute ':wa'

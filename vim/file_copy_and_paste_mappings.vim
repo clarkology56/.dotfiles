@@ -8,11 +8,7 @@ endfunction
 " File Copy Current File
 nnoremap <silent> <space>fccf :let @+ = expand('%')<return>
 function! FileCopyCurrentFile()
-  let project_root = finddir('.git', ';')
-  let current_file = expand('%')
-  let relative_path = fnamemodify(current_file, ':~:' . project_root . ':t')
-
-  let @+ = relative_path
+  let @+ = GetCurrentFile()
 endfunction
 " File Copy Current Name
 nnoremap <silent> <space>fccn :let @+ = expand("%:t:r")<return>
