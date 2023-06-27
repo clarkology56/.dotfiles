@@ -8,4 +8,4 @@ nnoremap <silent> ,tcut :call IndentTemplate('test/controllers/actions/update_tu
 " Test Controllers Update Broadcast
 nnoremap <silent> ,tcub :call IndentTemplate('test/controllers/actions/update_broadcast.rb')<return>/DeleteThis\\|ChangePath\\|ChangeFactoryOptions\\|ChangeFactory\\|ChangeResource\\|ChangeParam\\|ChangeValue\\|ChangeMethod<return>
 " Test Controllers Destroy Broadcast
-nnoremap <silent> ,tcdb :call IndentTemplate('test/controllers/actions/destroy_broadcast.rb')<return>/DeleteThis\\|ChangePath\\|ChangeFactoryOptions\\|ChangeFactory\\|ChangeResource\\|ChangeResourceClass<return>
+nnoremap <silent> ,tcdb :call IndentTemplate('test/controllers/actions/destroy_broadcast.rb')<return>/DeleteThis\\|ChangePath\\|ChangeFactoryOptions\\|ChangeFactory\\|ChangeResourceClass\\|ChangeResource<return>
