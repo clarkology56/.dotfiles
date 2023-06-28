@@ -6,7 +6,7 @@ function! FilePastePartialPath()
 endfunction
 
 " File Copy Current File
-nnoremap <silent> <space>fccf :let @+ = expand('%')<return>
+nnoremap <silent> <space>fccf :call FileCopyCurrentFile()<return>
 function! FileCopyCurrentFile()
   let @+ = GetCurrentFile()
 endfunction

@@ -19,6 +19,7 @@ Layout/LineLength:
     
 Metrics/AbcSize:
   Exclude:
+    - "app/helpers/global/components/**/*"
     - "app/models/ability.rb"
     - "db/migrate/**/*"
       
