@@ -1,6 +1,5 @@
 include FactoryBot::Syntax::Methods
 
-test disclaimer
 test '#valid?' do
   assert build(:ChangeModel).valid?
 end
