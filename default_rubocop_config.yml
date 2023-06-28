@@ -22,6 +22,7 @@ Metrics/AbcSize:
     - "app/helpers/global/components/**/*"
     - "app/models/ability.rb"
     - "db/migrate/**/*"
+    - "test/test_helper/model_validations.rb"
       
 Metrics/BlockLength:    
   Exclude:
@@ -39,6 +40,10 @@ Metrics/ClassLength:
     - "app/controllers/**/broadcasts.rb"
     - "test/controllers/**/*"
     - "test/models/**/*"
+
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - "test/test_helper/model_validations.rb"
       
 Metrics/MethodLength:
   Exclude:
@@ -46,6 +51,10 @@ Metrics/MethodLength:
     - "db/migrate/*"
     - "test/test_helper/**/*.rb"
       
+Metrics/PerceivedComplexity:
+  Exclude:
+    - "test/test_helper/model_validations.rb"
+
 Style/FrozenStringLiteralComment:
   Exclude:
     - "templates/**/*"
