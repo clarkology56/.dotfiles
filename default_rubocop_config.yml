@@ -32,6 +32,7 @@ Metrics/BlockLength:
     - "test/factories/**/*"
     - "test/jobs/**/*"
     - "test/models/**/*"
+    - "test/test_helper/**/*.rb"
 
 Metrics/ClassLength:
   Exclude:
@@ -43,6 +44,7 @@ Metrics/MethodLength:
   Exclude:
     - "app/models/ability.rb"
     - "db/migrate/*"
+    - "test/test_helper/**/*.rb"
       
 Style/FrozenStringLiteralComment:
   Exclude:
