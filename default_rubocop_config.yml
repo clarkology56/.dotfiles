@@ -51,6 +51,10 @@ Metrics/MethodLength:
     - "db/migrate/*"
     - "test/test_helper/**/*.rb"
       
+Metrics/ModuleLength:
+  Exclude:
+    - "test/test_helper/model_validations.rb"
+
 Metrics/PerceivedComplexity:
   Exclude:
     - "test/test_helper/model_validations.rb"
