@@ -1,0 +1,12 @@
+<% dropdown do %>
+  <% dropdown_button id: 'some-dropdown' do %>
+    <%# insert link / button %>
+  <% end %>
+  <% dropdown_items of: 'some-dropdown' do %>
+    <% dropdown_item(
+      text: 'Some Display',
+      link: some_url,
+      class: "#{'bg-primary text-white' if this_item_is_selected}"
+    ) %>
+  <% end %>
+<% end %>

@@ -15,7 +15,7 @@ nnoremap <silent> ,hfgc :call IndentTemplate('views/forms/groups_left_label_for_
 " Html Form Group left label for Radio buttons  
 nnoremap <silent> ,hfgr :call IndentTemplate('views/forms/groups_left_label_for_radio_buttons.html.erb')<return>/ChangeLabelDisplay\\|ChangeLabel\\|DeleteThis\\|ChangeDisplay\\|ChangeAttribute\\|ChangeOrRemove\\|ChangeValue<return>
 " Html Form Group Left label
-nnoremap <silent> ,hfgt :call IndentTemplate('views/forms/groups_left_label.html.erb')<return>/ChangeLabelDisplay\\|ChangeLabel\\|DeleteThis\\|ChangeAttribute<return>
+nnoremap <silent> ,hfgl :call IndentTemplate('views/forms/groups_left_label.html.erb')<return>/ChangeLabelDisplay\\|ChangeLabel\\|DeleteThis\\|ChangeAttribute<return>
 " Html Form Group left label 2
 nnoremap <silent> ,hfg2 :call IndentTemplate('views/forms/groups_left_label2.html.erb')<return>/ChangeLabelDisplay\\|ChangeLabel\\|DeleteThis\\|ChangeAttribute<return>
 " Html Form Group left label 3
