@@ -22,25 +22,53 @@ gacp(){
   git status
 }
 
-# find and replace all - find / replace / file type (optional)
+# find and replace all - find / replace / file type (optional but doesn't seem to work when you do all files... ask chat gpt for help)
+# this one is old. the chat gpt made a better one below
+# fara() {
+#   local wd=$(pwd)
+#   if [ -z $3 ]; then
+#     printf "You are about to find and replace all instances of \"$1\" with \"$2\" within $wd. Are you sure? [y/n]: "
+#   else
+#     printf "You are about to find and replace all instances of \"$1\" with \"$2\" within .$3 files in $wd. Are you sure? [y/n]: "
+#   fi
+#   read -r response
+#   if [ $response = "y" ]; then
+#     # if files have non-english characters, there will be an error message but the function still works
+#     if [ -z $3 ]; then
+#       find . -type f -name "*.*" | xargs sed -i '' "s/$1/$2/g"
+#     else
+#       find . -type f -name "*.$3" | xargs sed -i '' "s/$1/$2/g"
+#     fi
+#     echo "All instances of $1 have been replaced with $2"
+#   else
+#     echo "Find and replace aborted"
+#   fi
+# }
 fara() {
-  local wd=$(pwd)
-  if [ -z $3 ]; then
-    printf "You are about to find and replace all instances of \"$1\" with \"$2\" within $wd. Are you sure? [y/n]: "
+  local search_string="$1"
+  local replace_string="$2"
+  local extension="$3"
+
+  local warning_message="WARNING: This operation will replace all instances of '${search_string}' with '${replace_string}'"
+  if [[ -n "$extension" ]]; then
+    warning_message+=" in all '${extension}' files."
   else
-    printf "You are about to find and replace all instances of \"$1\" with \"$2\" within .$3 files in $wd. Are you sure? [y/n]: "
+    warning_message+=" in all files."
   fi
-  read -r response
-  if [ $response = "y" ]; then
-    # if files have non-english characters, there will be an error message but the function still works
-    if [ -z $3 ]; then
-      find . -type f -name "*.*" | xargs sed -i '' "s/$1/$2/g"
+
+  echo "$warning_message"
+
+  echo -n "Are you sure you want to proceed? (y/n) "
+  read confirm
+
+  if [[ "$confirm" == [Yy] ]]; then
+    if [[ -n "$extension" ]]; then
+      find . -type f -name "*.${extension}" -print0 | xargs -0 sed -i '' "s/${search_string}/${replace_string}/g"
     else
-      find . -type f -name "*.$3" | xargs sed -i '' "s/$1/$2/g"
+      find . -type f -print0 | xargs -0 sed -i '' "s/${search_string}/${replace_string}/g"
     fi
-    echo "All instances of $1 have been replaced with $2"
+    echo "Find and replace operation completed."
   else
-    echo "Find and replace aborted"
+    echo "Find and replace operation canceled."
   fi
 }
-
