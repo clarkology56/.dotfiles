@@ -31,11 +31,12 @@ so ~/.dotfiles/vim/javascript_mappings.vim
 " Remove view mappings and combine with html page mappings
 "so ~/.dotfiles/vim/view_mappings.vim
 "so ~/.dotfiles/vim/html_card_mappings.vim
-so ~/.dotfiles/vim/html_modal_mappings.vim
+so ~/.dotfiles/vim/html_element_mappings.vim
 so ~/.dotfiles/vim/html_form_mappings.vim
 so ~/.dotfiles/vim/html_input_mappings.vim
+so ~/.dotfiles/vim/html_modal_mappings.vim
+so ~/.dotfiles/vim/html_page_mappings.vim
 "so ~/.dotfiles/vim/html_ui_mappings.vim
-so ~/.dotfiles/vim/html_element_mappings.vim
 " Remove html ruby mappings and combine with html element mappings
 "so ~/.dotfiles/vim/html_ruby_mappings.vim
 "so ~/.dotfiles/vim/react_native_components_mappings.vim

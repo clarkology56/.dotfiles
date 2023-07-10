@@ -18,7 +18,7 @@ def render_create
   #              and NOT stream_for because you don't want user A to interrupt
   #              user B's experience. Closing modal should only close the current
   #              user's modal, not others
-  remove_ChangeControllerName_new_modal
+  replace_ChangeControllerName_new_modal
   broadcast_flash_success 'ChangeModelDisplay created'
   # DeleteThis - render other items as needed.
   # DeleteThis - remember to re-render any other modals associated
