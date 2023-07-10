@@ -5,8 +5,10 @@ nnoremap <silent> ,acbc :call CreateBaseFile(1, 0, 1)<return>/ChangeTopLevelDocu
 " App Controllers Base Broadcasts file
 nnoremap <silent> ,acbb :call CreateBaseFile(0, 0, 0)<return>/ChangeTopLevelDocumentation<return>cgnBroadcasts for<esc><up>g_viwy<down>A <esc>pa controller<esc>
 
+" App Controllers Create Broadcast
+nnoremap <silent> ,accb :call IndentTemplate('controllers/actions/create_broadcast.rb')<return>/ChangeModelDisplay\\|ChangeModel\\|ChangeAbility\\|DeleteThis\\|ChangeControllerName\\|ChangeScope\\|ChangePermittedAttributes<return>
 " App Controllers Update Broadcast
-nnoremap <silent> ,acub :call IndentTemplate('controllers/actions/update_broadcast.rb')<return>/ChangeModelDisplay\\|ChangeModel\\|ChangeAbility\\|DeleteThis\\|ChangeControllerName<return>
+nnoremap <silent> ,acub :call IndentTemplate('controllers/actions/update_broadcast.rb')<return>/ChangeModelDisplay\\|ChangeModel\\|ChangeAbility\\|DeleteThis\\|ChangeControllerName\\|ChangeScope\\|ChangePermittedAttributes<return>
 " App Controllers Update Turboframe
 nnoremap <silent> ,acut :call IndentTemplate('controllers/actions/update_turboframe.rb')<return>/ChangeModelDisplay\\|ChangeModel\\|ChangeAbility\\|DeleteThis\\|ChangePath<return>
 " App Controllers Destroy Broadcast
