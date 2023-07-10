@@ -17,6 +17,6 @@ nnoremap <silent> ,acdb :call IndentTemplate('controllers/actions/destroy_broadc
 " App Controllers Broadcast Remove
 nnoremap <silent> ,acbr :call IndentTemplate('controllers/broadcasts/remove.rb')<return>/DeleteThis\\|ChangeTarget\\|ChangeArgs\\|ChangeTemplate\\|ChangeResource\\|ChangeHmtlId<return>
 " App Controllers Broadcast close Modal
-nnoremap <silent> ,acbm :call IndentTemplate('controllers/broadcasts/close_modal.rb')<return>/DeleteThis\\|ChangeTarget\\|ChangeArgs\\|ChangeTemplate\\|ChangeResource\\|ChangeHmtlId\\|ChangePartialPath<return>
+nnoremap <silent> ,acbm :call IndentTemplate('controllers/broadcasts/close_modal.rb')<return>/DeleteThis\\|ChangeTarget\\|ChangeArgs\\|ChangeTemplate\\|ChangeResource\\|ChangeHmtlId\\|ChangePartialPath\\|ChangeControllerName\\|ChangeNewOrEdit<return>
 " App Controllers Broadcast all other Actions
 nnoremap <silent> ,acba :call IndentTemplate('controllers/broadcasts/actions.rb')<return>/DeleteThis\\|ChangeAction\\|ChangeTarget\\|ChangeArgs\\|ChangeTurboAction\\|ChangeTemplate\\|ChangeResource\\|ChangeHmtlId\\|ChangePartialPath<return>
