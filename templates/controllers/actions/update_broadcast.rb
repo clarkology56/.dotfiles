@@ -32,7 +32,7 @@ def render_invalid_update
   broadcast_flash_danger @ChangeModel
   # DeleteThis - if coming from modal
   broadcast_flash_danger @ChangeModel,
-                         target: "ChangeModel-#{@ChangeModel.id}-update-modal-flash"
+                         target: "ChangeModel-#{@ChangeModel.id}-edit-modal-flash"
   # DeleteThis - render other items as needed.
 end
 
