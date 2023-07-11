@@ -1,12 +1,16 @@
-<% dropdown do %>
-  <% dropdown_button id: 'some-dropdown' do %>
-    <%# insert link / button %>
+<%= dropdown do %>
+  <%= dropdown_button do %>
+    <%# DeleteThis - insert link / button / icon / etc. %>
   <% end %>
-  <% dropdown_items of: 'some-dropdown' do %>
+  <%# DeleteThis - dropdown item can be either a simple link or custom code in a block %>
+  <%= dropdown_items do %>
     <% dropdown_item(
-      text: 'Some Display',
-      link: some_url,
-      class: "#{'bg-primary text-white' if this_item_is_selected}"
+      text: 'ChangeDisplay',
+      link: ChangePathOrUrl,
+      # DeleteThis - if you want to show that a certain item is the current selection, add bg-primary text-white
+      class: "#{'bg-primary text-white' if ChangeLogic}"
     ) %>
+    <% dropdown_item class: "#{'bg-primary text-white' if ChangeLogic}" do %>
+    <% end %>
   <% end %>
 <% end %>
