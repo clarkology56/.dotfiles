@@ -15,6 +15,7 @@
   { prompt: 'Select' include_blank: 'Select' },
   {
     class: 'form-control',
+    required: ChangeOrRemove,
     # DeleteThis - add or remove "required: true" based on notes aboveDeleteThis - for more details on required, see note below:
     #required on HTML select elements will error unless the first opion has value="".
     #The rails select helper adjust for this in several ways:
@@ -27,8 +28,6 @@
     disabled: ChangeOrRemove,
     multiple: ChangeOrRemove,
     readonly: ChangeOrRemove,
-    required: ChangeOrRemove,
-    value: ChangeOrRemove
   }) do
 %>
   <% ChangeOptionObjects.each do |ChangeOptionObject| %>
