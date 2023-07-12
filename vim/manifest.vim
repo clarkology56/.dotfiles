@@ -36,6 +36,7 @@ so ~/.dotfiles/vim/html_form_mappings.vim
 so ~/.dotfiles/vim/html_input_mappings.vim
 so ~/.dotfiles/vim/html_modal_mappings.vim
 so ~/.dotfiles/vim/html_page_mappings.vim
+so ~/.dotfiles/vim/html_ui_mappings.vim
 "so ~/.dotfiles/vim/html_ui_mappings.vim
 " Remove html ruby mappings and combine with html element mappings
 "so ~/.dotfiles/vim/html_ruby_mappings.vim

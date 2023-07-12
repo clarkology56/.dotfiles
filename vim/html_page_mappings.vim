@@ -5,3 +5,5 @@ nnoremap <silent> ,hpfh :call IndentTemplate('views/pages/full_height.html.erb')
 
 " Htkl Pages Card Base
 nnoremap <silent> ,hpcb :call IndentTemplate('views/pages/card_base.html.erb')<return>
+" Htkl Pages Card Table
+nnoremap <silent> ,hpct :call IndentTemplate('views/pages/card_table.html.erb')<return>/DeleteThis\\|ChangePath\\| ChangePathHelperArgOrArrayOfArgs\\|ChangePlaceholder<return>
