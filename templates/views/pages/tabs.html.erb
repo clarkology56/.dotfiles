@@ -1,0 +1,14 @@
+<%# DeleteThis - tabs wrap by default. If you need them to not wrap, remove class flex-wrap below %>
+<%= tabs class: 'flex-wrap' do %>
+  <%# DeleteThis - Default Example %>
+  <%= tab_item text: 'ChangeText',
+               icon: 'fa-ChangeIcon',
+               url: ChangePath,
+               # DeleteThis - typically do ml-0 for the first tab and ml-3 for the rest
+               class: "ml-ChangeMarginLeft #{' current' if yield(:ChangeYield) == 'ChangeYieldValue' }" %>
+  <%# DeleteThis - Block Example  %>
+  <%# DeleteThis - NOTE: block example has not been tested %>
+  <%= tab_item do %>
+    <%# DeleteThis - insert stuff %>
+  <% end %>
+<% end %>
