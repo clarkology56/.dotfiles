@@ -5,11 +5,14 @@
   </div>
   <div class="left-label-input">
     <%# DeleteThis - default for group of radio buttons is inline. To make stacked, remmove class inline to div below (or add inline-no-wrap for no wrapping) %>
-    <div class="checkable-group-container inline">
+    <div class="checkable-group-container inline" data-controller="radio-display-toggle">
       <%# DeleteThis - duplicate checkable-container as needed %>
       <div class="checkable-container">
         <%= f.radio_button :ChangeAttribute, ChangeValue,
           class: 'form-control',
+          data: { show_class: 'ChangeShowClass1',
+                  # NOTE: hide_class usually isn't necessary
+                  hide_class: 'ChangeHideClass1' },
           autofocus: ChangeOrRemove,
           checked: ChangeOrRemove,
           disabled: ChangeOrRemove,
@@ -20,6 +23,9 @@
       <div class="checkable-container">
         <%= f.radio_button :ChangeAttribute, ChangeValue,
           class: 'form-control',
+          data: { show_class: 'ChangeShowClass2',
+                  # NOTE: hide_class usually isn't necessary
+                  hide_class: 'ChangeHideClass2' },
           autofocus: ChangeOrRemove,
           checked: ChangeOrRemove,
           disabled: ChangeOrRemove,
@@ -30,4 +36,13 @@
     </div>
     <%= f.inline_errors :ChangeAttribute %>
   </div>
+</div>
+
+<div class="ChangeShowClass1<%= " hidden" if ChangeLogic %>" data-display="flex">
+</div>
+<div class="ChangeHideClass1<%= " hidden" if ChangeLogic %>" data-display="flex">
+</div>
+<div class="ChangeShowClass2<%= " hidden" if ChangeLogic %>" data-display="flex">
+</div>
+<div class="ChangeHideClass2<%= " hidden" if ChangeLogic %>" data-display="flex">
 </div>
