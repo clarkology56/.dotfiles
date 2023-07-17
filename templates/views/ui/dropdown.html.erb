@@ -17,7 +17,7 @@
     <%= dropdown_item(
       text: 'ChangeDisplay',
       link: send(ChangePath, *ChangePathArgs, filter(ChangeFilterType: 'ChangeFilterValue')),
-      class: "#{'bg-primary text-white' if scope_global_custom_systems?}"
+      class: "#{'current' if ChangeLogic}"
     ) %>
   
     <%# DeleteThis - Block Example %>
