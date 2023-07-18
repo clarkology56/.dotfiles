@@ -25,7 +25,7 @@ nnoremap <silent> ,hioe aoptions_for_select(ChangeClass.ChangeAttributes, Change
 " Html Input Grouped options for select
 nnoremap <silent> ,hiog agrouped_options_for_select(ChangeOptionsListDisplayFirstValueSecond, ChangeSelectedOptionOrOptionsIfMultiple)<esc>/DeleteThis\\|ChangeOptionsListDisplayFirstValueSecond\\|ChangeSelectedOptionOrOptionsIfMultiple<return>
 " Html Input Text Area
-nnoremap <silent> ,hitf :call IndentTemplate('views/forms/inputs_text_area.html.erb')<return>/DeleteThis\\|ChangeAttribute\\|ChangeOrRemove\\|ChangeDisplay<return>
+nnoremap <silent> ,hita :call IndentTemplate('views/forms/inputs_text_area.html.erb')<return>/DeleteThis\\|ChangeAttribute\\|ChangeOrRemove\\|ChangeDisplay<return>
 " Html Input Text Field
 nnoremap <silent> ,hitf :call IndentTemplate('views/forms/inputs_text_field.html.erb')<return>/DeleteThis\\|ChangeAttribute\\|ChangeOrRemove\\|ChangeDisplay<return>
 
