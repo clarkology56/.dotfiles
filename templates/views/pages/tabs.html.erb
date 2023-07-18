@@ -2,9 +2,10 @@
 <%= tabs class: 'flex-wrap' do %>
   <%# DeleteThis - Default Example %>
   <%= tab_item text: 'ChangeText',
+               # DeleteThis - icon is opitonal
                icon: 'fa-ChangeIcon',
                url: ChangePath,
-               class: "mr-3#{' current' if yield(:ChangeYield) == 'ChangeYieldValue' }" %>
+               class: "#{' current' if ChangeLogic }" %>
   <%# DeleteThis - Block Example  %>
   <%# DeleteThis - NOTE: block example has not been tested %>
   <%= tab_item do %>
