@@ -5,6 +5,7 @@
     <%= f.radio_button :ChangeAttribute, ChangeValue,
       class: 'form-control',
       autofocus: ChangeOrRemove,
+      # DeleteThis - only include checked if value cannot be automated from the form model
       checked: ChangeOrRemove,
       disabled: ChangeOrRemove,
       required: ChangeOrRemove
@@ -15,6 +16,7 @@
     <%= f.radio_button :ChangeAttribute, ChangeValue,
       class: 'form-control',
       autofocus: ChangeOrRemove,
+      # DeleteThis - only include checked if value cannot be automated from the form model
       checked: ChangeOrRemove,
       disabled: ChangeOrRemove,
       required: ChangeOrRemove
