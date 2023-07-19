@@ -23,6 +23,10 @@
       <% end %>
 
       <%# DeleteThis - if you need to re-render table body, put it in a partial and give it an ID %>
+      <%# DeleteThis - add classes: 
+            no-alternate (removes alternating row colors)
+            no-row-border remvoes borders from rows (kinda nice to have when alternating colors are removed)
+      %>
       <%= table_body ChangeResources do |ChangeResources| %>
         <%# DeleteThis - most of the time you should move this to a partial %>
         <tr>
