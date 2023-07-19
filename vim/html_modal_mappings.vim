@@ -13,11 +13,11 @@ nnoremap <silent> ,hmij a<%# DeleteThis - use ,heil to see list of available ico
 " Html Modal Icon trigger Destroy
 nnoremap <silent> ,hmid a<i class="link no-underline link-danger fa-solid fa-trash-can" data-target-modal="ChangeModel-<%= ChangeModel.id %>-ChangeSubControllerNameOrRemoveThis-destroy-modal"></i><esc>/ChangeSubControllerNameOrRemoveThis\\|ChangeModel<return>
 " Html Modal Button trigger Static
-nnoremap <silent> ,hmbs a<button class="btn" data-target-modal="ChangeModel-<%= ChangeModel.id %>-ChangeSubControllerNameOrRemoveThis-ChangeActionOrDescription-modal">ChangeAction</button><esc>/ChangeModel\\|ChangeSubControllerNameOrRemoveThis\\|ChangeActionOrDescription\\|ChangeAction<return>
+nnoremap <silent> ,hmbs a<button type="button" class="btn" data-target-modal="ChangeModel-<%= ChangeModel.id %>-ChangeSubControllerNameOrRemoveThis-ChangeActionOrDescription-modal">ChangeAction</button><esc>/ChangeModel\\|ChangeSubControllerNameOrRemoveThis\\|ChangeActionOrDescription\\|ChangeAction<return>
 " Html Modal Button trigger Javascrtip dynamic
-nnoremap <silent> ,hmbj a<button class="btn" <%= ChangeHelperMethod %>>ChangeAction</button><esc>/ChangeHelperMethod\\|ChangeAction<return>
+nnoremap <silent> ,hmbj a<button type="button" class="btn" <%= ChangeHelperMethod %>>ChangeAction</button><esc>/ChangeHelperMethod\\|ChangeAction<return>
 " Html Modal Button trigger Destroy
-nnoremap <silent> ,hmbd a<button class="btn btn-danger" data-target-modal="ChangeModel-<%= ChangeModel.id %>-ChangeSubControllerNameOrRemoveThis-destroy-modal">Delete ChangeModelDisplay</button><esc>/ChangeModelDisplay\\|ChangeSubControllerNameOrRemoveThis\\|ChangeModel<return>
+nnoremap <silent> ,hmbd a<button type="button" class="btn btn-danger" data-target-modal="ChangeModel-<%= ChangeModel.id %>-ChangeSubControllerNameOrRemoveThis-destroy-modal">Delete ChangeModelDisplay</button><esc>/ChangeModelDisplay\\|ChangeSubControllerNameOrRemoveThis\\|ChangeModel<return>
 " Html Modal Link trigger Static
 nnoremap <silent> ,hmls a<a class="link" data-target-modal="ChangeModel-<%= ChangeModel.id %>-ChangeSubControllerNameOrRemoveThis-ChangeActionOrDescription-modal">ChangeAction</a><esc>/ChangeModel\\|ChangeSubControllerNameOrRemoveThis\\|ChangeActionOrDescription\\|ChangeAction<return>
 " Html Modal Link trigger Javascrtip dynamic

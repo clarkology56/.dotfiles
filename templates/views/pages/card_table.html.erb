@@ -6,5 +6,32 @@
     <%# DeleteThis - wrap any buttons (ie modal triggers) in a div so that the parent flex class doesn't make them tall if wrapping is involved %>
   <% end %>
   <%= table_card_body do %>
+    <%= table do %>
+      <%= table_head do %>
+        <%#
+          DeleteThis - manually set the widths to ALL th elements
+          If you don't set the width, then it will shink to nothing on mobile / small screens
+          NOTE: width will actually work like min width. It will not go lower than what you set but
+                it will expand until the card hits the page_max_width
+          NOTE: also, as it shrinks, td texts will bet truncated and "..." will be added so that rows
+                all say the same height. To prevent this, you need to ... (WIP)
+        %>
+        <th style="width: ChangeWidthpx">ChangeColumnHeader</th>
+        <%# DeleteThis - sometime text-align: cetner looks nice for columns with small contenst (like jsut 
+            a number or something) %>
+        <th style="text-align: center; width: ChangeWidthpx">ChangeColumnHeader</th>
+      <% end %>
+
+      <%# DeleteThis - if you need to re-render table body, put it in a partial and give it an ID %>
+      <%= table_body ChangeResources do |ChangeResources| %>
+        <%# DeleteThis - most of the time you should move this to a partial %>
+        <tr>
+          <td>
+            ChangeTableDataContents
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+    <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
   <% end %>
 <% end %>
