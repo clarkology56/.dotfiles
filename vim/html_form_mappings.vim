@@ -18,9 +18,19 @@ nnoremap <silent> ,hfgr :call IndentTemplate('views/forms/groups_left_label_for_
 nnoremap <silent> ,hfgR :call IndentTemplate('views/forms/groups_left_label_for_radio_buttons_display_toggle.html.erb')<return>/ChangeLabelDisplay\\|ChangeLabel\\|DeleteThis\\|ChangeDisplay\\|ChangeAttribute\\|ChangeOrRemove\\|ChangeValue\\|ChangeShowClass1\\|ChangeShowClass2\\|ChangeLogicForChecked<return>
 " Html Form Group Left label
 nnoremap <silent> ,hfg1 :call IndentTemplate('views/forms/groups_left_label.html.erb')<return>/ChangeLabelDisplay\\|ChangeLabel\\|DeleteThis\\|ChangeAttribute<return>
+map <silent> ,hfgl, ,hfg1
+
 " Html Form Group left label 2
 nnoremap <silent> ,hfg2 :call IndentTemplate('views/forms/groups_left_label2.html.erb')<return>/ChangeLabelDisplay\\|ChangeLabel\\|DeleteThis\\|ChangeAttribute<return>
 " Html Form Group left label 3
 nnoremap <silent> ,hfg3 :call IndentTemplate('views/forms/groups_left_label3.html.erb')<return>/ChangeLabelDisplay\\|ChangeLabel\\|DeleteThis\\|ChangeAttribute<return>
 " Html Form Group left label 4
 nnoremap <silent> ,hfg4 :call IndentTemplate('views/forms/groups_left_label4.html.erb')<return>/ChangeLabelDisplay\\|ChangeLabel\\|DeleteThis\\|ChangeAttribute<return>
+
+
+" Html Show Group No label
+nnoremap <silent> ,hsgn :call IndentTemplate('views/forms/show_group_no_label.html.erb')<return>/ChangeLabelDisplay\\|ChangeDisplay\\|DeleteThis<return>
+" Html Show Group Top label
+nnoremap <silent> ,hsgt :call IndentTemplate('views/forms/show_group_top_label.html.erb')<return>/ChangeLabelDisplay\\|ChangeDisplay<return>
+" Html Show Group Left label
+nnoremap <silent> ,hsgl :call IndentTemplate('views/forms/show_group_left_label.html.erb')<return>/ChangeLabelDisplay\\|ChangeDisplay\\|DeleteThis<return>
