@@ -8,6 +8,8 @@ nnoremap <silent> ,hfsh :call IndentTemplate('views/forms/submit_buttons_html.ht
 " Html Form Submit buttons modal
 nnoremap <silent> ,hfsm :call IndentTemplate('views/forms/submit_buttons_modal.html.erb')<return>/ChangeSubmitToAddForNewOrSaveForUpdate<return>
 
+" Html Form Group No label
+nnoremap <silent> ,hfgn :call IndentTemplate('views/forms/groups_no_label.html.erb')<return>/DeleteThis\\|ChangeAttribute<return>
 " Html Form Group Top label
 nnoremap <silent> ,hfgt :call IndentTemplate('views/forms/groups_top_label.html.erb')<return>/ChangeLabelDisplay\\|ChangeLabel\\|DeleteThis\\|ChangeAttribute<return>
 " Html Form Group left label for Checkboxes  
@@ -29,7 +31,7 @@ nnoremap <silent> ,hfg4 :call IndentTemplate('views/forms/groups_left_label4.htm
 
 
 " Html Show Group No label
-nnoremap <silent> ,hsgn :call IndentTemplate('views/forms/show_group_no_label.html.erb')<return>/ChangeLabelDisplay\\|ChangeDisplay\\|DeleteThis<return>
+nnoremap <silent> ,hsgn :call IndentTemplate('views/forms/show_group_no_label.html.erb')<return>/ChangeDisplay\\|DeleteThis<return>
 " Html Show Group Top label
 nnoremap <silent> ,hsgt :call IndentTemplate('views/forms/show_group_top_label.html.erb')<return>/ChangeLabelDisplay\\|ChangeDisplay<return>
 " Html Show Group Left label
