@@ -10,13 +10,11 @@
       # DeleteThis - if you want to show that a certain item is the current selection, add "current" class
       class: "#{'current' if ChangeLogic}"
     ) %>
-    <% dropdown_item class: "#{'bg-primary text-white' if ChangeLogic}" do %>
-    <% end %>
     
     <%# DeleteThis - Filter example %>
     <%= dropdown_item(
       text: 'ChangeDisplay',
-      link: send(ChangePath, *ChangePathArgs, filter(ChangeFilterType: 'ChangeFilterValue')),
+      url: ChangePath(ChangePathArgs, filter(ChangeFilterType: 'ChangeFilterValue')),
       class: "#{'current' if ChangeLogic}"
     ) %>
   
