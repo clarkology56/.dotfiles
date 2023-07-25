@@ -1,7 +1,7 @@
 " Html Elements BUtton
 nnoremap <silent> ,hebu :call IndentTemplate('views/elements/button.html.erb')<return>/ChangeTitle<return>
 " Html Elements Icon
-nnoremap <silent> ,heic a<i class="text-primary pressable fa-solid ChangeIcon"></i><esc>/ChangeIcon<return>
+nnoremap <silent> ,heic a<i class="text-primary pressable fa-solid fa-ChangeIcon"></i><esc>/ChangeIcon<return>
 " Html Elements Icon List
 nnoremap <silent> ,heil :call IndentTemplate('views/elements/icon_list.html.erb')<return>
 " Html Elements Image Tag
