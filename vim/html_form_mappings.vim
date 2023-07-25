@@ -1,5 +1,5 @@
 " Html Form BAse
-nnoremap <silent> ,hfba a<%= form_with(model: ChangeModel, url: ChangePath(account, ChangeModel), method: :ChangeHtmlMethod) do \|f\| %><return><%# DeleteThis - insert hidden fields here if necessary %><return><%# DeleteThis - insert form groups and files (or fields for if necessary) %><return><% end %><esc>/ChangeModel\\|ChangePath\\|ChangeHtmlMethod\\|DeleteThis<return>
+nnoremap <silent> ,hfba a<%= form_with model: ChangeModel, url: ChangePath(account, ChangeModel), method: :ChangeHtmlMethod do \|f\| %><return><%# DeleteThis - insert hidden fields here if necessary %><return><%# DeleteThis - insert form groups and files (or fields for if necessary) %><return><% end %><esc>/ChangeModel\\|ChangePath\\|ChangeHtmlMethod\\|DeleteThis<return>
 
 " Html Form Submit buttons Turboframe
 nnoremap <silent> ,hfst :call IndentTemplate('views/forms/submit_buttons_turboframe.html.erb')<return>/ChangeSubmitToAddForNewOrSaveForUpdate\\|ChangePath\\|ChangeModel<return>
