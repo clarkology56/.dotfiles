@@ -19,7 +19,7 @@ nnoremap <silent> ,hisd :call IndentTemplate('views/forms/inputs_select_default.
 " Html Input Select Block
 nnoremap <silent> ,hisb :call IndentTemplate('views/forms/inputs_select_block.html.erb')<return>/ChangeAttribute\\|DeleteThis\\|ChangeOrRemove\\|ChangeOptionObjects\\|ChangeOptionObject\\|ChangeValue\\|ChangeDisplay<return>
 " Html Input Select Toggle Display
-nnoremap <silent> ,hist :call IndentTemplate('views/forms/inputs_select_toggle.html.erb')<return>/ChangeAttribute\\|DeleteThis\\|ChangeOrRemove\\|ChangeOptionObjects\\|ChangeOptionObject\\|ChangeValue\\|ChangeDisplay\\|ChangeNameOfSelect\\|ChangeShowClass\\|ChangeDefaultDisplayWhenNotHidden<return>
+nnoremap <silent> ,hist :call IndentTemplate('views/forms/inputs_select_display_toggle.html.erb')<return>/ChangeAttribute\\|DeleteThis\\|ChangeOrRemove\\|ChangeOptionObjects\\|ChangeOptionObject\\|ChangeValue\\|ChangeDisplay\\|ChangeToggleClass\\|ChangeShowClass\\|ChangeDefaultDisplayWhenNotHidden\\|ChangeLogicForSelected<return>
 " Html Input Select Options for select
 nnoremap <silent> ,hios aoptions_for_select(ChangeOptionsListDisplayFirstValueSecond, ChangeSelectedOptionOrOptionsIfMultiple)<esc>/DeleteThis\\|ChangeOptionsListDisplayFirstValueSecond\\|ChangeSelectedOptionOrOptionsIfMultiple<return>
 " Html Input select Options for select for Enum

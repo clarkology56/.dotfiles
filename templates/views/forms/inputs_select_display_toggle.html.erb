@@ -12,7 +12,7 @@
   {
     class: 'form-control',
     data: { controller: 'form--select-display-toggle',
-            display_toggle_class: 'ChangeNameOfSelect',
+            display_toggle_class: 'ChangeToggleClass',
             action: 'change->form--select-display-toggle#toggleDisplay' },
     required: ChangeOrRemove,
     autofocus: ChangeOrRemove,
@@ -27,5 +27,5 @@
 <% end %>
 
 <%# DeleteThis - example toggle-able element: %>
-<div class="ChangeNameOfSelect ChangeShowClass<%= " hidden" unless ChangeLogicForSelected %>" data-display="ChangeDefaultDisplayWhenNotHidden">
+<div class="ChangeToggleClass ChangeShowClass<%= " hidden" unless ChangeLogicForSelected %>" data-display="ChangeDefaultDisplayWhenNotHidden">
 </div>
