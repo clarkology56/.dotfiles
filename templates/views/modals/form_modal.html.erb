@@ -1,5 +1,5 @@
 <%= modal id: "ChangeModel-#{ChangeModel.id}-ChangeSubControllerNameOrRemoveThis-ChangeActionOrDescription-modal" do %>
-  <div id="ChangeModalId-flash" class="flash-messages"></div>
+  <%= content_tag 'DIV', nil, id: "ChangeModalId-flash", class: 'flash-messages' %>
   <%= card_header do %>
     ChangeHeader
   <% end %> 

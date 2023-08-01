@@ -7,7 +7,7 @@ nnoremap <silent> ,hmde :call IndentTemplate('views/modals/destroy_modal.html.er
 nnoremap <silent> ,hmin :call IndentTemplate('views/modals/info_modal.html.erb')<return>/ChangeModel\\|ChangeSubControllerNameOrRemoveThis\\|ChangeActionOrDescription\\|ChangeHeader\\|ChangeInfo<return>
 
 " Html Modal Icon trigger Static
-nnoremap <silent> ,hmis a<%# DeleteThis - use ,heil to see list of available icons %><return><i class="link no-underline fa-solid fa-pen-to-square" data-target-modal="ChangeModalId"></i><esc>/DeleteThis\\|ChangeModalId<return>
+nnoremap <silent> ,hmis a<%# DeleteThis - use ,heil to see list of available icons %><return><%= content_tag 'I', nil, class: 'link no-underline fa-solid fa-pen-to-square', data: { target_modal: "ChangeModalId" } %><esc>/DeleteThis\\|ChangeModalId<return>
 " Html Modal Icon trigger Javascrtip dynamic
 nnoremap <silent> ,hmij a<%# DeleteThis - use ,heil to see list of available icons %><return><i class="link no-underline fa-solid fa-pen-to-square" <%= ChangeHelperMethod %>></i><esc>/DeleteThis\\|ChangeHelperMethod<return>
 " Html Modal Icon trigger Destroy
