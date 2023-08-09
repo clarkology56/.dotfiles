@@ -8,6 +8,8 @@ nnoremap <silent> ,hicl :call IndentTemplate('views/forms/inputs_checkbox_stand_
 nnoremap <silent> ,hiff :call IndentTemplate('views/forms/inputs_file_field.html.erb')<return>/DeleteThis\\|ChangeAttribute\\|ChangeOrRemove<return>
 " Html Input Hidden Field
 nnoremap <silent> ,hihf :call IndentTemplate('views/forms/inputs_hidden_field.html.erb')<return>/ChangeAttribute\\|DeleteThis<return>
+" Html Input Number Field
+nnoremap <silent> ,hinf :call IndentTemplate('views/forms/inputs_number_field.html.erb')<return>/DeleteThis\\|ChangeAttribute\\|ChangeOrRemove\\|ChangeDisplay<return>
 " Html Input Radio Buttons
 nnoremap <silent> ,hirb :call IndentTemplate('views/forms/inputs_radio_buttons.html.erb')<return>/DeleteThis\\|ChangeAttribute\\|ChangeValue\\|ChangeOrRemove\\|ChangeDisplay<return>
 " Html Input Select Optional
