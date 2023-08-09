@@ -32,6 +32,6 @@
   }) do
 %>
   <% ChangeOptionObjects.each do |ChangeOptionObject| %>
-    <option value="<%= ChangeOptionObject.ChangeValue %>"<%= " selected=\"true\"" if ChangeOptionObject.ChangeValue == f.object.ChangeValue %>><%= ChangeOptionObject.ChangeDisplay %></option>
+    <option value="<%= ChangeOptionObject.ChangeValue %>"<%= " selected=\"true\"" if ChangeOptionObject.ChangeValue == f.ChangeOptionObject.ChangeValue %>><%= ChangeOptionObject.ChangeDisplay %></option>
   <% end %>
 <% end %>
