@@ -12,14 +12,14 @@ nnoremap <silent> ,hihf :call IndentTemplate('views/forms/inputs_hidden_field.ht
 nnoremap <silent> ,hinf :call IndentTemplate('views/forms/inputs_number_field.html.erb')<return>/DeleteThis\\|ChangeAttribute\\|ChangeOrRemove<return>
 " Html Input Radio Buttons
 nnoremap <silent> ,hirb :call IndentTemplate('views/forms/inputs_radio_buttons.html.erb')<return>/DeleteThis\\|ChangeAttribute\\|ChangeValue\\|ChangeOrRemove\\|ChangeDisplay<return>
+" Html Input Select Block
+nnoremap <silent> ,hisb :call IndentTemplate('views/forms/inputs_select_block.html.erb')<return>/ChangeAttribute\\|DeleteThis\\|ChangeOrRemove\\|ChangeOptionObjects\\|ChangeOptionObject\\|ChangeValue\\|ChangeDisplay<return>
+" Html Input Select Default option
+nnoremap <silent> ,hisd :call IndentTemplate('views/forms/inputs_select_default.html.erb')<return>/ChangeAttribute\\|DeleteThis\\|ChangeOptionsList\\|ChangeOrRemove<return>
 " Html Input Select Optional
 nnoremap <silent> ,hiso :call IndentTemplate('views/forms/inputs_select_optional.html.erb')<return>/ChangeAttribute\\|DeleteThis\\|ChangeOptionsList\\|ChangeOrRemove<return>
 " Html Input Select Required
 nnoremap <silent> ,hisr :call IndentTemplate('views/forms/inputs_select_required.html.erb')<return>/ChangeAttribute\\|DeleteThis\\|ChangeOptionsList\\|ChangeOrRemove<return>
-" Html Input Select Default option
-nnoremap <silent> ,hisd :call IndentTemplate('views/forms/inputs_select_default.html.erb')<return>/ChangeAttribute\\|DeleteThis\\|ChangeOptionsList\\|ChangeOrRemove<return>
-" Html Input Select Block
-nnoremap <silent> ,hisb :call IndentTemplate('views/forms/inputs_select_block.html.erb')<return>/ChangeAttribute\\|DeleteThis\\|ChangeOrRemove\\|ChangeOptionObjects\\|ChangeOptionObject\\|ChangeValue\\|ChangeDisplay<return>
 " Html Input Select Toggle Display
 nnoremap <silent> ,hist :call IndentTemplate('views/forms/inputs_select_display_toggle.html.erb')<return>/ChangeAttribute\\|DeleteThis\\|ChangeOrRemove\\|ChangeOptionObjects\\|ChangeOptionObject\\|ChangeValue\\|ChangeDisplay\\|ChangeToggleClass\\|ChangeShowClass\\|ChangeDefaultDisplayWhenNotHidden\\|ChangeLogicForSelected<return>
 " Html Input Select Options for select
