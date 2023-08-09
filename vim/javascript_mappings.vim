@@ -1,5 +1,5 @@
 " Javascript Stimulus Base Channel
-nnoremap <silent> ,jsbc :call ReadTemplate('javascript/stimulus/base.js')<return>:call JavascriptStimulusBaseChannel()<return>
+nnoremap <silent> ,jsbc :call ReadTemplate('javascript/stimulus/base.js')<return>:call JavascriptStimulusBaseChannel()<return><esc>/DeleteThis\\|someValue\\|someData\\|some_param<return>
 function! JavascriptStimulusBaseChannel()
   let name = expand('%')
   let name = split(name, '_controller.js')[0]

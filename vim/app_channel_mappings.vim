@@ -6,3 +6,6 @@ function! AppChannelsBase()
   let name = split(name, '/channels/')[1]
   execute "normal! /some_channel\<return>cgn" . name
 endfunction
+
+" App Channels BroadCast
+nnoremap <silent> ,aCbc :call IndentTemplate('channels/broadcast.rb')<return>/ChangeStream\\|ChangeData\\|ChangeValue\\|ChangeOrRemove<return>

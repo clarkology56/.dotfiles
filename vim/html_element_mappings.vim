@@ -1,5 +1,7 @@
 " Html Elements BUtton
 nnoremap <silent> ,hebu :call IndentTemplate('views/elements/button.html.erb')<return>/ChangeTitle<return>
+" Html Elements Content Tag
+nnoremap <silent> ,hect :call IndentTemplate('views/elements/content_tag.html.erb')<return>/ChangeElementType\\|ChangeContentsOrRemoveThisAndAddBlock\\|AddHtmlOptionsOrRemoveThis\\|ChangeValue<return>
 " Html Elements Icon
 nnoremap <silent> ,heic a<i class="text-primary pressable fa-solid fa-ChangeIcon"></i><esc>/ChangeIcon<return>
 " Html Elements Icon List
@@ -14,11 +16,10 @@ nnoremap <silent> ,hela :call IndentTemplate('views/elements/link_to_attachment.
 nnoremap <silent> ,held :call IndentTemplate('views/elements/link_to_download.html.erb')<return>/DeleteThis\\|ChangeDisplay\\|ChangeModel\\|ChangeAttachment<return>
 " Html Elements Render Partial
 nnoremap <silent> ,herp a<%= render '<esc>:call FileCopyPartialPath()<return>pa/ChangePartial', ChangeLocal: ChangeLocal %><esc>/ChangePartial\\|ChangeLocal<return>
+" Html Elements Stimulus element for action cable Channel
+nnoremap <silent> ,hesc :call IndentTemplate('views/elements/stimulus_element_for_action_cable_channel.html.erb')<return>/ChangeKebabPathToController\\|some_data\\|ChangeValue<return>
 " Html Elements Video Tag
 nnoremap <silent> ,hevt :call IndentTemplate('views/elements/video_tag.html.erb')<return>/DeleteThis\\|ChangeModel\\|ChangeAttachment\\|ChangeOrRemove<return>
-
-
-
 
 
 
