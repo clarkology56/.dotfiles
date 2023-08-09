@@ -9,7 +9,7 @@ nnoremap <silent> ,hiff :call IndentTemplate('views/forms/inputs_file_field.html
 " Html Input Hidden Field
 nnoremap <silent> ,hihf :call IndentTemplate('views/forms/inputs_hidden_field.html.erb')<return>/ChangeAttribute\\|DeleteThis<return>
 " Html Input Number Field
-nnoremap <silent> ,hinf :call IndentTemplate('views/forms/inputs_number_field.html.erb')<return>/DeleteThis\\|ChangeAttribute\\|ChangeOrRemove\\|ChangeDisplay<return>
+nnoremap <silent> ,hinf :call IndentTemplate('views/forms/inputs_number_field.html.erb')<return>/DeleteThis\\|ChangeAttribute\\|ChangeOrRemove<return>
 " Html Input Radio Buttons
 nnoremap <silent> ,hirb :call IndentTemplate('views/forms/inputs_radio_buttons.html.erb')<return>/DeleteThis\\|ChangeAttribute\\|ChangeValue\\|ChangeOrRemove\\|ChangeDisplay<return>
 " Html Input Select Optional
@@ -29,9 +29,9 @@ nnoremap <silent> ,hioe aoptions_for_select(ChangeClass.ChangeAttributes, Change
 " Html Input Grouped options for select
 nnoremap <silent> ,hiog agrouped_options_for_select(ChangeOptionsListDisplayFirstValueSecond, ChangeSelectedOptionOrOptionsIfMultiple)<esc>/DeleteThis\\|ChangeOptionsListDisplayFirstValueSecond\\|ChangeSelectedOptionOrOptionsIfMultiple<return>
 " Html Input Text Area
-nnoremap <silent> ,hita :call IndentTemplate('views/forms/inputs_text_area.html.erb')<return>/DeleteThis\\|ChangeAttribute\\|ChangeOrRemove\\|ChangeDisplay<return>
+nnoremap <silent> ,hita :call IndentTemplate('views/forms/inputs_text_area.html.erb')<return>/DeleteThis\\|ChangeAttribute\\|ChangeOrRemove<return>
 " Html Input Text Field
-nnoremap <silent> ,hitf :call IndentTemplate('views/forms/inputs_text_field.html.erb')<return>/DeleteThis\\|ChangeAttribute\\|ChangeOrRemove\\|ChangeDisplay<return>
+nnoremap <silent> ,hitf :call IndentTemplate('views/forms/inputs_text_field.html.erb')<return>/DeleteThis\\|ChangeAttribute\\|ChangeOrRemove<return>
 
 " Html Input Attributes Main
 nnoremap <silent> ,hiam :call IndentTemplate('views/forms/attributes.html.erb')<return>/DeleteThis\\|ChangeAttributeDisplay\\|ChangeAttribute<return>
