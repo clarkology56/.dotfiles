@@ -9,6 +9,7 @@
       <%# DeleteThis - duplicate checkable-container as needed %>
       <div class="checkable-container">
         <%= f.radio_button :ChangeAttribute, ChangeValue,
+          id: :ChangeAttribute_ChangeValue,
           class: 'form-control',
           # DeleteThis - any HTML element with this show class will be shown when this option
           # is checked and hidden when not checked. You can also add a hide_class data attribute
@@ -25,6 +26,7 @@
       </div>
       <div class="checkable-container">
         <%= f.radio_button :ChangeAttribute, ChangeValue,
+          id: :ChangeAttribute_ChangeValue,
           class: 'form-control',
           # DeleteThis - any HTML element with this show class will be shown when this option
           # is checked and hidden when not checked. You can also add a hide_class data attribute
@@ -50,4 +52,16 @@
 <div class="ChangeShowClass1<%= " hidden" unless ChangeLogicForChecked %>" data-display="ChangeDefaultDisplayWhenNotHidden">
 </div>
 <div class="ChangeShowClass2<%= " hidden" unless ChangeLogicForChecked %>" data-display="ChangeDefaultDisplayWhenNotHidden">
+</div>
+<%# DeleteThis - NOTE: for nested toggle classes, because of the way radio buttons work, you have to wrap divs on top of each other
+  which is different than how nested toggle selects work FYI
+  the main difference between radio and selects is that when you select a radio, the HTML automatically unselects all other radios
+  with selects, when you select one element, it doesn't necessarily de-select the other elements. Or maybe it's vice versa actually
+  tbh i can't remember... but it means the js has to be different and also the set up has to be different as well. Idk. I think it
+  also has to do with which events get triggered like there are no js events on the select options, only the select. But radios do
+  have an on change event. Etc...
+  %>
+<div class="some-parent-show-class<%= " hidden" unless ChangeLogicForChecked %>" data-display="ChangeDefaultDisplayWhenNotHidden">
+  <div class="some-nested-show-class<%= " hidden" unless ChangeLogicForChecked %>" data-display="ChangeDefaultDisplayWhenNotHidden">
+  </div>
 </div>

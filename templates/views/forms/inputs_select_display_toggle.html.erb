@@ -22,10 +22,20 @@
   }) do
 %>
   <% ChangeOptionObjects.each do |ChangeOptionObject| %>
-    <option value="<%= ChangeOptionObject.ChangeValue %>"<%= " selected=\"true\"" if ChangeOptionObject.ChangeValue == f.object.ChangeValue %> data-show-class="<%= ChangeShowClass %>"><%= ChangeOptionObject.ChangeDisplay %></option>
+    <option value="<%= ChangeOptionObject.ChangeValue %>"<%= " selected=\"true\"".html_safe if ChangeOptionObject.ChangeValue == f.object.ChangeValue %> data-show-class="<%= ChangeShowClass %>"><%= ChangeOptionObject.ChangeDisplay %></option>
   <% end %>
 <% end %>
 
 <%# DeleteThis - example toggle-able element. Cut / paste this where needed: %>
 <div class="ChangeToggleClass ChangeShowClass<%= " hidden" unless ChangeLogicForSelected %>" data-display="ChangeDefaultDisplayWhenNotHidden">
+</div>
+<%# DeleteThis - NOTE: for nested toggle classes, because of the way selects work, you have to have a single div with both classes
+  which is different than how nested toggle radio buttons work FYI
+  the main difference between radio and selects is that when you select a radio, the HTML automatically unselects all other radios
+  with selects, when you select one element, it doesn't necessarily de-select the other elements. Or maybe it's vice versa actually
+  tbh i can't remember... but it means the js has to be different and also the set up has to be different as well. Idk. I think it
+  also has to do with which events get triggered like there are no js events on the select options, only the select. But radios do
+  have an on change event. Etc...
+  %>
+<div class="some-parent-toggle-class some-nested-toggle-class some-show-class<%= " hidden" unless ChangeLogicForChecked %>" data-display="ChangeDefaultDisplayWhenNotHidden">
 </div>
