@@ -14,6 +14,8 @@ nnoremap <silent> ,helt a<%= link_to ChangeDisplay, ChangePath_path %><esc>/Chan
 nnoremap <silent> ,hela :call IndentTemplate('views/elements/link_to_attachment.html.erb')<return>/DeleteThis\\|ChangeDisplay\\|ChangeModel\\|ChangeAttachment<return>
 " Html Elements Link to Download
 nnoremap <silent> ,held :call IndentTemplate('views/elements/link_to_download.html.erb')<return>/DeleteThis\\|ChangeDisplay\\|ChangeModel\\|ChangeAttachment<return>
+" Html Elements Link to Icon
+nnoremap <silent> ,heli :call IndentTemplate('views/elements/link_to_icon.html.erb')<return>/ChangePath\\|ChangeIcon<return>
 " Html Elements Render Partial
 nnoremap <silent> ,herp a<%= render '<esc>:call FileCopyPartialPath()<return>pa/ChangePartial', ChangeLocal: ChangeLocal %><esc>/ChangePartial\\|ChangeLocal<return>
 " Html Elements Stimulus element for action cable Channel
