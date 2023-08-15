@@ -21,19 +21,6 @@
         </div>
         <%= f.inline_errors :ChangeAttribute %>
       </div>
-      <div class="checkbox-and-errors-container">
-        <div class="checkable-container">
-          <%= f.check_box :ChangeAttribute,
-            class: 'form-control',
-            autofocus: ChangeOrRemove,
-            # DeleteThis - only include checked if value cannot be automated from the form model
-            checked: ChangeOrRemove
-            disabled: ChangeOrRemove
-          %>
-          <%= f.label :ChangeAttribute, 'ChangeAttributeDisplay' %>
-        </div>
-        <%= f.inline_errors :ChangeAttribute %>
-      </div>
     </div>
   </div>
 </div>
