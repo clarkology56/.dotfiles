@@ -25,23 +25,6 @@
         %>
         <%= f.label :ChangeAttribute_ChangeValue, 'ChangeDisplay' %>
       </div>
-      <div class="checkable-container">
-        <%= f.radio_button :ChangeAttribute, ChangeValue,
-          id: :ChangeAttribute_ChangeValue,
-          class: 'form-control',
-          # DeleteThis - any HTML element with this show class will be shown when this option
-          # is checked and hidden when not checked. You can also add a hide_class data attribute
-          # that hides any HTML element when this option is checked and will show the element when
-          # this option is not checked, however the hide_class data-attribute is usually not needed
-          data: { show_class: 'ChangeShowClass2' },
-          autofocus: ChangeOrRemove,
-          # DeleteThis - only include checked if value cannot be automated from the form model
-          checked: ChangeOrRemove,
-          disabled: ChangeOrRemove,
-          required: ChangeOrRemove
-        %>
-        <%= f.label :ChangeAttribute_ChangeValue, 'ChangeDisplay' %>
-      </div>
     </div>
     <%= f.inline_errors :ChangeAttribute %>
   </div>

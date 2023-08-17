@@ -12,15 +12,4 @@
     %>
     <%= f.label :ChangeAttribute_ChangeValue, 'ChangeDisplay' %>
   </div>
-  <div class="checkable-container">
-    <%= f.radio_button :ChangeAttribute, ChangeValue,
-      class: 'form-control',
-      autofocus: ChangeOrRemove,
-      # DeleteThis - only include checked if value cannot be automated from the form model
-      checked: ChangeOrRemove,
-      disabled: ChangeOrRemove,
-      required: ChangeOrRemove
-    %>
-    <%= f.label :ChangeAttribute_ChangeValue, 'ChangeDisplay' %>
-  </div>
 </div>
