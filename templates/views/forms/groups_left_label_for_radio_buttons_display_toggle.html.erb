@@ -6,7 +6,7 @@
   </div>
   <div class="left-label-input">
     <%# DeleteThis - default for group of radio buttons is inline. To make stacked, remmove class inline to div below (or add inline-no-wrap for no wrapping) %>
-    <div class="checkable-group-container inline" data-controller="radio-display-toggle">
+    <div class="checkable-group-container inline" data-controller="form--radio-display-toggle">
       <%# DeleteThis - duplicate checkable-container as needed %>
       <div class="checkable-container">
         <%= f.radio_button :ChangeAttribute, ChangeValue,
@@ -23,7 +23,7 @@
           disabled: ChangeOrRemove,
           required: ChangeOrRemove
         %>
-        <%= f.label :ChangeAttribute_ChangeValue, 'ChangeDisplay' %>
+        <%= f.label :ChangeAttribute, 'ChangeDisplay', value: ChangeValue %>
       </div>
     </div>
     <%= f.inline_errors :ChangeAttribute %>
