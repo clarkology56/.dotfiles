@@ -13,7 +13,7 @@ nnoremap <silent> ,hmij a<%# DeleteThis - use ,heil to see list of available ico
 " Html Modal Icon trigger Destroy
 nnoremap <silent> ,hmid a<i class="link no-underline link-danger fa-solid fa-trash-can" data-target-modal="ChangeModalId"></i><esc>/ChangeModalId<return>
 " Html Modal Button trigger Static
-nnoremap <silent> ,hmbs a<button type="button" class="btn" data-target-modal="ChangeModalId">ChangeAction</button><esc>/ChangeModalId\\|ChangeAction<return>
+nnoremap <silent> ,hmbs a<%= content_tag 'BUTTON', 'ChangeAction', class: 'btn', type: 'button', data: { target_modal: "ChangeModalId" } %><esc>/ChangeAction\\|ChangeModalId<return>
 " Html Modal Button trigger Javascrtip dynamic
 nnoremap <silent> ,hmbj a<button type="button" class="btn" <%= ChangeHelperMethod %>>ChangeAction</button><esc>/ChangeHelperMethod\\|ChangeAction<return>
 " Html Modal Button trigger Destroy
