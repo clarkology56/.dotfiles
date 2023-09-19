@@ -6,7 +6,9 @@ nnoremap <silent> <space>fecH :call FileEditChild(0)<return>
 nnoremap <silent> <space>fepa :call FileEditParent(1)<return>
 nnoremap <silent> <space>fepA :call FileEditParent(0)<return>
 " File Edit Swap Files (for deleting swap files
-nnoremap <silent> <space>fesw :call WindowSplitVerdically()<return>:Explore ~/.local/share/nvim/swap/<return>
+nnoremap <silent> <space>fesw :call WindowSplitVerdically()<return>:Explore ~/.local/state/nvim/swap 
+" used to be: ~/.local/share/nvim/swap/
+
 nnoremap <silent> <space>fesW :Explore ~/.local/share/nvim/swap/<return>
 
 
