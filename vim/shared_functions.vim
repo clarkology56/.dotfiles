@@ -223,25 +223,60 @@ function! IndentTemplateFrom(start, template_path)
   normal! `tdd`bdd
 endfunction
 
-
-
 function! SetTerminals()
-  " we want 5 terminals (using 0 array start)
-    " 0. Base terminal
-    " 1. Console
-    " 2. Server
-    " 3. Debugger
-    " 4. Test
-  let l:missingTerminalCount = 5 - TerminalCount()
-  
-  while l:missingTerminalCount > 0  
-    vsp
-    call GoToNextWindow(1)
-    ter
-    close
+  " Get the current count of terminal buffers
+  let l:currentTerminalCount = TerminalCount()
+
+  " Calculate the number of terminals needed
+  let l:missingTerminalCount = 5 - l:currentTerminalCount
+
+  " Open missing terminal buffers and hide their windows
+  while l:missingTerminalCount > 0
+    " Open a new terminal buffer
+    term
+
+    " Decrease the count of missing terminals
     let l:missingTerminalCount = l:missingTerminalCount - 1
+
+    " Hide the current window
+    wincmd j
   endwhile
 endfunction
+
+"function! SetTerminals()
+"  " Get the current count of terminal buffers
+"  let l:currentTerminalCount = TerminalCount()
+"
+"  " Calculate the number of terminals needed
+"  let l:missingTerminalCount = 5 - l:currentTerminalCount
+"
+"  " Open missing terminal buffers
+"  while l:missingTerminalCount > 0
+"    " Open a new terminal buffer
+"    belowright term
+"
+"    " Decrease the count of missing terminals
+"    let l:missingTerminalCount = l:missingTerminalCount - 1
+"  endwhile
+"endfunction
+
+"function! SetTerminals()
+"  " we want 5 terminals (using 0 array start)
+"    " 0. Base terminal
+"    " 1. Console
+"    " 2. Server
+"    " 3. Debugger
+"    " 4. Test
+"  let l:missingTerminalCount = 5 - TerminalCount()
+"  
+"  while l:missingTerminalCount > 0  
+"    vsp
+"    call GoToNextWindow(1)
+"    ter
+"    close
+"    let l:missingTerminalCount = l:missingTerminalCount - 1
+"  endwhile
+"endfunction
 function! GetTerminalInfo()
   let l:blist = map(filter(copy(getbufinfo()), 'v:val.listed == 1'), 'v:val.bufnr')
   let l:terminals = []
