@@ -16,7 +16,7 @@
           # is checked and hidden when not checked. You can also add a hide_class data attribute
           # that hides any HTML element when this option is checked and will show the element when
           # this option is not checked, however the hide_class data-attribute is usually not needed
-          data: { show_class: 'ChangeShowClass1' },
+          data: { show_class: 'ChangeShowClass1', hide_class: 'ChangeHideClass' },
           autofocus: ChangeOrRemove,
           # DeleteThis - only include checked if value cannot be automated from the form model
           checked: ChangeOrRemove,
@@ -35,16 +35,9 @@
   corresponding radio button is checked %>
 <div class="ChangeShowClass1<%= " hidden" unless ChangeLogicForChecked %>" data-display="ChangeDefaultDisplayWhenNotHidden">
 </div>
-<div class="ChangeShowClass2<%= " hidden" unless ChangeLogicForChecked %>" data-display="ChangeDefaultDisplayWhenNotHidden">
+<div class="ChangeHideClass<%= " hidden" unless ChangeLogicForUnChecked %>" data-display="ChangeDefaultDisplayWhenNotHidden">
 </div>
-<%# DeleteThis - NOTE: for nested toggle classes, because of the way radio buttons work, you have to wrap divs on top of each other
-  which is different than how nested toggle selects work FYI
-  the main difference between radio and selects is that when you select a radio, the HTML automatically unselects all other radios
-  with selects, when you select one element, it doesn't necessarily de-select the other elements. Or maybe it's vice versa actually
-  tbh i can't remember... but it means the js has to be different and also the set up has to be different as well. Idk. I think it
-  also has to do with which events get triggered like there are no js events on the select options, only the select. But radios do
-  have an on change event. Etc...
-  %>
+<%# DeleteThis - for nested %>
 <div class="ChangeParentShowClass<%= " hidden" unless ChangeLogicForChecked %>" data-display="ChangeDefaultDisplayWhenNotHidden">
   <div class="ChangeNestedShowClass<%= " hidden" unless ChangeLogicForChecked %>" data-display="ChangeDefaultDisplayWhenNotHidden">
   </div>
