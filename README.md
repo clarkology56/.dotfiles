@@ -1,6 +1,7 @@
 # Everything below needs to be updated. Right now, all correct information can be here: https://docs.google.com/document/d/1fbSFQ5v_4EAiFK0uX-pwIIKwOmuyYBvlarM7FwMlPOE/edit
 
 
+
 # How to up a Ruby on Rails dev environment on NeoVim for macOS Catalina.
 
 ## Utilities
