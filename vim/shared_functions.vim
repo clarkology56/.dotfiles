@@ -212,7 +212,13 @@ function! IndentTemplateFrom(start, template_path)
   " each execute command, so if there is a start, it must be searched again
   " and it must be search again and all in one inline command)
   if a:start == ''
-    execute "normal! mbO\<esc>mt:read " . g:path_to_templates . a:template_path . " \<return>v`b" . indentations . ">"
+    "execute "normal! mbO\<esc>mt:read " . g:path_to_templates . a:template_path . " \<return>v`b" . indentations . ">"
+    execute "normal! mbO\<esc>mt:read " . g:path_to_templates . a:template_path . " \<return>"
+    " when indentations == 0, doing "0>" does the same as "1>" and therefore
+    " indents by 1 when we don't want to... so we only need to indent if indentations > 0
+    if indentations > 0
+      execute "normal! v`b" . indentations . ">"
+    endif
   else
     execute "normal! /" . a:start . "\<return>mbO\<esc>mt:read " . g:path_to_templates . a:template_path . " \<return>0v`b" . indentations . ">"
   endif
