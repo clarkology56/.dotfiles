@@ -1,9 +1,9 @@
 <% provide(:sub_title, 'ChangeSubTitle') %>
 <%# DeleteThis - include top_bar_nav or remove this %>
 <% provide(:top_bar_nav, 'ChangeTopBarNav') %>
-<%# DeleteThis - default page max width is 2500px %>
+<%# DeleteThis - default page max width is 500rem %>
 <%# DeleteThis - delete below or add custom width if needed %>
-<%# provide(:page_max_width, '2500px') %>
+<%# provide(:page_max_width, '800rem') %>
 <%= add_template_streams %>
 
 <%# DeleteThis -  page_header and page_body should only be used in templates and not rendered in partials 
@@ -12,9 +12,9 @@
     provide and yield which will not be available when rendering via ajax %>
 <%= page_header do %>
 <% end %>
+
 <%= page_body do %>
 <% end %>
 
-<%# Modals %>
 <div id="modals">
 </div>
