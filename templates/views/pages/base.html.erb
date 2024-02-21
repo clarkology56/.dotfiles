@@ -1,17 +1,22 @@
 <% provide(:sub_title, 'ChangeSubTitle') %>
 <%# DeleteThis - include top_bar_nav or remove this %>
 <% provide(:top_bar_nav, 'ChangeTopBarNav') %>
-<%# DeleteThis - default page max width is 500rem %>
-<%# DeleteThis - delete below or add custom width if needed %>
-<%# provide(:page_max_width, '800rem') %>
+<%# DeleteThis - delete below or add custom width if needed (default is 2500px) %>
+<%# @page_max_width = '100%' %>
 <%= add_template_streams %>
 
-<%# DeleteThis -  page_header and page_body should only be used in templates and not rendered in partials 
+<%# DeleteThis - page_header and page_body should never be rendered in partials 
     because if you render in a partial, you might be tempted to re-render via ajax however, 
     this doesn't work well with page_header and page_body because we are setting the width using
     provide and yield which will not be available when rendering via ajax %>
 <%= page_header do %>
-  <%# DeleteThis - add tabs to header if you want to make them stay visible when scrolling %>
+  <%= page_header_title_row do %>
+    <%# DeleteThis - add subtitle with this option - subtitle: 'ChangeSubTitle' %>
+    <%= page_header_title_container title: 'ChangeTitle' %>
+    <%= page_header_edit_buttons do %>
+    <% end %>
+  <% end %>
+  <%# DeleteThis - add tabs to page header if you want to make them stay visible when scrolling %>
 <% end %>
 
 <%= page_body do %>
