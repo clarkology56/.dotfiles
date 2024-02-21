@@ -1,11 +1,32 @@
+<%# DeleteThis
+    main options:
+      type: :single :stacked :inline; defaults to :single
+        single - max-height: 100% (makes overflow scroll on card body while keeping header in place)
+        stacked - max-height: none (makes page body scroll on overflow)
+        inline - min-height: 100% (makes card height based on contents OR based on neighboring cards)
+      inline: true false; defaults to false
+    additional options for customization
+      max_height: any max-height css value; defaults to 100%
+      min_height: any min-height css value; defaults to auto
+      height: any height css value; defaults to auto
+      width_class (inline cards only): any tailwind classes; defaults to nil. Only used for inline cards
+%>
 <%= table_card do %>
-  <%= table_card_header class: 'flex items-center flex-wrap' do %>
-    <%= search_bar :ChangePath, ChangePathHelperArgOrArrayOfArgs, class: 'mr-2', placeholder: 'ChangePlaceholder' %>
-    <%# DeleteThis - give any drop downs or buttons this class: "my-0.5 mr-2" %>
-    <%# DeleteThis - give the final drop down or button this class: "mr-0" %>
-    <%# DeleteThis - wrap any buttons (ie modal triggers) in a div so that the parent flex class doesn't make them tall if wrapping is involved %>
+  <%= table_card_header do %>
+    <%= card_header_title_row do %>
+      <%# DeleteThis - add subtitle with this option - subtitle: 'ChangeSubTitle' %>
+      <%= card_header_title_container title: 'ChangeTitle' %>
+      <%= card_header_action_buttons do %>
+        ChangeActionButtons
+      <% end %>
+    <% end %>
+    <%= card_header_controls do %>
+      <%= search_bar :ChangePath, ChangePathHelperArgOrArrayOfArgs, placeholder: 'ChangePlaceholder' %>
+      <%# DeleteThis - insert dropdowns, filters, etc. as needed %>
+    <% end %>
   <% end %>
   <%= table_card_body do %>
+    <%# DeleteThis - class: 'no-alternate' removes alternating row colors %>
     <%= table do %>
       <%= table_head do %>
         <%#
@@ -13,22 +34,18 @@
           If you don't set the width, then it will shink to nothing on mobile / small screens
           NOTE: width will actually work like min width. It will not go lower than what you set but
                 it will expand until the card hits the page_max_width
-          NOTE: also, as it shrinks, td texts will bet truncated and "..." will be added so that rows
-                all say the same height. To prevent this, you need to ... (WIP)
+                so when testing widths, always test on page with width small enough so that table
+                overflows-y
+          NOTE: as the table shrinks, td texts will bet truncated and "..." will be added so that rows
+                all say the same height. To prevent this, you need to add: 
+                 thead_options: { class: 'no-ellipsis' }
         %>
         <th style="width: ChangeWidthpx">ChangeColumnHeader</th>
-        <%# DeleteThis - sometime text-align: cetner looks nice for columns with small contenst (like jsut 
-            a number or something) %>
+        <%# DeleteThis - center align looks nice when all the data is the same length (ex. ID or maybe a date format) %>
         <th style="text-align: center; width: ChangeWidthpx">ChangeColumnHeader</th>
       <% end %>
-
-      <%# DeleteThis - if you need to re-render table body, put it in a partial and give it an ID %>
-      <%# DeleteThis - add classes: 
-            no-alternate (removes alternating row colors)
-            no-row-border remvoes borders from rows (kinda nice to have when alternating colors are removed)
-      %>
-      <%= table_body ChangeResources do |ChangeResources| %>
-        <%# DeleteThis - most of the time you should move this to a partial %>
+      <%# DeleteThis - "ChangeResources do |ChangeResource|" below is optional and can be replace with an "each" block or other enum block inside of the table_body block instead %>
+      <%= table_body ChangeResources do |ChangeResource| %>
         <tr>
           <td>
             ChangeTableDataContents

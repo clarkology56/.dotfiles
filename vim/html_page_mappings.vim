@@ -16,4 +16,4 @@ nnoremap <silent> ,hpcb :call IndentTemplate('views/pages/card_base.html.erb')<r
 " Html Pages Card Table
 nnoremap <silent> ,hpct :call IndentTemplate('views/pages/card_table.html.erb')<return>/DeleteThis\\|ChangePath\\|ChangePathHelperArgOrArrayOfArgs\\|ChangePlaceholder\\|ChangeWidth\\|ChangeColumnHeader\\|ChangeResources\\|ChangeResource\\|ChangeTableDataContents<return>
 " Html Pages Card Header full
-nnoremap <silent> ,hpch :call IndentTemplate('views/pages/card_header_full.html.erb')<return>/ChangeTitle\\|ChangeSubTitle\\|ChangeActionButtons<return>
+nnoremap <silent> ,hpch :call IndentTemplate('views/pages/card_header_full.html.erb')<return>/ChangeTitle\\|ChangeSubTitle\\|ChangeActionButtons\\|DeleteThis<return>
