@@ -12,25 +12,16 @@
       width_class (inline cards only): any tailwind classes; defaults to nil. Only used for inline cards
 %>
 <%= card do %>
-  <%= card_header class: 'flex flex-wrap sm:flex-nowrap' do %>
-    <%# DeleteThis - give any drop downs or buttons this class: "my-0.5 mr-2" %>
-    <%# DeleteThis - give the final drop down or button per group below this class: "mr-0" %>
-    <%# DeleteThis - wrap any buttons (ie modal triggers) in a div so that the parent flex class doesn't make them tall if wrapping is involved %>
-
-    <%# DeleteThis - insert header and subtitle if needed %>
-    <div class="w-full sm:w-auto flex flex-col items-center sm:items-start shrink-0 mr-2">
-      <div class="text-card-header">
-      </div>
-      <div class="text-card-header-sub-title">
-      </div>
-    </div>
-    <%# DeleteThis - add filter dropdowns if needed %>
-    <div class="w-full sm:w-auto flex flex-wrap justify-center sm:justify-normal items-center shrink-0 mr-2">
-    </div>
-    <%# DeleteThis - add action items if needed %>
-    <div class="w-full sm:w-auto flex flex-wrap justify-center sm:justify-normal items-center shrink-0 ml-0 sm:ml-auto">
-    </div>
+  <%= card_header do %>
+    <%= card_header_title_row do %>
+      <%# DeleteThis - add subtitle with this option - subtitle: 'ChangeSubTitle' %>
+      <%= card_header_title_container title: 'ChangeTitle' %>
+      <%= card_header_action_buttons do %>
+        ChangeActionButtons
+      <% end %>
+    <% end %>
+    <%= card_header_controls do %>
+    <% end %>
   <% end %>
   <%= card_body do %>
-  <% end %>
 <% end %>

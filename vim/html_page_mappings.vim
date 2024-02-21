@@ -1,5 +1,5 @@
 " Html Pages BAse
-nnoremap <silent> ,hpba :call IndentTemplate('views/pages/base.html.erb')<return>/DeleteThis\\|ChangeTitle\\|ChangeSubTitle\\|ChangeTopBarNav<return>
+nnoremap <silent> ,hpba :call IndentTemplate('views/pages/base.html.erb')<return>/DeleteThis\\|ChangeTopBarNav\\|ChangeTitle\\|ChangeSubTitle\\|ChangeActionButtons<return>
 " Html Pages Full Height body columns
 nnoremap <silent> ,hpfh :call IndentTemplate('views/pages/full_height.html.erb')<return>/DeleteThis\\|ChangeSubTitle\\|ChangeTopBarNav\\|ChangeWidth<return>
 " Html Pages header full
@@ -12,6 +12,8 @@ nnoremap <silent> ,hpta :call IndentTemplate('views/pages/tabs.html.erb')<return
 " Html Pages Card Inline wrapper
 nnoremap <silent> ,hpci :call IndentTemplate('views/pages/inline_card_wrapper.html.erb')<return>/DeleteThis\\|ChangeMinPx<return>
 " Html Pages Card Base
-nnoremap <silent> ,hpcb :call IndentTemplate('views/pages/card_base.html.erb')<return>/DeleteThis<return>
+nnoremap <silent> ,hpcb :call IndentTemplate('views/pages/card_base.html.erb')<return>/DeleteThis\\|ChangeTitle\\|ChangeSubTitle\\|ChangeActionButtons<return>
 " Html Pages Card Table
 nnoremap <silent> ,hpct :call IndentTemplate('views/pages/card_table.html.erb')<return>/DeleteThis\\|ChangePath\\|ChangePathHelperArgOrArrayOfArgs\\|ChangePlaceholder\\|ChangeWidth\\|ChangeColumnHeader\\|ChangeResources\\|ChangeResource\\|ChangeTableDataContents<return>
+" Html Pages Card Header full
+nnoremap <silent> ,hpch :call IndentTemplate('views/pages/card_header_full.html.erb')<return>/ChangeTitle\\|ChangeSubTitle\\|ChangeActionButtons<return>
