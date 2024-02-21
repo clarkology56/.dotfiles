@@ -6,7 +6,9 @@ nnoremap <silent> ,hpfh :call IndentTemplate('views/pages/full_height.html.erb')
 " Html Pages TAbs
 nnoremap <silent> ,hpta :call IndentTemplate('views/pages/tabs.html.erb')<return>/DeleteThis\\|ChangeText\\|ChangeIcon\\|ChangePath\\|ChangeMarginLeft\\|ChangeLogic<return>
 
-" Htkl Pages Card Base
+" Html Pages Card Inline wrapper
+nnoremap <silent> ,hpci :call IndentTemplate('views/pages/inline_card_wrapper.html.erb')<return>/DeleteThis\\|ChangeMinPx<return>
+" Html Pages Card Base
 nnoremap <silent> ,hpcb :call IndentTemplate('views/pages/card_base.html.erb')<return>/DeleteThis<return>
-" Htkl Pages Card Table
+" Html Pages Card Table
 nnoremap <silent> ,hpct :call IndentTemplate('views/pages/card_table.html.erb')<return>/DeleteThis\\|ChangePath\\|ChangePathHelperArgOrArrayOfArgs\\|ChangePlaceholder\\|ChangeWidth\\|ChangeColumnHeader\\|ChangeResources\\|ChangeResource\\|ChangeTableDataContents<return>
