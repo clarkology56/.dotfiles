@@ -1,14 +1,11 @@
-<%# DeleteThis
-    main options:
-      type: :single :stacked :inline; defaults to :single
-        single - max-height: 100% (makes overflow scroll on card body while keeping header in place)
-        stacked - max-height: none (makes page body scroll on overflow)
-        inline - min-height: 100% (makes card height based on contents OR based on neighboring cards)
-    additional options for customization
-      max_height: any max-height css value; defaults to 100%
-      min_height: any min-height css value; defaults to auto
-      height: any height css value; defaults to auto
-      width_class (inline cards only): any tailwind classes; defaults to nil. Only used for inline cards
+<%# DeleteThis - options:
+  stacked: [true / false] - defaults to false
+    false (default) - sets card max height to 100% so card content scrolls within card body rather than page body
+    true - sets card max height to none so that cards scroll with page rather than on card body
+  max_height: any max-height css value; defaults to 100%
+  min_height: any min-height css value; defaults to auto
+  height: any height css value; defaults to auto
+  width_class (inline cards only): any tailwind classes; defaults to nil. Only used for inline cards.
 %>
 <%= card do %>
   <%= card_header do %>
