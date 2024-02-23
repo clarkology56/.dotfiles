@@ -1,10 +1,9 @@
 " Html Modal FOrm
-nnoremap <silent> ,hmfo :call IndentTemplate('views/modals/form_modal.html.erb')<return>/ChangeModalId\\|ChangeModel\\|ChangeSubControllerNameOrRemoveThis\\|ChangeActionOrDescription\\|ChangeHeader\\|ChangePath\\|ChangeHtmlMethod\\|ChangeSubmitToAddForNewOrSaveForUpdate\\|DeleteThis<return>
+nnoremap <silent> ,hmfo :call IndentTemplate('views/modals/form_modal.html.erb')<return>/ChangeModalId\\|ChangeModel\\|ChangeSubControllerNameOrRemoveThis\\|ChangeActionOrDescription\\|ChangeHeader\\|ChangeSubTitle\\|ChangePath\\|ChangeHtmlMethod\\|ChangeSubmitToAddForNewOrSaveForUpdate\\|DeleteThis<return>
 " Html Modal DEstroy
-" ChangeSubControllerNameOrRemoveThis
-nnoremap <silent> ,hmde :call IndentTemplate('views/modals/destroy_modal.html.erb')<return>/ChangeModelDisplay\\|ChangeModel\\|ChangeSubControllerNameOrRemoveThis\\|ChangePath\\|ChangeSubmitToAddForNewOrSaveForUpdate<return>
+nnoremap <silent> ,hmde :call IndentTemplate('views/modals/destroy_modal.html.erb')<return>/ChangeModelDisplay\\|ChangeSubTitle\\|ChangeModel\\|ChangeSubControllerNameOrRemoveThis\\|ChangePath\\|ChangeSubmitToAddForNewOrSaveForUpdate<return>
 " Html Modal INfo
-nnoremap <silent> ,hmin :call IndentTemplate('views/modals/info_modal.html.erb')<return>/ChangeModel\\|ChangeSubControllerNameOrRemoveThis\\|ChangeActionOrDescription\\|ChangeHeader\\|ChangeInfo<return>
+nnoremap <silent> ,hmin :call IndentTemplate('views/modals/info_modal.html.erb')<return>/ChangeModel\\|ChangeSubControllerNameOrRemoveThis\\|ChangeActionOrDescription\\|ChangeHeader\\|ChangeSubTitle\\|ChangeInfo<return>
 
 " Html Modal Icon trigger Static
 nnoremap <silent> ,hmis a<%# DeleteThis - use ,heil to see list of available icons %><return><%= content_tag 'I', nil, class: 'link no-underline fa-solid fa-pen-to-square', data: { target_modal: "ChangeModalId" } %><esc>/DeleteThis\\|ChangeModalId<return>
