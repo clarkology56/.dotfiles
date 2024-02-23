@@ -1,8 +1,7 @@
 <%= modal id: "ChangeModel-#{ChangeModel.id}-ChangeSubControllerNameOrRemoveThis-ChangeActionOrDescription-modal" do %>
   <%= content_tag 'DIV', nil, id: "ChangeModalId-flash", class: 'flash-messages' %>
-  <%= card_header do %>
-    ChangeHeader
-  <% end %> 
+  <%# DeleteThis - add subtitle with this option - subtitle: 'ChangeSubTitle' %>
+  <%= card_header title: 'ChangeHeader' %>
   <%= card_body do %> 
     <%# DeleteThis - if form does not use an instance of a active record model, then:
         replace model: with scope:
