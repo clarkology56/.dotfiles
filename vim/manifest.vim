@@ -30,7 +30,7 @@ so ~/.dotfiles/vim/javascript_mappings.vim
 "so ~/.dotfiles/vim/html_page_mappings.vim
 " Remove view mappings and combine with html page mappings
 "so ~/.dotfiles/vim/view_mappings.vim
-"so ~/.dotfiles/vim/html_card_mappings.vim
+so ~/.dotfiles/vim/html_card_mappings.vim
 so ~/.dotfiles/vim/html_element_mappings.vim
 so ~/.dotfiles/vim/html_form_mappings.vim
 so ~/.dotfiles/vim/html_input_mappings.vim

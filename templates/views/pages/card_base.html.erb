@@ -1,25 +1,14 @@
 <%# DeleteThis - options:
-  stacked: [true / false] - defaults to false
-    false (default) - sets card max height to 100% so card content scrolls within card body rather than page body
-    true - sets card max height to none so that cards scroll with page rather than on card body
-  max_height: any max-height css value; defaults to 100%
-  min_height: any min-height css value; defaults to auto
-  height: any height css value; defaults to auto
-  width_class: any tailwind classes; defaults to nil. Mainly used to customize inline cards in rare cases
+  stacked: true / false; defaults to false
+  used less often (but still available):
+    max_height: any max-height css value; defaults to 100%
+    min_height: any min-height css value; defaults to auto
+    height: any height css value; defaults to auto
+    width_class: any tailwind classes; defaults to nil.
 %>
 <%= card do %>
-  <%= card_header do %>
-    <%= card_header_title_row do %>
-      <%# DeleteThis - add subtitle with this option - subtitle: 'ChangeSubTitle' %>
-      <%= card_header_title_container title: 'ChangeTitle' %>
-      <%= card_header_action_buttons do %>
-        ChangeActionButtons
-      <% end %>
-    <% end %>
-    <%= card_header_controls do %>
-      <%# DeleteThis - insert dropdowns, filters, etc. as needed %>
-    <% end %>
-  <% end %>
+  <%# DeleteThis - for custom header, use: ,hche (Html Card HEader) %>
+  <%= card_header title: 'ChangeTitle', subtitle: 'ChangeSubTitle' %>
   <%= card_body do %>
   <% end %>
 <% end %>
