@@ -34,4 +34,4 @@ nnoremap <silent> ,hita :call IndentTemplate('views/forms/inputs_text_area.html.
 nnoremap <silent> ,hitf :call IndentTemplate('views/forms/inputs_text_field.html.erb')<return>/DeleteThis\\|ChangeAttribute\\|ChangeOrRemove<return>
 
 " Html Input Attributes Main
-nnoremap <silent> ,hiam :call IndentTemplate('views/forms/attributes.html.erb')<return>/DeleteThis\\|ChangeAttributeDisplay\\|ChangeAttribute<return>
+nnoremap <silent> ,hiam :call IndentTemplate('views/forms/attributes.html.erb')<return>/ChangeOrRemove<return>

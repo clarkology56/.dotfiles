@@ -1,10 +1,11 @@
 " Html Form BAse
 nnoremap <silent> ,hfba a<%= form_with model: ChangeModel, url: ChangePath(account, ChangeModel), method: :ChangeHtmlMethod do \|f\| %><return><%# DeleteThis - insert hidden fields here if necessary %><return><%# DeleteThis - insert form groups and files (or fields for if necessary) %><return><% end %><esc>/ChangeModel\\|ChangePath\\|ChangeHtmlMethod\\|DeleteThis<return>
 
-
 " Html Form Input Group
-nnoremap <silent> ,hfig :call IndentTemplate('views/forms/input_group.html.erb')<return>/<return>
+nnoremap <silent> ,hfig :call IndentTemplate('views/forms/input_group.html.erb')<return>/DeleteThis\\|ChangeInputType\\|ChangeMethod<return>
 
+" Html Form Input group Custom
+nnoremap <silent> ,hfic :call IndentTemplate('views/forms/input_group_custom.html.erb')<return>/DeleteThis\\|ChangeInputType\\|ChangeMethod<return>
 
 
 
