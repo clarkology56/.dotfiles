@@ -12,7 +12,6 @@
       inline_errors_options - defaults to {}. set to options for inline errors
 %>
 <%= f.input_group 'ChangeLabel', checkbox: true do %>
-  <%# DeleteThis - remove 'ChangeLabel' argument for stand alone checkbox %>
   <%= f.checkbox_contained :ChangeMethod,
           label: ChangeOrRemove, # defaults to "#{:ChangeMethod.to_s.titleize}:". Set to false to remove the label entirely
           autofocus: ChangeOrRemove,
