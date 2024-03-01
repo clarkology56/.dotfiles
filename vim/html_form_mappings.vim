@@ -8,7 +8,7 @@ nnoremap <silent> ,hfic :call IndentTemplate('views/forms/input_group_custom.htm
 " Html Form Input group Radio
 nnoremap <silent> ,hfir :call IndentTemplate('views/forms/input_group_radio.html.erb')<return>/DeleteThis\\|ChangeLabel\\|ChangeMethod\\|ChangeValue\\|ChangeOrRemove<return>
 " Html Form Input group Checkbox
-nnoremap <silent> ,hfic :call IndentTemplate('views/forms/input_group_radio.html.erb')<return>/DeleteThis\\|ChangeLabel\\|ChangeMethod\\|ChangeOrRemove<return>
+nnoremap <silent> ,hfic :call IndentTemplate('views/forms/input_group_checkbox.html.erb')<return>/DeleteThis\\|ChangeLabel\\|ChangeMethod\\|ChangeOrRemove<return>
 
 
 
