@@ -3,9 +3,12 @@ nnoremap <silent> ,hfba a<%= form_with model: ChangeModel, url: ChangePath(accou
 
 " Html Form Input Group
 nnoremap <silent> ,hfig :call IndentTemplate('views/forms/input_group.html.erb')<return>/DeleteThis\\|ChangeInputType\\|ChangeMethod<return>
-
 " Html Form Input group Custom
-nnoremap <silent> ,hfic :call IndentTemplate('views/forms/input_group_custom.html.erb')<return>/DeleteThis\\|ChangeInputType\\|ChangeMethod<return>
+nnoremap <silent> ,hfic :call IndentTemplate('views/forms/input_group_custom.html.erb')<return>/DeleteThis\\|ChangeLabel<return>
+" Html Form Input group Radio
+nnoremap <silent> ,hfir :call IndentTemplate('views/forms/input_group_radio.html.erb')<return>/DeleteThis\\|ChangeLabel\\|ChangeMethod\\|ChangeValue\\|ChangeOrRemove<return>
+" Html Form Input group Checkbox
+nnoremap <silent> ,hfic :call IndentTemplate('views/forms/input_group_radio.html.erb')<return>/DeleteThis\\|ChangeLabel\\|ChangeMethod\\|ChangeOrRemove<return>
 
 
 

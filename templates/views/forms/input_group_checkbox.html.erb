@@ -1,5 +1,6 @@
 <%# DeleteThis
     common options: 
+      stacked - defaults to false (ie inline). Set to true to stack the radio buttons
       label_width - defaults to 20rem (ie 5rem). Must be a tailwind class
       group_width - defaults to nil (which means it will be the full width of the form). Must be a tailwind class
     
@@ -10,6 +11,11 @@
       inline_errors - defaults to true. set to false to remove inline errors
       inline_errors_options - defaults to {}. set to options for inline errors
 %>
-<%= f.input_group 'ChangeLabel' do %>
-  <%# DeleteThis - insert input here %>
+<%= f.input_group 'ChangeLabel', checkbox: true do %>
+  <%# DeleteThis - remove 'ChangeLabel' argument for stand alone checkbox %>
+  <%= f.checkbox_contained :ChangeMethod, 'ChangeLabel',
+          autofocus: ChangeOrRemove,
+          checked: ChangeOrRemove, # DeleteThis - only include checked if value cannot be automated from the form model
+          disabled: ChangeOrRemove
+  %>
 <% end %>
