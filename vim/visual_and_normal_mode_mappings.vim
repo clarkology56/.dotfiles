@@ -60,6 +60,12 @@
 
   " paste line over current line
   nnoremap <silent> F VpVy
+  
+" resize window
+  nnoremap <silent> <S-up> :resize +3<return>
+  vnoremap <silent> <S-up> :resize +3<return>
+  nnoremap <silent> <S-down> :resize -3<return>
+  vnoremap <silent> <S-down> :resize -3<return>
 
 " retrain d-pad
   " : is used for dpad now so need to remap :
@@ -70,16 +76,14 @@
   nnoremap <silent> dl dk
   nnoremap <silent> <S-l> 3<up>
   vnoremap <silent> <S-l> 3<up>
-  nnoremap <silent> <S-up> 3<up>
-  vnoremap <silent> <S-up> 3<up>
+  " NOTE: Shift up is reserved for window resizeing
   " down
   nnoremap <silent> k j
   vnoremap <silent> k j
   nnoremap <silent> dk dj
   nnoremap <silent> <S-k> 3<down>
   vnoremap <silent> <S-k> 3<down>
-  nnoremap <silent> <S-down> 3<down>
-  vnoremap <silent> <S-down> 3<down>
+  " NOTE: Shift down is reserved for window resizeing
   " left
   nnoremap <silent> j <left>
   vnoremap <silent> j <left>
