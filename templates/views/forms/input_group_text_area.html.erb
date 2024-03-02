@@ -11,17 +11,18 @@
       inline_errors - defaults to true. set to false to remove inline errors
       inline_errors_options - defaults to {}. set to options for inline errors
 %>
-<%= f.input_group :number_field, :ChangeMethod,
+<%= f.input_group :text_area, :ChangeMethod,
+  data: { controller: 'form--text-area' },
   autocomplete: ChangeOrRemove,
   autofocus: ChangeOrRemove,
   disabled: ChangeOrRemove,
-  max: ChangeOrRemove,
-  min: ChangeOrRemove,
+  maxlength: ChangeOrRemove,
+  minlength: 'ChangeOrRemove',
+  pattern: ChangeOrRemove,
   placeholder: 'Enter ChangeOrRemove',
   readonly: ChangeOrRemove,
   required: ChangeOrRemove,
   size: ChangeOrRemove,
-  step: ChangeOrRemove,
   # DeleteThis - only include value if value cannot be automated from the form model
   value: ChangeOrRemove
 %>

@@ -62,6 +62,12 @@
   nnoremap <silent> F VpVy
   
 " resize window
+  nnoremap <silent> <S-left> :vertical resize -3<return>
+  vnoremap <silent> <S-left> :vertical resize -3<return>
+  nnoremap <silent> <S-right> :vertical resize +3<return>
+  " nnoremap <silent> <D-S-down> :vertical resize -3<return>
+  " nnoremap <silent> <D-S-up> :vertical resize +3<return>
+  vnoremap <silent> <S-right> :vertical resize +3<return>
   nnoremap <silent> <S-up> :resize +3<return>
   vnoremap <silent> <S-up> :resize +3<return>
   nnoremap <silent> <S-down> :resize -3<return>
@@ -76,7 +82,6 @@
   nnoremap <silent> dl dk
   nnoremap <silent> <S-l> 3<up>
   vnoremap <silent> <S-l> 3<up>
-  " NOTE: Shift up is reserved for window resizeing
   " down
   nnoremap <silent> k j
   vnoremap <silent> k j
@@ -89,15 +94,11 @@
   vnoremap <silent> j <left>
   nnoremap <silent> <S-j> 4<left>
   vnoremap <silent> <S-j> 4<left>
-  nnoremap <silent> <S-left> 4<left>
-  vnoremap <silent> <S-left> 4<left>
   " right
   nnoremap <silent> ; <right>
   vnoremap <silent> ; <right>
   nnoremap <silent> : 4<right>
   vnoremap <silent> : 4<right>
-  nnoremap <silent> <S-right> 4<right>
-  vnoremap <silent> <S-left> 4<left>
   " far left
   nnoremap <silent> q ^
   vnoremap <silent> q ^
