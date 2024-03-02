@@ -1,6 +1,6 @@
 " path to upserv cusotomizations
 let g:path_to_upserv_foundations_vim = '~/.upserv_foundations_vim/'
-"" include all 
+" include all 
 execute 'source' g:path_to_upserv_foundations_vim . 'vim/manifest.vim'
 "" include only autocommands and settings
 "execute 'source' g:path_to_upserv_foundations_vim . 'vim/autocommands_and_settings.vim'
