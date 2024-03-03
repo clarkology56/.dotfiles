@@ -1,2 +1,3 @@
 " include all upserv_foundations_vim mappings 
-execute 'source' g:path_to_upserv_foundations_vim . 'vim/manifest.vim'
+so ~/.upserv_foundations_vim/vim/prerequisites.vim
+so ~/.upserv_foundations_vim/vim/manifest.vim
