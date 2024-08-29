@@ -44,7 +44,8 @@ autocmd InsertLeave * set iminsert=0
 call plug#begin('~/.vim/plugged')
   Plug 'arcticicestudio/nord-vim' " cool nordic color scheme
   Plug 'dense-analysis/ale' " similar to Neomake - runs specific programs asynchonously. Currently using for eslint and prettier
-  Plug 'maxboisvert/vim-simple-complete' " autocomplete - a little buggy but mostly amazing and simple to install
+  " Plug 'maxboisvert/vim-simple-complete' " autocomplete - a little buggy but mostly amazing and simple to install
+  Plug 'ycm-core/YouCompleteMe'
   Plug 'jiangmiao/auto-pairs' " helps with {}, (), [], etc.
   Plug 'pangloss/vim-javascript' " adds colors to js files (only difference I saw was color to funtion names). Probably does other stuff too...
   Plug 'maxmellon/vim-jsx-pretty' " more colors and syntax stuff for react / react native 
