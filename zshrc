@@ -5,9 +5,6 @@ source ~/.dotfiles/zsh/manifest.zsh
 # https://stackoverflow.com/a/69405247/12054303
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
-# use openssl 1.1 for downloading home-brew gems. This can cause issues with older versions of ruby that require openssl 1.0 (or earlier versions)
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -118,8 +115,8 @@ eval "$(gdircolors -b ~/.dircolors)"
 # Forces displaying colors
 alias ls="ls --color=always"
 
-# Initializes Rbenv (prevents having to run rbenv init all the time)
-eval "$(rbenv init -)"
+# Initializes mise (manages ruby + node versions and project tasks; replaces rbenv/nvm)
+eval "$(mise activate zsh)"
 
 # Nvim environment variables
 export EDITOR=nvim
@@ -129,13 +126,3 @@ export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Use project specified node version when opening terminal if there is a project specified version
-# The project specified version is found in the project .nvmrc file and is set by running
-# nvm use
-if  [ -f .nvmrc ]; then
-  nvm use
-fi
