@@ -16,6 +16,8 @@ augroup CustomVimEntry
   autocmd VimEnter * call SetTerminals()
   " Open explorer
   autocmd VimEnter * execute "normal! :Explore\<return>"
+  " avante wooooop!
+  " autocmd! User avante.nvim
 augroup END
 
 " Create directories before saving files in directories that do not exist
@@ -59,6 +61,23 @@ call plug#begin('~/.vim/plugged')
   " good plugin but I didn't see any differences from what I already have so I
   " removed it... but want to keep here as a referene in case I come
   " back to it some day...
+
+  
+  " Deps
+  "Plug 'nvim-lua/plenary.nvim'
+  "Plug 'MunifTanjim/nui.nvim'
+  "Plug 'MeanderingProgrammer/render-markdown.nvim'
+  "
+  "" Optional deps
+  "Plug 'hrsh7th/nvim-cmp'
+  "Plug 'nvim-tree/nvim-web-devicons' "or Plug 'echasnovski/mini.icons'
+  "Plug 'HakonHarnes/img-clip.nvim'
+  "Plug 'zbirenbaum/copilot.lua'
+  "Plug 'stevearc/dressing.nvim' " for enhanced input UI
+  "Plug 'folke/snacks.nvim' " for modern input UI
+  "
+  "" Yay, pass source=true if you want to build from source
+  "Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': 'make' }
 call plug#end()
 
 " misc settings
@@ -86,6 +105,7 @@ call plug#end()
   " remove timeout for mappings so you are not in a rush
   set notimeout
  
-" include all upserv_foundations_vim mappings 
-so ~/.upserv_foundations_vim/vim/prerequisites.vim
-so ~/.upserv_foundations_vim/vim/manifest.vim
+" include all custom mappings (formerly ~/.upserv_foundations_vim, now merged into dotfiles)
+let g:path_to_upserv_foundations_vim = '~/.dotfiles/'
+so ~/.dotfiles/vim/prerequisites.vim
+so ~/.dotfiles/vim/manifest.vim
