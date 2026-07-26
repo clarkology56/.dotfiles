@@ -1,0 +1,13 @@
+{
+  "hooks": {
+    "Stop": [
+      { "hooks": [ { "type": "command", "command": "say 'Claude done'" } ] }
+    ],
+    "PermissionRequest": [
+      { "hooks": [ { "type": "command", "command": "say 'Claude permission needed'" } ] }
+    ],
+    "Notification": [
+      { "hooks": [ { "type": "command", "command": "say 'Claude notification received'" } ] }
+    ]
+  }
+}

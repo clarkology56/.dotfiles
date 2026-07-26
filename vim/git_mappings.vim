@@ -42,5 +42,7 @@ function! GitPush()
     execute "normal! :! git status\<return>"
   endif
 endfunction
+" Git Branch - copy current branch name to clipboard (handy for wt:rm)
+nnoremap <silent> <space>gb :let @+ = trim(system('git branch --show-current'))<return>:echo 'copied: ' . @+<return>
 " Git Log Oneline
 nnoremap <silent> <space>gl :wa<return>:call ToggleTerminalInWindow('base', 1)<return>q<C-\><C-n>aq<C-c>!!!<return><C-c>git log --oneline --graph<return
