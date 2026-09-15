@@ -23,6 +23,9 @@ Same bar as `pr-review` findings: if you can't name why I need a sentence, cut i
 applying findings, a light model for mechanical work. Subagents follow the same rule by task type. Choose the
 right model first and manage tokens second — never drop a tier just to save cost.
 
+**Responsive by default.** Build for desktop, tablet, and mobile from the start — not as a pass at the end.
+`pr-review` will catch misses, but finding them there means rework.
+
 **Scope.** Decide which improvements to fix now, drop, or note as a follow-up. Dropping is fine and often right.
 Small and otherwise likely never to happen → do it now. Large, adds complexity, or really a product decision →
 note it for later. If you can't name a symptom someone would notice, drop it. If unsure, ask.
@@ -67,8 +70,15 @@ is the authoritative structure; `create-pr` and `update-pr` both defer to it.
 Plus the type block: **bugfix** gets symptom / how to reproduce / root cause / fix; **feature** gets product
 context and approach; **refactor** gets what behavior is preserved and how that was verified.
 
+**Stacked PRs.** Splitting a large PR into stacks is my call — don't propose it unless I ask. If we split, the
+original PR is closed with its description intact as the shared reference, and each stack gets its own complete
+description linking back to it. Keep the original description complete enough to serve that purpose.
+
 **Product decisions** are the judgment calls invisible in the diff — chosen defaults, edge-case behavior, copy,
 scope cuts. Add them as they happen; remove them if we reverse them. Write "None" explicitly if there are none.
+
+**Feature flags.** If the PR adds one, the description records its expiration date and owner. A flag without
+both is incomplete work.
 
 **Follow-ups** contains only work we intend to do. The goal is as few as possible — otherwise every PR spawns
 unlimited others. Write "None" if there are none; on a small PR that's the expected answer. Two kinds, listed as
