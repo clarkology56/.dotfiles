@@ -74,7 +74,13 @@ endfunction
 " buffer name (cosmetic — the b:terminal_name tag is the source of truth)
 function! CreateNamedTerminal(name)
   if a:name ==# 'claude'
-    terminal mise run claude
+    " inside the rails-dev wrapper the claude mise task runs the containerized
+    " CLI; anywhere else (dotfiles etc.) fall back to the host claude CLI
+    if system('mise tasks ls 2>/dev/null') =~# '\<claude\>'
+      terminal mise run claude
+    else
+      terminal claude
+    endif
     " <Esc> must reach Claude (it interrupts / clears the prompt), so restore
     " passthrough in this buffer only; exit terminal mode here with jj instead
     tnoremap <buffer> <Esc> <Esc>

@@ -106,6 +106,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Claude Code native installer lives here
+export PATH="$HOME/.local/bin:$PATH"
+
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
@@ -130,4 +133,8 @@ export NVIM_TUI_ENABLE_TRUE_COLOR=1
 # Locale environment variables
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+# Git branch as the tab title. Must come after oh-my-zsh.sh, which defines the
+# `title` helper and registers the title hooks this file disables.
+source ~/.dotfiles/zsh/tab_title.zsh
 

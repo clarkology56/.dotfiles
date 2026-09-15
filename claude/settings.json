@@ -1,13 +1,41 @@
 {
   "hooks": {
     "Stop": [
-      { "hooks": [ { "type": "command", "command": "say 'Claude done'" } ] }
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "input=$(cat);sid=$(printf '%s' \"$input\" | jq -r '.session_id');msg=$(printf '%s' \"$input\" | jq -r '.last_assistant_message // empty' | head -n1);title=$(jq -r --arg sid \"$sid\" 'select(.sessionId==$sid) | .name' ~/.claude/sessions/*.json 2>/dev/null | head -n1);title=${title:-Claude Code};read -ra words <<< \"$msg\";spoken=\"${words[*]:0:4}\";osascript -e \"display notification $(printf '%s' \"$msg\" | jq -Rs .) with title $(printf '%s' \"$title\" | jq -Rs .)\";say \"$spoken\""
+          }
+        ]
+      }
     ],
     "PermissionRequest": [
-      { "hooks": [ { "type": "command", "command": "say 'Claude permission needed'" } ] }
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sid=$(jq -r '.session_id');title=$(jq -r --arg sid \"$sid\" 'select(.sessionId==$sid) | .name' ~/.claude/sessions/*.json 2>/dev/null | head -n1);title=${title:-Claude Code};osascript -e \"display notification \\\"Claude permission needed\\\" with title $(printf '%s' \"$title\" | jq -Rs .)\";say 'Claude permission needed'"
+          }
+        ]
+      }
     ],
     "Notification": [
-      { "hooks": [ { "type": "command", "command": "say 'Claude notification received'" } ] }
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "input=$(cat);sid=$(printf '%s' \"$input\" | jq -r '.session_id');msg=$(printf '%s' \"$input\" | jq -r '.message // \"Claude notification received\"');title=$(jq -r --arg sid \"$sid\" 'select(.sessionId==$sid) | .name' ~/.claude/sessions/*.json 2>/dev/null | head -n1);title=${title:-Claude Code};read -ra words <<< \"$msg\";spoken=\"${words[*]:0:4}\";osascript -e \"display notification $(printf '%s' \"$msg\" | jq -Rs .) with title $(printf '%s' \"$title\" | jq -Rs .)\";say \"$spoken\""
+          }
+        ]
+      }
     ]
-  }
+  },
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
+  },
+  "theme": "dark",
+  "voiceEnabled": true,
+  "skipDangerousModePermissionPrompt": true
 }

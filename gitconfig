@@ -18,3 +18,7 @@
 	defaultBranch = master
 [include]
   path = ~/.gitconfig_local
+[rebase]
+	updateRefs = true
+[rerere]
+	enabled = true
