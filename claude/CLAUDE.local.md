@@ -77,18 +77,19 @@ Never fall back to a CI round trip when missing dependencies are the only blocke
 
 ## Running system tests
 
-You can run system tests from your own container. Two env vars are missing from your
-environment; supply them on the command line:
+You can run system tests from your own container. `APP_HOST` and `PLAYWRIGHT_HOST` are
+already set correctly in your environment — never override either. One thing is still
+missing, so prefix the timeout:
 
-    CI=true APP_HOST=$(hostname -i | awk '{print $1}') bundle exec rails test test/system/<file>.rb
+    CI=true bundle exec rails test test/system/<file>.rb
 
-- **`APP_HOST`** — without it Capybara advertises your container's hostname, which is an
-  auto-generated container ID. Docker's DNS resolves service names and aliases, not those,
-  so the browser can't reach you and every test dies navigating to sign_in. Your container
-  is a `docker compose run` one-off with no stable DNS name, so the IP is the only option.
-- **`CI=true`** — raises the Playwright timeout from 5s to 15s. A cold Capybara boot here
-  takes longer than 5s. Headlessness is NOT the issue; don't chase `HEADLESS_SYSTEM_TESTS`.
-- **`PLAYWRIGHT_HOST`** is already correct in your environment — never override it.
+- **`CI=true`** raises the Playwright timeout from 5s to 15s. A cold Capybara boot in this
+  container takes longer than 5s, so without it every test dies at sign_in. Headlessness
+  is NOT the issue — don't chase `HEADLESS_SYSTEM_TESTS`. (A repo change replacing this
+  with a dedicated `SYSTEM_TEST_TIMEOUT` var is planned; until it lands, `CI=true` is the
+  supported way.)
+- If a test still fails navigating to sign_in with an unresolvable host, `APP_HOST` didn't
+  get set — tell me, don't work around it.
 - One file per run, per the repo's testing rules. Expect 25-30s each.
 - The first run after a cold boot can still time out. Retry once before investigating.
 
