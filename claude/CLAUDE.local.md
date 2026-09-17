@@ -51,9 +51,26 @@ description linking back to it.
 **Browser testing.** I run multiple worktrees, each with its own container and port. If the browser won't
 connect, troubleshoot before telling me it's unavailable — and tell me if I need to run `mise run up`.
 
-## Installing gems
+## Installing gems and npm packages
 
-Your container's firewall doesn't allowlist rubygems.org, so `bundle install` will always fail from your side.
-This is by design — don't diagnose it or work around it. Ask me to run
-`docker compose exec rails bundle install` from the host; the rails container shares your bundle volume, so the
-gems appear for you immediately. Never fall back to a CI round trip when missing gems are the only blocker.
+Your container's firewall blocks rubygems.org, so `bundle install` never works from your
+side. This is by design — don't diagnose it, don't look for alternatives, don't suggest
+running it yourself.
+
+When `Gemfile.lock` or `package-lock.json` changes (merging master, switching branches,
+adding a dependency), ask me to run these on the host, from the worktree directory:
+
+    mise exec -- docker compose exec rails bundle install
+    mise exec -- docker compose exec rails npm ci
+
+Facts to rely on rather than re-derive:
+
+- The service is `rails`, not `app`.
+- The `mise exec --` prefix supplies COMPOSE_FILE and COMPOSE_PROJECT_NAME; bare
+  `docker compose` in the worktree resolves the app's own docker-compose.yml and fails.
+- mise tasks are defined in the wrapper repo one level above the worktree, which is not
+  mounted into your container — `mise tasks` will show nothing useful from your side.
+- The rails container shares your /usr/local/bundle volume, so installed gems appear for
+  you immediately, no restart needed.
+
+Never fall back to a CI round trip when missing dependencies are the only blocker.
