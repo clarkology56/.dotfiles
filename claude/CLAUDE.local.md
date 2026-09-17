@@ -74,3 +74,24 @@ Facts to rely on rather than re-derive:
   you immediately, no restart needed.
 
 Never fall back to a CI round trip when missing dependencies are the only blocker.
+
+## Running system tests
+
+You can run system tests from your own container. Two env vars are missing from your
+environment; supply them on the command line:
+
+    CI=true APP_HOST=$(hostname -i | awk '{print $1}') bundle exec rails test test/system/<file>.rb
+
+- **`APP_HOST`** — without it Capybara advertises your container's hostname, which is an
+  auto-generated container ID. Docker's DNS resolves service names and aliases, not those,
+  so the browser can't reach you and every test dies navigating to sign_in. Your container
+  is a `docker compose run` one-off with no stable DNS name, so the IP is the only option.
+- **`CI=true`** — raises the Playwright timeout from 5s to 15s. A cold Capybara boot here
+  takes longer than 5s. Headlessness is NOT the issue; don't chase `HEADLESS_SYSTEM_TESTS`.
+- **`PLAYWRIGHT_HOST`** is already correct in your environment — never override it.
+- One file per run, per the repo's testing rules. Expect 25-30s each.
+- The first run after a cold boot can still time out. Retry once before investigating.
+
+The browser lives in this worktree's own `playwright` container (not a shared one) and is
+watchable at http://vnc.<worktree-slug>.localhost. In browser URLs, `rails` means this
+worktree's Rails dev server — a sibling container in the same compose project.
