@@ -81,6 +81,14 @@ versions, so the running container has the wrong engine entirely. Installing int
 cannot work. I need to run `mr u` to rebuild the image first. Don't try to work around
 it, don't downgrade anything, and never run `bundle update --bundler`.
 
+**After a Ruby version bump, your own container is stale too.** The gem volume name is
+keyed to the Ruby version (`..._ruby_4_0_7`), so a container started before the bump
+mounts a different volume than the one the new gems went into. Symptom: I tell you the
+install succeeded, but your `bundle check` still reports the same gems missing. That is
+not a failed install and not a wrong volume on my side — it is your container pointing at
+the old one. Ask me to restart your session (I exit and relaunch, then `/resume`); don't
+re-run the install, don't go digging, don't conclude it didn't work.
+
 Never fall back to a CI round trip when missing dependencies are the only blocker.
 
 ## Running system tests
