@@ -73,6 +73,14 @@ Facts to rely on rather than re-derive:
 - The rails container shares your /usr/local/bundle volume, so installed gems appear for
   you immediately, no restart needed.
 
+**If the install fails on a version mismatch, stop and tell me.** Symptoms: `bundle
+install` saying "Your Ruby version is X, but your Gemfile specified Y", or `npm ci`
+failing with `EBADENGINE`. That means the container predates a `.ruby-version` or
+`.nvmrc` bump that a merge or pull brought in — the image tag is keyed to those
+versions, so the running container has the wrong engine entirely. Installing into it
+cannot work. I need to run `mr u` to rebuild the image first. Don't try to work around
+it, don't downgrade anything, and never run `bundle update --bundler`.
+
 Never fall back to a CI round trip when missing dependencies are the only blocker.
 
 ## Running system tests
